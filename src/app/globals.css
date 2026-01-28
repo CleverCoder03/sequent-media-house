@@ -1,1 +1,178 @@
 @import "tailwindcss";
+
+body {
+  background: #000;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@layer base {
+  @font-face {
+    font-family: "ppneune-bold";
+    src: url("../fonts/pp/ppneuemontreal-bold.woff") format("woff");
+  }
+  @font-face {
+    font-family: "ppneune-book";
+    src: url("../fonts/pp/ppneuemontreal-book.woff") format("woff");
+  }
+  @font-face {
+    font-family: "ppneune-italic";
+    src: url("../fonts/pp/ppneuemontreal-italic.woff") format("woff");
+  }
+  @font-face {
+    font-family: "ppneune-medium";
+    src: url("../fonts/pp/ppneuemontreal-medium.woff") format("woff");
+  }
+  @font-face {
+    font-family: "ppneune-semibolditalic";
+    src: url("../fonts/pp/ppneuemontreal-semibolditalic.woff") format("woff");
+  }
+  @font-face {
+    font-family: "ppneune-thin";
+    src: url("../fonts/pp/ppneuemontreal-thin.woff") format("woff");
+  }
+
+  /* Figtree */
+  @font-face {
+    font-family: "figtree-black";
+    src: url("../fonts/Figtree/Figtree-Black.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-italic";
+    src: url("../fonts/Figtree/Figtree-Italic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-bold";
+    src: url("../fonts/Figtree/Figtree-Bold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-bold-italic";
+    src: url("../fonts/Figtree/Figtree-BoldItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-extrabold";
+    src: url("../fonts/Figtree/Figtree-ExtraBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-extrabold-italic";
+    src: url("../fonts/Figtree/Figtree-ExtraBoldItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-italic";
+    src: url("../fonts/Figtree/Figtree-Italic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-light";
+    src: url("../fonts/Figtree/Figtree-Light.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-light-italic";
+    src: url("../fonts/Figtree/Figtree-LightItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-medium";
+    src: url("../fonts/Figtree/Figtree-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-medium-italic";
+    src: url("../fonts/Figtree/Figtree-MediumItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-regular";
+    src: url("../fonts/Figtree/Figtree-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-semibold";
+    src: url("../fonts/Figtree/Figtree-SemiBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "figtree-semibold-italic";
+    src: url("../fonts/Figtree/Figtree-SemiBoldItalic.ttf") format("truetype");
+  }
+
+  /* Playfair-Display */
+  @font-face {
+    font-family: "playfair-black";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Black.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-black-italic";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-BlackItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-bold";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Bold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-bold-italic";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-BoldItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-extrabold";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-ExtraBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-extrabold-italic";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-ExtraBoldItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-italic";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Italic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-medium";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-medium-italic";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-MediumItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-regular";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-semibold";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "playfair-semibold-italic";
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-SemiBoldItalic.ttf") format("truetype");
+  }
+}
+
+@theme {
+  --font-ppneune-bold: "ppneune-bold", "sans-serif";
+  --font-ppneune-book: "ppneune-book", "sans-serif";
+  --font-ppneune-italic: "ppneune-italic", "sans-serif";
+  --font-ppneune-medium: "ppneune-medium", "sans-serif";
+  --font-ppneune-semibolditalic: "ppneune-semibolditalic", "sans-serif";
+  --font-ppneune-thin: "ppneune-thin", "sans-serif";
+
+  --font-playfair-black: "playfair-black", "sans-serif";
+  --font-playfair-black-italic: "playfair-black-italic", "sans-serif";
+  --font-playfair-bold: "playfair-bold", "sans-serif";
+  --font-playfair-bold-italic: "playfair-bold-italic", "sans-serif";
+  --font-playfair-extrabold: "playfair-extrabold", "sans-serif";
+  --font-playfair-extrabold-italic: "playfair-extrabold-italic", "sans-serif";
+  --font-playfair-italic: "playfair-italic", "sans-serif";
+  --font-playfair-medium: "playfair-medium", "sans-serif";
+  --font-playfair-regular: "playfair-regular", "sans-serif";
+  --font-playfair-semibold: "playfair-semibold", "sans-serif";
+  --font-playfair-semibold-italic: "playfair-semibold-italic", "sans-serif";
+
+  --font-figtree-black: "figtree-black", "sans-serif";
+  --font-figtree-italic: "figtree-italic", "sans-serif";
+  --font-figtree-bold: "figtree-bold", "sans-serif";
+  --font-figtree-bold-italic: "figtree-bold-italic", "sans-serif";
+  --font-figtree-extrabold: "figtree-extrabold", "sans-serif";
+  --font-figtree-extrabold-italic: "figtree-extrabold-italic", "sans-serif";
+  --font-figtree-italic: "figtree-italic", "sans-serif";
+  --font-figtree-light: "figtree-light", "sans-serif";
+  --font-figtree-light-italic: "figtree-light-italic", "sans-serif";
+  --font-figtree-medium: "figtree-medium", "sans-serif";
+  --font-figtree-medium-italic: "figtree-medium-italic", "sans-serif";
+  --font-figtree-regular: "figtree-regular", "sans-serif";
+  --font-figtree-semibold: "figtree-semibold", "sans-serif";
+  --font-figtree-semibold-italic: "figtree-semibold-italic", "sans-serif";
+}
