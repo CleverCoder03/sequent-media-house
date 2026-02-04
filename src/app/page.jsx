@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import { HyperText } from "@/components/ui/hyper-text"
+import Logo from "@/components/LogoSvg";
 
 // Register OUTSIDE component
 gsap.registerPlugin(ScrollTrigger);
@@ -16,7 +17,8 @@ export default function BoulderAnimation() {
   const mainContainer = useRef(null);
   const videoRef = useRef(null);
   const blueLayer = useRef(null);
-  const boulderText = useRef(null);
+  const logoRef = useRef(null);
+  const descRef = useRef(null);
   const blackLayer = useRef(null);
 
   useGSAP(
@@ -25,13 +27,23 @@ export default function BoulderAnimation() {
 
       // CRITICAL: Use context for proper cleanup
       const ctx = gsap.context(() => {
+        // Get SVG elements by ID after component mounts
+        const eqPath = document.getElementById("eq-path");
+        const mediaHouse = document.getElementById("media-house");
+
         // Set initial states INSIDE the context
         gsap.set(blueLayer.current, {
           scaleY: 0,
           transformOrigin: "center center",
         });
-        gsap.set(boulderText.current, { y: 100, opacity: 0 });
+        
+        gsap.set(logoRef.current, { y: 100, opacity: 0 });
+        gsap.set(descRef.current, { y: -150, opacity: 0 });
         gsap.set(blackLayer.current, { yPercent: 100 });
+        
+        // Hide E-Q and MEDIA HOUSE initially
+        if (eqPath) gsap.set(eqPath, { opacity: 0, scale: 0.8, transformOrigin: "center" });
+        if (mediaHouse) gsap.set(mediaHouse, { opacity: 0, y: 20 });
 
         // Create timeline
         const tl = gsap.timeline({
@@ -52,35 +64,62 @@ export default function BoulderAnimation() {
           duration: 1,
           ease: "power2.inOut",
         })
-        tl.to(blueLayer.current, {
+        .to(blueLayer.current, {
           scaleY: 1,
-          duration: 1.5,
           ease: "power2.inOut",
-        }, 0.2)
-          .to(
-            boulderText.current,
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1,
-            },
-            "-=0.5",
-          )
-          .to(boulderText.current, {
-            scale: 0.4,
-            y: -150,
+        }, 0.15)
+        .to(
+          logoRef.current,
+          {
+            y: 0,
+            opacity: 1,
+          },
+          "-=0.5",
+        )
+        // Animate E-Q path after logo reaches full opacity
+        // .to(
+        //   eqPath,
+        //   {
+        //     opacity: 1,
+        //     scale: 1,
+        //     duration: 0.5,
+        //     ease: "back.out(1.2)",
+        //   },
+        //   "-=0.2"
+        // )
+        // // Animate MEDIA HOUSE after E-Q
+        // .to(
+        //   mediaHouse,
+        //   {
+        //     opacity: 1,
+        //     y: 0,
+        //     duration: 0.5,
+        //     ease: "power2.out",
+        //   },
+        //   "-=0.2"
+        // )
+        .to(logoRef.current, {
+          scale: 0.6,
+          y: -150,
+          ease: "power2.inOut",
+        })
+        .to(
+          descRef.current,
+          {
+            // y: -150,
+            opacity: 1,
+          }, 
+          // "-=0.5"
+        )
+        .to(
+          blackLayer.current,
+          {
+            yPercent: 0,
             duration: 1.5,
             ease: "power2.inOut",
-          })
-          .to(
-            blackLayer.current,
-            {
-              yPercent: 0,
-              duration: 1.5,
-              ease: "power2.inOut",
-            },
-            "-=1",
-          );
+          },
+          // "-=1",
+        );
       }, mainContainer);
 
       return () => ctx.revert(); // Cleanup
@@ -137,23 +176,29 @@ export default function BoulderAnimation() {
 
             {/* Layer 2: Blue Expanding Section */}
             <div
-              ref={blueLayer}
-              className="absolute inset-0 bg-[#4F46E5] flex flex-col items-center justify-center z-10"
-              style={{ transformOrigin: "center center" }}
+              className="absolute inset-0 flex flex-col items-center justify-center z-10"
             >
-              <div ref={boulderText} className="text-center px-6">
-                <h1 className="text-white text-7xl md:text-[12rem] font-bold tracking-tighter">
-                  Sequent
-                </h1>
-                <p className="text-white text-lg md:text-2xl mt-4 max-w-2xl mx-auto font-light">
-                  Media House ©
-                </p>
-                <p className="text-white/80 text-sm md:text-base mt-8 max-w-xl mx-auto leading-relaxed">
+              {/* Background that animates */}
+              <div
+                ref={blueLayer}
+                className="absolute inset-0 bg-[#4c00ff] -z-10"
+                style={{ transformOrigin: "center center" }}
+              />
+              
+              {/* Content that doesn't get squeezed */}
+              <div ref={logoRef} className="text-center px-6">
+                <Logo
+                  className="h-[15vw] w-auto text-white"
+                />
+              </div>
+                <p
+                  ref={descRef}
+                  className="text-white/80 text-sm lg:text-xl md:text-base max-w-xl mx-auto text-center leading-relaxed"
+                >
                   The companies we work with push the boundaries in Science +
                   Technology. Together, we transform complex brands into
                   compelling stories.
                 </p>
-              </div>
             </div>
 
             {/* Layer 3: Black Section */}
