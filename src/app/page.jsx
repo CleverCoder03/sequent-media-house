@@ -3,9 +3,9 @@ import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import DecryptedText from "../components/DecryptedText";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
+import { HyperText } from "@/components/ui/hyper-text"
 
 // Register OUTSIDE component
 gsap.registerPlugin(ScrollTrigger);
@@ -14,6 +14,7 @@ export default function BoulderAnimation() {
   const [loaded, setLoaded] = useState(false);
 
   const mainContainer = useRef(null);
+  const videoRef = useRef(null);
   const blueLayer = useRef(null);
   const boulderText = useRef(null);
   const blackLayer = useRef(null);
@@ -46,11 +47,16 @@ export default function BoulderAnimation() {
         });
 
         // Build animation sequence
+        tl.to(videoRef.current, {
+          scale: 1.15,
+          duration: 1,
+          ease: "power2.inOut",
+        })
         tl.to(blueLayer.current, {
           scaleY: 1,
           duration: 1.5,
           ease: "power2.inOut",
-        })
+        }, 0.2)
           .to(
             boulderText.current,
             {
@@ -104,7 +110,7 @@ export default function BoulderAnimation() {
             className="relative h-screen w-full overflow-hidden bg-[#222]"
           >
             {/* Layer 1: Background Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
+            <div ref={videoRef} className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
               {/* Video Background */}
               <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
                 <video
@@ -124,15 +130,8 @@ export default function BoulderAnimation() {
 
               {/* Text Content */}
               <div className="relative z-10 lg:w-2/3">
-                <DecryptedText
-                  text="The creative studio for Science + Tech Brands"
-                  animateOn="view"
-                  revealDirection="start"
-                  sequential
-                  useOriginalCharsOnly={false}
-                  className="text-white text-5xl lg:text-6xl uppercase font-ppneune-medium"
-                  encryptedClassName="text-white/90 text-5xl lg:text-6xl font-ppneune-medium"
-                />
+                <HyperText duration={1500} animateOnHover={false} className="text-white text-4xl lg:text-6xl uppercase font-ppneune-medium leading-[1.3]">Where Ideas Travel,</HyperText>
+                <HyperText duration={1500} animateOnHover={false} className="text-white text-4xl lg:text-6xl uppercase font-ppneune-medium leading-[1.3]">And Stories live forever.</HyperText>
               </div>
             </div>
 

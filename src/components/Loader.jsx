@@ -16,7 +16,7 @@ export default function Loader({ onFinish }) {
     if (currentWordIndex < totalWords - 1) {
       const wordTimeout = setTimeout(() => {
         setCurrentWordIndex((prev) => prev + 1);
-      }, currentWordIndex === 0 ? 1200 : 1400); // Extra time for first word stagger
+      }, currentWordIndex === 0 ? 1000 : 1400); // Extra time for first word stagger
 
       return () => clearTimeout(wordTimeout);
     } else if (!hasCompletedWords) {
@@ -24,7 +24,7 @@ export default function Loader({ onFinish }) {
       const completeTimeout = setTimeout(() => {
         setHasCompletedWords(true);
         setIsLoaderExit(true);
-      }, 1400);
+      }, 1200);
 
       return () => clearTimeout(completeTimeout);
     }
