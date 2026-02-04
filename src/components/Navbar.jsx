@@ -6,6 +6,8 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import Logo from "./LogoSvg";
 import Marquee from "react-fast-marquee";
+import { Link004 } from "./ui/skiper-ui/skiper40";
+import { TextRoll } from "./ui/skiper-ui/skiper58";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,12 +17,68 @@ export default function Navbar() {
   const opacity = useTransform(scrollY, [0, 80], [1, 0]);
   const translateY = useTransform(scrollY, [0, 80], [0, -20]);
 
+  // Animation variants for nav links
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+    },
+    open: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    closed: {
+      opacity: 0,
+      y: 20,
+      filter: "blur(10px)",
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1], // Custom easing for smooth motion
+      },
+    },
+  };
+
+  const marqueeVariants = {
+    closed: {
+      opacity: 0,
+      y: 50,
+      filter: "blur(10px)",
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.6,
+        delay: 0.7, // Appears after all nav items
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
+    { href: "/about", label: "About" },
+    { href: "/work", label: "Work" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
     <>
       {/* TOP NAV */}
       <motion.nav
-        // style={{ opacity, y: translateY }}
-        className="fixed top-0 left-0 w-full z-50 px-8 py-6 lg:px-12 lg:py-12 flex items-center justify-between gap-5 bg-transparent "
+        className="fixed top-0 left-0 w-full z-50 px-8 py-6 lg:px-12 lg:py-12 flex items-center justify-between gap-5 bg-transparent"
       >
         <motion.div
           style={{
@@ -32,7 +90,7 @@ export default function Navbar() {
         >
           {/* Brand */}
           <div className="flex flex-col lg:flex-row items-center lg:gap-2 pointer-events-auto cursor-pointer">
-            <Logo className="h-8 w-auto text-white"/>
+            <Logo className="h-8 w-auto text-white" scrollY={scrollY} open={open} />
           </div>
 
           {/* CONTACT BUTTON (desktop) */}
@@ -40,7 +98,7 @@ export default function Navbar() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className=" relative overflow-hidden px-6 py-2 rounded-full
+              className="relative overflow-hidden px-6 py-2 rounded-full
                         text-xs lg:text-sm font-bold uppercase tracking-widest
                         shadow-lg transition lg:px-8 
                         text-white bg-[#FF5C00]
@@ -63,27 +121,27 @@ export default function Navbar() {
 
         {/* HAMBURGER (Lucide) — always visible */}
         <button
-  onClick={() => setOpen(!open)}
-  className="relative w-9 h-9 rounded-full border-2 border-white/80 flex items-center justify-center text-white bg-transparent lg:mr-2 pointer-events-auto cursor-pointer"
->
-  {/* Menu icon */}
-  <Menu
-    size={20}
-    strokeWidth={3}
-    className={`absolute transition-all duration-300 ease-in-out
-      ${open ? "opacity-0 rotate-90 scale-75" : "opacity-100 rotate-0 scale-100"}
-    `}
-  />
+          onClick={() => setOpen(!open)}
+          className="relative w-9 h-9 rounded-full border-2 border-white/80 flex items-center justify-center text-white bg-transparent lg:mr-2 pointer-events-auto cursor-pointer"
+        >
+          {/* Menu icon */}
+          <Menu
+            size={20}
+            strokeWidth={3}
+            className={`absolute transition-all duration-300 ease-in-out
+              ${open ? "opacity-0 rotate-90 scale-75" : "opacity-100 rotate-0 scale-100"}
+            `}
+          />
 
-  {/* X icon */}
-  <X
-    size={20}
-    strokeWidth={3}
-    className={`absolute transition-all duration-300 ease-in-out
-      ${open ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-75"}
-    `}
-  />
-</button>
+          {/* X icon */}
+          <X
+            size={20}
+            strokeWidth={3}
+            className={`absolute transition-all duration-300 ease-in-out
+              ${open ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-75"}
+            `}
+          />
+        </button>
       </motion.nav>
 
       {/* SLIDE-DOWN MENU */}
@@ -91,43 +149,37 @@ export default function Navbar() {
         initial={{ y: "-100%" }}
         animate={{ y: open ? "0%" : "-100%" }}
         transition={{ type: "spring", bounce: 0, duration: 0.6 }}
-        className="fixed inset-0 w-full h-dvh bg-black/90 backdrop-blur-lg z-40 flex flex-col items-center justify-between gap-10"
+        className="fixed inset-0 w-full h-dvh bg-black/90 backdrop-blur-lg z-40 flex flex-col items-center justify-center"
       >
-        <div className="flex flex-col items-center justify-center mt-[20vh] w-full ">
-          <a
-          className="text-white text-3xl font-bold uppercase tracking-wider"
-          href="#"
+        <motion.div
+          variants={menuVariants}
+          initial="closed"
+          animate={open ? "open" : "closed"}
+          className="flex flex-col items-center justify-center flex-1 w-full text-center [&_span]:text-5xl gap-2 lg:gap-0 [&_div]:w-full lg:[&_span]:pb-1  lg:[&_span]:text-6xl"
         >
-          Home
-        </a>
-        <a
-          className="text-white text-3xl font-bold uppercase tracking-wider"
-          href="#"
+          {navLinks.map((link, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <Link004
+                href={link.href}
+                className="text-white text-3xl font-bold uppercase tracking-wider"
+              >
+                <TextRoll>{link.label}</TextRoll>
+              </Link004>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Marquee pinned to bottom with animation */}
+        <motion.div
+          variants={marqueeVariants}
+          initial="closed"
+          animate={open ? "open" : "closed"}
+          className="w-full mt-auto lg:-mb-3"
         >
-          Services
-        </a>
-        <a
-          className="text-white text-3xl font-bold uppercase tracking-wider"
-          href="#"
-        >
-          Work
-        </a>
-        <a
-          className="text-white text-3xl font-bold uppercase tracking-wider"
-          href="#"
-        >
-          Wedding
-        </a>
-        <a
-          className="text-white text-3xl font-bold uppercase tracking-wider"
-          href="#"
-        >
-          Contact
-        </a>
-        </div>
-        <Marquee className="font-playfair-bold-italic text-[9vw] text-white">
-          Sequent Media House
-        </Marquee>
+          <Marquee className="font-playfair-bold-italic text-[14vw] lg:text-[9vw] text-white">
+            Sequent Media House &nbsp;
+          </Marquee>
+        </motion.div>
       </motion.div>
     </>
   );
