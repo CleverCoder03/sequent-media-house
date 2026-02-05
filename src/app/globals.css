@@ -178,6 +178,14 @@ body {
   --font-figtree-regular: "figtree-regular", "sans-serif";
   --font-figtree-semibold: "figtree-semibold", "sans-serif";
   --font-figtree-semibold-italic: "figtree-semibold-italic", "sans-serif";
+
+  --color-neutral-100: #f4f5f0;
+  --color-neutral-900: #221f1f;
+
+  --color-lime-theme: #bef945;
+  --color-blue-theme: #a9c9f8;
+  --color-purple-theme: #b48edd;
+  --color-tan-theme: #ddb699;
 }
 
 @theme inline {

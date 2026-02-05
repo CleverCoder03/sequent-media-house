@@ -76,28 +76,6 @@ export default function BoulderAnimation() {
           },
           "-=0.5",
         )
-        // Animate E-Q path after logo reaches full opacity
-        // .to(
-        //   eqPath,
-        //   {
-        //     opacity: 1,
-        //     scale: 1,
-        //     duration: 0.5,
-        //     ease: "back.out(1.2)",
-        //   },
-        //   "-=0.2"
-        // )
-        // // Animate MEDIA HOUSE after E-Q
-        // .to(
-        //   mediaHouse,
-        //   {
-        //     opacity: 1,
-        //     y: 0,
-        //     duration: 0.5,
-        //     ease: "power2.out",
-        //   },
-        //   "-=0.2"
-        // )
         .to(logoRef.current, {
           scale: 0.6,
           y: -150,
@@ -181,7 +159,7 @@ export default function BoulderAnimation() {
               {/* Background that animates */}
               <div
                 ref={blueLayer}
-                className="absolute inset-0 bg-[#4c00ff] -z-10"
+                className="absolute inset-0 bg-purple-theme -z-10"
                 style={{ transformOrigin: "center center" }}
               />
               
@@ -193,11 +171,12 @@ export default function BoulderAnimation() {
               </div>
                 <p
                   ref={descRef}
-                  className="text-white/80 text-sm lg:text-xl md:text-base max-w-xl mx-auto text-center leading-relaxed"
+                  className="text-white/80 text-sm lg:text-xl md:text-base max-w-2xl mx-auto text-center leading-relaxed"
                 >
-                  The companies we work with push the boundaries in Science +
-                  Technology. Together, we transform complex brands into
-                  compelling stories.
+                  We are not just a company, We’re a collective of curious minds fluent in culture, design, and human emotion.
+We design for those who dare — brands, people, and stories that transcend borders.
+Born in India, rooted in the UAE, connected across continents — we merge art and intellect to craft creativity that moves.
+
                 </p>
             </div>
 
