@@ -93,7 +93,7 @@ const NeedProof = () => {
       <div className="absolute inset-0 flex justify-center items-center">
         <span
           ref={moreRef}
-          className="text-9xl font-figtree-medium text-black px-12 py-2 border-8 border-black rounded-[90px] uppercase"
+          className="text-9xl font-figtree-medium text-black px-12 py-2 border-10 border-black rounded-[90px] uppercase"
         >
           MORE
         </span>
