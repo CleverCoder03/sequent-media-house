@@ -34,7 +34,7 @@ const Clients = () => {
         {clientsLogo1.map((client) => (
           <div
             key={client.id}
-            className="relative mx-10 w-[140px] h-[60px] md:w-[160px] md:h-[70px] lg:w-[180px] lg:h-[80px]"
+            className="relative mx-10 w-35 h-15 md:w-40 md:h-17.5 lg:w-45 lg:h-20"
           >
             <Image
               src={client.src}
@@ -56,7 +56,7 @@ const Clients = () => {
         {clientsLogo2.map((client) => (
           <div
             key={client.id}
-            className="relative mx-10 w-[140px] h-[60px] md:w-[160px] md:h-[70px] lg:w-[180px] lg:h-[80px]"
+            className="relative mx-10 w-35 h-15 md:w-40 md:h-17.5 lg:w-45 lg:h-20"
           >
             <Image
               src={client.src}

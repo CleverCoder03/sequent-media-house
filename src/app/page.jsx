@@ -15,6 +15,8 @@ import About from "@/components/About";
 import NeedProof from "@/components/NeedProof";
 import Testimonial from "@/components/Testimonial";
 import Clients from "@/components/Clients";
+import Awards from "@/components/Awards";
+import Footer from "@/components/Footer";
 
 // Register OUTSIDE component
 gsap.registerPlugin(ScrollTrigger);
@@ -268,7 +270,7 @@ export default function Page() {
                   ref={(el) => (rowsRef.current[4] = el)}
                   className="flex items-center gap-10 whitespace-nowrap"
                 >
-                  <div className="w-[30rem] h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
+                  <div className="w-120 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Experiential
                   </span>
@@ -318,6 +320,8 @@ export default function Page() {
           <NeedProof />
           <Clients />
           <Testimonial />
+          <Awards />
+          <Footer />
         </main>
       )}
     </>
