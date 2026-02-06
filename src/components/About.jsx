@@ -27,7 +27,7 @@ const About = () => {
           </div>
         </div>
         <div className="mt-8 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
-          <div className="relative w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
+          <div className="relative w-full sm:w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
             <Image
               src={"/0-about-1.jpeg"}
               alt="About us"
@@ -64,7 +64,7 @@ const About = () => {
           </div>
         </div>
         <div className="mt-8 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
-          <div className="relative w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
+          <div className="relative w-full sm:w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
             <Image
               src={"/0-about-2.jpeg"}
               alt="About us"
@@ -101,7 +101,7 @@ const About = () => {
           </div>
         </div>
         <div className="mt-8 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
-          <div className="relative w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
+          <div className="relative w-full sm:w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
             <Image
               src={"/0-about-3.jpeg"}
               alt="About us"
