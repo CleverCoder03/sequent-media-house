@@ -6,7 +6,7 @@ import { HyperText } from "./ui/hyper-text"
 const Hero = forwardRef((props, ref) => {
   return (
     <div
-                  ref={ref}
+                  
                   className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center"
                 >
                   {/* Video Background */}
@@ -27,7 +27,7 @@ const Hero = forwardRef((props, ref) => {
                   </div>
     
                   {/* Text Content */}
-                  <div className="relative z-10 lg:w-2/3">
+                  <div ref={ref} className="relative z-10 lg:w-2/3">
                     <HyperText
                       duration={1500}
                       animateOnHover={false}

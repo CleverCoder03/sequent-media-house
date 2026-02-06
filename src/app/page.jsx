@@ -11,6 +11,8 @@ import Hero from "@/components/Hero";
 import ExpandingSection from "@/components/ExpandingSection";
 import BlackSection from "@/components/BlackSection";
 import Image from "next/image";
+import About from "@/components/About";
+import NeedProof from "@/components/NeedProof";
 
 // Register OUTSIDE component
 gsap.registerPlugin(ScrollTrigger);
@@ -56,11 +58,11 @@ export default function Page() {
           scrollTrigger: {
             trigger: mainContainer.current,
             start: "top top",
-            end: "max",
+            end: "bottom+=200% center",
             pin: true,
-            scrub: 1,
+            scrub: 2,
             anticipatePin: 1,
-            markers: true, // Uncomment for debugging
+            // markers: true, // Uncomment for debugging
           },
         });
 
@@ -70,7 +72,7 @@ export default function Page() {
           duration: 1,
           ease: "power2.inOut",
         })
-          tl.to(
+          .to(
             blueLayer.current,
             {
               scaleY: 1,
@@ -111,11 +113,11 @@ export default function Page() {
           )
           .to(subServicesLayer.current, {
             xPercent: 0,
-            duration: 2.5,
-            ease: "power2.inOut",
+            duration: 3.5,
+            ease: "easeInOut",
           })
           // Animate all 6 rows at different speeds simultaneously
-          .addLabel("rowStart", "<")
+          // .addLabel("rowStart", "<")
           .to(
             rowsRef.current[0],
             { xPercent: -40, ease: "none", duration: 6 },
@@ -153,11 +155,10 @@ export default function Page() {
             layer5Ref.current,
             {
               yPercent: 0,
-              // duration: 1,
-              ease: "power5.out",
-              // onComplete: () => ScrollTrigger.getById("main").kill(),
+              duration: 1,
+              ease: "easeIn",
             },
-            "rowStart+=1.8",
+            "-=1.5",
           );
       }, mainContainer);
 
@@ -165,6 +166,8 @@ export default function Page() {
     },
     { dependencies: [loaded] },
   );
+
+  useGSAP(() => {});
 
   // Force ScrollTrigger refresh after load
   useEffect(() => {
@@ -191,7 +194,11 @@ export default function Page() {
             <Hero ref={videoRef} />
 
             {/* Layer 2: Blue Expanding Section */}
-            <ExpandingSection blueLayer={blueLayer} logoRef={logoRef} descRef={descRef} />
+            <ExpandingSection
+              blueLayer={blueLayer}
+              logoRef={logoRef}
+              descRef={descRef}
+            />
 
             {/* Layer 3: Black Section */}
             <BlackSection ref={blackLayer} />
@@ -210,13 +217,11 @@ export default function Page() {
                   className="flex items-center gap-10 whitespace-nowrap"
                 >
                   <span className="text-neutral-900 text-7xl font-bold uppercase italic">
-                    Branding 
+                    Branding
                   </span>
-                  <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden">
-                    
-                  </div>
+                  <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Websites 
+                    Websites
                   </span>
                 </div>
                 {/* Row 2: Social */}
@@ -224,15 +229,11 @@ export default function Page() {
                   ref={(el) => (rowsRef.current[1] = el)}
                   className="flex items-center gap-10 whitespace-nowrap ml-20"
                 >
-                  <div className="w-56 h-32 bg-gray-300 rounded-xl overflow-hidden">
-                    
-                  </div>
+                  <div className="w-56 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Social 
+                    Social
                   </span>
-                  <div className="w-96 h-32 bg-gray-300 rounded-xl overflow-hidden">
-                    
-                  </div>
+                  <div className="w-96 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                 </div>
                 {/* Row 3: Campaigns */}
                 <div
@@ -242,11 +243,9 @@ export default function Page() {
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Campaigns
                   </span>
-                  <div className="w-80 h-32 bg-gray-300 rounded-xl overflow-hidden">
-                    
-                  </div>
+                  <div className="w-80 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase italic">
-                    Global 
+                    Global
                   </span>
                 </div>
                 {/* Row 4: Motion */}
@@ -255,11 +254,9 @@ export default function Page() {
                   className="flex items-center gap-10 whitespace-nowrap ml-40"
                 >
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Motion 
+                    Motion
                   </span>
-                  <div className="w-64 h-32 bg-gray-300 rounded-xl overflow-hidden">
-                    
-                  </div>
+                  <div className="w-64 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Design
                   </span>
@@ -269,11 +266,9 @@ export default function Page() {
                   ref={(el) => (rowsRef.current[4] = el)}
                   className="flex items-center gap-10 whitespace-nowrap"
                 >
-                  <div className="w-[30rem] h-32 bg-gray-300 rounded-xl overflow-hidden">
-                    
-                  </div>
+                  <div className="w-[30rem] h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Experiential 
+                    Experiential
                   </span>
                 </div>
                 {/* Row 6: Interactive */}
@@ -284,11 +279,9 @@ export default function Page() {
                   <span className="text-neutral-900 text-7xl font-bold uppercase italic">
                     Interactive
                   </span>
-                  <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden">
-                    
-                  </div>
+                  <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Future 
+                    Future
                   </span>
                 </div>
               </div>
@@ -300,80 +293,27 @@ export default function Page() {
               className="absolute inset-0 bg-black z-50 flex h-dvh items-center justify-center"
             >
               <div className="flex flex-col items-center py-[30vh]">
-                      <HyperText
-                        startOnView={true}
-                        duration={1500}
-                        animateOnHover={false}
-                        className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
-                      >
-                        ▀ A MODEL FOR THE↘
-                      </HyperText>
-                      <HyperText
-                        startOnView={true}
-                        duration={1500}
-                        animateOnHover={false}
-                        className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
-                      >
-                        INTELLIGENCE AGE
-                      </HyperText>
-                    </div>
-                    
+                <HyperText
+                  startOnView={true}
+                  duration={1500}
+                  animateOnHover={false}
+                  className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
+                >
+                  ▀ A MODEL FOR THE↘
+                </HyperText>
+                <HyperText
+                  startOnView={true}
+                  duration={1500}
+                  animateOnHover={false}
+                  className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
+                >
+                  INTELLIGENCE AGE
+                </HyperText>
+              </div>
             </div>
           </div>
-          <div>
-                  <div>
-                    <div className="w-1/2">
-                      <div className="relative w-full ">
-                        <Image src={"/0-about-1.jpeg"} alt="About us" fill />
-                      </div>
-                    </div>
-                    <div className="w-1/2 text-neutral-100">
-                      <h1>Our UAE Ad-tech powerhouse</h1>
-                      <div>
-                        <p>Together, we operate as one integrated ecosystem:</p>
-                        <ul>
-                          <li>Premium DOOH networks</li>
-                          <li>Large-format outdoor advertising</li>
-                          <li>Indoor retail &amp; mall screen networks</li>
-                          <li>
-                            Centralised Screen Management (CSM) for multi-location brands
-                          </li>
-                          <li>Real-time content scheduling &amp; automation</li>
-                          <li>Proof-of-play &amp; analytics dashboards</li>
-                          <li>Programmatic-ready DOOH</li>
-                          <li>Monetisation-ready retail media</li>
-                          <li>Rapid deployment across the UAE &amp; India</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="w-1/2">
-                      <div className="relative w-full ">
-                        <Image src={"/0-about-1.jpeg"} alt="About us" fill />
-                      </div>
-                    </div>
-                    <div className="w-1/2 text-neutral-100">
-                      <h1>Our UAE Ad-tech powerhouse</h1>
-                      <div>
-                        <p>Together, we operate as one integrated ecosystem:</p>
-                        <ul>
-                          <li>Premium DOOH networks</li>
-                          <li>Large-format outdoor advertising</li>
-                          <li>Indoor retail &amp; mall screen networks</li>
-                          <li>
-                            Centralised Screen Management (CSM) for multi-location brands
-                          </li>
-                          <li>Real-time content scheduling &amp; automation</li>
-                          <li>Proof-of-play &amp; analytics dashboards</li>
-                          <li>Programmatic-ready DOOH</li>
-                          <li>Monetisation-ready retail media</li>
-                          <li>Rapid deployment across the UAE &amp; India</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <About />
+          <NeedProof />
         </main>
       )}
     </>

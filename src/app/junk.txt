@@ -1,0 +1,123 @@
+{/* Layer 4: 6-Row Sub-services Ticker */}
+            <div
+              ref={subServicesLayer}
+              className="absolute inset-0 z-30 flex flex-col justify-center"
+            >
+              <div className="flex flex-col w-[200%] h-dvh [&>div]:h-1/6 [&>div]:bg-neutral-100">
+                {" "}
+                {/* Extra width for the speed variation */}
+                {/* Row 1: Branding */}
+                <div
+                  ref={(el) => (rowsRef.current[0] = el)}
+                  className="flex items-center gap-10 whitespace-nowrap"
+                >
+                  <span className="text-neutral-900 text-7xl font-bold uppercase italic">
+                    Branding 
+                  </span>
+                  <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden">
+                    
+                  </div>
+                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                    Websites 
+                  </span>
+                </div>
+                {/* Row 2: Social */}
+                <div
+                  ref={(el) => (rowsRef.current[1] = el)}
+                  className="flex items-center gap-10 whitespace-nowrap ml-20"
+                >
+                  <div className="w-56 h-32 bg-gray-300 rounded-xl overflow-hidden">
+                    
+                  </div>
+                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                    Social 
+                  </span>
+                  <div className="w-96 h-32 bg-gray-300 rounded-xl overflow-hidden">
+                    
+                  </div>
+                </div>
+                {/* Row 3: Campaigns */}
+                <div
+                  ref={(el) => (rowsRef.current[2] = el)}
+                  className="flex items-center gap-10 whitespace-nowrap"
+                >
+                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                    Campaigns
+                  </span>
+                  <div className="w-80 h-32 bg-gray-300 rounded-xl overflow-hidden">
+                    
+                  </div>
+                  <span className="text-neutral-900 text-7xl font-bold uppercase italic">
+                    Global 
+                  </span>
+                </div>
+                {/* Row 4: Motion */}
+                <div
+                  ref={(el) => (rowsRef.current[3] = el)}
+                  className="flex items-center gap-10 whitespace-nowrap ml-40"
+                >
+                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                    Motion 
+                  </span>
+                  <div className="w-64 h-32 bg-gray-300 rounded-xl overflow-hidden">
+                    
+                  </div>
+                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                    Design
+                  </span>
+                </div>
+                {/* Row 5: Experiential */}
+                <div
+                  ref={(el) => (rowsRef.current[4] = el)}
+                  className="flex items-center gap-10 whitespace-nowrap"
+                >
+                  <div className="w-[30rem] h-32 bg-gray-300 rounded-xl overflow-hidden">
+                    
+                  </div>
+                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                    Experiential 
+                  </span>
+                </div>
+                {/* Row 6: Interactive */}
+                <div
+                  ref={(el) => (rowsRef.current[5] = el)}
+                  className="flex items-center gap-10 whitespace-nowrap ml-10"
+                >
+                  <span className="text-neutral-900 text-7xl font-bold uppercase italic">
+                    Interactive
+                  </span>
+                  <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden">
+                    
+                  </div>
+                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                    Future 
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Layer 5: Next Chapter Overlay */}
+            <div
+              ref={layer5Ref}
+              className="absolute inset-0 bg-black z-50 flex h-dvh items-center justify-center"
+            >
+              <div className="flex flex-col items-center py-[30vh]">
+                      <HyperText
+                        startOnView={true}
+                        duration={1500}
+                        animateOnHover={false}
+                        className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
+                      >
+                        ▀ A MODEL FOR THE↘
+                      </HyperText>
+                      <HyperText
+                        startOnView={true}
+                        duration={1500}
+                        animateOnHover={false}
+                        className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
+                      >
+                        INTELLIGENCE AGE
+                      </HyperText>
+                    </div>
+                    
+            </div>
