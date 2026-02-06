@@ -14,6 +14,7 @@ import Image from "next/image";
 import About from "@/components/About";
 import NeedProof from "@/components/NeedProof";
 import Testimonial from "@/components/Testimonial";
+import Clients from "@/components/Clients";
 
 // Register OUTSIDE component
 gsap.registerPlugin(ScrollTrigger);
@@ -315,6 +316,7 @@ export default function Page() {
           </div>
           <About />
           <NeedProof />
+          <Clients />
           <Testimonial />
         </main>
       )}

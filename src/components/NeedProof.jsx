@@ -86,7 +86,7 @@ const NeedProof = () => {
     >
       <div
         ref={needRef}
-        className="absolute inset-0 flex justify-center items-center  text-3xllg:text-9xl font-figtree-medium uppercase opacity-0"
+        className="absolute inset-0 flex justify-center items-center  text-3xl lg:text-9xl font-figtree-medium uppercase opacity-0"
       >
         Need
       </div>
