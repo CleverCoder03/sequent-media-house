@@ -86,21 +86,21 @@ const NeedProof = () => {
     >
       <div
         ref={needRef}
-        className="absolute inset-0 flex justify-center items-center text-9xl font-figtree-medium uppercase opacity-0"
+        className="absolute inset-0 flex justify-center items-center  text-3xllg:text-9xl font-figtree-medium uppercase opacity-0"
       >
         Need
       </div>
       <div className="absolute inset-0 flex justify-center items-center">
         <span
           ref={moreRef}
-          className="text-9xl font-figtree-medium text-black px-12 py-2 border-10 border-black rounded-[90px] uppercase"
+          className="lg:text-9xl font-figtree-medium text-black px-6 lg:px-12 py-2 text-3xl border-3 lg:border-10 border-black rounded-[90px] uppercase"
         >
           MORE
         </span>
       </div>
       <div
         ref={proofRef}
-        className="absolute inset-0 flex justify-center items-center text-9xl font-figtree-medium uppercase opacity-0"
+        className="absolute inset-0 flex justify-center items-center text-3xl lg:text-9xl font-figtree-medium uppercase opacity-0"
       >
         Proof?
       </div>
