@@ -13,71 +13,73 @@ const NeedProof = () => {
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      // CONFIGURATION
-      // How long the container stays pinned (in pixels of scroll)
-      const PIN_DURATION = 2500;
-      // How much earlier the animation starts (half viewport height)
-      const START_OFFSET = window.innerHeight * 0.5;
-
-      // ------------------------------------------------
-      // TRIGGER 1: THE PINNER (Locks the box)
-      // ------------------------------------------------
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top", // Lock when top hits top
-        end: `+=${PIN_DURATION}`,
-        pin: true, // Activate pinning
-        // markers: true,      // Debug markers (Red/Green)
-        id: "pinning",
+      // 1. Force initial state immediately to avoid CSS race conditions
+      // This ensures they are hidden even if CSS loads late
+      gsap.set([needRef.current, moreRef.current, proofRef.current], { 
+        opacity: 0, 
+        scale: 20, 
+        zIndex: (i) => (i + 1) * 10 // 10, 20, 30
       });
 
-      // ------------------------------------------------
-      // TRIGGER 2: THE ANIMATOR (Moves the text)
-      // ------------------------------------------------
-      // We calculate the total scroll distance for the animation:
-      // Pin Duration + The distance covered before pinning (START_OFFSET)
+      const PIN_DURATION = 2500;
+      const START_OFFSET = window.innerHeight * 0.5;
       const totalAnimationDistance = PIN_DURATION + START_OFFSET;
 
+      // ------------------------------------------------
+      // SINGLE TRIGGER STRATEGY (More Robust)
+      // ------------------------------------------------
+      // Attempting to separate "Pin" and "Animate" triggers on the same element
+      // often breaks because pinning changes the DOM structure (adds a wrapper).
+      // Ideally, we sync them. But to keep your "Start Early" effect:
+      
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top center", // <--- STARTS EARLY (while scrolling up)
-          end: `+=${totalAnimationDistance}`, // Syncs end with the pinner
+          start: "top center", // Animation starts early
+          end: `+=${totalAnimationDistance}`,
           scrub: 1,
-          // markers: true,    // Debug markers (Blue/Red)
           id: "animating",
+          // IMPORTANT: Recalculate positions if the DOM shifts
+          invalidateOnRefresh: true, 
         },
       });
 
-      // --- The Animation Sequence ---
+      // SEPARATE PIN TRIGGER
+      // We give this a refreshPriority of -1 so it calculates AFTER the animation trigger
+      // OR we just ensure the animation handles the visual logic independent of the pin.
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: `+=${PIN_DURATION}`,
+        pin: true,
+        id: "pinning",
+        refreshPriority: 1 // Ensure this pinning logic settles before others
+      });
 
-      // 1. "Need" starts flying in immediately (while scrolling up)
-      tl.fromTo(
-        needRef.current,
-        { scale: 20, opacity: 0, zIndex: 10 },
-        { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" },
-      )
+      // --- Animation Sequence ---
+      tl.to(needRef.current, { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" })
         .to(needRef.current, { scale: 0, duration: 0.5 })
 
-        // 2. "More"
-        .fromTo(
-          moreRef.current,
-          { scale: 20, opacity: 0, zIndex: 20 },
-          { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" },
-        )
+        .to(moreRef.current, { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" })
         .to(moreRef.current, { scale: 0, duration: 0.5 })
 
-        // 3. "Proof?"
-        .fromTo(
-          proofRef.current,
-          { scale: 20, opacity: 0, zIndex: 30 },
-          { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" },
-        )
-        .to({}, { duration: 0.5 }); // Pause at end
+        .to(proofRef.current, { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" })
+        .to({}, { duration: 0.5 }); // Pause
+        
     }, containerRef);
 
-    return () => ctx.revert();
-  }, []);
+    // 2. CRITICAL FIX FOR PRODUCTION:
+    // Force a refresh after a small delay to ensure fonts/layout are stable.
+    // In strict production, fonts might shift layout after GSAP init.
+    const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 100);
+
+    return () => {
+        ctx.revert();
+        clearTimeout(timer);
+    };
+  }, []); // Dependencies empty is fine, but be careful with window resize
 
   return (
     <div
@@ -86,14 +88,15 @@ const NeedProof = () => {
     >
       <div
         ref={needRef}
-        className="absolute inset-0 flex justify-center items-center  text-3xl lg:text-9xl font-figtree-medium uppercase opacity-0"
+        className="absolute inset-0 flex justify-center items-center text-3xl lg:text-9xl font-figtree-medium uppercase opacity-0"
       >
         Need
       </div>
       <div className="absolute inset-0 flex justify-center items-center">
+        {/* ADDED opacity-0 here to match the others */}
         <span
           ref={moreRef}
-          className="lg:text-9xl font-figtree-medium text-black px-6 lg:px-12 py-2 text-3xl border-3 lg:border-10 border-black rounded-[90px] uppercase"
+          className="lg:text-9xl font-figtree-medium text-black px-6 lg:px-12 py-2 text-3xl border-3 lg:border-10 border-black rounded-[90px] uppercase opacity-0"
         >
           MORE
         </span>
