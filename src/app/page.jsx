@@ -67,6 +67,13 @@ export default function Page() {
             scrub: 2,
             anticipatePin: 1,
             // markers: true, // Uncomment for debugging
+
+            // --- CRITICAL FIX 1: PRIORITY ---
+            // Calculate this BEFORE downstream pins (NeedProof)
+            refreshPriority: 1, 
+            
+            // Ensure values are recalculated if screen resizes
+            invalidateOnRefresh: true,
           },
         });
 

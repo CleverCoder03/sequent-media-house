@@ -55,7 +55,7 @@ const NeedProof = () => {
         end: `+=${PIN_DURATION}`,
         pin: true,
         id: "pinning",
-        refreshPriority: 1 // Ensure this pinning logic settles before others
+        // refreshPriority: 1 // Ensure this pinning logic settles before others
       });
 
       // --- Animation Sequence ---
