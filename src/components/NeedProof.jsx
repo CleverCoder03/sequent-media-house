@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+// import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -41,6 +42,7 @@ const NeedProof = () => {
           id: "animating",
           // IMPORTANT: Recalculate positions if the DOM shifts
           invalidateOnRefresh: true, 
+          markers: true
         },
       });
 
