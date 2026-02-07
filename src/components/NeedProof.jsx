@@ -33,7 +33,7 @@ const NeedProof = () => {
       // often breaks because pinning changes the DOM structure (adds a wrapper).
       // Ideally, we sync them. But to keep your "Start Early" effect:
       
-      const tl = gsap.timeline({
+      const NeedTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top center", // Animation starts early
@@ -59,7 +59,7 @@ const NeedProof = () => {
       });
 
       // --- Animation Sequence ---
-      tl.to(needRef.current, { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" })
+      NeedTl.to(needRef.current, { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" })
         .to(needRef.current, { scale: 0, duration: 0.5 })
 
         .to(moreRef.current, { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" })
