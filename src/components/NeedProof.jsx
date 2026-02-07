@@ -42,20 +42,16 @@ const NeedProof = () => {
           id: "animating",
           // IMPORTANT: Recalculate positions if the DOM shifts
           invalidateOnRefresh: true, 
-          markers: true
         },
       });
 
       // SEPARATE PIN TRIGGER
-      // We give this a refreshPriority of -1 so it calculates AFTER the animation trigger
-      // OR we just ensure the animation handles the visual logic independent of the pin.
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: "top top",
         end: `+=${PIN_DURATION}`,
         pin: true,
         id: "pinning",
-        // refreshPriority: 1 // Ensure this pinning logic settles before others
       });
 
       // --- Animation Sequence ---
