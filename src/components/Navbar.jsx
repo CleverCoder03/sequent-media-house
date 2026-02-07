@@ -9,6 +9,7 @@ import Marquee from "react-fast-marquee";
 import { Link004 } from "./ui/skiper-ui/skiper40";
 import { TextRoll } from "./ui/skiper-ui/skiper58";
 import { usePathname } from "next/navigation";
+import Button from "./Button";
 
 export default function Navbar() {
   const pathName = usePathname();
@@ -98,29 +99,9 @@ export default function Navbar() {
           </div>
 
           {/* CONTACT BUTTON (desktop) */}
-          <Link href={"/contact"}>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative overflow-hidden px-6 py-2 rounded-full
-                        text-xs lg:text-sm font-bold uppercase tracking-widest
-                        shadow-lg transition lg:px-8 
-                        text-neutral-900 bg-lime-theme
-                        hidden lg:block cursor-pointer
-
-                        before:content-['']
-                        before:absolute before:inset-0
-                        before:bg-neutral-100 before:rounded-full
-                        before:scale-0 before:origin-center
-                        before:transition-transform before:duration-300
-                        before:z-0
-
-                        hover:before:scale-100
-                       "
-            >
-              <span className="relative z-10">Contact</span>
-            </motion.button>
-          </Link>
+          <div className="hidden lg:block">
+            <Button />
+          </div>
         </motion.div>
 
         {/* HAMBURGER (Lucide) — always visible */}
