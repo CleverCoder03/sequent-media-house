@@ -23,19 +23,18 @@ const Awards = () => {
         AWARDS+MENTIONS ▼ AWARDS+MENTIONS ▲ AWARDS+MENTIONS ▀ AWARDS+MENTIONS ◄
         AWARDS+MENTIONS ► AWARDS+MENTIONS ∞
       </Marquee>
-      <div className="grid grid-cols-2 lg:grid-cols-4  gap-y-20 my-25 lg:my-30 px-8 md:px-18 lg:px-25">
+      <div className="grid grid-cols-2 lg:grid-cols-4  gap-y-20 my-25 sm:px-4 lg:my-30  md:px-18 lg:px-25 justify-center items-center">
         {clientsLogo1.map((client) => (
-          <div
-            key={client.id}
-            className="relative mx-10 w-35 h-15 md:w-40 md:h-17.5 lg:w-45 lg:h-20"
-          >
-            <Image
-              src={client.src}
-              alt={client.name}
-              fill
-              className="object-contain brightness-0 invert mix-blend-screen"
-              priority
-            />
+          <div key={client.id} className="flex items-center justify-center">
+            <div className="relative w-35 h-15 md:w-40 md:h-17.5 lg:w-45 lg:h-20">
+              <Image
+                src={client.src}
+                alt={client.name}
+                fill
+                className="object-contain brightness-0 invert mix-blend-screen"
+                priority
+              />
+            </div>
           </div>
         ))}
       </div>
