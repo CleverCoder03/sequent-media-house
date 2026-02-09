@@ -61,9 +61,9 @@ export default function Page() {
           scrollTrigger: {
             trigger: mainContainer.current,
             start: "top top",
-            end: "bottom+=200% center",
+            end: "bottom+=400% center",
             pin: true,
-            scrub: 2,
+            scrub: 1,
             anticipatePin: 1,
             // markers: true, // Uncomment for debugging
 
@@ -86,10 +86,10 @@ export default function Page() {
             blueLayer.current,
             {
               scaleY: 1,
-              duration: 0.5,
+              duration: 0.3,
               ease: "power2.inOut",
             },
-            0.15,
+            "0.15", 
           )
           .to(
             logoRef.current,
@@ -116,8 +116,8 @@ export default function Page() {
             blackLayer.current,
             {
               yPercent: 0,
-              duration: 1.5,
-              ease: "power2.inOut",
+              duration: 2,
+              ease: "power1.inOut",
             },
             // "-=1",
           )
@@ -125,6 +125,7 @@ export default function Page() {
             xPercent: 0,
             duration: 3.5,
             ease: "easeInOut",
+            delay: 0.5,
           })
           // Animate all 6 rows at different speeds simultaneously
           // .addLabel("rowStart", "<")
@@ -160,15 +161,15 @@ export default function Page() {
           )
 
           // TRIGGER LAYER 5:
-          // "rowStart+=1.5" starts exactly at 40% of the 3s duration
+          // "rowStart+=1.5" starts exactly at 40% of the 6s duration
           .to(
             layer5Ref.current,
             {
               yPercent: 0,
               duration: 1,
-              ease: "easeIn",
+              ease: "easeOut",
             },
-            "-=1.5",
+            "-=1",
           );
       }, mainContainer);
 
