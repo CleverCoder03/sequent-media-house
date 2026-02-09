@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { HyperText } from "./ui/hyper-text";
+import { WavyBackground } from "./ui/wavy-background";
 
 const Layer5 = forwardRef((props, ref) => {
   return (
@@ -7,7 +8,8 @@ const Layer5 = forwardRef((props, ref) => {
       ref={ref}
       className="absolute inset-0 bg-black z-50 flex h-dvh items-center justify-center"
     >
-      <div className="flex flex-col items-center py-[30vh]">
+      <WavyBackground>
+          <div className="flex flex-col items-center py-[30vh]">
         <HyperText
           startOnView={true}
           duration={1500}
@@ -25,6 +27,8 @@ const Layer5 = forwardRef((props, ref) => {
           INTELLIGENCE AGE
         </HyperText>
       </div>
+      </WavyBackground>
+      
     </div>
   );
 });
