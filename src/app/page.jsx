@@ -5,8 +5,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
-import { HyperText } from "@/components/ui/hyper-text";
-import Logo from "@/components/LogoSvg";
 import Hero from "@/components/Hero";
 import ExpandingSection from "@/components/ExpandingSection";
 import BlackSection from "@/components/BlackSection";
@@ -17,6 +15,7 @@ import Testimonial from "@/components/Testimonial";
 import Clients from "@/components/Clients";
 import Awards from "@/components/Awards";
 import Footer from "@/components/Footer";
+import Layer5 from "@/components/Layer5";
 
 // Register OUTSIDE component
 gsap.registerPlugin(ScrollTrigger);
@@ -297,31 +296,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-
-            {/* Layer 5: Next Chapter Overlay */}
-            <div
-              ref={layer5Ref}
-              className="absolute inset-0 bg-black z-50 flex h-dvh items-center justify-center"
-            >
-              <div className="flex flex-col items-center py-[30vh]">
-                <HyperText
-                  startOnView={true}
-                  duration={1500}
-                  animateOnHover={false}
-                  className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
-                >
-                  ▀ A MODEL FOR THE↘
-                </HyperText>
-                <HyperText
-                  startOnView={true}
-                  duration={1500}
-                  animateOnHover={false}
-                  className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
-                >
-                  INTELLIGENCE AGE
-                </HyperText>
-              </div>
-            </div>
+            <Layer5 ref={layer5Ref} />
           </div>
           <About />
           <NeedProof />

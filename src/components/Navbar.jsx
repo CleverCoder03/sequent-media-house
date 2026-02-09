@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -16,9 +16,14 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
 
-  // fade + move up on scroll
-  const opacity = useTransform(scrollY, [0, 80], [1, 0]);
-  const translateY = useTransform(scrollY, [0, 80], [0, -20]);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+useEffect(() => {
+  return scrollY.on("change", (latest) => {
+    if (latest > 50) setIsScrolled(true);
+    else setIsScrolled(false);
+  });
+}, [scrollY]);
 
   // Animation variants for nav links
   const menuVariants = {
@@ -77,25 +82,42 @@ export default function Navbar() {
     { href: "/contact", label: "Contact" },
   ];
 
+  useEffect(() => {
+  if (open) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+  
+  return () => {
+    document.body.style.overflow = '';
+  };
+}, [open]);
+
   return (
     <>
       {/* TOP NAV */}
       <motion.nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 lg:px-12 lg:py-12 flex items-center justify-between gap-5 bg-transparent">
         <motion.div
-          style={{
-            opacity: open ? 1 : opacity,
-            y: open ? 0 : translateY,
-          }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex items-center justify-between w-full transition-all duration-300 ease-in-out"
+          animate={{
+    opacity: isScrolled && !open ? 0 : 1,
+    y: isScrolled && !open ? -5 : 0,
+  }}
+  transition={{
+    duration: 0.3,
+    ease: [0.42, 0, 0.58, 1],
+    delay: open ? 0.8 : 0
+  }}
+          className="flex items-center justify-between w-full"
         >
           {/* Brand */}
           <div className="flex flex-col lg:flex-row items-center lg:gap-2 pointer-events-auto cursor-pointer">
+            <Link href={"/"}>
             <Logo
               className="h-8 w-auto text-neutral-100"
               scrollY={scrollY}
               open={open}
-            />
+            /></Link>
           </div>
 
           {/* CONTACT BUTTON (desktop) */}
@@ -130,36 +152,68 @@ export default function Navbar() {
       </motion.nav>
 
       {/* SLIDE-DOWN MENU */}
-      <motion.div
-        initial={{ y: "-100%" }}
-        animate={{ y: open ? "0%" : "-100%" }}
-        transition={{ type: "spring", bounce: 0, duration: 0.6 }}
-        className="fixed inset-0 w-full h-dvh bg-neutral-900 backdrop-blur-lg z-40 flex flex-col items-center justify-center"
-      >
-        <motion.div
-          variants={menuVariants}
-          initial="closed"
-          animate={open ? "open" : "closed"}
-          className="flex flex-col items-center justify-center flex-1 w-full text-center [&_span]:text-5xl gap-2 lg:gap-0 [&_div]:w-full lg:[&_span]:pt-1 lg:[&_span]:pb-2 [&_span]:pt-1 [&_span]:pb-1  lg:[&_span]:text-[6vh] lg:mt-20"
-        >
-          {navLinks.map((link, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <Link004
-                href={link.href}
-                className={`text-neutral-100 text-3xl font-bold uppercase tracking-wider ${pathName === link.href ? "text-lime-theme" : ""}`}
-              >
-                <TextRoll
-                  className={`border-b border-neutral-100/70 ${index === 0 ? "border-t" : ""} w-full`}
-                >
-                  {link.label}
-                </TextRoll>
-              </Link004>
-            </motion.div>
-          ))}
+      <motion.div className={`fixed inset-0 w-full h-dvh flex items-center justify-center perspective-[1000px] z-40 ${
+    open ? "pointer-events-auto" : "pointer-events-none"
+  }`}>
+        {/* Backdrop overlay - always rendered, animates with opacity */}
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: open ? 1 : 0 }}
+  transition={{ duration: 1, ease: [0.42, 0, 0.58, 1] }}
+  className="fixed inset-0 bg-black/50 backdrop-blur-sm pointer-events-none"
+  style={{ 
+    pointerEvents: open ? 'auto' : 'none' // Only clickable when open
+  }}
+/>
+<motion.div
+    initial={{ y: "-100%", rotateX: 0, rotateY: 0, borderRadius: "0px" }}
+    animate={{ 
+      y: open ? "0%" : "-100%",
+      scale: open ? 1 : 0.3,
+      rotateX: open ? 0 : 50,
+      rotateY: 0,
+      borderRadius: open ? "0px" : "48px"
+    }}
+    exit={{
+      y: "-100%",
+      scale: 0.3,
+      rotateX: 50,
+      opacity: 0,
+      borderRadius: "48px"
+    }}
+    transition={{ 
+      // type: "spring", 
+      bounce: 0, 
+      duration: 1,
+      ease: [0.42, 0, 0.42, 0]
+    }}
+    style={{ transformStyle: "preserve-3d" }}
+    className="w-full h-dvh bg-neutral-900 backdrop-blur-lg flex flex-col items-center justify-center z-35"
+  >
+    <motion.div
+      variants={menuVariants}
+      initial="closed"
+      animate={open ? "open" : "closed"}
+      className="flex flex-col items-center justify-center flex-1 w-full text-center [&_span]:text-5xl gap-2 lg:gap-0 [&_div]:w-full lg:[&_span]:pt-1 lg:[&_span]:pb-2 [&_span]:pt-1 [&_span]:pb-1 lg:[&_span]:text-[6vh] lg:mt-20"
+    >
+      {navLinks.map((link, index) => (
+        <motion.div key={index} variants={itemVariants}>
+          <Link004
+            href={link.href}
+            className={`text-neutral-100 text-3xl font-bold uppercase tracking-wider ${pathName === link.href ? "text-lime-theme" : ""}`}
+          >
+            <TextRoll
+              className={`border-b border-neutral-100/70 ${index === 0 ? "border-t" : ""} w-full`}
+            >
+              {link.label}
+            </TextRoll>
+          </Link004>
         </motion.div>
+      ))}
+    </motion.div>
 
-        {/* SOCIAL ICONS */}
-        <motion.div
+    {/* SOCIAL ICONS */}
+    <motion.div
           variants={itemVariants}
           initial="closed"
           animate={open ? "open" : "closed"}
@@ -167,7 +221,7 @@ export default function Navbar() {
         >
           {/* Instagram */}
           <motion.a
-            href="https://instagram.com"
+            href="https://www.instagram.com/sequentmediahouse?igsh=emE4amhtYWl0bmxy"
             target="_blank"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.2 }}
@@ -185,9 +239,9 @@ export default function Navbar() {
             </svg>
           </motion.a>
 
-          {/* Twitter */}
+          {/* facebook */}
           <motion.a
-            href="https://twitter.com"
+            href="https://facebook.com"
             target="_blank"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.2 }}
@@ -207,7 +261,7 @@ export default function Navbar() {
 
           {/* LinkedIn */}
           <motion.a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/sequent-media-house/"
             target="_blank"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.2 }}
@@ -226,18 +280,19 @@ export default function Navbar() {
           </motion.a>
         </motion.div>
 
-        {/* Marquee pinned to bottom with animation */}
-        <motion.div
-          variants={marqueeVariants}
-          initial="closed"
-          animate={open ? "open" : "closed"}
-          className="w-full mt-auto lg:-mb-3"
-        >
-          <Marquee className="font-playfair-bold-italic text-[14vw] lg:text-[9vw] text-neutral-100">
-            Sequent Media House &nbsp;
-          </Marquee>
-        </motion.div>
-      </motion.div>
+    {/* Marquee */}
+    <motion.div
+      variants={marqueeVariants}
+      initial="closed"
+      animate={open ? "open" : "closed"}
+      className="w-full mt-auto lg:-mb-3"
+    >
+      <Marquee className="font-playfair-bold-italic text-[14vw] lg:text-[9vw] text-neutral-100">
+        Sequent Media House &nbsp;
+      </Marquee>
+    </motion.div>
+  </motion.div>
+</motion.div>
     </>
   );
 }

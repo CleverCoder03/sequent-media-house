@@ -9,7 +9,7 @@ const ExpandingSection = forwardRef(({blueLayer, logoRef, descRef}, ref) => {
                   {/* Background that animates */}
                   <div
                     ref={blueLayer}
-                    className="absolute inset-0 bg-purple-theme -z-10"
+                    className="absolute inset-0 bg-[#4106b9] -z-10"
                     style={{ transformOrigin: "center center" }}
                   />
     
