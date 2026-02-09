@@ -72,10 +72,10 @@ const Footer = () => {
             <div className="flex flex-col gap-8 md:flex-row md:justify-between md:items-center">
               <div className="w-1/2">
                 <Link href={"/"}>
-                  <Logo className="h-8 w-auto text-neutral-100" />
+                  <Logo className="h-8 lg:h-12 w-auto text-neutral-100" />
                 </Link>
               </div>
-              <div className="flex gap-4 [&_a]:text-neutral-100 [&_a]:uppercase [&_a]:font-figtree-semibold ">
+              <div className="flex gap-4 [&_a]:text-neutral-100 [&_a]:uppercase [&_a]:font-figtree-semibold [&_a]:lg:text-xl">
                 <Link href={"/about"}>About</Link>
                 <Link href={"/work"}>Work</Link>
                 <Link href={"/services"}>Services</Link>
