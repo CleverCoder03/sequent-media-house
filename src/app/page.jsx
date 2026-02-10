@@ -61,11 +61,11 @@ export default function Page() {
           scrollTrigger: {
             trigger: mainContainer.current,
             start: "top top",
-            end: "bottom+=400% center",
+            end: "bottom+=200% center+=200px",
             pin: true,
             scrub: 1,
             anticipatePin: 1,
-            // markers: true, // Uncomment for debugging
+            markers: true, // Uncomment for debugging
 
             // --- CRITICAL FIX 1: PRIORITY ---
             // Calculate this BEFORE downstream pins (NeedProof)
@@ -116,7 +116,7 @@ export default function Page() {
             blackLayer.current,
             {
               yPercent: 0,
-              duration: 2,
+              duration: 1.2,
               ease: "power1.inOut",
             },
             // "-=1",
@@ -131,32 +131,32 @@ export default function Page() {
           // .addLabel("rowStart", "<")
           .to(
             rowsRef.current[0],
-            { xPercent: -40, ease: "none", duration: 6 },
+            { xPercent: -40, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsRef.current[1],
-            { xPercent: -20, ease: "none", duration: 6 },
+            { xPercent: -20, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsRef.current[2],
-            { xPercent: -55, ease: "none", duration: 6 },
+            { xPercent: -55, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsRef.current[3],
-            { xPercent: -35, ease: "none", duration: 6 },
+            { xPercent: -35, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsRef.current[4],
-            { xPercent: -15, ease: "none", duration: 6 },
+            { xPercent: -15, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsRef.current[5],
-            { xPercent: -45, ease: "none", duration: 6 },
+            { xPercent: -45, ease: "none", duration: 4 },
             "<",
           )
 
@@ -166,10 +166,10 @@ export default function Page() {
             layer5Ref.current,
             {
               yPercent: 0,
-              duration: 1,
-              ease: "easeOut",
+              duration: 1.5,
+              ease: "power1.inOut",
             },
-            "-=1",
+            "-=1.6",
           );
       }, mainContainer);
 
