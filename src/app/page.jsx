@@ -65,7 +65,7 @@ export default function Page() {
             pin: true,
             scrub: 1,
             anticipatePin: 1,
-            markers: true, // Uncomment for debugging
+            // markers: true, // Uncomment for debugging
 
             // --- CRITICAL FIX 1: PRIORITY ---
             // Calculate this BEFORE downstream pins (NeedProof)
