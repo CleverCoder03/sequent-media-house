@@ -83,21 +83,6 @@ const Awards = () => {
           AWARDS+MENTIONS ▼ AWARDS+MENTIONS ▲ AWARDS+MENTIONS ▀ AWARDS+MENTIONS
           ◄ AWARDS+MENTIONS ► AWARDS+MENTIONS ∞
         </Marquee>
-        {/* <div className="grid grid-cols-2 lg:grid-cols-4  gap-y-20 my-25 sm:px-4 lg:my-30  md:px-18 lg:px-25 justify-center items-center">
-          {clientsLogo1.map((client) => (
-            <div key={client.id} className="flex items-center justify-center">
-              <div className="relative w-35 h-15 md:w-40 md:h-17.5 lg:w-45 lg:h-20">
-                <Image
-                  src={client.src}
-                  alt={client.name}
-                  fill
-                  className="object-contain brightness-0 invert mix-blend-screen"
-                  priority
-                />
-              </div>
-            </div>
-          ))}
-        </div> */}
       </div>
       <div className="mb-20 lg:mb-0 lg:my-10 px-4 md:px-18 lg:px-25">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-15 lg:gap-0 [&>div]:lg:w-1/2 [&>div]:lg:py-20">
@@ -114,26 +99,36 @@ const Awards = () => {
           {/* RIGHT */}
           <div className="flex flex-col gap-10">
             {awardsData.map((award) => (
-              <div key={award.id} className="flex items-start gap-8">
+              // Added 'group' here to control children on hover
+              <div key={award.id} className="group flex items-start gap-8 cursor-pointer">
                 {/* ICON */}
                 <div className="hidden lg:w-12 lg:h-12 lg:flex items-center justify-center shrink-0">
                   <Image
                     src={award.image}
                     alt={award.title}
-                    width={64}
-                    height={64}
+                    width={48}
+                    height={48}
                     className="object-contain"
                   />
                 </div>
 
                 {/* TEXT */}
                 <div className="flex-1">
-                  <h1 className="font-figtree-semibold text-lg lg:text-2xl text-neutral-100 uppercase">
+                  {/* Added group-hover color change for better interactivity */}
+                  <h1 className="font-figtree-semibold text-lg lg:text-2xl text-neutral-100 uppercase transition-colors duration-300 group-hover:text-blue-500">
                     {award.title}
                   </h1>
-                  <p className="font-figtree-regular mt-2 text-base text-neutral-500">
-                    {award.description}
-                  </p>
+                  
+                  {/* ANIMATION WRAPPER */}
+                  {/* 1. We use grid with 0fr height by default */}
+                  {/* 2. On group-hover, we switch to 1fr (full height) */}
+                  <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                    <div className="overflow-hidden">
+                      <p className="font-figtree-regular mt-2 text-base text-neutral-500 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                        {award.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
