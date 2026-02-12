@@ -16,6 +16,7 @@ import Clients from "@/components/Clients";
 import Awards from "@/components/Awards";
 import Footer from "@/components/Footer";
 import Layer5 from "@/components/Layer5";
+import RowAnimation from "@/components/RowAnimation";
 
 // Register OUTSIDE component
 gsap.registerPlugin(ScrollTrigger);
@@ -73,8 +74,8 @@ export default function Page() {
 
             // --- CRITICAL FIX 1: PRIORITY ---
             // Calculate this BEFORE downstream pins (NeedProof)
-            refreshPriority: 1, 
-            
+            refreshPriority: 1,
+
             // Ensure values are recalculated if screen resizes
             invalidateOnRefresh: true,
           },
@@ -93,7 +94,7 @@ export default function Page() {
               duration: 0.3,
               ease: "power2.inOut",
             },
-            "0.15", 
+            "0.15",
           )
           .to(
             logoRef.current,
@@ -164,8 +165,13 @@ export default function Page() {
             "<",
           )
           .to(
-            rowsContentRef.current[0],
-            { xPercent: 50, ease: "none", duration: 4 },
+            rowsRef.current[6],
+            { xPercent: -30, ease: "none", duration: 4 },
+            "<",
+          )
+          .to(
+            rowsRef.current[7],
+            { xPercent: -40, ease: "none", duration: 4 },
             "<",
           )
           .to(
@@ -191,6 +197,11 @@ export default function Page() {
           .to(
             rowsContentRef.current[5],
             { xPercent: 45, ease: "none", duration: 4 },
+            "<",
+          )
+          .to(
+            rowsContentRef.current[6],
+            { xPercent: 35, ease: "none", duration: 4 },
             "<",
           )
 
@@ -249,100 +260,9 @@ export default function Page() {
             <BlackSection ref={blackLayer} />
 
             {/* Layer 4: 6-Row Sub-services Ticker */}
-            <div
-              ref={subServicesLayer}
-              className="absolute inset-0 z-30 flex flex-col justify-center"
-            >
-              <div className="flex flex-col w-[200%] h-dvh [&>div]:h-1/6 [&>div]:bg-neutral-100">
-                {" "}
-                {/* Extra width for the speed variation */}
-                {/* Row 1: Branding */}
-                <div
-                  ref={(el) => (rowsRef.current[0] = el)}
-                  
-                >
-                  <div ref={(el) => (rowsContentRef.current[0] = el)} className="flex items-center gap-10 whitespace-nowrap">
-                    <span className="text-neutral-900 text-7xl font-bold uppercase italic">
-                    Branding
-                  </span>
-                  <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
-                  <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Websites
-                  </span>
-                  </div>
-                </div>
-                {/* Row 2: Social */}
-                <div
-                  ref={(el) => (rowsRef.current[1] = el)}
-                  
-                >
-                  <div ref={(el) => (rowsContentRef.current[1] = el)} className="flex items-center gap-10 whitespace-nowrap">
-                    <div className="w-56 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
-                  <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Social
-                  </span>
-                  <div className="w-96 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
-                  </div>
-                </div>
-                {/* Row 3: Campaigns */}
-                <div
-                  ref={(el) => (rowsRef.current[2] = el)}
-                  
-                >
-                  <div ref={(el) => (rowsContentRef.current[2] = el)} className="flex items-center gap-10 whitespace-nowrap">
-                    <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Campaigns
-                  </span>
-                  <div className="w-80 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
-                  <span className="text-neutral-900 text-7xl font-bold uppercase italic">
-                    Global
-                  </span>
-                  </div>
-                </div>
-                {/* Row 4: Motion */}
-                <div
-                  ref={(el) => (rowsRef.current[3] = el)}
-                  
-                >
-                  <div ref={(el) => (rowsContentRef.current[3] = el)} className="flex items-center gap-10 whitespace-nowrap">
-                    <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Motion
-                  </span>
-                  <div className="w-64 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
-                  <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Design
-                  </span>
-                  </div>
-                </div>
-                {/* Row 5: Experiential */}
-                <div
-                  ref={(el) => (rowsRef.current[4] = el)}
-                  
-                >
-                  <div ref={(el) => (rowsContentRef.current[4] = el)} className="flex items-center gap-10 whitespace-nowrap">
-                    <div className="w-120 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
-                  <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Experiential
-                  </span>
-                  </div>
-                </div>
-                {/* Row 6: Interactive */}
-                <div
-                  ref={(el) => (rowsRef.current[5] = el)}
-                  
-                >
-                  <div ref={(el) => (rowsContentRef.current[5] = el)} className="flex items-center gap-10 whitespace-nowrap">
-                    <span className="text-neutral-900 text-7xl font-bold uppercase italic">
-                    Interactive
-                  </span>
-                  <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
-                  <span className="text-neutral-900 text-7xl font-bold uppercase">
-                    Future
-                  </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <RowAnimation ref={subServicesLayer} rowsRef={rowsRef} rowsContentRef={rowsContentRef} />
+            
+            {/* Layer 5: Overlay that appears after rows */}
             <Layer5 ref={layer5Ref} />
           </div>
           <About />
