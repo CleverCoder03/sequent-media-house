@@ -176,32 +176,110 @@ export default function Page() {
           )
           .to(
             rowsContentRef.current[1],
-            { xPercent: 40, ease: "none", duration: 4 },
+            {
+              xPercent: () =>
+                window.innerWidth < 480
+                  ? -40
+                  : window.innerWidth < 768
+                    ? -30
+                    : window.innerWidth < 1024
+                      ? 20
+                      : window.innerWidth < 1440
+                        ? 35
+                        : 40,
+              ease: "none",
+              duration: 4,
+            },
             "<",
           )
           .to(
             rowsContentRef.current[2],
-            { xPercent: 30, ease: "none", duration: 4 },
+            {
+              xPercent: () =>
+                window.innerWidth < 480
+                  ? -35
+                  : window.innerWidth < 768
+                    ? -25
+                    : window.innerWidth < 1024
+                      ? 15
+                      : window.innerWidth < 1440
+                        ? 25
+                        : 30,
+              ease: "none",
+              duration: 4,
+            },
             "<",
           )
           .to(
             rowsContentRef.current[3],
-            { xPercent: 35, ease: "none", duration: 4 },
+            {
+              xPercent: () =>
+                window.innerWidth < 480
+                  ? -45
+                  : window.innerWidth < 768
+                    ? -30
+                    : window.innerWidth < 1024
+                      ? 20
+                      : window.innerWidth < 1440
+                        ? 30
+                        : 35,
+              ease: "none",
+              duration: 4,
+            },
             "<",
           )
           .to(
             rowsContentRef.current[4],
-            { xPercent: 45, ease: "none", duration: 4 },
+            {
+              xPercent: () =>
+                window.innerWidth < 480
+                  ? -55
+                  : window.innerWidth < 768
+                    ? -35
+                    : window.innerWidth < 1024
+                      ? 25
+                      : window.innerWidth < 1440
+                        ? 35
+                        : 45,
+              ease: "none",
+              duration: 4,
+            },
             "<",
           )
           .to(
             rowsContentRef.current[5],
-            { xPercent: 40, ease: "none", duration: 4 },
+            {
+              xPercent: () =>
+                window.innerWidth < 480
+                  ? -50
+                  : window.innerWidth < 768
+                    ? -30
+                    : window.innerWidth < 1024
+                      ? 20
+                      : window.innerWidth < 1440
+                        ? 30
+                        : 40,
+              ease: "none",
+              duration: 4,
+            },
             "<",
           )
           .to(
             rowsContentRef.current[6],
-            { xPercent: 40, ease: "none", duration: 4 },
+            {
+              xPercent: () =>
+                window.innerWidth < 480
+                  ? -45
+                  : window.innerWidth < 768
+                    ? -30
+                    : window.innerWidth < 1024
+                      ? 20
+                      : window.innerWidth < 1440
+                        ? 30
+                        : 40,
+              ease: "none",
+              duration: 4,
+            },
             "<",
           )
 
@@ -260,8 +338,12 @@ export default function Page() {
             <BlackSection ref={blackLayer} />
 
             {/* Layer 4: 6-Row Sub-services Ticker */}
-            <RowAnimation ref={subServicesLayer} rowsRef={rowsRef} rowsContentRef={rowsContentRef} />
-            
+            <RowAnimation
+              ref={subServicesLayer}
+              rowsRef={rowsRef}
+              rowsContentRef={rowsContentRef}
+            />
+
             {/* Layer 5: Overlay that appears after rows */}
             <Layer5 ref={layer5Ref} />
           </div>

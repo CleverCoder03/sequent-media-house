@@ -22,7 +22,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
         >
           <div
             ref={(el) => (rowsContentRef.current[1] = el)}
-            className="flex gap-10 whitespace-nowrap -ml-[30vw]"
+            className="flex gap-10 whitespace-nowrap lg:-ml-[30vw]"
           >
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
