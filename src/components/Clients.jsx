@@ -13,7 +13,7 @@ const clientsLogo1 = [
 
 const clientsLogo2 = [
   { id: 7, name: "hygear", src: "/clients/hygear.png" },
-  //   { id: 8, name: "ies", src: "/clients/ies.png" },
+  { id: 8, name: "ies", src: "/clients/ies.png" },
   { id: 9, name: "kurlon", src: "/clients/kurlon.png" },
   { id: 10, name: "paramount", src: "/clients/paramount.png" },
   { id: 11, name: "ramaiah", src: "/clients/ramaiah.png" },

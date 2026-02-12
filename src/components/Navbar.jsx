@@ -220,7 +220,7 @@ export default function Navbar() {
             variants={itemVariants}
             initial="closed"
             animate={open ? "open" : "closed"}
-            className="flex items-center gap-8"
+            className="flex items-center gap-8 mb-10"
           >
             {/* Instagram */}
             <motion.a
@@ -288,7 +288,7 @@ export default function Navbar() {
             variants={marqueeVariants}
             initial="closed"
             animate={open ? "open" : "closed"}
-            className="w-full mt-10 lg:-mb-3"
+            className="w-full mt-10 lg:-mb-3 hidden"
           >
             <Marquee>
               <div className="shrink-0 px-6">

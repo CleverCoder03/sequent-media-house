@@ -31,6 +31,7 @@ export default function Page() {
   const blackLayer = useRef(null);
   const subServicesLayer = useRef(null);
   const rowsRef = useRef([]); // Use an array ref for 6 rows
+  const rowsContentRef = useRef([]); // Use an array ref for 6 rows
   const layer5Ref = useRef(null);
 
   useGSAP(
@@ -54,6 +55,9 @@ export default function Page() {
         // Set all rows to start slightly offset to the right
         rowsRef.current.forEach((row) => {
           if (row) gsap.set(row, { xPercent: 10 });
+        });
+        rowsContentRef.current.forEach((row) => {
+          if (row) gsap.set(row, { xPercent: 0 });
         });
 
         // Create timeline
@@ -159,6 +163,36 @@ export default function Page() {
             { xPercent: -45, ease: "none", duration: 4 },
             "<",
           )
+          .to(
+            rowsContentRef.current[0],
+            { xPercent: 50, ease: "none", duration: 4 },
+            "<",
+          )
+          .to(
+            rowsContentRef.current[1],
+            { xPercent: 20, ease: "none", duration: 4 },
+            "<",
+          )
+          .to(
+            rowsContentRef.current[2],
+            { xPercent: 55, ease: "none", duration: 4 },
+            "<",
+          )
+          .to(
+            rowsContentRef.current[3],
+            { xPercent: 35, ease: "none", duration: 4 },
+            "<",
+          )
+          .to(
+            rowsContentRef.current[4],
+            { xPercent: 15, ease: "none", duration: 4 },
+            "<",
+          )
+          .to(
+            rowsContentRef.current[5],
+            { xPercent: 45, ease: "none", duration: 4 },
+            "<",
+          )
 
           // TRIGGER LAYER 5:
           // "rowStart+=1.5" starts exactly at 40% of the 6s duration
@@ -225,75 +259,87 @@ export default function Page() {
                 {/* Row 1: Branding */}
                 <div
                   ref={(el) => (rowsRef.current[0] = el)}
-                  className="flex items-center gap-10 whitespace-nowrap"
+                  
                 >
-                  <span className="text-neutral-900 text-7xl font-bold uppercase italic">
+                  <div ref={(el) => (rowsContentRef.current[0] = el)} className="flex items-center gap-10 whitespace-nowrap">
+                    <span className="text-neutral-900 text-7xl font-bold uppercase italic">
                     Branding
                   </span>
                   <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Websites
                   </span>
+                  </div>
                 </div>
                 {/* Row 2: Social */}
                 <div
                   ref={(el) => (rowsRef.current[1] = el)}
-                  className="flex items-center gap-10 whitespace-nowrap ml-20"
+                  
                 >
-                  <div className="w-56 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
+                  <div ref={(el) => (rowsContentRef.current[1] = el)} className="flex items-center gap-10 whitespace-nowrap">
+                    <div className="w-56 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Social
                   </span>
                   <div className="w-96 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
+                  </div>
                 </div>
                 {/* Row 3: Campaigns */}
                 <div
                   ref={(el) => (rowsRef.current[2] = el)}
-                  className="flex items-center gap-10 whitespace-nowrap"
+                  
                 >
-                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                  <div ref={(el) => (rowsContentRef.current[2] = el)} className="flex items-center gap-10 whitespace-nowrap">
+                    <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Campaigns
                   </span>
                   <div className="w-80 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase italic">
                     Global
                   </span>
+                  </div>
                 </div>
                 {/* Row 4: Motion */}
                 <div
                   ref={(el) => (rowsRef.current[3] = el)}
-                  className="flex items-center gap-10 whitespace-nowrap ml-40"
+                  
                 >
-                  <span className="text-neutral-900 text-7xl font-bold uppercase">
+                  <div ref={(el) => (rowsContentRef.current[3] = el)} className="flex items-center gap-10 whitespace-nowrap">
+                    <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Motion
                   </span>
                   <div className="w-64 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Design
                   </span>
+                  </div>
                 </div>
                 {/* Row 5: Experiential */}
                 <div
                   ref={(el) => (rowsRef.current[4] = el)}
-                  className="flex items-center gap-10 whitespace-nowrap"
+                  
                 >
-                  <div className="w-120 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
+                  <div ref={(el) => (rowsContentRef.current[4] = el)} className="flex items-center gap-10 whitespace-nowrap">
+                    <div className="w-120 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Experiential
                   </span>
+                  </div>
                 </div>
                 {/* Row 6: Interactive */}
                 <div
                   ref={(el) => (rowsRef.current[5] = el)}
-                  className="flex items-center gap-10 whitespace-nowrap ml-10"
+                  
                 >
-                  <span className="text-neutral-900 text-7xl font-bold uppercase italic">
+                  <div ref={(el) => (rowsContentRef.current[5] = el)} className="flex items-center gap-10 whitespace-nowrap">
+                    <span className="text-neutral-900 text-7xl font-bold uppercase italic">
                     Interactive
                   </span>
                   <div className="w-72 h-32 bg-gray-300 rounded-xl overflow-hidden"></div>
                   <span className="text-neutral-900 text-7xl font-bold uppercase">
                     Future
                   </span>
+                  </div>
                 </div>
               </div>
             </div>

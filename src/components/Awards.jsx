@@ -114,9 +114,9 @@ const Awards = () => {
           {/* RIGHT */}
           <div className="flex flex-col gap-10">
             {awardsData.map((award) => (
-              <div key={award.id} className="flex items-start gap-10">
+              <div key={award.id} className="flex items-start gap-8">
                 {/* ICON */}
-                <div className="hidden w-20 h-20 lg:flex items-center justify-center shrink-0">
+                <div className="hidden lg:w-12 lg:h-12 lg:flex items-center justify-center shrink-0">
                   <Image
                     src={award.image}
                     alt={award.title}
@@ -131,7 +131,7 @@ const Awards = () => {
                   <h1 className="font-figtree-semibold text-lg lg:text-2xl text-neutral-100 uppercase">
                     {award.title}
                   </h1>
-                  <p className="font-figtree-regular mt-2 text-lg lg:text-xl text-neutral-500">
+                  <p className="font-figtree-regular mt-2 text-base text-neutral-500">
                     {award.description}
                   </p>
                 </div>
