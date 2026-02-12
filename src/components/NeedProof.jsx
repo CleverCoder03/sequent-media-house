@@ -86,7 +86,7 @@ const NeedProof = () => {
     >
       <div
         ref={needRef}
-        className="absolute inset-0 flex justify-center items-center text-3xl lg:text-9xl font-figtree-medium uppercase opacity-0"
+        className="absolute inset-0 flex justify-center items-center text-3xl lg:text-9xl font-figtree-bold uppercase opacity-0"
       >
         Need
       </div>
@@ -94,14 +94,14 @@ const NeedProof = () => {
         {/* ADDED opacity-0 here to match the others */}
         <span
           ref={moreRef}
-          className="lg:text-9xl font-figtree-medium text-black px-6 lg:px-12 py-2 text-3xl border-3 lg:border-10 border-black rounded-[90px] uppercase opacity-0"
+          className="lg:text-9xl font-figtree-bold text-black px-6 lg:px-12 py-2 text-3xl border-3 lg:border-10 border-black rounded-[90px] uppercase opacity-0"
         >
           MORE
         </span>
       </div>
       <div
         ref={proofRef}
-        className="absolute inset-0 flex justify-center items-center text-3xl lg:text-9xl font-figtree-medium uppercase opacity-0"
+        className="absolute inset-0 flex justify-center items-center text-3xl lg:text-9xl font-figtree-bold uppercase opacity-0"
       >
         Proof?
       </div>
