@@ -141,12 +141,12 @@ export default function Page() {
           )
           .to(
             rowsRef.current[1],
-            { xPercent: -20, ease: "none", duration: 4 },
+            { xPercent: -35, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsRef.current[2],
-            { xPercent: -55, ease: "none", duration: 4 },
+            { xPercent: -25, ease: "none", duration: 4 },
             "<",
           )
           .to(
@@ -156,12 +156,12 @@ export default function Page() {
           )
           .to(
             rowsRef.current[4],
-            { xPercent: -15, ease: "none", duration: 4 },
+            { xPercent: -50, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsRef.current[5],
-            { xPercent: -45, ease: "none", duration: 4 },
+            { xPercent: -40, ease: "none", duration: 4 },
             "<",
           )
           .to(
@@ -171,17 +171,17 @@ export default function Page() {
           )
           .to(
             rowsRef.current[7],
-            { xPercent: -40, ease: "none", duration: 4 },
+            { xPercent: -45, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsContentRef.current[1],
-            { xPercent: 20, ease: "none", duration: 4 },
+            { xPercent: 40, ease: "none", duration: 4 },
             "<",
           )
           .to(
             rowsContentRef.current[2],
-            { xPercent: 55, ease: "none", duration: 4 },
+            { xPercent: 30, ease: "none", duration: 4 },
             "<",
           )
           .to(
@@ -191,17 +191,17 @@ export default function Page() {
           )
           .to(
             rowsContentRef.current[4],
-            { xPercent: 15, ease: "none", duration: 4 },
-            "<",
-          )
-          .to(
-            rowsContentRef.current[5],
             { xPercent: 45, ease: "none", duration: 4 },
             "<",
           )
           .to(
+            rowsContentRef.current[5],
+            { xPercent: 40, ease: "none", duration: 4 },
+            "<",
+          )
+          .to(
             rowsContentRef.current[6],
-            { xPercent: 35, ease: "none", duration: 4 },
+            { xPercent: 40, ease: "none", duration: 4 },
             "<",
           )
 
