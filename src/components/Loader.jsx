@@ -16,7 +16,7 @@ export default function Loader({ onFinish }) {
     if (currentWordIndex < totalWords - 1) {
       const wordTimeout = setTimeout(() => {
         setCurrentWordIndex((prev) => prev + 1);
-      }, currentWordIndex === 0 ? 1000 : 1400); // Extra time for first word stagger
+      }, 1400); // Extra time for first word stagger
 
       return () => clearTimeout(wordTimeout);
     } else if (!hasCompletedWords) {
@@ -24,7 +24,7 @@ export default function Loader({ onFinish }) {
       const completeTimeout = setTimeout(() => {
         setHasCompletedWords(true);
         setIsLoaderExit(true);
-      }, 1200);
+      }, 1600);
 
       return () => clearTimeout(completeTimeout);
     }
@@ -88,7 +88,7 @@ export default function Loader({ onFinish }) {
 
   // Split first word into letters for stagger effect
   const renderWord = (word, index) => {
-    if (index === 0) {
+    // if (index === 0) {
       // First word with stagger
       return (
         <div className="flex">
@@ -108,10 +108,10 @@ export default function Loader({ onFinish }) {
           ))}
         </div>
       );
-    } else {
+    // } else {
       // Other words with normal animation
-      return word;
-    }
+      // return word;
+    // }
   };
 
   return (
@@ -126,7 +126,16 @@ export default function Loader({ onFinish }) {
     >
       <div className="font-figtree-regular text-2xl lowercase text-center md:text-3xl xl:text-4xl overflow-hidden">
         <AnimatePresence mode="wait">
-          {currentWordIndex === 0 ? (
+        <motion.h1
+              key={currentWordIndex}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="leading-[1.3] font-playfair-regular"
+            >
+              {renderWord(words[currentWordIndex], currentWordIndex)}
+            </motion.h1>
+          {/* {currentWordIndex === 0 ? (
             <motion.h1
               key={currentWordIndex}
               initial="hidden"
@@ -147,7 +156,7 @@ export default function Loader({ onFinish }) {
             >
               {words[currentWordIndex]}
             </motion.h1>
-          )}
+          )} */}
         </AnimatePresence>
       </div>
     </motion.div>
