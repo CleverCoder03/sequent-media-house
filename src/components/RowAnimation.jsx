@@ -22,13 +22,13 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
         >
           <div
             ref={(el) => (rowsContentRef.current[1] = el)}
-            className="flex gap-10 whitespace-nowrap lg:-ml-[30vw]"
+            className="flex items-center gap-10 whitespace-nowrap md:-ml-[60vw]"
           >
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <span className="text-neutral-900 text-7xl font-bold uppercase">
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Branding
               </TextRoll>
@@ -48,14 +48,13 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
         >
           <div
             ref={(el) => (rowsContentRef.current[2] = el)}
-            className="flex items-center gap-10 whitespace-nowrap -ml-[30vw]"
+            className="flex items-center gap-10 whitespace-nowrap md:-ml-[60vw]"
           >
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <span className="text-neutral-900 text-7xl font-bold uppercase">
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Social
               </TextRoll>
@@ -75,17 +74,18 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
         >
           <div
             ref={(el) => (rowsContentRef.current[3] = el)}
-            className="flex items-center gap-10 whitespace-nowrap -ml-[30vw]"
+            className="flex items-center gap-10 whitespace-nowrap md:-ml-[60vw]"
           >
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <span className="text-neutral-900 text-7xl font-bold uppercase">
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Campaigns
               </TextRoll>
             </span>
+            <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
@@ -100,17 +100,19 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
         >
           <div
             ref={(el) => (rowsContentRef.current[4] = el)}
-            className="flex items-center gap-10 whitespace-nowrap -ml-[30vw]"
+            className="flex items-center gap-10 whitespace-nowrap md:-ml-[60vw]"
           >
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <span className="text-neutral-900 text-7xl font-bold uppercase">
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block" />
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Motion&nbsp;Design
               </TextRoll>
             </span>
+            <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
@@ -125,18 +127,19 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
         >
           <div
             ref={(el) => (rowsContentRef.current[5] = el)}
-            className="flex items-center gap-10 whitespace-nowrap -ml-[40vw]"
+            className="flex items-center gap-10 whitespace-nowrap md:-ml-[70vw]"
           >
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <span className="text-neutral-900 text-7xl font-bold uppercase">
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Experiential
               </TextRoll>
             </span>
+            <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
@@ -151,19 +154,18 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
         >
           <div
             ref={(el) => (rowsContentRef.current[6] = el)}
-            className="flex items-center gap-10 whitespace-nowrap -ml-[40vw]"
+            className="flex items-center gap-10 whitespace-nowrap md:-ml-[70vw]"
           >
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <RowAnimImg src="/0-about-1.jpeg" />
-            <span className="text-neutral-900 text-7xl font-bold uppercase italic">
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase italic">
               <TextRoll>
                 Interactive
               </TextRoll>
             </span>
+            <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />

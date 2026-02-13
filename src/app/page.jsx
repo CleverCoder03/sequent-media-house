@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ExpandingSection from "@/components/ExpandingSection";
 import BlackSection from "@/components/BlackSection";
-import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
 import About from "@/components/About";
 import NeedProof from "@/components/NeedProof";
 import Testimonial from "@/components/Testimonial";
@@ -34,6 +34,8 @@ export default function Page() {
   const rowsRef = useRef([]); // Use an array ref for 6 rows
   const rowsContentRef = useRef([]); // Use an array ref for 6 rows
   const layer5Ref = useRef(null);
+
+  const isMobile = useMediaQuery({ maxWidth: 770 });
 
   useGSAP(
     () => {
@@ -66,7 +68,7 @@ export default function Page() {
           scrollTrigger: {
             trigger: mainContainer.current,
             start: "top top",
-            end: "bottom+=200% center+=200px",
+            end: isMobile ? "bottom+=400% center" : "bottom+=300% center+=200px",
             pin: true,
             scrub: 1,
             anticipatePin: 1,
