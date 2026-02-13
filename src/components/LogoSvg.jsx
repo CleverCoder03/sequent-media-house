@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export default function Logo({ className = ""}) {
   return (
@@ -11,7 +11,7 @@ export default function Logo({ className = ""}) {
       role="img"
       aria-label="Logo"
     >
-      <g
+      <motion.g
         className={`transition-all duration-300 ease-in-out origin-left`}
       >
         {/* S */}
@@ -41,20 +41,15 @@ export default function Logo({ className = ""}) {
         />
         {/* E-Q */}
         <motion.path
-          stroke="black"
+          stroke="white"
   strokeWidth="6"
-  fill="transparent"
+  fill="currentColor"
   strokeLinecap="round"
   strokeLinejoin="round"
-  initial={{
-    strokeDasharray: 2000,
-    strokeDashoffset: 2000
-  }}
-  animate={{
-    strokeDashoffset: 0
-  }}
+  initial={{ pathLength: 0 }}
+whileInView={{ pathLength: 1 }}
   transition={{
-    duration: 2,
+    duration: 10,
     ease: "easeInOut"
   }}
           d="M1084.11,30.54a105.09,105.09,0,0,0-81.76-23.45c-56.59,8-77.66,68.93-92.83,104.42-30.13,70.5-61.32,89.93-105,89.74-36.7-.16-73.64-36.25-71.35-83.7l159.54-.14L892.25,99a97.86,97.86,0,0,0-25.58-62.4C853.93,22.75,831.17,6.25,795,6.25a94.21,94.21,0,0,0-69.58,30.41c-20.14,21.61-30.42,52-28.2,83.37,3.85,54.48,49.91,96.75,105.14,96.75h1.22c34.53.49,57.79-7.92,82.55-29.7,23.36-20.55,56.57-93.83,56.57-93.83,15.49-36.73,42.89-66,77.81-63.38,48.24,3.67,65.52,57.63,65.52,82,0,62.62-28.84,83.12-65.14,83.12-51.63,0-66.73-53.29-68.91-59.05l-2.8-8.36-23.39,36.86a104.87,104.87,0,0,0,5.79,8.89,107,107,0,0,0,7.57,9.27A105.27,105.27,0,1,0,1084.11,30.54ZM797.33,24.16c38.75-.29,61.31,43.85,59.22,72.13h-123C733.56,95.34,740,24.61,797.33,24.16Z"
@@ -114,7 +109,7 @@ export default function Logo({ className = ""}) {
           fill="currentColor"
           d="M1809.79,355.44h45V365h-56.1v-77.3h54.56v9.61h-43.51Zm-1-34.35h39.76v9.39h-39.76Z"
         />
-      </g>
+      </motion.g>
 
       <g>
         {/* LOGO */}

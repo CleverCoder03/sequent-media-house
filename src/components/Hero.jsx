@@ -2,10 +2,22 @@
 
 import { forwardRef } from "react";
 import { HyperText } from "./ui/hyper-text";
+import CursorTrail from "./CursorTrail";
 
 const Hero = forwardRef((props, ref) => {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
+      {/* Cursor Trail Effect */}
+      <CursorTrail imagePaths={[
+    '0-about-1.jpeg',
+    '0-about-2.jpeg',
+  ]} imageWidth={150}
+  imageHeight={200}
+  mobileImageWidth={100}
+  mobileImageHeight={150}
+  distanceThreshold={100}
+  mobileDistanceThreshold={50}/>
+
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
         <video
@@ -24,7 +36,7 @@ const Hero = forwardRef((props, ref) => {
       </div>
 
       {/* Text Content */}
-      <div ref={ref} className="relative z-10 lg:w-2/3">
+      <div ref={ref} className="relative z-10 lg:w-2/3 pointer-events-none">
         <HyperText
           duration={1500}
           animateOnHover={false}

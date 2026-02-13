@@ -28,6 +28,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
             <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Branding
@@ -54,6 +56,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
             <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Social
@@ -79,6 +83,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
             <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
             <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
@@ -107,6 +113,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block" />
             <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
             <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Motion&nbsp;Design
@@ -134,6 +141,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
             <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase">
               <TextRoll>
                 Experiential
@@ -159,6 +168,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
             <RowAnimImg src="/0-about-1.jpeg" />
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
+            <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
             <RowAnimImg src="/0-about-1.jpeg" className="md:hidden xl:block"/>
             <span className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl font-bold uppercase italic">
               <TextRoll>
