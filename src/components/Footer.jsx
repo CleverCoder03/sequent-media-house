@@ -34,13 +34,13 @@ const Footer = () => {
           speed={120}
           className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
         >
-          LET’S DISCUSS █ LET’S DISCUSS ► LET’S DISCUSS ▲ LET’S DISCUSS □ LET’S
-          DISCUSS ◄ LET’S DISCUSS ▀
+          LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S
+          DISCUSS LET’S DISCUSS
         </Marquee>
         <div className="px-8 md:px-12 lg:px-20 mt-15 pb-5 lg:pb-10">
           <div className="text-neutral-100 uppercase font-figtree-medium text-xl leading-[1.2] flex flex-col md:flex-row justify-between items-start lg:items-center gap-20">
             <div>
-              <p>Banglore,</p>
+              <p>Bangluru,</p>
               <p>India</p>
               <div className="mt-5">
                 <Button />
@@ -77,9 +77,9 @@ const Footer = () => {
               </div>
               <div className="flex gap-4 [&_a]:text-neutral-100 [&_a]:uppercase [&_a]:font-figtree-semibold [&_a]:lg:text-xl">
                 <Link href={"/about"}>About</Link>
-                <Link href={"/work"}>Work</Link>
                 <Link href={"/services"}>Services</Link>
-                <Link href={"/contact"}>Contact</Link>
+                <Link href={"/work"}>Work</Link>
+                <a href="mailto:hello@sequentmediahouse.com">Careers</a>
               </div>
             </div>
           </div>

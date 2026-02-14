@@ -70,6 +70,13 @@ const awardsData = [
       "Recognized for ideating, strategizing, conceptualizing, and developing the ‘Mumma Me-Ya’ social awareness campaign. Awarded at Swissotel Al Ghurair, Dubai, by leaders from Dubai Government and international organizations.",
     image: "/awards/award-8.svg",
   },
+  {
+    id: 9,
+    title: "Udyog Rattan Award 2017 & Leadership Innovation Excellence Award 2017",
+    description:
+      "Conferred by the Institute of Economic Studies (IES) for outstanding performance in the fields of advertising, branding, and event management services.",
+    image: "/awards/award-9.svg",
+  },
 ];
 
 const Awards = () => {
