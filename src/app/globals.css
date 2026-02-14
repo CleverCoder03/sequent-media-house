@@ -96,51 +96,161 @@ body {
   /* Playfair-Display */
   @font-face {
     font-family: "playfair-black";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-Black.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Black.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-black-italic";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-BlackItalic.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-BlackItalic.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-bold";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-Bold.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Bold.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-bold-italic";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-BoldItalic.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-BoldItalic.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-extrabold";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-ExtraBold.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-ExtraBold.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-extrabold-italic";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-ExtraBoldItalic.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-ExtraBoldItalic.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-italic";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-Italic.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Italic.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-medium";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-Medium.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Medium.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-medium-italic";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-MediumItalic.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-MediumItalic.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-regular";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-semibold";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf")
+      format("truetype");
   }
   @font-face {
     font-family: "playfair-semibold-italic";
-    src: url("../fonts/Playfair_Display/PlayfairDisplay-SemiBoldItalic.ttf") format("truetype");
+    src: url("../fonts/Playfair_Display/PlayfairDisplay-SemiBoldItalic.ttf")
+      format("truetype");
+  }
+
+  /* Montserrat */
+
+  @font-face {
+    font-family: "montserrat-black";
+    src: url("../fonts/montserrat/Montserrat-Black.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-black-italic";
+    src: url("../fonts/montserrat/Montserrat-BlackItalic.ttf")
+      format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-bold";
+    src: url("../fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-bold-italic";
+    src: url("../fonts/montserrat/Montserrat-BoldItalic.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-extrabold";
+    src: url("../fonts/montserrat/Montserrat-ExtraBold.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-extrabold-italic";
+    src: url("../fonts/montserrat/Montserrat-ExtraBoldItalic.ttf")
+      format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-extralight";
+    src: url("../fonts/montserrat/Montserrat-ExtraLight.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-extralight-italic";
+    src: url("../fonts/montserrat/Montserrat-ExtraLightItalic.ttf")
+      format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-italic";
+    src: url("../fonts/montserrat/Montserrat-Italic.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-light";
+    src: url("../fonts/montserrat/Montserrat-Light.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-light-italic";
+    src: url("../fonts/montserrat/Montserrat-LightItalic.ttf")
+      format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-medium";
+    src: url("../fonts/montserrat/Montserrat-Medium.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-medium-italic";
+    src: url("../fonts/montserrat/Montserrat-MediumItalic.ttf")
+      format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-regular";
+    src: url("../fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-semibold";
+    src: url("../fonts/montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-semibold-italic";
+    src: url("../fonts/montserrat/Montserrat-SemiBoldItalic.ttf")
+      format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-thin";
+    src: url("../fonts/montserrat/Montserrat-Thin.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "montserrat-thin-italic";
+    src: url("../fonts/montserrat/Montserrat-ThinItalic.ttf") format("truetype");
   }
 }
 
@@ -178,6 +288,27 @@ body {
   --font-figtree-regular: "figtree-regular", "sans-serif";
   --font-figtree-semibold: "figtree-semibold", "sans-serif";
   --font-figtree-semibold-italic: "figtree-semibold-italic", "sans-serif";
+
+  --font-montserrat-black: "montserrat-black", "sans-serif";
+  --font-montserrat-black-italic: "montserrat-black-italic", "sans-serif";
+  --font-montserrat-bold: "montserrat-bold", "sans-serif";
+  --font-montserrat-bold-italic: "montserrat-bold-italic", "sans-serif";
+  --font-montserrat-extrabold: "montserrat-extrabold", "sans-serif";
+  --font-montserrat-extrabold-italic:
+    "montserrat-extrabold-italic", "sans-serif";
+  --font-montserrat-extralight: "montserrat-extralight", "sans-serif";
+  --font-montserrat-extralight-italic:
+    "montserrat-extralight-italic", "sans-serif";
+  --font-montserrat-italic: "montserrat-italic", "sans-serif";
+  --font-montserrat-light: "montserrat-light", "sans-serif";
+  --font-montserrat-light-italic: "montserrat-light-italic", "sans-serif";
+  --font-montserrat-medium: "montserrat-medium", "sans-serif";
+  --font-montserrat-medium-italic: "montserrat-medium-italic", "sans-serif";
+  --font-montserrat-regular: "montserrat-regular", "sans-serif";
+  --font-montserrat-semibold: "montserrat-semibold", "sans-serif";
+  --font-montserrat-semibold-italic: "montserrat-semibold-italic", "sans-serif";
+  --font-montserrat-thin: "montserrat-thin", "sans-serif";
+  --font-montserrat-thin-italic: "montserrat-thin-italic", "sans-serif";
 
   --color-neutral-100: #f4f5f0;
   --color-neutral-900: #221f1f;

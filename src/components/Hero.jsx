@@ -39,14 +39,14 @@ const Hero = forwardRef((props, ref) => {
         <HyperText
           duration={1500}
           animateOnHover={false}
-          className="text-white text-4xl lg:text-6xl uppercase font-ppneune-medium leading-[1.3]"
+          className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]"
         >
           Where Ideas Travel,
         </HyperText>
         <HyperText
           duration={1500}
           animateOnHover={false}
-          className="text-white text-4xl lg:text-6xl uppercase font-ppneune-medium leading-[1.3]"
+          className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]"
         >
           And Stories live forever.
         </HyperText>
