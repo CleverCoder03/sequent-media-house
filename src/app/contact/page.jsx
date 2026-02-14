@@ -209,10 +209,10 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={isSending}
-                className={`w-full font-bold py-5 px-6 transition duration-300 uppercase tracking-widest text-sm ${
+                className={`w-full font-bold py-5 px-6 transition duration-300 uppercase tracking-widest text-sm cursor-pointer ${
                   isSending
                     ? "bg-neutral-800 cursor-not-allowed text-neutral-500"
-                    : "bg-lime-theme hover:bg-lime-500 text-black"
+                    : "bg-purple-600 hover:bg-purple-700 text-white"
                 }`}
               >
                 {isSending ? "Processing..." : "Send Message"}

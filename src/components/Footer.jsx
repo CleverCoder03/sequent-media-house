@@ -25,7 +25,7 @@ const Footer = () => {
           Your browser does not support the video tag.
         </video>
         {/* Optional: Overlay to improve text readability */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* CONTENT */}
@@ -50,7 +50,7 @@ const Footer = () => {
             {/* Follow US */}
             <div className="text-neutral-100 uppercase font-figtree-medium text-xl leading-[1.2]">
               <p>&#8600; &nbsp; Follow Us</p>
-              <div className="flex gap-2 mt-2 md:mt-5 [&_div]:hover:border-black [&_div]:hover:bg-purple-600 [&_div]:hover:text-black [&_div]:hover:transition [&_div]:hover:duration-300">
+              <div className="flex gap-2 mt-2 md:mt-5  [&_div]:hover:bg-purple-600  [&_div]:hover:transition [&_div]:hover:duration-300">
                 <a href="https://www.instagram.com/sequentmediahouse?igsh=emE4amhtYWl0bmxy" target="_blank" rel="noopener noreferrer">
                 <div className="rounded-full border border-white size-12 flex items-center justify-center">
                   <InstagramIcon className="w-5 h-5" />
