@@ -10,23 +10,13 @@ const About = () => {
             Our UAE Ad-tech powerhouse
           </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
-            <p>Together, we operate as one integrated ecosystem:</p>
-            <ul className="list-disc pl-5">
-              <li>Premium DOOH networks</li>
-              <li>Large-format outdoor advertising</li>
-              <li>Indoor retail &amp; mall screen networks</li>
-              <li>
-                Centralised Screen Management (CSM) for multi-location brands
-              </li>
-              <li>Real-time content scheduling &amp; automation</li>
-              <li>Proof-of-play &amp; analytics dashboards</li>
-              <li>Programmatic-ready DOOH</li>
-              <li>Monetisation-ready retail media</li>
-              <li>Rapid deployment across the UAE &amp; India</li>
-            </ul>
+            <p>We operate as a unified ad-tech ecosystem delivering premium DOOH, large-format outdoor, and indoor retail screen networks.
+Powered by centralised screen management, real-time content automation, and proof-of-play analytics.
+Programmatic-ready and monetisation-focused, built for rapid, scalable deployment across the UAE and India.
+</p>
           </div>
         </div>
-        <div className="mt-8 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
+        <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
           <div className="relative w-full sm:w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
             <Image
               src={"/0-about-1.jpeg"}
@@ -46,24 +36,14 @@ const About = () => {
           </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
             <p>
-              When your brand needs to own the skyline. We create bold,
-              high-impact outdoor stories across India & the UAE, from digital
-              billboards to retail networks to mall screens to airport clusters.
-              Our OOH philosophy is simple: If people can’t ignore it, it works.
+              When your brand needs to own the skyline, we deliver bold, high-impact outdoor storytelling across India and the UAE.
+From digital billboards and retail networks to malls and airport clusters, our campaigns are designed to be unmissable.
+Powered by DOOH, hybrid takeovers, experiential formats, and data-led targeting, we turn visibility into impact.
+
             </p>
-            <p>We deliver:</p>
-            <ul className="list-disc pl-5">
-              <li>DOOH &amp; tech-enabled media</li>
-              <li>Static + digital hybrid takeovers</li>
-              <li>Experiential OOH installations</li>
-              <li>Contextual campaigns</li>
-              <li>Multi-city media planning</li>
-              <li>Creative OOH storytelling</li>
-              <li>Category-specific targeting</li>
-            </ul>
           </div>
         </div>
-        <div className="mt-8 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
+        <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
           <div className="relative w-full sm:w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
             <Image
               src={"/0-about-2.jpeg"}
@@ -79,28 +59,16 @@ const About = () => {
       <div className="flex flex-col lg:flex-row px-8 md:px-18 lg:px-30 lg:gap-[5vw] xl:gap-[15vw]">
         <div className="w-full lg:w-1/2 text-neutral-100">
           <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
-            Smart Screen Management
+            Every screen is a story and every play is proof
           </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
             <p>
-              Every screen is a story. Every play is proof. We turn retail
-              screens into revenue engines through our next-gen CMS: Centralised
-              Screen Management by Bubblelit + Sequent.
-            </p>{" "}
-            <p>We offer:</p>
-            <ul className="list-disc pl-5">
-              <li>One dashboard. All locations.</li>
-              <li>Instant content updates (minutes, not days)</li>
-              <li>Real-time promos &amp; dynamic offers</li>
-              <li>Category-level targeting</li>
-              <li>Proof-of-play dashboards</li>
-              <li>Stock-linked content triggers</li>
-              <li>Partner ad monetisation (FMCG, banks, OEMs)</li>
-              <li>Analytics-driven creative decisions</li>
-            </ul>
+              Our next-gen Centralised Screen Management platform transforms retail screens into revenue engines through real-time control, automation, and analytics.
+With one dashboard across locations, proof-of-play reporting, dynamic content triggers, and partner monetisation, we turn screens into measurable performance media.
+            </p>
           </div>
         </div>
-        <div className="mt-8 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
+        <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
           <div className="relative w-full sm:w-100 h-60  lg:w-full lg:h-80 rounded-2xl overflow-hidden">
             <Image
               src={"/0-about-3.jpeg"}
