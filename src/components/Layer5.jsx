@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { HyperText } from "./ui/hyper-text";
 import { WavyBackground } from "./ui/wavy-background";
+import CursorTrail from "./CursorTrail";
 
 const Layer5 = forwardRef((props, ref) => {
   return (
@@ -8,27 +9,35 @@ const Layer5 = forwardRef((props, ref) => {
       ref={ref}
       className="absolute inset-0 bg-black z-50 flex h-dvh items-center justify-center"
     >
+      <CursorTrail
+        imagePaths={["0-about-1.jpeg", "0-about-2.jpeg"]}
+        imageWidth={150}
+        imageHeight={200}
+        mobileImageWidth={100}
+        mobileImageHeight={150}
+        distanceThreshold={100}
+        mobileDistanceThreshold={50}
+      />
       <WavyBackground>
-          <div className="flex flex-col items-center py-[30vh]">
-        <HyperText
-          startOnView={true}
-          duration={1500}
-          animateOnHover={false}
-          className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
-        >
-          ▀ A MODEL FOR THE↘
-        </HyperText>
-        <HyperText
-          startOnView={true}
-          duration={1500}
-          animateOnHover={false}
-          className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
-        >
-          INTELLIGENCE AGE
-        </HyperText>
-      </div>
+        <div className="flex flex-col items-center py-[30vh]">
+          <HyperText
+            startOnView={true}
+            duration={1500}
+            animateOnHover={false}
+            className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
+          >
+            ▀ A MODEL FOR THE↘
+          </HyperText>
+          <HyperText
+            startOnView={true}
+            duration={1500}
+            animateOnHover={false}
+            className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
+          >
+            INTELLIGENCE AGE
+          </HyperText>
+        </div>
       </WavyBackground>
-      
     </div>
   );
 });
