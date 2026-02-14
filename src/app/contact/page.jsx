@@ -84,8 +84,8 @@ const ContactPage = () => {
             speed={120}
             className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
           >
-            LET’S DISCUSS █ LET’S DISCUSS ► LET’S DISCUSS ▲ LET’S DISCUSS □
-            LET’S DISCUSS ◄ LET’S DISCUSS ▀
+            LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS
+            LET’S DISCUSS LET’S DISCUSS
           </Marquee>
         </div>
       </div>
@@ -103,7 +103,7 @@ const ContactPage = () => {
                   Our Office
                 </h4>
                 <p>
-                  Banglore, <br /> India
+                  Bengaluru, <br /> India
                 </p>
               </div>
               <div>
@@ -111,7 +111,7 @@ const ContactPage = () => {
                   Contact Info
                 </h4>
                 <p>hello@sequentmediahouse.com</p>
-                <p>+1 (555) 000-0000</p>
+                <p>+91 6360 44420 | +91  96634 02870</p>
               </div>
             </div>
           </div>
@@ -186,10 +186,11 @@ const ContactPage = () => {
                     Select a service
                   </option>
                   <option value="Branding">Branding</option>
-                  <option value="Web Design">Web Design</option>
-                  <option value="Development">Development</option>
-                  <option value="SEO">SEO</option>
-                  <option value="Social Media">Social Media</option>
+                  <option value="Photography">Photography</option>
+                  <option value="Event Management">Event Management</option>
+                  <option value="Weddings">Weddings</option>
+                  <option value="Corporate gifting">Corporate gifting</option>
+                  <option value="Consulting & Digital PR">Consulting & Digital PR</option>
                 </select>
               </div>
 
