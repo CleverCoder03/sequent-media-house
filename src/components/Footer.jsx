@@ -34,13 +34,13 @@ const Footer = () => {
           speed={120}
           className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
         >
-          LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S
-          DISCUSS LET’S DISCUSS
+          LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S 
+          DISCUSS LET’S DISCUSS&nbsp;
         </Marquee>
         <div className="px-8 md:px-12 lg:px-20 mt-15 pb-5 lg:pb-10">
           <div className="text-neutral-100 uppercase font-figtree-medium text-xl leading-[1.2] flex flex-col md:flex-row justify-between items-start lg:items-center gap-20">
             <div>
-              <p>Bangluru,</p>
+              <p>Bengaluru,</p>
               <p>India</p>
               <div className="mt-5">
                 <Button />
@@ -50,7 +50,7 @@ const Footer = () => {
             {/* Follow US */}
             <div className="text-neutral-100 uppercase font-figtree-medium text-xl leading-[1.2]">
               <p>&#8600; &nbsp; Follow Us</p>
-              <div className="flex gap-2 mt-2 md:mt-5 [&_div]:hover:border-black [&_div]:hover:bg-lime-theme [&_div]:hover:text-black [&_div]:hover:transition [&_div]:hover:duration-300">
+              <div className="flex gap-2 mt-2 md:mt-5 [&_div]:hover:border-black [&_div]:hover:bg-purple-600 [&_div]:hover:text-black [&_div]:hover:transition [&_div]:hover:duration-300">
                 <a href="https://www.instagram.com/sequentmediahouse?igsh=emE4amhtYWl0bmxy" target="_blank" rel="noopener noreferrer">
                 <div className="rounded-full border border-white size-12 flex items-center justify-center">
                   <InstagramIcon className="w-5 h-5" />

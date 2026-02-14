@@ -31,7 +31,7 @@ const Hero = forwardRef((props, ref) => {
           Your browser does not support the video tag.
         </video>
         {/* Optional: Overlay to improve text readability */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/80"></div>
       </div>
 
       {/* Text Content */}

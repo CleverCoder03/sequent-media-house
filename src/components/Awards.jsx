@@ -122,7 +122,7 @@ const Awards = () => {
                 {/* TEXT */}
                 <div className="flex-1">
                   {/* Added group-hover color change for better interactivity */}
-                  <h1 className="font-figtree-semibold text-lg lg:text-2xl text-neutral-100 uppercase transition-colors duration-300 group-hover:text-blue-500">
+                  <h1 className="font-figtree-semibold text-lg lg:text-2xl text-neutral-100 uppercase transition-colors duration-300 group-hover:text-purple-600">
                     {award.title}
                   </h1>
                   

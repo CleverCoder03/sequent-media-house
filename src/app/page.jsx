@@ -68,7 +68,7 @@ export default function Page() {
           scrollTrigger: {
             trigger: mainContainer.current,
             start: "top top",
-            end: isMobile ? "bottom+=400% center" : "bottom+=300% center+=200px",
+            end: "bottom+=400% center+=200px",
             pin: true,
             scrub: 1,
             anticipatePin: 1,
@@ -107,8 +107,8 @@ export default function Page() {
             "-=0.5",
           )
           .to(logoRef.current, {
-            scale: 0.6,
-            y: -150,
+            scale: isMobile ? 1 : 0.6,
+            y: isMobile ? -100 : -150,
             ease: "power2.inOut",
           })
           .to(
@@ -126,7 +126,7 @@ export default function Page() {
               duration: 1.2,
               ease: "power1.inOut",
             },
-            // "-=1",
+            "+=0.5",
           )
           .to(subServicesLayer.current, {
             xPercent: 0,

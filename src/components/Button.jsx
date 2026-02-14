@@ -3,16 +3,16 @@
 import { motion } from "motion/react";
 import Link from "next/link"
 
-const Button = () => {
+const Button = ({className}) => {
   return (
           <Link href={"/contact"}>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative overflow-hidden px-6 py-2 rounded-full
+              className={`relative overflow-hidden px-6 py-2 rounded-full
                         text-xs lg:text-sm font-bold uppercase tracking-widest
                         shadow-lg transition lg:px-8 
-                        text-neutral-900 bg-lime-theme
+                        text-neutral-100 bg-purple-600
                         cursor-pointer
 
                         before:content-['']
@@ -22,8 +22,8 @@ const Button = () => {
                         before:transition-transform before:duration-300
                         before:z-0
 
-                        hover:before:scale-100
-                       "
+                        hover:before:scale-100 hover:text-neutral-900
+                       ${className}`}
             >
               <span className="relative z-10">Contact</span>
             </motion.button>
