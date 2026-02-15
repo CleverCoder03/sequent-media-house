@@ -1,17 +1,8 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import Marquee from "react-fast-marquee";
-
-const clientsLogo1 = [
-  { id: 1, name: "bubblelit", src: "/clients/bubblelit.png" },
-  { id: 2, name: "ccd", src: "/clients/ccd.png" },
-  { id: 3, name: "dhash", src: "/clients/dhash.png" },
-  { id: 4, name: "digpu", src: "/clients/digpu.png" },
-  { id: 5, name: "dnk", src: "/clients/dnk.png" },
-  { id: 6, name: "elesta", src: "/clients/elesta.png" },
-  { id: 7, name: "hygear", src: "/clients/hygear.png" },
-  { id: 8, name: "ies", src: "/clients/ies.png" },
-];
+import { motion } from "motion/react";
 
 const awardsData = [
   {
@@ -80,6 +71,31 @@ const awardsData = [
 ];
 
 const Awards = () => {
+
+  const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2, // delay between each award
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 60, // coming from bottom
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
   return (
     <>
       <div className="my-20 lg:my-10">
@@ -104,10 +120,19 @@ const Awards = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="flex flex-col gap-10">
+          <motion.div
+  className="flex flex-col gap-10"
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+>
             {awardsData.map((award) => (
               // Added 'group' here to control children on hover
-              <div key={award.id} className="group flex items-start gap-8 cursor-pointer">
+              <motion.div
+  key={award.id}
+  variants={itemVariants}
+  className="group flex items-start gap-8 cursor-pointer">
                 {/* ICON */}
                 <div className="hidden lg:w-12 lg:h-12 lg:flex items-center justify-center shrink-0">
                   <Image
@@ -137,9 +162,9 @@ const Awards = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

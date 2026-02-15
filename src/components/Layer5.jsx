@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import { HyperText } from "./ui/hyper-text";
 import { WavyBackground } from "./ui/wavy-background";
 import CursorTrail from "./CursorTrail";
+import { Vortex } from "./ui/vortex";
 
 const Layer5 = forwardRef((props, ref) => {
   return (
@@ -18,7 +19,11 @@ const Layer5 = forwardRef((props, ref) => {
         distanceThreshold={100}
         mobileDistanceThreshold={50}
       />
-      <WavyBackground>
+      <Vortex
+      rangeY={200}
+        backgroundColor="black"
+        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
+      >
         <div className="flex flex-col items-center py-[30vh]">
           <HyperText
             startOnView={true}
@@ -37,7 +42,7 @@ const Layer5 = forwardRef((props, ref) => {
             INTELLIGENCE AGE
           </HyperText> */}
         </div>
-      </WavyBackground>
+      </Vortex>
     </div>
   );
 });

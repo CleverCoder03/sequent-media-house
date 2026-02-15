@@ -3,6 +3,7 @@
 import { forwardRef } from "react";
 import { HyperText } from "./ui/hyper-text";
 import CursorTrail from "./CursorTrail";
+import CharReveal from "./CharReveal";
 
 const Hero = forwardRef((props, ref) => {
   return (
@@ -36,7 +37,7 @@ const Hero = forwardRef((props, ref) => {
 
       {/* Text Content */}
       <div ref={ref} className="relative z-10 lg:w-2/3 pointer-events-none">
-        <HyperText
+        {/* <HyperText
           duration={1500}
           animateOnHover={false}
           className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]"
@@ -49,7 +50,15 @@ const Hero = forwardRef((props, ref) => {
           className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]"
         >
           And Stories live forever.
-        </HyperText>
+        </HyperText> */}
+        <CharReveal>
+          <h1 className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]">
+            Where Ideas Travel,
+          </h1>
+          <h1 className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]">
+            And Stories live forever.
+          </h1>
+        </CharReveal>
       </div>
     </div>
   );
