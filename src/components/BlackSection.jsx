@@ -9,12 +9,12 @@ const BlackSection = forwardRef((props, ref) => {
               ref={ref}
               className="absolute inset-0 bg-black flex flex-col items-center justify-center z-20"
             >
-              <div className="text-center">
+              <div className="text-center font-montserrat-semibold">
                 <HyperText
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-neutral-100 text-5xl md:text-7xl font-bold tracking-tight uppercase"
+                  className="text-neutral-100 text-5xl md:text-7xl tracking-tight uppercase"
                 >
                   Complex
                 </HyperText>
@@ -22,7 +22,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-neutral-100 text-5xl md:text-7xl font-bold tracking-tight uppercase"
+                  className="text-neutral-100 text-5xl md:text-7xl tracking-tight uppercase"
                 >
                   Made
                 </HyperText>
@@ -30,7 +30,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-neutral-100 text-5xl md:text-7xl font-bold tracking-tight uppercase"
+                  className="text-neutral-100 text-5xl md:text-7xl tracking-tight uppercase"
                 >
                   Compelling
                 </HyperText>

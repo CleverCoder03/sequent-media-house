@@ -10,7 +10,7 @@ const Layer5 = forwardRef((props, ref) => {
       ref={ref}
       className="absolute inset-0 bg-black z-50 flex h-dvh items-center justify-center"
     >
-      <CursorTrail
+      {/* <CursorTrail
         imagePaths={["0-about-1.jpeg", "0-about-2.jpeg"]}
         imageWidth={150}
         imageHeight={200}
@@ -18,9 +18,10 @@ const Layer5 = forwardRef((props, ref) => {
         mobileImageHeight={150}
         distanceThreshold={100}
         mobileDistanceThreshold={50}
-      />
+      /> */}
       <Vortex
       rangeY={200}
+      baseHue={120}
         backgroundColor="black"
         className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
       >

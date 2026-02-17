@@ -10,12 +10,12 @@ const Hero = forwardRef((props, ref) => {
     <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
       {/* Cursor Trail Effect */}
       <CursorTrail
-        imagePaths={["0-about-1.jpeg", "0-about-2.jpeg"]}
+        imagePaths={["/home/branding.jpeg", "0-about-1.jpeg", "0-about-2.jpeg"]}
         imageWidth={150}
         imageHeight={200}
         mobileImageWidth={100}
         mobileImageHeight={150}
-        distanceThreshold={100}
+        distanceThreshold={170}
         mobileDistanceThreshold={50}
       />
       {/* Video Background */}
@@ -52,10 +52,10 @@ const Hero = forwardRef((props, ref) => {
           And Stories live forever.
         </HyperText> */}
         <CharReveal>
-          <h1 className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]">
+          <h1 className="text-white text-4xl lg:text-6xl font-montserrat-semibold leading-[1.3]">
             Where Ideas Travel,
           </h1>
-          <h1 className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]">
+          <h1 className="text-white text-4xl lg:text-6xl font-montserrat-semibold leading-[1.3]">
             And Stories live forever.
           </h1>
         </CharReveal>

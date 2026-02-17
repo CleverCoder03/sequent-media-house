@@ -13,17 +13,17 @@ const ExpandingSection = forwardRef(({ blueLayer, logoRef, descRef }, ref) => {
       {/* bg-[#4106b9] */}
       <div
         ref={blueLayer}
-        className="absolute inset-0 bg-purple-600 -z-10"
+        className="absolute inset-0 bg-lime-theme -z-10"
         style={{ transformOrigin: "center center" }}
       />
 
       {/* Content that doesn't get squeezed */}
       <div ref={logoRef} className="text-center px-6 mt-40 md:mt-20">
-        <Logo className="h-[16vw] w-auto text-white" />
+        <Logo className="h-[16vw] w-auto text-neutral-900" />
       </div>
       <p
         ref={descRef}
-        className="text-white/90 text-lg mt-25 md:mt-0 lg:text-xl md:text-base max-w-2xl mx-auto text-center leading-relaxed"
+        className="text-neutral-900 font-montserrat-medium text-lg mt-25 md:mt-0 lg:text-xl md:text-base max-w-2xl md:max-w-3xl mx-auto text-center leading-[1.3]"
       >
         We are not just a company, We’re a collective of curious minds fluent in
         culture, design, and human emotion. We design for those who dare —

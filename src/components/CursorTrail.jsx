@@ -55,7 +55,7 @@ export default function CursorTrail({
         y: y,
         scale: 0,
         opacity: 0,
-        rotation: Math.random() * 30 - 15,
+        // rotation: Math.random() * 30 - 15,
         xPercent: -50,
         yPercent: -50
       });

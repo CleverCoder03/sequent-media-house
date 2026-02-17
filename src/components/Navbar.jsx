@@ -206,7 +206,7 @@ export default function Navbar() {
               <motion.div key={index} variants={itemVariants}>
                 <Link004
                   href={link.href}
-                  className={`text-neutral-100 text-3xl font-bold uppercase tracking-wider ${pathName === link.href ? "text-purple-600" : ""}`}
+                  className={`text-neutral-100 text-3xl font-bold uppercase tracking-wider ${pathName === link.href ? "text-lime-theme" : ""}`}
                 >
                   <TextRoll
                     className={`border-b border-neutral-100/70 ${index === 0 ? "border-t" : ""} w-full`}
@@ -233,7 +233,7 @@ export default function Navbar() {
               transition={{ duration: 0.2 }}
               initial="closed"
               animate={open ? "open" : "closed"}
-              className="text-neutral-100 hover:text-purple-600 transition-colors duration-200"
+              className="text-neutral-100 hover:text-lime-theme transition-colors duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +253,7 @@ export default function Navbar() {
               transition={{ duration: 0.2 }}
               initial="closed"
               animate={open ? "open" : "closed"}
-              className="text-neutral-100 hover:text-purple-600 transition-colors duration-200"
+              className="text-neutral-100 hover:text-lime-theme transition-colors duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -273,7 +273,7 @@ export default function Navbar() {
               transition={{ duration: 0.2 }}
               initial="closed"
               animate={open ? "open" : "closed"}
-              className="text-neutral-100 hover:text-purple-600 transition-colors duration-200"
+              className="text-neutral-100 hover:text-lime-theme transition-colors duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
