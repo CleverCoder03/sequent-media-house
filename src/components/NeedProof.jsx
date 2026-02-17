@@ -82,7 +82,7 @@ const NeedProof = () => {
   return (
     <div
       ref={containerRef}
-      className="relative bg-purple-600 h-dvh overflow-hidden [&_div]:text-neutral-100"
+      className="relative bg-lime-theme h-dvh overflow-hidden [&_div]:text-neutral-900"
     >
       <div
         ref={needRef}
@@ -94,7 +94,7 @@ const NeedProof = () => {
         {/* ADDED opacity-0 here to match the others */}
         <span
           ref={moreRef}
-          className="lg:text-9xl font-figtree-medium px-6 lg:px-12 py-2 text-3xl border-3 lg:border-10 border-neutral-100 rounded-[90px] uppercase opacity-0"
+          className="lg:text-9xl font-figtree-medium px-6 lg:px-12 py-2 text-3xl border-3 lg:border-10 border-neutral-900 rounded-[90px] uppercase opacity-0"
         >
           MORE
         </span>
