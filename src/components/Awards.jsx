@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { motion } from "motion/react";
+import MarqueeIcon from "./MarqueeIcon";
 
 const awardsData = [
   {
@@ -103,8 +104,13 @@ const itemVariants = {
           speed={120}
           className="font-figtree-semibold text-[14vw] lg:text-[8vw] text-neutral-100 my-10 lg:my-20"
         >
-          AWARDS+MENTIONS ▼ AWARDS+MENTIONS ▲ AWARDS+MENTIONS ▀ AWARDS+MENTIONS
-          ◄ AWARDS+MENTIONS ► AWARDS+MENTIONS ∞
+          AWARDS+MENTIONS
+          <MarqueeIcon variant={1} className="mx-5" /> AWARDS+MENTIONS{" "}
+          <MarqueeIcon variant={2} className="mx-5" /> AWARDS+MENTIONS{" "}
+          <MarqueeIcon variant={3} className="mx-5" /> AWARDS+MENTIONS{" "}
+          <MarqueeIcon variant={4} className="mx-5" /> AWARDS+MENTIONS{" "}
+          <MarqueeIcon variant={5} className="mx-5" /> AWARDS+MENTIONS{" "}
+          <MarqueeIcon variant={1} className="mx-5" />
         </Marquee>
       </div>
       <div className="mb-20 lg:mb-0 lg:my-10 px-4 md:px-18 lg:px-25">

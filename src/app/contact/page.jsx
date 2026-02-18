@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Marquee from "react-fast-marquee";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
+import MarqueeIcon from "@/components/MarqueeIcon";
 
 const ContactPage = () => {
   const form = useRef();
@@ -84,8 +85,13 @@ const ContactPage = () => {
             speed={120}
             className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
           >
-            LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS
-            LET’S DISCUSS LET’S DISCUSS
+            LET’S DISCUSS
+          <MarqueeIcon variant={1} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={2} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={3} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={4} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={5} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={1} className="mx-5" />
           </Marquee>
         </div>
       </div>
@@ -128,7 +134,7 @@ const ContactPage = () => {
                   name="user_name"
                   placeholder="Your Name"
                   required
-                  className="w-full bg-transparent border-b border-neutral-800 py-4 focus:outline-none focus:border-purple-500 transition-colors text-white"
+                  className="w-full bg-transparent border-b border-neutral-800 py-4 focus:outline-none focus:border-lime-theme transition-colors text-white"
                 />
               </div>
 
@@ -143,7 +149,7 @@ const ContactPage = () => {
                     name="user_email"
                     placeholder="Your Email"
                     required
-                    className="w-full bg-transparent border-b border-neutral-800 py-4 focus:outline-none focus:border-purple-500 transition-colors text-white"
+                    className="w-full bg-transparent border-b border-neutral-800 py-4 focus:outline-none focus:border-lime-theme transition-colors text-white"
                     onInput={(e) =>
                       (e.target.value = e.target.value.toLowerCase().trim())
                     }
@@ -161,7 +167,7 @@ const ContactPage = () => {
                     placeholder="Your Phone"
                     min={7}
                     maxLength={15}
-                    className="w-full bg-transparent border-b border-neutral-800 py-4 focus:outline-none focus:border-purple-500 transition-colors text-white"
+                    className="w-full bg-transparent border-b border-neutral-800 py-4 focus:outline-none focus:border-lime-theme transition-colors text-white"
                     onInput={(e) =>
                       (e.target.value = e.target.value.replace(
                         /[^0-9+()\s-]/g,
@@ -180,7 +186,7 @@ const ContactPage = () => {
                   name="service"
                   required
                   defaultValue="" // Managed by React here instead of 'selected' on option
-                  className="w-full bg-[#1a1a1a] border border-neutral-800 p-4 focus:outline-none focus:border-purple-500 transition-colors text-neutral-400 appearance-none"
+                  className="w-full bg-[#1a1a1a] border border-neutral-800 p-4 focus:outline-none focus:border-lime-theme transition-colors text-neutral-400 appearance-none"
                 >
                   <option value="" disabled>
                     Select a service
@@ -203,7 +209,7 @@ const ContactPage = () => {
                   rows="4"
                   placeholder="Your Message"
                   required
-                  className="w-full bg-transparent border-b border-neutral-800 py-4 focus:outline-none focus:border-purple-500 transition-colors text-white resize-none"
+                  className="w-full bg-transparent border-b border-neutral-800 py-4 focus:outline-none focus:border-lime-theme transition-colors text-white resize-none"
                 ></textarea>
               </div>
               <button
@@ -212,7 +218,7 @@ const ContactPage = () => {
                 className={`w-full font-bold py-5 px-6 transition duration-300 uppercase tracking-widest text-sm cursor-pointer ${
                   isSending
                     ? "bg-neutral-800 cursor-not-allowed text-neutral-500"
-                    : "bg-purple-600 hover:bg-purple-700 text-white"
+                    : "bg-lime-theme hover:bg-lime-500 text-neutral-900"
                 }`}
               >
                 {isSending ? "Processing..." : "Send Message"}

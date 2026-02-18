@@ -30,7 +30,7 @@ const Layer5 = forwardRef((props, ref) => {
             startOnView={true}
             duration={1500}
             animateOnHover={false}
-            className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
+            className="text-neutral-100 text-5xl md:text-6xl font-bold text-center tracking-tight uppercase"
           >
             Sequent Cannon
           </HyperText>

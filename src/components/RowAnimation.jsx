@@ -10,7 +10,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
       ref={ref}
       className="absolute inset-0 z-40 flex flex-col justify-center"
     >
-      <div className="flex flex-col w-[200%] h-dvh [&>div]:h-1/6 [&>div>div]:lg:gap-5 [&>div>div>span]:font-montserrat-semibold [&>div]:bg-neutral-200">
+      <div className="flex flex-col w-[200%] h-dvh [&>div]:h-1/6 [&>div>div]:lg:gap-5 [&>div>div>span]:font-montserrat-semibold [&>div>div>span]:lg:mx-4 [&>div]:bg-neutral-200">
         {" "}
         {/* Extra width for the speed variation */}
         {/* Row 0: Empty Space */}

@@ -7,6 +7,7 @@ import { LinkedinIcon } from "lucide-react";
 import Logo from "./LogoSvg";
 import Image from "next/image";
 import Link from "next/link";
+import MarqueeIcon from "./MarqueeIcon";
 
 const Footer = () => {
   return (
@@ -34,8 +35,13 @@ const Footer = () => {
           speed={120}
           className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
         >
-          LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S DISCUSS LET’S 
-          DISCUSS LET’S DISCUSS&nbsp;
+          LET’S DISCUSS
+          <MarqueeIcon variant={1} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={2} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={3} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={4} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={5} className="mx-5" /> LET’S DISCUSS{" "}
+          <MarqueeIcon variant={1} className="mx-5" />
         </Marquee>
         <div className="px-8 md:px-12 lg:px-20 mt-15 pb-5 lg:pb-10">
           <div className="text-neutral-100 uppercase font-figtree-medium text-xl leading-[1.2] flex flex-col md:flex-row justify-between items-start lg:items-center gap-20">
@@ -51,19 +57,28 @@ const Footer = () => {
             <div className="text-neutral-100 uppercase font-figtree-medium text-xl leading-[1.2]">
               <p>&#8600; &nbsp; Follow Us</p>
               <div className="flex gap-2 mt-2 md:mt-5  [&_div]:hover:bg-lime-theme [&_div]:hover:text-neutral-900  [&_div]:hover:transition [&_div]:hover:duration-300">
-                <a href="https://www.instagram.com/sequentmediahouse?igsh=emE4amhtYWl0bmxy" target="_blank" rel="noopener noreferrer">
-                <div className="rounded-full border border-white size-12 flex items-center justify-center">
-                  <InstagramIcon className="w-5 h-5" />
-                </div>
+                <a
+                  href="https://www.instagram.com/sequentmediahouse?igsh=emE4amhtYWl0bmxy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="rounded-full border border-white size-12 flex items-center justify-center">
+                    <InstagramIcon className="w-5 h-5" />
+                  </div>
                 </a>
                 <a href="http://" target="_blank" rel="noopener noreferrer">
-                <div className="rounded-full border border-white size-12 flex items-center justify-center">
-                  <FacebookIcon className="w-5 h-5" />
-                </div></a>
-                <a href="https://www.linkedin.com/company/sequent-media-house/" target="_blank" rel="noopener noreferrer">
                   <div className="rounded-full border border-white size-12 flex items-center justify-center">
-                  <LinkedinIcon className="w-5 h-5" />
-                </div>
+                    <FacebookIcon className="w-5 h-5" />
+                  </div>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/sequent-media-house/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="rounded-full border border-white size-12 flex items-center justify-center">
+                    <LinkedinIcon className="w-5 h-5" />
+                  </div>
                 </a>
               </div>
             </div>
