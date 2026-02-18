@@ -34,10 +34,24 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
         elementRef.current.push(element);
 
         const split = SplitText.create(element, {
-          type: "lines",
-          mask: "lines",
-          linesClass: "line++",
-        });
+  type: "lines",
+  linesClass: "line",
+});
+
+splitRef.current.push(split);
+
+// Manually create mask effect (stable version)
+split.lines.forEach((line) => {
+  line.style.overflow = "hidden";
+  line.style.display = "block";
+});
+
+// Push lines
+lines.current.push(...split.lines);
+
+// 🔥 SET INITIAL STATE HERE
+gsap.set(split.lines, { yPercent: 100 });
+
 
         splitRef.current.push(split);
 
@@ -52,8 +66,6 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
         }
         lines.current.push(...split.lines);
       });
-
-      gsap.set(lines.current, {y: "100%"})
 
       const animationProps = {
         y: "0%",

@@ -11,7 +11,7 @@ const RowAnimImg = ({
   return (
     <div
       className={clsx(
-        "relative w-42 lg:w-48 aspect-2/1 rounded-xl overflow-hidden bg-neutral-900",
+        "relative w-42 lg:w-48 aspect-2/1 rounded-md overflow-hidden bg-neutral-900",
         className
       )}
     >

@@ -13,7 +13,7 @@ const About = () => {
               Our UAE Ad-tech powerhouse
             </h1>
           </Copy>
-          <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
+          <div className="mt-6 font-figtree-regular text-neutral-300 text-lg overflow-hidden">
             <Copy>
               <p>
                 We operate as a unified ad-tech ecosystem delivering premium

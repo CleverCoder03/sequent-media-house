@@ -9,6 +9,12 @@ body {
   overflow-x: hidden;
 }
 
+.line {
+  display: block;
+  overflow: hidden;
+}
+
+
 @layer base {
   @font-face {
     font-family: "ppneune-bold";

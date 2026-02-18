@@ -64,7 +64,8 @@ const awardsData = [
   },
   {
     id: 9,
-    title: "Udyog Rattan Award 2017 & Leadership Innovation Excellence Award 2017",
+    title:
+      "Udyog Rattan Award 2017 & Leadership Innovation Excellence Award 2017",
     description:
       "Conferred by the Institute of Economic Studies (IES) for outstanding performance in the fields of advertising, branding, and event management services.",
     image: "/awards/award-9.svg",
@@ -72,30 +73,29 @@ const awardsData = [
 ];
 
 const Awards = () => {
-
   const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2, // delay between each award
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2, // delay between each award
+      },
     },
-  },
-};
+  };
 
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 60, // coming from bottom
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 60, // coming from bottom
     },
-  },
-};
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
     <>
@@ -127,45 +127,39 @@ const itemVariants = {
 
           {/* RIGHT */}
           <motion.div
-  className="flex flex-col gap-10"
-  variants={containerVariants}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.2 }}
->
+            className="flex flex-col gap-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {awardsData.map((award) => (
               // Added 'group' here to control children on hover
               <motion.div
-  key={award.id}
-  variants={itemVariants}
-  className="group flex items-start gap-8 cursor-pointer">
-                {/* ICON */}
-                <div className="hidden lg:w-12 lg:h-12 lg:flex items-center justify-center shrink-0">
+                key={award.id}
+                variants={itemVariants}
+                className="group flex items-start gap-8 cursor-pointer will-change-transform"
+              >
+                <div className="hidden lg:flex w-12 shrink-0">
                   <Image
                     src={award.image}
                     alt={award.title}
                     width={48}
                     height={48}
-                    className="object-contain"
+                    className="w-12 h-auto object-contain"
+                    sizes="48px"
                   />
                 </div>
 
-                {/* TEXT */}
                 <div className="flex-1">
-                  {/* Added group-hover color change for better interactivity */}
                   <h1 className="font-figtree-semibold text-lg lg:text-2xl text-neutral-100 uppercase transition-colors duration-300 group-hover:text-purple-600">
                     {award.title}
                   </h1>
-                  
-                  {/* ANIMATION WRAPPER */}
-                  {/* 1. We use grid with 0fr height by default */}
-                  {/* 2. On group-hover, we switch to 1fr (full height) */}
-                  <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
-                    <div className="overflow-hidden">
-                      <p className="font-figtree-regular mt-2 text-base text-neutral-500 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                        {award.description}
-                      </p>
-                    </div>
+
+                  <div className="overflow-hidden max-h-125 lg:max-h-0 lg:group-hover:max-h-75 transition-[max-height] duration-500 ease-in-out">
+                    <p className="font-figtree-regular mt-2 text-base text-neutral-500 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                      {award.description}
+                    </p>
                   </div>
                 </div>
               </motion.div>

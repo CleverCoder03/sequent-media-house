@@ -36,8 +36,12 @@ const Testimonial = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
-            <p>Kerry Larkin, VP of Global Marketing</p>
-            <p>SCIEX</p>
+            <Copy>
+              <p>Kerry Larkin, VP of Global Marketing</p>
+            </Copy>
+            <Copy>
+              <p>SCIEX</p>
+            </Copy>
           </div>
         </div>
       </div>
@@ -68,8 +72,12 @@ const Testimonial = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
-            <p>DAVE KING</p>
-            <p>MARKETING DIRECTOR, PTS</p>
+            <Copy>
+              <p>DAVE KING</p>
+            </Copy>
+            <Copy>
+              <p>MARKETING DIRECTOR, PTS</p>
+            </Copy>
           </div>
         </div>
       </div>
@@ -100,8 +108,12 @@ const Testimonial = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
-            <p>Jen Garside</p>
-            <p>Global Head of Marketing, YouGov</p>
+            <Copy>
+              <p>Jen Garside</p>
+            </Copy>
+            <Copy>
+              <p>Global Head of Marketing, YouGov</p>
+            </Copy>
           </div>
         </div>
       </div>
