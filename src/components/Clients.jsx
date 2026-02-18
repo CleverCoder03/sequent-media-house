@@ -26,7 +26,7 @@ const clientsLogo2 = [
 
 const ClientLogo = ({ src, name }) => {
   return (
-    <div className="relative mx-8 md:mx-12 w-[140px] md:w-[160px] lg:w-[180px] aspect-[3/1] group">
+    <div className="relative mx-8 md:mx-12 w-35 md:w-40 lg:w-45 aspect-3/1 group">
       <Image
         src={src}
         alt={`${name} logo`}
@@ -36,7 +36,6 @@ const ClientLogo = ({ src, name }) => {
         className={clsx(
           "object-contain brightness-0 invert mix-blend-screen",
           "transition-all duration-500 ease-out",
-          "group-hover:brightness-100 group-hover:invert-0"
         )}
       />
     </div>
