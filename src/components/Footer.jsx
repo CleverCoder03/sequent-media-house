@@ -50,7 +50,7 @@ const Footer = () => {
             {/* Follow US */}
             <div className="text-neutral-100 uppercase font-figtree-medium text-xl leading-[1.2]">
               <p>&#8600; &nbsp; Follow Us</p>
-              <div className="flex gap-2 mt-2 md:mt-5  [&_div]:hover:bg-purple-600  [&_div]:hover:transition [&_div]:hover:duration-300">
+              <div className="flex gap-2 mt-2 md:mt-5  [&_div]:hover:bg-lime-theme [&_div]:hover:text-neutral-900  [&_div]:hover:transition [&_div]:hover:duration-300">
                 <a href="https://www.instagram.com/sequentmediahouse?igsh=emE4amhtYWl0bmxy" target="_blank" rel="noopener noreferrer">
                 <div className="rounded-full border border-white size-12 flex items-center justify-center">
                   <InstagramIcon className="w-5 h-5" />
@@ -70,12 +70,12 @@ const Footer = () => {
           </div>
           <div className="mt-20">
             <div className="flex flex-col gap-8 md:flex-row md:justify-between md:items-center">
-              <div className="w-1/2">
+              <div className="w-1/3">
                 <Link href={"/"}>
                   <Logo className="h-8 lg:h-12 w-auto text-neutral-100" />
                 </Link>
               </div>
-              <div className="flex gap-4 [&_a]:text-neutral-100 [&_a]:uppercase [&_a]:font-figtree-semibold [&_a]:lg:text-xl">
+              <div className="flex flex-1 justify-between gap-4 [&_a]:text-neutral-100 [&_a]:uppercase [&_a]:font-figtree-semibold [&_a]:lg:text-xl">
                 <Link href={"/about"}>About</Link>
                 <Link href={"/services"}>Services</Link>
                 <Link href={"/work"}>Work</Link>

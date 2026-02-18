@@ -1,11 +1,31 @@
-import Image from 'next/image'
+import Image from "next/image";
+import clsx from "clsx";
 
-const RowAnimImg = ({src, className}) => {
+const RowAnimImg = ({
+  src,
+  alt = "Row animation image",
+  className,
+  priority = false,
+  sizes = "(max-width: 768px) 168px, 192px",
+}) => {
   return (
-    <div className={`relative w-42 h-20 lg:h-23 lg:w-48 rounded-xl overflow-hidden bg-neutral-900 ${className || ''}`}>
-        <Image src={src} alt="Row Animation Image" fill className="object-cover opacity-85" />
+    <div
+      className={clsx(
+        "relative w-42 lg:w-48 aspect-2/1 rounded-xl overflow-hidden bg-neutral-900",
+        className
+      )}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        quality={80}
+        className="object-cover opacity-90 transition-transform duration-500 ease-out hover:scale-105"
+      />
     </div>
-  )
-}
+  );
+};
 
-export default RowAnimImg
+export default RowAnimImg;

@@ -28,7 +28,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/form/2.jpg" />
             <RowAnimImg src="/form/3.jpg" />
             <RowAnimImg src="/form/4.jpg" className="hidden xl:block"/>
-            <RowAnimImg src="/form/5.jpeg" className="hidden xl:block"/>
+            <RowAnimImg src="/form/5.jpg" className="hidden xl:block"/>
             <RowAnimImg src="/form/1.jpg" className="hidden xl:block"/>
             <span className="text-neutral-900 text-6xl md:text-6xl lg:text-7xl font-bold uppercase ">
               <TextRoll>
@@ -38,7 +38,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/form/2.jpg" />
             <RowAnimImg src="/form/3.jpg" />
             <RowAnimImg src="/form/4.jpg" />
-            <RowAnimImg src="/form/5.jpeg" />
+            <RowAnimImg src="/form/5.jpg" />
             <RowAnimImg src="/form/1.jpg" />
             <RowAnimImg src="/form/2.jpg" />
           </div>
@@ -54,7 +54,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
           >
             <RowAnimImg src="/frame/1.jpg" />
             <RowAnimImg src="/frame/2.jpg" />
-            <RowAnimImg src="/frame/3.jpeg" />
+            <RowAnimImg src="/frame/3.jpg" />
             <RowAnimImg src="/frame/4.jpg" className="hidden xl:block"/>
             <RowAnimImg src="/frame/5.jpg" className="hidden xl:block"/>
             <RowAnimImg src="/frame/1.jpg" className="hidden xl:block"/>
@@ -64,7 +64,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
               </TextRoll>
             </span>
             <RowAnimImg src="/frame/2.jpg" />
-            <RowAnimImg src="/frame/3.jpeg" />
+            <RowAnimImg src="/frame/3.jpg" />
             <RowAnimImg src="/frame/4.jpg" />
             <RowAnimImg src="/frame/5.jpg" />
             <RowAnimImg src="/frame/1.jpg" />
@@ -82,7 +82,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
           >
             <RowAnimImg src="/stage/1.jpg" />
             <RowAnimImg src="/stage/2.jpg" />
-            <RowAnimImg src="/stage/3.jpeg" />
+            <RowAnimImg src="/stage/3.jpg" />
             <RowAnimImg src="/stage/4.jpg" className="hidden xl:block"/>
             <RowAnimImg src="/stage/5.jpg" className="hidden xl:block"/>
             <RowAnimImg src="/stage/1.jpg" className="hidden xl:block"/>
@@ -92,7 +92,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
               </TextRoll>
             </span>
             <RowAnimImg src="/stage/2.jpg" />
-            <RowAnimImg src="/stage/3.jpeg" />
+            <RowAnimImg src="/stage/3.jpg" />
             <RowAnimImg src="/stage/4.jpg" />
             <RowAnimImg src="/stage/5.jpg" />
             <RowAnimImg src="/stage/1.jpg" />
