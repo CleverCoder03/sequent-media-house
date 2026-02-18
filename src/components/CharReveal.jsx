@@ -35,7 +35,7 @@ export default function CharReveal({
       elements.forEach((element) => {
         const split = SplitText.create(element, {
           // --- KEY CHANGE: Split by characters ---
-          type: "chars",
+          type: "words, chars",
           mask: "chars",
           charsClass: "char-reveal",
         });
@@ -80,9 +80,10 @@ export default function CharReveal({
     { scope: containerRef, dependencies: [animateOnScroll, delay, staggerAmount] }
   );
 
-  if (React.Children.count(children) === 1) {
-    return React.cloneElement(children, { ref: containerRef });
-  }
+return (
+  <div ref={containerRef} data-copy-wrapper="true">
+    {children}
+  </div>
+);
 
-  return <div ref={containerRef} data-copy-wrapper="true">{children}</div>;
 }

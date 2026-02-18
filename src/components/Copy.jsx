@@ -87,11 +87,10 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
     { scope: containerRef, dependencies: [animateOnScroll, delay] }
   );
 
-  if (React.Children.count(children) === 1) {
-    return React.cloneElement(children, {ref: containerRef})
-  }
-
   return (
-    <div ref={containerRef} data-copy-wrapper="true">{children}</div>
-  )
+  <div ref={containerRef} data-copy-wrapper="true">
+    {children}
+  </div>
+);
+
 }
