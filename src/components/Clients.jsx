@@ -50,7 +50,7 @@ const Clients = () => {
         ↘ &nbsp; Name Drops
       </h2>
 
-      <Marquee speed={70} gradient={false} pauseOnHover>
+      <Marquee speed={70} gradient={false}>
         {clientsLogo1.map((client) => (
           <ClientLogo
             key={client.id}
@@ -64,7 +64,6 @@ const Clients = () => {
         speed={70}
         gradient={false}
         direction="right"
-        pauseOnHover
       >
         {clientsLogo2.map((client) => (
           <ClientLogo
