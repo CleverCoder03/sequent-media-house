@@ -47,7 +47,7 @@ const Clients = () => {
     <section className="flex flex-col py-12 md:py-16 lg:py-20 gap-12 md:gap-16 lg:gap-24">
       
       <h2 className="text-sm md:text-base lg:text-lg font-figtree-semibold uppercase text-neutral-100 px-8 md:px-16 lg:px-24 tracking-wider">
-        ↘ &nbsp; Name Drops
+        ↘ &nbsp; Our Clientele
       </h2>
 
       <Marquee speed={70} gradient={false}>
