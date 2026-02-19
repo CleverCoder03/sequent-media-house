@@ -37,10 +37,10 @@ const Hero = forwardRef(({HeroH2Ref}, ref) => {
       {/* Text Content */}
       <div className="relative z-10 lg:w-2/3 pointer-events-none">
         <CharReveal>
-          <h1 ref={ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.3]">
+          <h1 ref={ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.1]">
             Where Ideas Travel,
           </h1>
-          <h1 ref={HeroH2Ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.3]">
+          <h1 ref={HeroH2Ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.1]">
             And Stories live forever.
           </h1>
         </CharReveal>

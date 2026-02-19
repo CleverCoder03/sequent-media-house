@@ -28,6 +28,8 @@ export default function Page() {
   const HeroH2Ref = useRef(null);
   const blueLayer = useRef(null);
   const logoRef = useRef(null);
+  const svgLogoRef = useRef(null);
+  const svgTextRef = useRef(null);
   const descRef = useRef(null);
   const blackLayer = useRef(null);
   const subServicesLayer = useRef(null);
@@ -52,7 +54,16 @@ export default function Page() {
         gsap.set(HeroH2Ref.current, { scale: 1, yPercent: 0 });
         // gsap.set([logoRef.current, descRef.current], { opacity: 0 });
         // gsap.set(logoRef.current, { y: 100 });
-        // gsap.set(descRef.current, { y: -150 });
+        // gsap.set(logoRef.current, {
+        //   yPercent: 50,
+        //   opacity: 0,
+        //   scale: 0.8,
+        //   transformOrigin: "center center",
+        // });
+        gsap.set([svgLogoRef.current, svgTextRef.current], {opacity: 0, transformOrigin: "center center"})
+        gsap.set(svgLogoRef.current, { x: "50vw",  scale: 0})
+        // gsap.set(logoRef.current, { x: 550 });
+        gsap.set(descRef.current, { y: 0, opacity: 0 });
 
         gsap.set(blackLayer.current, { yPercent: 100 });
         gsap.set(subServicesLayer.current, { yPercent: 0, xPercent: 100 });
@@ -66,26 +77,23 @@ export default function Page() {
         );
 
         // --- Logo Independent Timeline ---
-        const logoTl = gsap.timeline();
+        const logoTl = gsap.timeline({ paused: true });
 
-        logoTl
-          .to(logoRef.current, {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "power3.out",
-          })
-          .to(
-            descRef.current,
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.8,
-              ease: "power2.out",
-            },
-            "-=0.5",
-          );
+        // logoTl.to(logoRef.current, {
+        //   y: 0,
+        //   opacity: 1,
+        //   scale: 1,
+        //   duration: 1,
+        //   ease: "power3.out",
+        // });
+        logoTl.to(svgLogoRef.current, {
+          opacity: 1,
+          scale: 1,
+        }).to(svgLogoRef.current, {
+          x: 0
+        }).to(svgTextRef.current, {
+          opacity: 1
+        })
 
         const width = window.innerWidth;
 
@@ -104,14 +112,26 @@ export default function Page() {
             end: "bottom+=600% center+=200px",
             pin: true,
             scrub: 1,
-            refreshPriority: 1,
-            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const direction = self.direction;
+
+              // FIRE logo animation when timeline passes the logoStart point
+              const logoPoint = tl.labels["logoStart"] / tl.duration();
+
+              if (progress >= logoPoint && direction === 1) {
+                logoTl.play(); // forward
+              }
+              if (progress <= logoPoint && direction === -1) {
+                logoTl.reverse(); // backward
+              }
+            },
           },
         });
 
         // ---- MAIN SEQUENCE ----
         tl.to(HeroH1Ref.current, {
-          scale: 4.5,
+          scale: isMobile? 2: 4,
           yPercent: -500,
           duration: 1,
           ease: "power2.inOut",
@@ -119,7 +139,7 @@ export default function Page() {
         tl.to(
           HeroH2Ref.current,
           {
-            scale: 4.5,
+            scale: isMobile? 2: 4,
             yPercent: 500,
             duration: 1,
             ease: "power2.inOut",
@@ -135,7 +155,28 @@ export default function Page() {
             },
             "0.15",
           )
-          .add(logoTl, ">")
+          .addLabel("logoStart")
+          .to(logoRef.current, {
+            // THIS defines the state at end of logoStart
+            yPercent: isMobile ? 0 : 0,
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power4.in",
+          })
+          .to(logoRef.current, {
+            // THIS runs AFTER logoStart ends
+            scale: isMobile ? 1 : 0.6,
+            yPercent:  -60,
+            duration: 1.2,
+            ease: "power2.out",
+          })
+          .to(descRef.current, {
+            opacity: 1,
+            y: -80,
+            duration: 1,
+            ease: "power2.out",
+          })
           .to(
             blackLayer.current,
             {
@@ -230,6 +271,8 @@ export default function Page() {
               blueLayer={blueLayer}
               logoRef={logoRef}
               descRef={descRef}
+              svgLogoRef={svgLogoRef}
+              svgTextRef={svgTextRef}
             />
 
             <BlackSection ref={blackLayer} />
