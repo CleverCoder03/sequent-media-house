@@ -1,7 +1,6 @@
 "use client";
 
 import { forwardRef, useRef } from "react";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -11,18 +10,22 @@ const ExpandingSection = forwardRef(({ blueLayer, logoRef, descRef, svgLogoRef, 
   return (
     <div
       ref={ref}
-      className="absolute inset-0 flex flex-col items-center overflow-hidden justify-center z-10 pointer-events-none"
+      className="absolute inset-0 flex  items-center overflow-hidden justify-center z-10 pointer-events-none"
     >
       {/* Background that animates */}
       {/* bg-[#4106b9] */}
       <div
         ref={blueLayer}
-        className="absolute inset-0 bg-lime-theme -z-10 overflow-hidden"
-        style={{ transformOrigin: "center center" }}
-      />
+        className="relative inset-0 bg-lime-theme -z-10 overflow-hidden flex flex-col justify-center items-center"
+        style={{
+      width: "100%",
+      height: "0vh",
+      transformOrigin: "center center",
+    }}
+      >
 
       {/* Content that doesn't get squeezed */}
-      <div ref={logoRef} className="text-center px-6 mt-40 md:mt-20 overflow-hidden">
+      <div ref={logoRef} className="text-center px-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1893.26 365.93"
@@ -141,7 +144,7 @@ const ExpandingSection = forwardRef(({ blueLayer, logoRef, descRef, svgLogoRef, 
       </div>
       <p
         ref={descRef}
-        className="text-neutral-900 font-montserrat-medium text-base px-4 mt-25 md:mt-0 lg:text-xl max-w-2xl md:max-w-3xl mx-auto text-center leading-[1.3]"
+        className="text-neutral-900 font-montserrat-medium text-base px-4 md:mt-0 lg:text-xl max-w-2xl md:max-w-3xl mx-auto text-center leading-[1.3]"
       >
         We are not just a company, We’re a collective of curious minds fluent in
         culture, design, and human emotion. We design for those who dare —
@@ -149,6 +152,7 @@ const ExpandingSection = forwardRef(({ blueLayer, logoRef, descRef, svgLogoRef, 
         rooted in the UAE, connected across continents — we merge art and
         intellect to craft creativity that moves.
       </p>
+    </div>
     </div>
   );
 });

@@ -45,10 +45,7 @@ export default function Page() {
 
       const ctx = gsap.context(() => {
         // ---- INITIAL STATES ----
-        gsap.set(blueLayer.current, {
-          scaleY: 0,
-          transformOrigin: "center center",
-        });
+        
 
         gsap.set(HeroH1Ref.current, { scale: 1, yPercent: 0 });
         gsap.set(HeroH2Ref.current, { scale: 1, yPercent: 0 });
@@ -60,8 +57,9 @@ export default function Page() {
         //   scale: 0.8,
         //   transformOrigin: "center center",
         // });
-        gsap.set([svgLogoRef.current, svgTextRef.current], {opacity: 0, transformOrigin: "center center"})
-        gsap.set(svgLogoRef.current, { x: "50vw",  scale: 0})
+        gsap.set([svgLogoRef.current, svgTextRef.current], {transformOrigin: "center center"})
+        gsap.set(logoRef.current, { xPercent: 40})
+        gsap.set(svgTextRef.current, { opacity: 0})
         // gsap.set(logoRef.current, { x: 550 });
         gsap.set(descRef.current, { y: 0, opacity: 0 });
 
@@ -86,14 +84,7 @@ export default function Page() {
         //   duration: 1,
         //   ease: "power3.out",
         // });
-        logoTl.to(svgLogoRef.current, {
-          opacity: 1,
-          scale: 1,
-        }).to(svgLogoRef.current, {
-          x: 0
-        }).to(svgTextRef.current, {
-          opacity: 1
-        })
+        logoTl.to(logoRef.current, {xPercent: 0}).to(svgTextRef.current, {opacity: 1, scale: 1, duration: 0.4})
 
         const width = window.innerWidth;
 
@@ -149,13 +140,12 @@ export default function Page() {
           .to(
             blueLayer.current,
             {
-              scaleY: 1,
-              duration: 0.5,
-              ease: "none",
+              height: "100dvh",
+  duration: 0.5,
             },
             "0.15",
           )
-          .addLabel("logoStart")
+          .addLabel("logoStart", "-=0.3")
           .to(logoRef.current, {
             // THIS defines the state at end of logoStart
             yPercent: isMobile ? 0 : 0,
@@ -173,7 +163,7 @@ export default function Page() {
           })
           .to(descRef.current, {
             opacity: 1,
-            y: -80,
+            y: isMobile ? 0 : -80,
             duration: 1,
             ease: "power2.out",
           })
