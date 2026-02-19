@@ -8,6 +8,7 @@ import Logo from "./LogoSvg";
 import Image from "next/image";
 import Link from "next/link";
 import MarqueeIcon from "./MarqueeIcon";
+import { TextRoll } from "./ui/skiper-ui/skiper58";
 
 const Footer = () => {
   return (
@@ -91,10 +92,18 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="flex flex-1 justify-between gap-4 [&_a]:text-neutral-100 [&_a]:uppercase [&_a]:font-figtree-semibold [&_a]:lg:text-xl">
-                <Link href={"/about"}>About</Link>
-                <Link href={"/services"}>Services</Link>
-                <Link href={"/work"}>Work</Link>
-                <a href="mailto:hello@sequentmediahouse.com">Careers</a>
+                <Link href={"/about"}>
+                  <TextRoll>About</TextRoll>
+                </Link>
+                <Link href={"/services"}>
+                  <TextRoll>Services</TextRoll>
+                </Link>
+                <Link href={"/work"}>
+                  <TextRoll>Work</TextRoll>
+                </Link>
+                <a href="mailto:hello@sequentmediahouse.com">
+                  <TextRoll>Careers</TextRoll>
+                </a>
               </div>
             </div>
           </div>
