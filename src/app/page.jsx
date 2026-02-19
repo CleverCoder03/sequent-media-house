@@ -24,7 +24,8 @@ export default function Page() {
   const [loaded, setLoaded] = useState(false);
 
   const mainContainer = useRef(null);
-  const videoRef = useRef(null);
+  const HeroH1Ref = useRef(null);
+  const HeroH2Ref = useRef(null);
   const blueLayer = useRef(null);
   const logoRef = useRef(null);
   const descRef = useRef(null);
@@ -47,18 +48,44 @@ export default function Page() {
           transformOrigin: "center center",
         });
 
-        gsap.set([logoRef.current, descRef.current], { opacity: 0 });
-        gsap.set(logoRef.current, { y: 100 });
-        gsap.set(descRef.current, { y: -150 });
+        gsap.set(HeroH1Ref.current, { scale: 1, yPercent: 0 });
+        gsap.set(HeroH2Ref.current, { scale: 1, yPercent: 0 });
+        // gsap.set([logoRef.current, descRef.current], { opacity: 0 });
+        // gsap.set(logoRef.current, { y: 100 });
+        // gsap.set(descRef.current, { y: -150 });
 
         gsap.set(blackLayer.current, { yPercent: 100 });
         gsap.set(subServicesLayer.current, { yPercent: 0, xPercent: 100 });
         gsap.set(layer5Ref.current, { yPercent: 100 });
 
-        rowsRef.current.forEach((row) => row && gsap.set(row, { xPercent: 10 }));
-        rowsContentRef.current.forEach(
-          (row) => row && gsap.set(row, { xPercent: 0 })
+        rowsRef.current.forEach(
+          (row) => row && gsap.set(row, { xPercent: 10 }),
         );
+        rowsContentRef.current.forEach(
+          (row) => row && gsap.set(row, { xPercent: 0 }),
+        );
+
+        // --- Logo Independent Timeline ---
+        const logoTl = gsap.timeline();
+
+        logoTl
+          .to(logoRef.current, {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "power3.out",
+          })
+          .to(
+            descRef.current,
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power2.out",
+            },
+            "-=0.5",
+          );
 
         const width = window.innerWidth;
 
@@ -74,7 +101,7 @@ export default function Page() {
           scrollTrigger: {
             trigger: mainContainer.current,
             start: "top top",
-            end: "bottom+=400% center+=200px",
+            end: "bottom+=600% center+=200px",
             pin: true,
             scrub: 1,
             refreshPriority: 1,
@@ -83,36 +110,32 @@ export default function Page() {
         });
 
         // ---- MAIN SEQUENCE ----
-        tl.to(videoRef.current, {
-          scale: 1.25,
+        tl.to(HeroH1Ref.current, {
+          scale: 4.5,
+          yPercent: -500,
           duration: 1,
           ease: "power2.inOut",
-        })
+        });
+        tl.to(
+          HeroH2Ref.current,
+          {
+            scale: 4.5,
+            yPercent: 500,
+            duration: 1,
+            ease: "power2.inOut",
+          },
+          "<",
+        )
           .to(
             blueLayer.current,
             {
               scaleY: 1,
-              duration: 0.3,
-              ease: "power2.inOut",
+              duration: 0.5,
+              ease: "none",
             },
-            "0.15"
+            "0.15",
           )
-          .to(
-            logoRef.current,
-            {
-              y: 0,
-              opacity: 1,
-            },
-            "-=0.5"
-          )
-          .to(logoRef.current, {
-            scale: isMobile ? 1 : 0.6,
-            y: isMobile ? -100 : -150,
-            ease: "power2.inOut",
-          })
-          .to(descRef.current, {
-            opacity: 1,
-          })
+          .add(logoTl, ">")
           .to(
             blackLayer.current,
             {
@@ -120,7 +143,7 @@ export default function Page() {
               duration: 1.2,
               ease: "power1.inOut",
             },
-            "+=0.5"
+            "+=0.5",
           )
           .to(subServicesLayer.current, {
             xPercent: 0,
@@ -141,7 +164,7 @@ export default function Page() {
               ease: "none",
               duration: 4,
             },
-            "<"
+            "<",
           );
         });
 
@@ -163,7 +186,7 @@ export default function Page() {
               ease: "none",
               duration: 4,
             },
-            "<"
+            "<",
           );
         });
 
@@ -175,13 +198,13 @@ export default function Page() {
             duration: 1.5,
             ease: "power1.inOut",
           },
-          "-=1.6"
+          "-=1.6",
         );
       }, mainContainer);
 
       return () => ctx.revert();
     },
-    { dependencies: [loaded], scope: mainContainer, revertOnUpdate: true }
+    { dependencies: [loaded], scope: mainContainer, revertOnUpdate: true },
   );
 
   useEffect(() => {
@@ -201,7 +224,7 @@ export default function Page() {
             ref={mainContainer}
             className="relative h-screen w-full overflow-hidden bg-neutral-900"
           >
-            <Hero ref={videoRef} />
+            <Hero ref={HeroH1Ref} HeroH2Ref={HeroH2Ref} />
 
             <ExpandingSection
               blueLayer={blueLayer}

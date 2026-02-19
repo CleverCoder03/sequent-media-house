@@ -1,9 +1,39 @@
 "use client";
 
-import { forwardRef } from "react";
+import { forwardRef, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Logo from "./LogoSvg";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const ExpandingSection = forwardRef(({ blueLayer, logoRef, descRef }, ref) => {
+
+  useGSAP(() => {
+  if (!logoRef?.current) return;
+
+  const ctx = gsap.context(() => {
+
+    // Initial state only
+    gsap.set(logoRef.current, {
+      y: 100,
+      opacity: 0,
+      scale: 0.8
+    });
+
+    gsap.set(descRef.current, {
+      y: 50,
+      opacity: 0
+    });
+
+  }, ref);
+
+  return () => ctx.revert();
+}, []);
+
+
+
   return (
     <div
       ref={ref}
