@@ -1,11 +1,10 @@
 "use client";
 
 import { forwardRef } from "react";
-import { HyperText } from "./ui/hyper-text";
 import CursorTrail from "./CursorTrail";
 import CharReveal from "./CharReveal";
 
-const Hero = forwardRef((props, ref) => {
+const Hero = forwardRef(({HeroH2Ref}, ref) => {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
       {/* Cursor Trail Effect */}
@@ -36,26 +35,12 @@ const Hero = forwardRef((props, ref) => {
       </div>
 
       {/* Text Content */}
-      <div ref={ref} className="relative z-10 lg:w-2/3 pointer-events-none">
-        {/* <HyperText
-          duration={1500}
-          animateOnHover={false}
-          className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]"
-        >
-          Where Ideas Travel,
-        </HyperText>
-        <HyperText
-          duration={1500}
-          animateOnHover={false}
-          className="text-white text-4xl lg:text-6xl uppercase font-playfair-semibold-italic leading-[1.3]"
-        >
-          And Stories live forever.
-        </HyperText> */}
+      <div className="relative z-10 lg:w-2/3 pointer-events-none">
         <CharReveal>
-          <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.3]">
+          <h1 ref={ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.3]">
             Where Ideas Travel,
           </h1>
-          <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.3]">
+          <h1 ref={HeroH2Ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.3]">
             And Stories live forever.
           </h1>
         </CharReveal>
