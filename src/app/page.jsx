@@ -58,7 +58,7 @@ export default function Page() {
         //   transformOrigin: "center center",
         // });
         gsap.set([svgLogoRef.current, svgTextRef.current], {transformOrigin: "center center"})
-        gsap.set(logoRef.current, { xPercent: 40})
+        gsap.set(logoRef.current, { xPercent: isMobile ? 35 : 40})
         gsap.set(svgTextRef.current, { opacity: 0})
         // gsap.set(logoRef.current, { x: 550 });
         gsap.set(descRef.current, { y: 0, opacity: 0 });
