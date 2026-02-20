@@ -14,23 +14,27 @@ const About = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg overflow-hidden">
-
-              <p>
-                We operate as a unified ad-tech ecosystem delivering premium
-                DOOH, large-format outdoor, and indoor retail screen networks.
-                Powered by centralised screen management, real-time content
-                automation, and proof-of-play analytics. Programmatic-ready and
-                monetisation-focused, built for rapid, scalable deployment
-                across the UAE and India.
-              </p>
-
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+              className="text-neutral-300"
+            >
+              We operate as a unified ad-tech ecosystem delivering premium DOOH,
+              large-format outdoor, and indoor retail screen networks. Powered
+              by centralised screen management, real-time content automation,
+              and proof-of-play analytics. Programmatic-ready and
+              monetisation-focused, built for rapid, scalable deployment across
+              the UAE and India.
+            </motion.p>
           </div>
         </div>
         <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.9 }}
             transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
             className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
           >
@@ -53,16 +57,20 @@ const About = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
-
-              <p>
-                When your brand needs to own the skyline, we deliver bold,
-                high-impact outdoor storytelling across India and the UAE. From
-                digital billboards and retail networks to malls and airport
-                clusters, our campaigns are designed to be unmissable. Powered
-                by DOOH, hybrid takeovers, experiential formats, and data-led
-                targeting, we turn visibility into impact.
-              </p>
-
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.9 }}
+              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+              className="text-neutral-300"
+            >
+              When your brand needs to own the skyline, we deliver bold,
+              high-impact outdoor storytelling across India and the UAE. From
+              digital billboards and retail networks to malls and airport
+              clusters, our campaigns are designed to be unmissable. Powered by
+              DOOH, hybrid takeovers, experiential formats, and data-led
+              targeting, we turn visibility into impact.
+            </motion.p>
           </div>
         </div>
         <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
@@ -92,15 +100,19 @@ const About = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
-
-              <p>
-                Our next-gen Centralised Screen Management platform transforms
-                retail screens into revenue engines through real-time control,
-                automation, and analytics. With one dashboard across locations,
-                proof-of-play reporting, dynamic content triggers, and partner
-                monetisation, we turn screens into measurable performance media.
-              </p>
-
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.9 }}
+              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+              className="text-neutral-300"
+            >
+              Our next-gen Centralised Screen Management platform transforms
+              retail screens into revenue engines through real-time control,
+              automation, and analytics. With one dashboard across locations,
+              proof-of-play reporting, dynamic content triggers, and partner
+              monetisation, we turn screens into measurable performance media.
+            </motion.p>
           </div>
         </div>
         <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
