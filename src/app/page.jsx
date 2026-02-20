@@ -103,20 +103,21 @@ export default function Page() {
             end: "bottom+=600% center+=200px",
             pin: true,
             scrub: 1,
-            // onUpdate: (self) => {
-            //   const progress = self.progress;
-            //   const direction = self.direction;
+            refreshPriority: 1,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const direction = self.direction;
 
-            //   // FIRE logo animation when timeline passes the logoStart point
-            //   const logoPoint = tl.labels["logoStart"] / tl.duration();
+              // FIRE logo animation when timeline passes the logoStart point
+              const logoPoint = tl.labels["logoStart"] / tl.duration();
 
-            //   if (progress >= logoPoint && direction === 1) {
-            //     logoTl.play(); // forward
-            //   }
-            //   if (progress <= logoPoint && direction === -1) {
-            //     logoTl.reverse(); // backward
-            //   }
-            // },
+              if (progress >= logoPoint && direction === 1) {
+                logoTl.play(); // forward
+              }
+              if (progress <= logoPoint && direction === -1) {
+                logoTl.reverse(); // backward
+              }
+            },
           },
         });
 
