@@ -22,9 +22,9 @@ const NeedProof = () => {
         zIndex: (i) => (i + 1) * 10 // 10, 20, 30
       });
 
-      const PIN_DURATION = 2500;
-      const START_OFFSET = window.innerHeight * 0.5;
-      const totalAnimationDistance = PIN_DURATION + START_OFFSET;
+      const PIN_DURATION = 2000;
+      // const START_OFFSET = window.innerHeight * 0.5;
+      // const totalAnimationDistance = PIN_DURATION + START_OFFSET;
 
       // ------------------------------------------------
       // SINGLE TRIGGER STRATEGY (More Robust)
@@ -37,7 +37,7 @@ const NeedProof = () => {
         scrollTrigger: {
           trigger: NPContainerRef.current,
           start: "top center", // Animation starts early
-          end: `+=${totalAnimationDistance}`,
+          end: `+=${PIN_DURATION}`,
           scrub: 1,
           id: "animating",
           markers: true,

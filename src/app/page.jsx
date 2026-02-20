@@ -45,21 +45,14 @@ export default function Page() {
 
       const ctx = gsap.context(() => {
         // ---- INITIAL STATES ----
-        
 
         gsap.set(HeroH1Ref.current, { scale: 1, yPercent: 0 });
         gsap.set(HeroH2Ref.current, { scale: 1, yPercent: 0 });
-        // gsap.set([logoRef.current, descRef.current], { opacity: 0 });
-        // gsap.set(logoRef.current, { y: 100 });
-        // gsap.set(logoRef.current, {
-        //   yPercent: 50,
-        //   opacity: 0,
-        //   scale: 0.8,
-        //   transformOrigin: "center center",
-        // });
-        gsap.set([svgLogoRef.current, svgTextRef.current], {transformOrigin: "center center"})
-        gsap.set(logoRef.current, { xPercent: 40})
-        gsap.set(svgTextRef.current, { opacity: 0})
+        gsap.set([svgLogoRef.current, svgTextRef.current], {
+          transformOrigin: "center center",
+        });
+        gsap.set(logoRef.current, { xPercent: 40 });
+        gsap.set(svgTextRef.current, { opacity: 0 });
         // gsap.set(logoRef.current, { x: 550 });
         gsap.set(descRef.current, { y: 0, opacity: 0 });
 
@@ -76,15 +69,9 @@ export default function Page() {
 
         // --- Logo Independent Timeline ---
         const logoTl = gsap.timeline({ paused: true });
-
-        // logoTl.to(logoRef.current, {
-        //   y: 0,
-        //   opacity: 1,
-        //   scale: 1,
-        //   duration: 1,
-        //   ease: "power3.out",
-        // });
-        logoTl.to(logoRef.current, {xPercent: 0}).to(svgTextRef.current, {opacity: 1, scale: 1, duration: 0.4})
+        logoTl
+          .to(logoRef.current, { xPercent: 0 })
+          .to(svgTextRef.current, { opacity: 1, scale: 1, duration: 0.4 });
 
         const width = window.innerWidth;
 
@@ -100,9 +87,10 @@ export default function Page() {
           scrollTrigger: {
             trigger: mainContainer.current,
             start: "top top",
-            end: "bottom+=400% center+=200px",
-            pin: true,
-            scrub: 1,
+            end: "+=3000",
+  pin: true,
+  scrub: 1,
+  pinSpacing: true,
             onUpdate: (self) => {
               const progress = self.progress;
               const direction = self.direction;
@@ -122,7 +110,7 @@ export default function Page() {
 
         // ---- MAIN SEQUENCE ----
         tl.to(HeroH1Ref.current, {
-          scale: isMobile? 2: 4,
+          scale: isMobile ? 2 : 4,
           yPercent: -500,
           duration: 1,
           ease: "power2.inOut",
@@ -130,7 +118,7 @@ export default function Page() {
         tl.to(
           HeroH2Ref.current,
           {
-            scale: isMobile? 2: 4,
+            scale: isMobile ? 2 : 4,
             yPercent: 500,
             duration: 1,
             ease: "power2.inOut",
@@ -141,7 +129,7 @@ export default function Page() {
             blueLayer.current,
             {
               height: "100dvh",
-  duration: 0.5,
+              duration: 0.5,
             },
             "0.15",
           )
@@ -157,7 +145,7 @@ export default function Page() {
           .to(logoRef.current, {
             // THIS runs AFTER logoStart ends
             scale: isMobile ? 1 : 0.6,
-            yPercent:  -60,
+            yPercent: -60,
             duration: 1.2,
             ease: "power2.out",
           })
