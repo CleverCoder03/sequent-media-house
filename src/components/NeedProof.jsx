@@ -40,6 +40,7 @@ const NeedProof = () => {
           end: `+=${totalAnimationDistance}`,
           scrub: 1,
           id: "animating",
+          markers: true,
           // IMPORTANT: Recalculate positions if the DOM shifts
           invalidateOnRefresh: true, 
         },
