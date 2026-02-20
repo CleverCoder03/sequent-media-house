@@ -100,7 +100,7 @@ export default function Page() {
           scrollTrigger: {
             trigger: mainContainer.current,
             start: "top top",
-            end: "bottom+=600% center+=200px",
+            end: "bottom+=400% center+=200px",
             pin: true,
             scrub: 1,
             onUpdate: (self) => {
