@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const NeedProof = () => {
-  const containerRef = useRef(null);
+  const NPContainerRef = useRef(null);
   const needRef = useRef(null);
   const moreRef = useRef(null);
   const proofRef = useRef(null);
@@ -35,7 +35,7 @@ const NeedProof = () => {
       
       const NeedTl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: NPContainerRef.current,
           start: "top center", // Animation starts early
           end: `+=${totalAnimationDistance}`,
           scrub: 1,
@@ -48,7 +48,7 @@ const NeedProof = () => {
 
       // SEPARATE PIN TRIGGER
       ScrollTrigger.create({
-        trigger: containerRef.current,
+        trigger: NPContainerRef.current,
         start: "top top",
         end: `+=${PIN_DURATION}`,
         pin: true,
@@ -65,7 +65,7 @@ const NeedProof = () => {
         .to(proofRef.current, { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" })
         .to({}, { duration: 0.5 }); // Pause
         
-    }, containerRef);
+    }, NPContainerRef);
 
     // 2. CRITICAL FIX FOR PRODUCTION:
     // Force a refresh after a small delay to ensure fonts/layout are stable.
@@ -82,7 +82,7 @@ const NeedProof = () => {
 
   return (
     <div
-      ref={containerRef}
+      ref={NPContainerRef}
       className="relative bg-lime-theme h-dvh overflow-hidden [&_div]:text-neutral-900"
     >
       <div
