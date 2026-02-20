@@ -60,7 +60,7 @@ const Clients = () => {
         ))}
       </Marquee>
 
-      <Marquee
+      {/* <Marquee
         speed={70}
         gradient={false}
         direction="right"
@@ -72,7 +72,7 @@ const Clients = () => {
             name={client.name}
           />
         ))}
-      </Marquee>
+      </Marquee> */}
     </section>
   );
 };

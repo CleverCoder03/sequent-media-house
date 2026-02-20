@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const NeedProof = () => {
-  const NPContainerRef = useRef(null);
+  const containerRef = useRef(null);
   const needRef = useRef(null);
   const moreRef = useRef(null);
   const proofRef = useRef(null);
@@ -22,9 +22,9 @@ const NeedProof = () => {
         zIndex: (i) => (i + 1) * 10 // 10, 20, 30
       });
 
-      const PIN_DURATION = 2000;
-      // const START_OFFSET = window.innerHeight * 0.5;
-      // const totalAnimationDistance = PIN_DURATION + START_OFFSET;
+      const PIN_DURATION = 2500;
+      const START_OFFSET = window.innerHeight * 0.5;
+      const totalAnimationDistance = PIN_DURATION + START_OFFSET;
 
       // ------------------------------------------------
       // SINGLE TRIGGER STRATEGY (More Robust)
@@ -35,12 +35,11 @@ const NeedProof = () => {
       
       const NeedTl = gsap.timeline({
         scrollTrigger: {
-          trigger: NPContainerRef.current,
+          trigger: containerRef.current,
           start: "top center", // Animation starts early
-          end: `+=${PIN_DURATION}`,
+          end: `+=${totalAnimationDistance}`,
           scrub: 1,
           id: "animating",
-          markers: true,
           // IMPORTANT: Recalculate positions if the DOM shifts
           invalidateOnRefresh: true, 
         },
@@ -48,13 +47,11 @@ const NeedProof = () => {
 
       // SEPARATE PIN TRIGGER
       ScrollTrigger.create({
-        trigger: NPContainerRef.current,
+        trigger: containerRef.current,
         start: "top top",
         end: `+=${PIN_DURATION}`,
         pin: true,
         id: "pinning",
-        // IMPORTANT: Recalculate positions if the DOM shifts
-          invalidateOnRefresh: true, 
       });
 
       // --- Animation Sequence ---
@@ -67,7 +64,7 @@ const NeedProof = () => {
         .to(proofRef.current, { scale: 2.5, opacity: 1, duration: 1, ease: "power2.out" })
         .to({}, { duration: 0.5 }); // Pause
         
-    }, NPContainerRef);
+    }, containerRef);
 
     // 2. CRITICAL FIX FOR PRODUCTION:
     // Force a refresh after a small delay to ensure fonts/layout are stable.
@@ -84,7 +81,7 @@ const NeedProof = () => {
 
   return (
     <div
-      ref={NPContainerRef}
+      ref={containerRef}
       className="relative bg-lime-theme h-dvh overflow-hidden [&_div]:text-neutral-900"
     >
       <div
