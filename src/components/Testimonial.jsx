@@ -28,13 +28,11 @@ const Testimonial = () => {
           </motion.div>
         </div>
         <div className="w-full lg:w-1/2 text-neutral-100 lg:text-right">
-          <Copy>
             <h1 className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
               “This year was a watershed moment for SCIEX, you can see just how
               high our bar has got. There&apos;s something in our relationship
               with Boulder that nobody else has.”
             </h1>
-          </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
             <Copy>
               <p>Kerry Larkin, VP of Global Marketing</p>
@@ -65,12 +63,10 @@ const Testimonial = () => {
           </motion.div>
         </div>
         <div className="w-full lg:w-1/2 text-neutral-100">
-          <Copy>
             <h1 className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
               “It never felt like working with an agency with Boulder, more like
               having a true partner in our corner ”
             </h1>
-          </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
             <Copy>
               <p>DAVE KING</p>
@@ -101,12 +97,10 @@ const Testimonial = () => {
           </motion.div>
         </div>
         <div className="w-full lg:w-1/2 text-neutral-100 lg:text-right">
-          <Copy>
             <h1 className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
               “We’re so proud of what we’ve achieved together. A big shout-out
               to Boulder for their creativity and attention to detail”
             </h1>
-          </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
             <Copy>
               <p>Jen Garside</p>

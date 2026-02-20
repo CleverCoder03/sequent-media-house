@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {motion} from "motion/react"
+import { motion } from "motion/react";
 import Copy from "./Copy";
 
 const About = () => {
@@ -14,7 +14,7 @@ const About = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg overflow-hidden">
-            <Copy>
+
               <p>
                 We operate as a unified ad-tech ecosystem delivering premium
                 DOOH, large-format outdoor, and indoor retail screen networks.
@@ -23,24 +23,24 @@ const About = () => {
                 monetisation-focused, built for rapid, scalable deployment
                 across the UAE and India.
               </p>
-            </Copy>
+
           </div>
         </div>
         <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
           <motion.div
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
-  className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
->
-  <Image
-    src={"/0-about-1.jpeg"}
-    alt="About us"
-    className="object-cover"
-    fill
-  />
-</motion.div>
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
+            className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
+          >
+            <Image
+              src={"/0-about-1.jpeg"}
+              alt="About us"
+              className="object-cover"
+              fill
+            />
+          </motion.div>
         </div>
       </div>
 
@@ -53,7 +53,7 @@ const About = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
-            <Copy>
+
               <p>
                 When your brand needs to own the skyline, we deliver bold,
                 high-impact outdoor storytelling across India and the UAE. From
@@ -62,17 +62,17 @@ const About = () => {
                 by DOOH, hybrid takeovers, experiential formats, and data-led
                 targeting, we turn visibility into impact.
               </p>
-            </Copy>
+
           </div>
         </div>
         <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
           <motion.div
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
-  className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
->
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
+            className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
+          >
             <Image
               src={"/0-about-2.jpeg"}
               alt="About us"
@@ -92,7 +92,7 @@ const About = () => {
             </h1>
           </Copy>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
-            <Copy>
+
               <p>
                 Our next-gen Centralised Screen Management platform transforms
                 retail screens into revenue engines through real-time control,
@@ -100,17 +100,17 @@ const About = () => {
                 proof-of-play reporting, dynamic content triggers, and partner
                 monetisation, we turn screens into measurable performance media.
               </p>
-            </Copy>
+
           </div>
         </div>
         <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex items-center md:justify-start lg:justify-center">
           <motion.div
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
-  className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
->
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
+            className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
+          >
             <Image
               src={"/0-about-3.jpeg"}
               alt="About us"
