@@ -53,6 +53,8 @@ const NeedProof = () => {
         end: `+=${PIN_DURATION}`,
         pin: true,
         id: "pinning",
+        // IMPORTANT: Recalculate positions if the DOM shifts
+          invalidateOnRefresh: true, 
       });
 
       // --- Animation Sequence ---

@@ -277,7 +277,9 @@ export default function Page() {
           </div>
 
           <About />
-          <NeedProof />
+          <div className="realtive">
+            <NeedProof />
+          </div>
           <Clients />
           <Testimonial />
           <Awards />
