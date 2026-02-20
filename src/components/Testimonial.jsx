@@ -28,11 +28,14 @@ const Testimonial = () => {
           </motion.div>
         </div>
         <div className="w-full lg:w-1/2 text-neutral-100 lg:text-right">
-            <h1 className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
+            <motion.h1 initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }} className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
               “This year was a watershed moment for SCIEX, you can see just how
               high our bar has got. There&apos;s something in our relationship
               with Boulder that nobody else has.”
-            </h1>
+            </motion.h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
             <Copy>
               <p>Kerry Larkin, VP of Global Marketing</p>
@@ -63,10 +66,13 @@ const Testimonial = () => {
           </motion.div>
         </div>
         <div className="w-full lg:w-1/2 text-neutral-100">
-            <h1 className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
+            <motion.h1 initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }} className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
               “It never felt like working with an agency with Boulder, more like
               having a true partner in our corner ”
-            </h1>
+            </motion.h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
             <Copy>
               <p>DAVE KING</p>
@@ -97,10 +103,13 @@ const Testimonial = () => {
           </motion.div>
         </div>
         <div className="w-full lg:w-1/2 text-neutral-100 lg:text-right">
-            <h1 className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
+            <motion.h1 initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }} className="text-3xl font-figtree-regular leading-[1.08] xl:text-[2.8rem]">
               “We’re so proud of what we’ve achieved together. A big shout-out
               to Boulder for their creativity and attention to detail”
-            </h1>
+            </motion.h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
             <Copy>
               <p>Jen Garside</p>
