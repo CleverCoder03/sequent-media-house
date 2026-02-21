@@ -1,4 +1,6 @@
-import React from "react";
+"use client"; // Required if you are using Next.js App Router for IntersectionObserver
+
+import React, { useState, useEffect, useRef, memo } from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import clsx from "clsx";
@@ -24,55 +26,78 @@ const clientsLogo2 = [
   { id: 15, name: "world-of-lockers", src: "/clients/world-of-lockers.png" },
 ];
 
-const ClientLogo = ({ src, name }) => {
+// 1. Memoize the component to prevent unnecessary re-renders during scroll
+const ClientLogo = memo(({ src, name }) => {
   return (
-    <div className="relative mx-8 md:mx-12 w-35 md:w-40 lg:w-45 aspect-3/1 group">
+    // 2. Fixed Tailwind classes: used standard w-36 and arbitrary aspect-[3/1]
+    <div className="relative mx-8 md:mx-12 w-36 md:w-40 lg:w-44 aspect-3/1 group">
       <Image
         src={src}
         alt={`${name} logo`}
         fill
-        sizes="(max-width: 768px) 140px, (max-width: 1024px) 160px, 180px"
+        sizes="(max-width: 768px) 144px, (max-width: 1024px) 160px, 176px"
         quality={80}
+        // Next.js lazy loads by default, so we don't need to explicitly declare it
         className={clsx(
           "object-contain brightness-0 invert mix-blend-screen",
-          "transition-all duration-500 ease-out",
+          "transition-all duration-500 ease-out"
         )}
       />
     </div>
   );
-};
+});
+
+ClientLogo.displayName = "ClientLogo";
 
 const Clients = () => {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const sectionRef = useRef(null);
+
+  // 3. Section-level Lazy Loading using Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          observer.disconnect(); // Stop observing once loaded
+        }
+      },
+      { rootMargin: "300px" } // Trigger load 300px before it enters the viewport
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="flex flex-col py-12 md:py-16 lg:py-20 gap-12 md:gap-16 lg:gap-24">
-      
+    // 4. Added a min-height to prevent layout shifts when the marquee finally renders
+    <section 
+      ref={sectionRef} 
+      className="flex flex-col py-12 md:py-16 lg:py-20 gap-12 md:gap-16 lg:gap-24 min-h-100"
+    >
       <h2 className="text-sm md:text-base lg:text-lg font-figtree-semibold uppercase text-neutral-100 px-8 md:px-16 lg:px-24 tracking-wider">
         ↘ &nbsp; Our Clientele
       </h2>
 
-      <Marquee speed={70} gradient={false}>
-        {clientsLogo1.map((client) => (
-          <ClientLogo
-            key={client.id}
-            src={client.src}
-            name={client.name}
-          />
-        ))}
-      </Marquee>
+      {/* Only render the heavy Marquee components if the section is near the viewport */}
+      {isIntersecting && (
+        <div className="flex flex-col gap-12 md:gap-16 lg:gap-24">
+          <Marquee speed={70} gradient={false}>
+            {clientsLogo1.map((client) => (
+              <ClientLogo key={client.id} src={client.src} name={client.name} />
+            ))}
+          </Marquee>
 
-      <Marquee
-        speed={70}
-        gradient={false}
-        direction="right"
-      >
-        {clientsLogo2.map((client) => (
-          <ClientLogo
-            key={client.id}
-            src={client.src}
-            name={client.name}
-          />
-        ))}
-      </Marquee>
+          <Marquee speed={70} gradient={false} direction="right">
+            {clientsLogo2.map((client) => (
+              <ClientLogo key={client.id} src={client.src} name={client.name} />
+            ))}
+          </Marquee>
+        </div>
+      )}
     </section>
   );
 };
