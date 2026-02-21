@@ -66,7 +66,7 @@ const ServicesPage = () => {
       {/* --- HERO SECTION --- */}
       <section className="relative w-full h-screen flex flex-col items-center justify-center text-center px-4">
         {/* Optional background glow/gradient to make it pop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 to-black z-0"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-zinc-900 to-black z-0"></div>
         
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-6">
           <h1 className="text-5xl md:text-8xl font-bold tracking-tight">
