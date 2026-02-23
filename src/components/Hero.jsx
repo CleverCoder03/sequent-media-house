@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import CursorTrail from "./CursorTrail";
 import CharReveal from "./CharReveal";
 
-const Hero = forwardRef(({HeroH2Ref}, ref) => {
+const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
       {/* Cursor Trail Effect */}
@@ -31,7 +31,7 @@ const Hero = forwardRef(({HeroH2Ref}, ref) => {
           Your browser does not support the video tag.
         </video>
         {/* Optional: Overlay to improve text readability */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div ref={overlayRef} className="absolute inset-0 bg-black/20"></div>
       </div>
 
       {/* Text Content */}

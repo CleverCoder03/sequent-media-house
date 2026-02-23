@@ -26,6 +26,7 @@ export default function Page() {
   const mainContainer = useRef(null);
   const HeroH1Ref = useRef(null);
   const HeroH2Ref = useRef(null);
+  const overlayRef = useRef(null);
   const blueLayer = useRef(null);
   const logoRef = useRef(null);
   const svgLogoRef = useRef(null);
@@ -123,22 +124,24 @@ export default function Page() {
 
         // ---- MAIN SEQUENCE ----
         tl.to(HeroH1Ref.current, {
-          scale: isMobile? 2: 4,
+          scale: isMobile? 2: 3,
           yPercent: -500,
           duration: 1,
           ease: "power2.inOut",
-        });
-        tl.to(
+        }).to(
           HeroH2Ref.current,
           {
-            scale: isMobile? 2: 4,
+            scale: isMobile? 2: 3,
             yPercent: 500,
             duration: 1,
             ease: "power2.inOut",
           },
           "<",
-        )
-          .to(
+        ).to(overlayRef.current, {
+  backgroundColor: "rgba(0, 0, 0, 1)", // Transitions from 0.2 (bg-black/20) to 1 (full black)
+  duration: 0.5, 
+  ease: "power2.inOut",
+}, "<").to(
             blueLayer.current,
             {
               height: "100dvh",
@@ -202,7 +205,7 @@ export default function Page() {
         });
 
         const contentSpeeds = [
-          getX(-40, -30, 20, 35, 40),
+          getX(-50, -35, 20, 35, 40),
           getX(-35, -25, 15, 25, 30),
           getX(-45, -30, 20, 30, 35),
           getX(-55, -35, 25, 35, 45),
@@ -258,7 +261,7 @@ export default function Page() {
             ref={mainContainer}
             className="relative h-screen w-full overflow-hidden bg-neutral-900"
           >
-            <Hero ref={HeroH1Ref} HeroH2Ref={HeroH2Ref} />
+            <Hero ref={HeroH1Ref} HeroH2Ref={HeroH2Ref} overlayRef={overlayRef} />
 
             <ExpandingSection
               blueLayer={blueLayer}
