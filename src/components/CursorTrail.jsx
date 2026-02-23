@@ -11,8 +11,8 @@ export default function CursorTrail({
     '/images/trail4.jpg',
     '/images/trail5.jpg'
   ],
-  imageWidth = 150,
-  imageHeight = 200,
+  imageWidth = 120,
+  imageHeight = 170,
   mobileImageWidth = 100,
   mobileImageHeight = 150,
   distanceThreshold = 100,
@@ -121,7 +121,7 @@ export default function CursorTrail({
           object-fit: cover;
           pointer-events: none;
           border-radius: 8px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+          // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         @media (max-width: 768px) {

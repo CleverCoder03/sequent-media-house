@@ -14,7 +14,7 @@ const Hero = forwardRef(({HeroH2Ref}, ref) => {
         imageHeight={200}
         mobileImageWidth={100}
         mobileImageHeight={150}
-        distanceThreshold={170}
+        distanceThreshold={150}
         mobileDistanceThreshold={50}
       />
       {/* Video Background */}
@@ -31,7 +31,7 @@ const Hero = forwardRef(({HeroH2Ref}, ref) => {
           Your browser does not support the video tag.
         </video>
         {/* Optional: Overlay to improve text readability */}
-        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       {/* Text Content */}
