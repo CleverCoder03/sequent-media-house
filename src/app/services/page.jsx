@@ -12,12 +12,12 @@ import Navbar from '@/components/Navbar';
 gsap.registerPlugin(ScrollTrigger);
 
 const stickyCardsData = [
-  { index: 1, title: "Branding", image: "/0-about-1.jpeg", description: "First description" },
-  { index: 2, title: "Photography", image: "/0-about-2.jpeg", description: "Second description" },
-  { index: 3, title: "Event Management", image: "/0-about-3.jpeg", description: "Third description" },
-  { index: 4, title: "Weddings", image: "/0-about-1.jpeg", description: "First description" },
-  { index: 5, title: "Corporate gifting", image: "/0-about-2.jpeg", description: "Second description" },
-  { index: 6, title: "Consulting & Digital PR", image: "/0-about-3.jpeg", description: "Third description" }
+  { index: 1, title: "Branding", image: "/0-about-1.jpeg", description: "First description", id: "branding" },
+  { index: 2, title: "Photography", image: "/0-about-2.jpeg", description: "Second description", id: "photography" },
+  { index: 3, title: "Event Management", image: "/0-about-3.jpeg", description: "Third description", id: "event-management" },
+  { index: 4, title: "Weddings", image: "/0-about-1.jpeg", description: "First description", id: "weddings" },
+  { index: 5, title: "Corporate gifting", image: "/0-about-2.jpeg", description: "Second description", id: "complete-gifting" },
+  { index: 6, title: "Consulting & Digital PR", image: "/0-about-3.jpeg", description: "Third description", id: "consulting-&-digital-pr" }
 ];
 
 const ServicesPage = () => {
@@ -93,6 +93,7 @@ const ServicesPage = () => {
             key={card.index}
             style={{ '--overlay-opacity': 0 }}
             className="sticky-card bg-black relative h-screen flex justify-between max-[1000px]:flex-col will-change-transform after:content-[''] after:absolute after:inset-0 after:bg-black after:opacity-(--overlay-opacity,0) after:z-10 after:pointer-events-none after:transition-opacity after:duration-100 after:ease-out"
+            id={card.id}
           >
             {/* Index Section */}
             <div className="flex-1 p-6 md:p-12"> 

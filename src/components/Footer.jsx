@@ -68,8 +68,9 @@ const Footer = () => {
                 <a
                   href="https://x.com"
                   target="_blank"
-                  className="text-neutral-100 hover:text-lime-theme transition-colors duration-200"
+                  rel="noopener noreferrer"
                 >
+                  <div className="rounded-full border border-white size-12 flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="size-5" // Slightly smaller size looks better for the X weight
@@ -78,6 +79,7 @@ const Footer = () => {
                   >
                     <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.294 19.497h2.039L6.486 3.24H4.298l13.31 17.41z" />
                   </svg>
+                  </div>
                 </a>
                 <a
                   href="https://www.linkedin.com/company/sequent-media-house/"

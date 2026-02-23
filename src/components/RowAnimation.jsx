@@ -3,6 +3,7 @@
 import { forwardRef } from "react";
 import RowAnimImg from "./RowAnimImg";
 import { ManualTextRoll } from "./ManualTextRoll";
+import Link from "next/link";
 
 const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
   return (
@@ -10,7 +11,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
       ref={ref}
       className="absolute inset-0 z-40 flex flex-col justify-center"
     >
-      <div className="flex flex-col justify-center w-[200%] h-dvh [&>div>div]:lg:gap-5 [&>div>div>span]:font-figtree-semibold [&>div>div>span]:tracking-tighter [&>div>div>span]:lg:text-[115px] [&>div>div>span]:mt-px [&>div]:bg-neutral-200">
+      <div className="flex flex-col justify-center w-[200%] h-dvh [&>div>div]:lg:gap-5 [&>div>div_span]:font-figtree-semibold [&>div>div_span]:tracking-tighter [&>div>div_span]:lg:text-[115px] [&>div>div_span]:mt-px [&>div]:bg-neutral-200">
         {" "}
         {/* Extra width for the speed variation */}
         {/* Row 0: Empty Space */}
@@ -115,11 +116,13 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/vow/4.jpg" className="hidden lg:block" />
             <RowAnimImg src="/vow/5.jpg" className="md:hidden lg:block"/>
             <RowAnimImg src="/vow/6.jpg" className="md:hidden xl:block"/>
-            <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl font-bold uppercase">
+            <Link href={"/services/#weddings"}>
+              <span className="text-neutral-900 text-6xl md:text-7xl uppercase">
               <ManualTextRoll>
                 VOW
               </ManualTextRoll>
             </span>
+            </Link>
             <RowAnimImg src="/vow/1.jpg" />
             <RowAnimImg src="/vow/2.jpg" />
             <RowAnimImg src="/vow/3.jpg" />
