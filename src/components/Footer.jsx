@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MarqueeIcon from "./MarqueeIcon";
 import { TextRoll } from "./ui/skiper-ui/skiper58";
+import { ManualTextRoll } from "./ManualTextRoll";
 
 const Footer = () => {
   return (
@@ -67,10 +68,19 @@ const Footer = () => {
                     <InstagramIcon className="w-5 h-5" />
                   </div>
                 </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
-                  <div className="rounded-full border border-white size-12 flex items-center justify-center">
-                    <FacebookIcon className="w-5 h-5" />
-                  </div>
+                <a
+                  href="https://x.com"
+                  target="_blank"
+                  className="text-neutral-100 hover:text-lime-theme transition-colors duration-200"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="size-5" // Slightly smaller size looks better for the X weight
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.294 19.497h2.039L6.486 3.24H4.298l13.31 17.41z" />
+                  </svg>
                 </a>
                 <a
                   href="https://www.linkedin.com/company/sequent-media-house/"
@@ -93,16 +103,16 @@ const Footer = () => {
               </div>
               <div className="flex flex-1 justify-between gap-4 [&_a]:text-neutral-100 [&_a]:uppercase [&_a]:font-figtree-semibold [&_a]:lg:text-xl">
                 <Link href={"/about"}>
-                  <TextRoll>About</TextRoll>
+                  <ManualTextRoll>About</ManualTextRoll>
                 </Link>
                 <Link href={"/services"}>
-                  <TextRoll>Services</TextRoll>
+                  <ManualTextRoll>Services</ManualTextRoll>
                 </Link>
                 <Link href={"/work"}>
-                  <TextRoll>Work</TextRoll>
+                  <ManualTextRoll>Work</ManualTextRoll>
                 </Link>
                 <a href="mailto:hello@sequentmediahouse.com">
-                  <TextRoll>Careers</TextRoll>
+                  <ManualTextRoll>Careers</ManualTextRoll>
                 </a>
               </div>
             </div>

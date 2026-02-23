@@ -195,6 +195,7 @@ export default function Page() {
               xPercent: rowSpeeds[i],
               ease: "none",
               duration: 4,
+              force3D: true,
             },
             "<",
           );
@@ -217,6 +218,7 @@ export default function Page() {
               xPercent: contentSpeeds[i - 1],
               ease: "none",
               duration: 4,
+              force3D: true,
             },
             "<",
           );
