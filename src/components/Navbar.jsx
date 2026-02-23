@@ -7,10 +7,8 @@ import { X } from "lucide-react";
 import Logo from "./LogoSvg";
 import Marquee from "react-fast-marquee";
 import { Link004 } from "./ui/skiper-ui/skiper40";
-import { TextRoll } from "./ui/skiper-ui/skiper58";
 import { usePathname } from "next/navigation";
 import Button from "./Button";
-import Image from "next/image";
 import LogoHoz from "./LogoHozSvg";
 import { ManualTextRoll } from "./ManualTextRoll";
 

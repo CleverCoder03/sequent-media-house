@@ -2,13 +2,10 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import Button from "./Button";
 import { InstagramIcon } from "lucide-react";
-import { FacebookIcon } from "lucide-react";
 import { LinkedinIcon } from "lucide-react";
 import Logo from "./LogoSvg";
-import Image from "next/image";
 import Link from "next/link";
 import MarqueeIcon from "./MarqueeIcon";
-import { TextRoll } from "./ui/skiper-ui/skiper58";
 import { ManualTextRoll } from "./ManualTextRoll";
 
 const Footer = () => {
