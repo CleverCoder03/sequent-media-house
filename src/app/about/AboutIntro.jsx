@@ -12,7 +12,7 @@ const AboutIntro = forwardRef(({ exLyFi }, ref) => {
         className="relative z-5 bg-black flex flex-col justify-center items-center w-full h-0 overflow-hidden px-4"
       >
         <div 
-          className="lg:w-[68vw] flex flex-col items-center text-center uppercase font-montserrat-medium leading-tight tracking-tighter"
+          className="lg:w-[68vw] flex flex-col items-center text-center uppercase font-montserrat-medium text-white leading-tight tracking-tighter"
           style={{ fontSize: 'clamp(1.5rem, 4vw, 2vw)' }}
         >
           {/* Mask 1 */}
@@ -39,7 +39,7 @@ const AboutIntro = forwardRef(({ exLyFi }, ref) => {
           {/* WHY? Masking Container */}
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
            <div className="overflow-hidden">
-              <h1 className="why-text font-montserrat-semibold text-[20vw] leading-none">
+              <h1 className="why-text font-montserrat-semibold text-[16vw] leading-none">
                 WHY?
               </h1>
            </div>

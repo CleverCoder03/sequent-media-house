@@ -32,7 +32,7 @@ const AboutPage = () => {
         scrollTrigger: {
           trigger: mainContainer.current,
           start: "top top",
-          end: "bottom+=100% center+=200px",
+          end: "bottom+=200% center+=200px",
           pin: true,
           scrub: 1,
         },
@@ -68,6 +68,7 @@ const AboutPage = () => {
           {
             height: "100dvh",
             duration: 0.5,
+            ease: "power1.out"
           },
           "0.15",
         )
@@ -76,51 +77,51 @@ const AboutPage = () => {
           ".intro-line",
           {
             yPercent: 0,
-            duration: 0.6,
+            duration: 1.5,
             stagger: 0.2, // Time gap between each line starting
             ease: "power3.out",
           },
-          "-=0.5",
+          // "-=0.2",
         )
         // 2. EXIT LINES: Staggered from current position to above the mask
         .to(".intro-line", {
           yPercent: -105,
-          duration: 0.3,
+          duration: 1,
           stagger: 0.05,
           ease: "power3.in",
-        }) // Brief pause for readability
+        }, "+=0.5")
         // REVEAL "WHY?" - Starts at the same time as the lines exit
         .to(
           ".why-text",
           {
             yPercent: 0,
-            // duration: 1,
-            ease: "power3.in",
+            duration: 1,
+            ease: "power3.out",
           },
-          "<",
+          // ">",
         )
         // OPTIONAL: Exit "WHY?"
         // .to(
         //   ".why-text",
         //   {
-        //     scale: 1.8,
+        //     scale: 1.2,
         //     duration: 0.5,
         //     ease: "power3.in",
         //   },
-        // );
+        // )
     },
     { scope: mainContainer },
   );
 
   return (
-    <div ref={mainContainer}>
+    <main>
       <Navbar />
-      <div className="h-dvh w-full text-white flex justify-center items-center relative overflow-hidden">
+      <div ref={mainContainer} className="h-dvh w-full relative overflow-hidden">
         <Hero ref={HeroH1Ref} HeroH2Ref={HeroH2Ref} overlayRef={overlayRef} />
         <AboutIntro exLyFi={exLyFi} textRef={introTextRef} />
       </div>
       <Footer />
-    </div>
+    </main>
   );
 };
 
