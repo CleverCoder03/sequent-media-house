@@ -2,12 +2,12 @@
 
 import React from "react";
 
-const MarqueeIcon = ({ variant = 1, className = "" }) => {
+const MarqueeIcon = ({ variant = 1, className = "", width = 1.5 }) => {
   const commonProps = {
     viewBox: "0 0 48 48",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: 1.5,
+    strokeWidth: width,
     className: `w-[0.8em] h-[0.8em] ${className}`, // scales with text
   };
 

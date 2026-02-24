@@ -1,10 +1,6 @@
 "use client";
 
-import { forwardRef, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { forwardRef } from "react";
 
 const ExpandingSection = forwardRef(({ blueLayer, logoRef, descRef, svgLogoRef, svgTextRef }, ref) => {
   return (
