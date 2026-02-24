@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Hero from "./Hero";
 import AboutIntro from "./AboutIntro";
+import MediaSection from "./MediaSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,10 @@ const AboutPage = () => {
   const overlayRef = useRef(null);
   const exLyFi = useRef(null);
   const introTextRef = useRef(null); // Ref for the text masking
+  const whyContainerRef = useRef(null)
+  const exLySe = useRef(null)
+  const enImg = useRef(null)
+  const scText = useRef(null)
 
   useGSAP(
     () => {
@@ -26,13 +31,17 @@ const AboutPage = () => {
       gsap.set(HeroH2Ref.current, { scale: 1, yPercent: 0 });
       gsap.set(".intro-line", { yPercent: 105 }); // Hide all lines below their respective masks
       gsap.set(".why-text", { yPercent: 105, scale: 1 }); // Hide WHY? initially
+      gsap.set(whyContainerRef.current, {scale: 1})
+
+      gsap.set(enImg.current, {scale: 2})
+      gsap.set(scText.current, {xPercent: 100})
 
       // ---- MAIN SEQUENCE ----
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainContainer.current,
           start: "top top",
-          end: "bottom+=200% center+=200px",
+          end: "bottom+=300% center+=200px",
           pin: true,
           scrub: 1,
         },
@@ -89,7 +98,7 @@ const AboutPage = () => {
           duration: 1,
           stagger: 0.05,
           ease: "power3.in",
-        }, "+=0.5")
+        }, "+=0.2")
         // REVEAL "WHY?" - Starts at the same time as the lines exit
         .to(
           ".why-text",
@@ -109,6 +118,30 @@ const AboutPage = () => {
         //     ease: "power3.in",
         //   },
         // )
+        .to(whyContainerRef.current, {
+          scale: 2.2,
+          duration: 1,
+          ease: "power2.inOut"
+        }, ">")
+        .to(
+          exLySe.current,
+          {
+            height: "100dvh",
+            duration: 1,
+            ease: "power3.inOut"
+          },
+          "<",
+        ).to(
+          enImg.current, {
+            scale: 0.2,
+            duration: 5,
+          }, "<"
+        ).to(
+          scText.current, {
+            xPercent: -37,
+            duration: 5
+          }, "<"
+        )
     },
     { scope: mainContainer },
   );
@@ -118,7 +151,8 @@ const AboutPage = () => {
       <Navbar />
       <div ref={mainContainer} className="h-dvh w-full relative overflow-hidden">
         <Hero ref={HeroH1Ref} HeroH2Ref={HeroH2Ref} overlayRef={overlayRef} />
-        <AboutIntro exLyFi={exLyFi} textRef={introTextRef} />
+        <AboutIntro exLyFi={exLyFi} textRef={introTextRef} whyContainerRef={whyContainerRef} />
+        <MediaSection exLySe={exLySe} enImg={enImg} scText={scText} />
       </div>
       <Footer />
     </main>

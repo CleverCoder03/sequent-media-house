@@ -1,7 +1,6 @@
-"use client";
 import React, { forwardRef } from "react";
 
-const AboutIntro = forwardRef(({ exLyFi }, ref) => {
+const AboutIntro = forwardRef(({ exLyFi, whyContainerRef }, ref) => {
   return (
     <div
       ref={ref}
@@ -38,7 +37,7 @@ const AboutIntro = forwardRef(({ exLyFi }, ref) => {
 
           {/* WHY? Masking Container */}
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-           <div className="overflow-hidden">
+           <div ref={whyContainerRef} className="overflow-hidden">
               <h1 className="why-text font-montserrat-semibold text-[16vw] leading-none">
                 WHY?
               </h1>
