@@ -9,6 +9,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "./Hero";
 import AboutIntro from "./AboutIntro";
 import MediaSection from "./MediaSection";
+import SliderSection from "./SliderSection";
+import { slides } from "@/constant/slides";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,37 +20,60 @@ const AboutPage = () => {
   const HeroH2Ref = useRef(null);
   const overlayRef = useRef(null);
   const exLyFi = useRef(null);
-  const introTextRef = useRef(null); // Ref for the text masking
-  const whyContainerRef = useRef(null)
-  const exLySe = useRef(null)
-  const enImg = useRef(null)
-  const scText = useRef(null)
+  const introTextRef = useRef(null);
+  const whyContainerRef = useRef(null);
+  const exLySe = useRef(null);
+  const enImg = useRef(null);
+  const scText = useRef(null);
+  const exLyTh = useRef(null);
+  const sliderRef = useRef(null);
+  const sliderRatioRef = useRef({ start: 0, end: 1 });
 
   useGSAP(
     () => {
       // ---- INITIAL STATES ----
       gsap.set(HeroH1Ref.current, { scale: 1, yPercent: 0 });
       gsap.set(HeroH2Ref.current, { scale: 1, yPercent: 0 });
-      gsap.set(".intro-line", { yPercent: 105 }); // Hide all lines below their respective masks
-      gsap.set(".why-text", { yPercent: 105, scale: 1 }); // Hide WHY? initially
-      gsap.set(whyContainerRef.current, {scale: 1})
-
-      gsap.set(enImg.current, {scale: 2})
-      gsap.set(scText.current, {xPercent: 100})
+      gsap.set(".intro-line", { yPercent: 105 });
+      gsap.set(".why-text", { yPercent: 105, scale: 1 });
+      gsap.set(whyContainerRef.current, { scale: 1 });
+      gsap.set(enImg.current, { scale: 2 });
+      gsap.set(scText.current, { xPercent: 100 });
 
       // ---- MAIN SEQUENCE ----
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainContainer.current,
           start: "top top",
-          end: "bottom+=300% center+=200px",
+          end: "bottom+=800% center+=200px", // Extended from 300% to give slider room
           pin: true,
           scrub: 1,
+          onUpdate: (self) => {
+            const { start, end } = sliderRatioRef.current;
+            if (start === 0 && end === 1) return;
+
+            const sliderProgress = Math.min(
+              Math.max(0, (self.progress - start) / (end - start)),
+              1,
+            );
+
+            sliderRef.current?.updateProgress(sliderProgress);
+
+            // Use (slides.length - 1) so last slide gets a full segment, not a sliver
+            const newIndex = Math.min(
+              Math.floor(sliderProgress * slides.length),
+              slides.length - 1,
+            );
+
+            if (sliderProgress > 0) {
+              sliderRef.current?.goToSlide(newIndex);
+            }
+          },
         },
       });
 
       tl.to(HeroH1Ref.current, {
-        scale: 3, // Normalized from your isMobile logic for simplicity
+        scale: 3,
         yPercent: -500,
         duration: 1,
         ease: "power2.inOut",
@@ -61,7 +86,7 @@ const AboutPage = () => {
             duration: 1,
             ease: "power2.inOut",
           },
-          "<", // Starts at the same time as the H1 animation
+          "<",
         )
         .to(
           overlayRef.current,
@@ -70,78 +95,87 @@ const AboutPage = () => {
             duration: 1,
             ease: "power2.inOut",
           },
-          "<", // Starts at the same time
+          "<",
         )
         .to(
           exLyFi.current,
           {
             height: "100dvh",
             duration: 0.5,
-            ease: "power1.out"
+            ease: "power1.out",
           },
           "0.15",
         )
-        // 1. REVEAL LINES: Staggered from bottom to top
+        .to(".intro-line", {
+          yPercent: 0,
+          duration: 1.5,
+          stagger: 0.2,
+          ease: "power3.out",
+        })
         .to(
           ".intro-line",
           {
-            yPercent: 0,
-            duration: 1.5,
-            stagger: 0.2, // Time gap between each line starting
-            ease: "power3.out",
-          },
-          // "-=0.2",
-        )
-        // 2. EXIT LINES: Staggered from current position to above the mask
-        .to(".intro-line", {
-          yPercent: -105,
-          duration: 1,
-          stagger: 0.05,
-          ease: "power3.in",
-        }, "+=0.2")
-        // REVEAL "WHY?" - Starts at the same time as the lines exit
-        .to(
-          ".why-text",
-          {
-            yPercent: 0,
+            yPercent: -105,
             duration: 1,
-            ease: "power3.out",
+            stagger: 0.05,
+            ease: "power3.in",
           },
-          // ">",
+          "+=0.2",
         )
-        // OPTIONAL: Exit "WHY?"
-        // .to(
-        //   ".why-text",
-        //   {
-        //     scale: 1.2,
-        //     duration: 0.5,
-        //     ease: "power3.in",
-        //   },
-        // )
-        .to(whyContainerRef.current, {
-          scale: 2.2,
+        .to(".why-text", {
+          yPercent: 0,
           duration: 1,
-          ease: "power2.inOut"
-        }, ">")
+          ease: "power3.out",
+        })
+        .to(
+          whyContainerRef.current,
+          {
+            scale: 2.2,
+            duration: 1,
+            ease: "power2.inOut",
+          },
+          ">",
+        )
         .to(
           exLySe.current,
           {
             height: "100dvh",
             duration: 1,
-            ease: "power3.inOut"
+            ease: "power3.inOut",
           },
           "<",
-        ).to(
-          enImg.current, {
+        )
+        .to(
+          enImg.current,
+          {
             scale: 0.2,
             duration: 5,
-          }, "<"
-        ).to(
-          scText.current, {
-            xPercent: -37,
-            duration: 5
-          }, "<"
+          },
+          "<",
         )
+        .to(
+          scText.current,
+          {
+            xPercent: -37,
+            duration: 5,
+          },
+          "<",
+        )
+        // ✅ Label placed RIGHT before slider section opens
+        .addLabel("sliderStart")
+        .to(exLyTh.current, {
+          height: "100dvh",
+          duration: 1,
+          ease: "power3.inOut",
+        })
+        // ✅ Add extra duration so slider has room to cycle through all slides
+        .to({}, { duration: 12 }); // empty tween — pure scroll breathing room for slider
+
+      // ✅ Compute exact ratios from timeline after it's built
+      sliderRatioRef.current = {
+        start: tl.labels.sliderStart / tl.totalDuration(),
+        end: 1.0,
+      };
     },
     { scope: mainContainer },
   );
@@ -149,10 +183,18 @@ const AboutPage = () => {
   return (
     <main>
       <Navbar />
-      <div ref={mainContainer} className="h-dvh w-full relative overflow-hidden">
+      <div
+        ref={mainContainer}
+        className="h-dvh w-full relative overflow-hidden"
+      >
         <Hero ref={HeroH1Ref} HeroH2Ref={HeroH2Ref} overlayRef={overlayRef} />
-        <AboutIntro exLyFi={exLyFi} textRef={introTextRef} whyContainerRef={whyContainerRef} />
+        <AboutIntro
+          exLyFi={exLyFi}
+          textRef={introTextRef}
+          whyContainerRef={whyContainerRef}
+        />
         <MediaSection exLySe={exLySe} enImg={enImg} scText={scText} />
+        <SliderSection ref={sliderRef} exLyTh={exLyTh} />
       </div>
       <Footer />
     </main>
