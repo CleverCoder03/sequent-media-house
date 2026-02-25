@@ -87,7 +87,7 @@ const TeamCarousel = () => {
         {/* IMAGES CONTAINER */}
         <div className="flex items-center justify-center gap-4 md:gap-10 px-4">
           {/* HIDE OUTER IMAGES ON MOBILE (Hidden below 'md') */}
-          <div className="hidden lg:block w-[180px] h-[250px] relative grayscale opacity-30 shrink-0">
+          <div className="hidden lg:block w-[180px] h-[250px] relative grayscale opacity-60 shrink-0">
             <Image
               src={prePrev.src}
               alt=""
@@ -96,7 +96,7 @@ const TeamCarousel = () => {
             />
           </div>
 
-          <div className="hidden md:block w-[150px] h-[220px] lg:w-[200px] lg:h-[280px] relative grayscale opacity-60 shrink-0">
+          <div className="hidden md:block w-[150px] h-[220px] lg:w-[200px] lg:h-[280px] relative grayscale opacity-80 shrink-0">
             <Image
               src={prev.src}
               alt=""
@@ -116,7 +116,7 @@ const TeamCarousel = () => {
             />
           </div>
 
-          <div className="hidden md:block w-[150px] h-[220px] lg:w-[200px] lg:h-[280px] relative grayscale opacity-60 shrink-0">
+          <div className="hidden md:block w-[150px] h-[220px] lg:w-[200px] lg:h-[280px] relative grayscale opacity-80 shrink-0">
             <Image
               src={next.src}
               alt=""
@@ -125,7 +125,7 @@ const TeamCarousel = () => {
             />
           </div>
 
-          <div className="hidden lg:block w-[180px] h-[250px] relative grayscale opacity-30 shrink-0">
+          <div className="hidden lg:block w-[180px] h-[250px] relative grayscale opacity-60 shrink-0">
             <Image
               src={nextNext.src}
               alt=""
