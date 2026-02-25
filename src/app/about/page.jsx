@@ -197,7 +197,7 @@ const AboutPage = () => {
         <MediaSection exLySe={exLySe} enImg={enImg} scText={scText} />
         <SliderSection ref={sliderRef} exLyTh={exLyTh} />
       </div>
-      {/* <TeamCarousel /> */}
+      <TeamCarousel />
       <Footer />
     </main>
   );

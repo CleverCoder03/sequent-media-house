@@ -1,227 +1,197 @@
 "use client";
-import React, { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { EffectCoverflow, Navigation, A11y } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/navigation";
+import Image from "next/image";
+import React, { useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import Marquee from "react-fast-marquee";
+import MarqueeIcon from "@/components/MarqueeIcon";
 
 const teamMembers = [
-  { src: "/0-about-1.jpeg", name: "JAMES", role: "Creative Lead" },
-  { src: "/0-about-1.jpeg", name: "MARK", role: "Art Director" },
-  { src: "/0-about-1.jpeg", name: "ANNABELLE", lastName: "WILSON", role: "Client Services Director" },
-  { src: "/0-about-1.jpeg", name: "RACHEL", role: "Account Manager" },
-  { src: "/0-about-1.jpeg", name: "MATT", role: "Developer" },
-  { src: "/0-about-1.jpeg", name: "CHARLIE", role: "Strategist" },
+  { src: "/0-about-1.jpeg", name: "Namrataa Dwarakanath", role: "Founder" },
+  { src: "/0-about-2.jpeg", name: "Manogjnaa Dwarakanath", role: "Co-founder" },
+  {
+    src: "/0-about-3.jpeg",
+    name: "Sharath Kumar Basavaraju",
+    lastName: "WILSON",
+    role: "Director & Business Development Head",
+  },
+  { src: "/0-about-1.jpeg", name: "RACHEL", role: "Graphic designer" },
+  { src: "/0-about-2.jpeg", name: "MATT", role: "Web developer" },
+  { src: "/0-about-3.jpeg", name: "JAMES", role: "Web developer" },
+  { src: "/0-about-1.jpeg", name: "MARK", role: "Event head" },
+  { src: "/0-about-2.jpeg", name: "ANNABELLE", role: "Photographer" },
 ];
 
 const TeamCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const total = teamMembers.length;
+
+  const goToSlide = (index) => {
+    const newIndex = (index + total) % total;
+    setCurrentIndex(newIndex);
+  };
+
+  const getAt = (offset) =>
+    teamMembers[(currentIndex + offset + total) % total];
+
+  const current = getAt(0);
+  const prev = getAt(-1);
+  const prePrev = getAt(-2);
+  const next = getAt(1);
+  const nextNext = getAt(2);
+
+  // Swipe Logic
+  const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
+  const handleTouchEnd = (e) => {
+    if (!touchStart) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    if (touchStart - touchEnd > 50) goToSlide(currentIndex + 1); // Swipe Left
+    if (touchStart - touchEnd < -50) goToSlide(currentIndex - 1); // Swipe Right
+    setTouchStart(null);
+  };
+
+  useGSAP(() => {
+    // Keep animations snappy for responsive feel
+    gsap.fromTo(
+      ".teamIMG",
+      { xPercent: -5 },
+      { xPercent: 0, duration: 0.4, ease: "power2.out" },
+    );
+    gsap.fromTo(
+      ".details h2, .details p",
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.1 },
+    );
+  }, [currentIndex]);
+
   return (
-    <div className="w-full bg-[#FF5F00] py-16 overflow-hidden" style={{ fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif" }}>
-      <style>{`
-        .team-swiper {
-          overflow: visible !important;
-          padding: 40px 0 80px !important;
-        }
+    <>
+      <Marquee
+        speed={120}
+        className="font-figtree-semibold text-[14vw] lg:text-[8vw] text-neutral-900 bg-lime-500 pt-8 lg:pt-15"
+      >
+        MEET THE TEAM
+        <MarqueeIcon variant={1} className="mx-5" /> MEET THE TEAM{" "}
+        <MarqueeIcon variant={2} className="mx-5" /> MEET THE TEAM{" "}
+        <MarqueeIcon variant={3} className="mx-5" /> MEET THE TEAM{" "}
+        <MarqueeIcon variant={4} className="mx-5" /> MEET THE TEAM{" "}
+        <MarqueeIcon variant={5} className="mx-5" /> MEET THE TEAM{" "}
+        <MarqueeIcon variant={1} className="mx-5" />
+      </Marquee>
+      <section
+        className="w-full py-12 md:py-20 bg-lime-500 text-black relative overflow-hidden touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* IMAGES CONTAINER */}
+        <div className="flex items-center justify-center gap-4 md:gap-10 px-4">
+          {/* HIDE OUTER IMAGES ON MOBILE (Hidden below 'md') */}
+          <div className="hidden lg:block w-[180px] h-[250px] relative grayscale opacity-30 shrink-0">
+            <Image
+              src={prePrev.src}
+              alt=""
+              fill
+              className="object-cover rounded teamIMG"
+            />
+          </div>
 
-        .team-swiper .swiper-slide {
-          transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
-          opacity: 0.35;
-          filter: blur(0px);
-          transform: scale(0.78);
-        }
+          <div className="hidden md:block w-[150px] h-[220px] lg:w-[200px] lg:h-[280px] relative grayscale opacity-60 shrink-0">
+            <Image
+              src={prev.src}
+              alt=""
+              fill
+              className="object-cover rounded teamIMG"
+            />
+          </div>
 
-        .team-swiper .swiper-slide-active {
-          opacity: 1 !important;
-          filter: blur(0px) !important;
-          transform: scale(1) !important;
-        }
+          {/* CENTER BIG IMAGE (Responsive Sizing) */}
+          <div className="w-[280px] h-[350px] md:w-[350px] md:h-[420px] relative grayscale shrink-0 z-10 shadow-2xl">
+            <Image
+              src={current.src}
+              alt={current.name}
+              fill
+              className="object-cover rounded teamIMG"
+              priority
+            />
+          </div>
 
-        .team-swiper .swiper-slide-prev,
-        .team-swiper .swiper-slide-next {
-          opacity: 0.6 !important;
-          transform: scale(0.85) !important;
-        }
+          <div className="hidden md:block w-[150px] h-[220px] lg:w-[200px] lg:h-[280px] relative grayscale opacity-60 shrink-0">
+            <Image
+              src={next.src}
+              alt=""
+              fill
+              className="object-cover rounded teamIMG"
+            />
+          </div>
 
-        /* hide default swiper navigation */
-        .team-swiper .swiper-button-next,
-        .team-swiper .swiper-button-prev {
-          display: none;
-        }
+          <div className="hidden lg:block w-[180px] h-[250px] relative grayscale opacity-30 shrink-0">
+            <Image
+              src={nextNext.src}
+              alt=""
+              fill
+              className="object-cover rounded teamIMG"
+            />
+          </div>
+        </div>
 
-        .nav-btn {
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 4px;
-          transition: transform 0.2s ease;
-          line-height: 0;
-        }
-        .nav-btn:hover { transform: scale(1.2); }
-        .nav-btn:active { transform: scale(0.9); }
+        {/* NAME + ROLE */}
+        <div className="text-center mt-8 md:mt-10 details px-6 pointer-events-none">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-wide uppercase">
+            {current.name} {current.lastName && <span>{current.lastName}</span>}
+          </h2>
+          <p className="text-base md:text-lg mt-1 md:mt-2 opacity-70 italic">
+            {current.role}
+          </p>
+        </div>
 
-        .slide-name {
-          font-family: 'Arial Black', 'Impact', sans-serif;
-          font-weight: 900;
-          font-size: clamp(18px, 2.2vw, 28px);
-          letter-spacing: -0.03em;
-          line-height: 1;
-          color: #000;
-          text-transform: uppercase;
-        }
+        {/* ARROWS (Hidden or smaller on mobile to prevent overlap) */}
+        <div className="absolute inset-y-0 w-full flex justify-between items-center px-4 md:px-10 pointer-events-none">
+          <button
+            onClick={() => goToSlide(currentIndex - 1)}
+            className="pointer-events-auto bg-white/80 hover:bg-white/60 p-2 rounded-full backdrop-blur-sm transition-all"
+          >
+            <div className="relative size-8 md:size-10">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="black" // Sets the color to black
+                strokeWidth="2.5"
+                strokeLinecap="square"
+                className="w-full h-full"
+              >
+                <path d="M15 19l-7-7 7-7" />
+              </svg>
+            </div>
+          </button>
 
-        .slide-role {
-          font-family: 'Arial', sans-serif;
-          font-size: clamp(9px, 0.9vw, 12px);
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #000;
-          opacity: 0.75;
-          margin-top: 8px;
-          margin-left: 28px;
-          font-style: italic;
-        }
+          <button
+            onClick={() => goToSlide(currentIndex + 1)}
+            className="pointer-events-auto bg-white/80 hover:bg-white/60 p-2 rounded-full backdrop-blur-sm transition-all"
+          >
+            <div className="relative size-8 md:size-10 rotate-180">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="black" // Sets the color to black
+                strokeWidth="2.5"
+                strokeLinecap="square"
+                className="w-full h-full"
+              >
+                <path d="M15 19l-7-7 7-7" />
+              </svg>
+            </div>
+          </button>
+        </div>
 
-        /* Ticket notch */
-        .notch-top {
-          position: absolute;
-          top: -14px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 40px;
-          height: 28px;
-          background: #FF5F00;
-          border-radius: 50%;
-          z-index: 10;
-        }
-
-        .notch-bottom {
-          position: absolute;
-          bottom: -14px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 40px;
-          height: 28px;
-          background: #FF5F00;
-          border-radius: 50%;
-          z-index: 10;
-        }
-      `}</style>
-
-      <div className="max-w-[1600px] mx-auto relative" style={{ padding: "0 60px" }}>
-        
-        {/* Left Nav */}
-        <button
-          className="custom-prev nav-btn"
-          style={{
-            position: "absolute",
-            left: "8px",
-            top: "42%",
-            transform: "translateY(-50%)",
-            zIndex: 50,
-          }}
-        >
-          <ChevronLeft size={72} strokeWidth={2.5} color="#000" />
-        </button>
-
-        {/* Right Nav */}
-        <button
-          className="custom-next nav-btn"
-          style={{
-            position: "absolute",
-            right: "8px",
-            top: "42%",
-            transform: "translateY(-50%)",
-            zIndex: 50,
-          }}
-        >
-          <ChevronRight size={72} strokeWidth={2.5} color="#000" />
-        </button>
-
-        <Swiper
-          modules={[EffectCoverflow, Navigation, A11y]}
-          effect="coverflow"
-          grabCursor={true}
-          centeredSlides={true}
-          loop={true}
-          slidesPerView={1.6}
-          breakpoints={{
-            480:  { slidesPerView: 2.2 },
-            768:  { slidesPerView: 3 },
-            1024: { slidesPerView: 3.8 },
-            1280: { slidesPerView: 4.5 },
-            1536: { slidesPerView: 5.2 },
-          }}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 80,
-            modifier: 1,
-            slideShadows: false,
-          }}
-          navigation={{
-            nextEl: ".custom-next",
-            prevEl: ".custom-prev",
-          }}
-          className="team-swiper"
-        >
-          {teamMembers.map((member, index) => (
-            <SwiperSlide key={index} style={{ paddingBottom: "10px" }}>
-              {({ isActive }) => (
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                  
-                  {/* Image */}
-                  <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", marginBottom: isActive ? "20px" : "12px" }}>
-                    <div className="notch-top" />
-                    <img
-                      src={member.src}
-                      alt={member.name}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "top center",
-                        filter: "grayscale(100%) contrast(1.15)",
-                        borderRadius: "4px",
-                        boxShadow: isActive ? "0 25px 60px rgba(0,0,0,0.35)" : "0 10px 30px rgba(0,0,0,0.2)",
-                        display: "block",
-                      }}
-                    />
-                    <div className="notch-bottom" />
-                  </div>
-
-                  {/* Name + Role — only styled prominently for active */}
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                      {/* Dash marker */}
-                      <div style={{
-                        width: isActive ? "22px" : "14px",
-                        height: "3px",
-                        background: "#000",
-                        flexShrink: 0,
-                        transition: "width 0.4s ease",
-                      }} />
-                      <span className="slide-name">
-                        {member.name}
-                        {member.lastName && (
-                          <span style={{ fontWeight: 400, opacity: 0.55 }}> / {member.lastName}</span>
-                        )}
-                      </span>
-                    </div>
-                    {isActive && (
-                      <p className="slide-role">{member.role}</p>
-                    )}
-                  </div>
-                </div>
-              )}
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
+        {/* Mobile Indicator */}
+        {/* <div className="flex justify-center gap-2 mt-6 md:hidden">
+        {teamMembers.map((_, i) => (
+          <div key={i} className={`h-1.5 w-1.5 rounded-full ${i === currentIndex ? 'bg-black' : 'bg-black/20'}`} />
+        ))}
+      </div> */}
+      </section>
+    </>
   );
 };
 
