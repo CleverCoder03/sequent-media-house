@@ -10,8 +10,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { TextMask } from "@/components/TextMask";
 import { stickyCardsData } from "@/constant/services";
+import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const ServicesPage = () => {
   const container = useRef(null);
@@ -50,8 +51,30 @@ const ServicesPage = () => {
           },
         });
       });
+      // Handle anchor links from other pages/same page
+  const hash = window.location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      // Give the page a tiny bit of time to calculate all ScrollTriggers
+      setTimeout(() => {
+        const st = ScrollTrigger.create({
+          trigger: target,
+          start: "top top",
+        });
+        
+        gsap.to(window, {
+          scrollTo: st.start,
+          duration: 1.2,
+          ease: "power4.inOut"
+        });
+        
+        st.kill(); // Clean up the temporary trigger
+      }, 100);
+    }
+  }
     },
-    { scope: container },
+    { scope: container, dependencies: [] },
   );
 
   return (
