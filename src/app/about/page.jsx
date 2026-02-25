@@ -11,6 +11,7 @@ import AboutIntro from "./AboutIntro";
 import MediaSection from "./MediaSection";
 import SliderSection from "./SliderSection";
 import { slides } from "@/constant/slides";
+import TeamCarousel from "./TeamCarousel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -196,6 +197,7 @@ const AboutPage = () => {
         <MediaSection exLySe={exLySe} enImg={enImg} scText={scText} />
         <SliderSection ref={sliderRef} exLyTh={exLyTh} />
       </div>
+      {/* <TeamCarousel /> */}
       <Footer />
     </main>
   );
