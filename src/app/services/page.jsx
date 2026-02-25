@@ -122,15 +122,15 @@ const ServicesPage = () => {
               {/* TOP BAR: Index and Main Title */}
               <div className="flex justify-between items-end p-5 md:p-8 border-b border-white/10">
                 <div>
-                  <span className="text-lime-400 font-mono text-sm tracking-widest uppercase mb-2 block">
+                  {/* <span className="text-lime-400 font-mono text-sm tracking-widest uppercase mb-2 block">
                     Phase 0{card.index}
-                  </span>
+                  </span> */}
                   <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">
                     {card.title}
                   </h2>
                 </div>
                 <div className="hidden md:block text-right max-w-xs">
-                  <p className="text-xs uppercase tracking-[0.2em] text-gray-500 leading-relaxed">
+                  <p className="text-xs uppercase tracking-[0.2em] text-lime-theme leading-relaxed">
                     {card.subtitle}
                   </p>
                 </div>
@@ -172,9 +172,9 @@ const ServicesPage = () => {
                 {/* RIGHT SIDE: Strategic Image Composition */}
                 <div className="lg:col-span-7 xl:col-span-8 relative w-full h-full flex items-center justify-center lg:justify-end order-1 lg:order-2">
                   {/* Image Container for 2 Landscapes */}
-                  <div className="relative w-full lg:w-[90%] xl:w-[85%] aspect-[16/10]">
+                  <div className="relative w-full lg:w-[85%] xl:w-[80%] aspect-[16/10]">
                     {/* Primary Image: The "Anchor" */}
-                    <div className="absolute top-0 right-0 w-[85%] lg:w-[80%] aspect-video z-20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden rounded-sm">
+                    <div className="absolute top-0 right-0 w-[85%] lg:w-[80%] aspect-video z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden rounded-sm">
                       <Image
                         src={card.images[0]}
                         alt={`${card.title} 1`}
@@ -185,14 +185,14 @@ const ServicesPage = () => {
                     </div>
 
                     {/* Secondary Image: The "Background Accent" - Lower Left */}
-                    <div className="absolute bottom-0 left-0 w-[60%] lg:w-[55%] aspect-video z-10 opacity-50 hover:opacity-100 transition-all duration-700 overflow-hidden rounded-sm border border-white/10 shadow-2xl">
+                    <div className="group absolute bottom-0 left-0 w-[60%] lg:w-[55%] aspect-video z-20 opacity-100 transition-all duration-700 overflow-hidden rounded-sm border border-white/10 shadow-2xl">
                       <Image
                         src={card.images[1]}
                         alt={`${card.title} 2`}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] hover:backdrop-blur-0 transition-all duration-500" />
+                      <div className="absolute inset-0 bg-black/20  group-hover:bg-none group-hover:backdrop-blur-0 transition-all duration-500" />
                     </div>
 
                     {/* Modern Decorative Element (The "Agency" Touch) */}

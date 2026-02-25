@@ -56,36 +56,6 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             ref={(el) => (rowsContentRef.current[2] = el)}
             className="flex items-center gap-10 whitespace-nowrap md:-ml-[60vw]"
           >
-            <RowAnimImg src="/stage/1.jpg" />
-            <RowAnimImg src="/stage/2.jpg" />
-            <RowAnimImg src="/stage/3.jpg" />
-            <RowAnimImg src="/stage/4.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/stage/5.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/stage/1.jpg" className="hidden xl:block"/>
-            <Link href={"/services/#stage"}>
-            <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl font-bold uppercase ">
-              <ManualTextRoll>
-                STAGE
-              </ManualTextRoll>
-            </span>
-            </Link>
-            <RowAnimImg src="/stage/2.jpg" />
-            <RowAnimImg src="/stage/3.jpg" />
-            <RowAnimImg src="/stage/4.jpg" />
-            <RowAnimImg src="/stage/5.jpg" />
-            <RowAnimImg src="/stage/1.jpg" />
-            <RowAnimImg src="/stage/2.jpg" />
-          </div>
-        </div>
-        {/* Row 3: Campaigns */}
-        <div
-          ref={(el) => (rowsRef.current[3] = el)}
-          className="overflow-hidden flex items-center"
-        >
-          <div
-            ref={(el) => (rowsContentRef.current[3] = el)}
-            className="flex items-center gap-10 whitespace-nowrap md:-ml-[60vw]"
-          >
             <RowAnimImg src="/frame/1.jpg" />
             <RowAnimImg src="/frame/2.jpg" />
             <RowAnimImg src="/frame/3.jpg" />
@@ -93,7 +63,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/frame/5.jpg" className="hidden lg:block"/>
             <RowAnimImg src="/frame/1.jpg" className="hidden xl:block"/>
             <Link href={"/services/#frame"}>
-            <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl uppercase">
+            <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl font-bold uppercase ">
               <ManualTextRoll>
                 FRAME
               </ManualTextRoll>
@@ -105,6 +75,36 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/frame/5.jpg" />
             <RowAnimImg src="/frame/1.jpg" />
             <RowAnimImg src="/frame/2.jpg" />
+          </div>
+        </div>
+        {/* Row 3: Campaigns */}
+        <div
+          ref={(el) => (rowsRef.current[3] = el)}
+          className="overflow-hidden flex items-center"
+        >
+          <div
+            ref={(el) => (rowsContentRef.current[3] = el)}
+            className="flex items-center gap-10 whitespace-nowrap md:-ml-[60vw]"
+          >
+            <RowAnimImg src="/stage/1.jpg" />
+            <RowAnimImg src="/stage/2.jpg" />
+            <RowAnimImg src="/stage/3.jpg" />
+            <RowAnimImg src="/stage/4.jpg" className="hidden lg:block"/>
+            <RowAnimImg src="/stage/5.jpg" className="hidden lg:block"/>
+            <RowAnimImg src="/stage/1.jpg" className="hidden xl:block"/>
+            <Link href={"/services/#stage"}>
+            <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl uppercase">
+              <ManualTextRoll>
+                STAGE
+              </ManualTextRoll>
+            </span>
+            </Link>
+            <RowAnimImg src="/stage/2.jpg" />
+            <RowAnimImg src="/stage/3.jpg" />
+            <RowAnimImg src="/stage/4.jpg" />
+            <RowAnimImg src="/stage/5.jpg" />
+            <RowAnimImg src="/stage/1.jpg" />
+            <RowAnimImg src="/stage/2.jpg" />
           </div>
         </div>
         {/* Row 4: Motion */}
