@@ -32,7 +32,7 @@ const Footer = () => {
       <div className="py-10">
         <Marquee
           speed={120}
-          className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
+          className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100 mb-5 lg:mb-20"
         >
           LET’S DISCUSS
           <MarqueeIcon variant={1} className="mx-5" /> LET’S DISCUSS{" "}
