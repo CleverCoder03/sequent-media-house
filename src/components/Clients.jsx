@@ -12,11 +12,11 @@ const clientsLogo1 = [
   { id: 4, name: "digpu", src: "/clients/digpu.png" },
   { id: 5, name: "dnk", src: "/clients/dnk.png" },
   { id: 6, name: "elesta", src: "/clients/elesta.png" },
+  { id: 7, name: "hygear", src: "/clients/hygear.png" },
+  { id: 8, name: "ies", src: "/clients/ies.png" },
 ];
 
 const clientsLogo2 = [
-  { id: 7, name: "hygear", src: "/clients/hygear.png" },
-  { id: 8, name: "ies", src: "/clients/ies.png" },
   { id: 9, name: "kurlon", src: "/clients/kurlon.png" },
   { id: 10, name: "paramount", src: "/clients/paramount.png" },
   { id: 11, name: "ramaiah", src: "/clients/ramaiah.png" },
@@ -24,6 +24,7 @@ const clientsLogo2 = [
   { id: 13, name: "triumph", src: "/clients/triumph.png" },
   { id: 14, name: "vodafone", src: "/clients/vodafone.png" },
   { id: 15, name: "world-of-lockers", src: "/clients/world-of-lockers.png" },
+  { id: 16, name: "Tambuli", src: "/clients/tambuli.png" }
 ];
 
 // 1. Memoize the component to prevent unnecessary re-renders during scroll

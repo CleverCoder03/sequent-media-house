@@ -32,16 +32,16 @@ const Layer5 = forwardRef((props, ref) => {
             animateOnHover={false}
             className="text-neutral-100 text-5xl md:text-6xl font-bold text-center tracking-tight uppercase"
           >
-            Sequent Cannon
+            Sequent
           </HyperText>
-          {/* <HyperText
+          <HyperText
             startOnView={true}
             duration={1500}
             animateOnHover={false}
             className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
           >
-            INTELLIGENCE AGE
-          </HyperText> */}
+            Cannon
+          </HyperText>
         </div>
       </Vortex>
     </div>

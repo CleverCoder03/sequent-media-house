@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { motion } from "motion/react";
-import Copy from "./Copy";
+import { TextMask } from "./TextMask";
 
 const About = () => {
   return (
@@ -8,16 +8,19 @@ const About = () => {
       {/* First */}
       <div className="flex flex-col lg:flex-row px-8 md:px-18 lg:px-30 lg:gap-[5vw] xl:gap-[15vw]">
         <div className="w-full lg:w-1/2 text-neutral-100">
-          <Copy>
-            <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-[80%]">
-              Our UAE Ad-tech powerhouse
-            </h1>
-          </Copy>
+          <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-[80%]">
+            <TextMask
+              text="Our UAE Ad-tech powerhouse"
+              delay={0.1}
+              stagger="0.12"
+              once={false}
+            />
+          </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg overflow-hidden">
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ amount: 0.3, once: false }}
               transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
               className="text-neutral-300"
             >
@@ -34,12 +37,12 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.9 }}
+            viewport={{ once: false, amount: 0.9 }}
             transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
             className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
           >
             <Image
-              src={"/0-about-1.jpeg"}
+              src={"/0-about-1.png"}
               alt="About us"
               className="object-cover"
               fill
@@ -51,16 +54,19 @@ const About = () => {
       {/* Second */}
       <div className="flex flex-col lg:flex-row-reverse px-8 md:px-18 lg:px-30 lg:gap-[5vw] xl:gap-[15vw]">
         <div className="w-full lg:w-1/2 text-neutral-100">
-          <Copy>
-            <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
-              OOH Advertising
-            </h1>
-          </Copy>
+          <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
+          <TextMask
+              text="OOH Advertising"
+              delay={0.1}
+              stagger="0.12"
+              once={false}
+            />
+          </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.9 }}
+              viewport={{ once: false, amount: 0.9 }}
               transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
               className="text-neutral-300"
             >
@@ -77,12 +83,12 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
             className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
           >
             <Image
-              src={"/0-about-2.jpeg"}
+              src={"/0-about-2.png"}
               alt="About us"
               className="object-cover"
               fill
@@ -94,16 +100,19 @@ const About = () => {
       {/* Third */}
       <div className="flex flex-col lg:flex-row px-8 md:px-18 lg:px-30 lg:gap-[5vw] xl:gap-[15vw]">
         <div className="w-full lg:w-1/2 text-neutral-100">
-          <Copy>
-            <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
-              Every screen is a story and every play is proof
-            </h1>
-          </Copy>
+          <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
+          <TextMask
+              text="Every screen is a story and every play is proof"
+              delay={0.1}
+              stagger="0.12"
+              once={false}
+            />
+          </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.9 }}
+              viewport={{ once: false, amount: 0.9 }}
               transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
               className="text-neutral-300"
             >
@@ -119,12 +128,12 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.83, 0, 0.17, 1] }}
             className="relative w-full sm:w-100 h-60 lg:w-full lg:h-80 rounded-2xl overflow-hidden"
           >
             <Image
-              src={"/0-about-3.jpeg"}
+              src={"/0-about-3.png"}
               alt="About us"
               className="object-cover"
               fill

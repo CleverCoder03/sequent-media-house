@@ -1,127 +1,120 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
 
 export default function CursorTrail({ 
-  imagePaths = [
-    '/images/trail1.jpg',
-    '/images/trail2.jpg',
-    '/images/trail3.jpg',
-    '/images/trail4.jpg',
-    '/images/trail5.jpg'
-  ],
-  imageWidth = 120,
-  imageHeight = 170,
+  imagePaths = [],
+  imageWidth = 150,
+  imageHeight = 200,
   mobileImageWidth = 100,
   mobileImageHeight = 150,
-  distanceThreshold = 100,
+  distanceThreshold = 150,
   mobileDistanceThreshold = 50
 }) {
   const containerRef = useRef(null);
-  const imageIndexRef = useRef(0);
   const lastMousePosRef = useRef({ x: 0, y: 0 });
-  const distanceThresholdRef = useRef(distanceThreshold);
+  const imageIndexRef = useRef(0);
+  
+  // Optimization: Pre-calculate threshold and use a fixed pool size
+  const POOL_SIZE = 20; 
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Set initial threshold based on screen size
-    const updateThreshold = () => {
-      distanceThresholdRef.current = window.innerWidth < 768 
-        ? mobileDistanceThreshold 
-        : distanceThreshold;
-    };
-
-    updateThreshold();
-    window.addEventListener('resize', updateThreshold);
-
-    const createImage = (x, y) => {
-      // Create new image element
+    // 1. Create a pool of images upfront to avoid DOM creation/deletion lag
+    const imagePool = Array.from({ length: POOL_SIZE }).map(() => {
       const img = document.createElement('img');
-      img.classList.add('cursor-trail-image');
-      img.src = imagePaths[imageIndexRef.current];
-      
-      // Add image to container
+      img.className = 'cursor-trail-image';
+      img.style.visibility = 'hidden'; // Hide initially
+      img.style.willChange = 'transform, opacity'; // Hint to browser for GPU acceleration
       container.appendChild(img);
+      return img;
+    });
 
-      // Update index to show next image (loop back to first)
-      imageIndexRef.current = (imageIndexRef.current + 1) % imagePaths.length;
+    let poolIndex = 0;
 
-      // Set starting position with GSAP
-      gsap.set(img, {
+    const animateImage = (x, y) => {
+      const img = imagePool[poolIndex];
+      
+      // Update source and reset visibility
+      img.src = imagePaths[imageIndexRef.current];
+      img.style.visibility = 'visible';
+
+      // GSAP Animation
+      const tl = gsap.timeline();
+      
+      // Reset state immediately before animating
+      tl.set(img, {
         x: x,
         y: y,
-        scale: 0,
+        scale: 0.5,
         opacity: 0,
-        // rotation: Math.random() * 30 - 15,
         xPercent: -50,
-        yPercent: -50
-      });
-
-      // Create timeline animation
-      const tl = gsap.timeline({
-        onComplete: () => {
-          img.remove();
-        }
+        yPercent: -50,
+        rotation: Math.random() * 20 - 10, // Optional: subtle rotation adds "life"
       });
 
       tl.to(img, {
         scale: 1,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.4,
         ease: "power2.out"
       })
       .to(img, {
-        scale: 0,
+        scale: 1.2,
         opacity: 0,
-        duration: 0.5,
-        delay: 0.2
-      });
+        duration: 0.6,
+        ease: "power2.in",
+        onComplete: () => {
+          img.style.visibility = 'hidden';
+        }
+      }, "+=0.1");
+
+      // Cycle indices
+      poolIndex = (poolIndex + 1) % POOL_SIZE;
+      imageIndexRef.current = (imageIndexRef.current + 1) % imagePaths.length;
     };
 
     const handleMouseMove = (e) => {
-      // Calculate distance from last position
+      const { clientX, clientY } = e;
+      
+      const threshold = window.innerWidth < 768 ? mobileDistanceThreshold : distanceThreshold;
+      
       const distance = Math.hypot(
-        e.clientX - lastMousePosRef.current.x,
-        e.clientY - lastMousePosRef.current.y
+        clientX - lastMousePosRef.current.x,
+        clientY - lastMousePosRef.current.y
       );
 
-      // If distance is bigger than threshold, create new image
-      if (distance > distanceThresholdRef.current) {
-        createImage(e.clientX, e.clientY);
-        
-        // Update last position
-        lastMousePosRef.current.x = e.clientX;
-        lastMousePosRef.current.y = e.clientY;
+      if (distance > threshold) {
+        animateImage(clientX, clientY);
+        lastMousePosRef.current = { x: clientX, y: clientY };
       }
     };
 
-    // Add mousemove event listener to window for full coverage
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('resize', updateThreshold);
+      if (container) container.innerHTML = ''; // Cleanup pool
     };
   }, [imagePaths, distanceThreshold, mobileDistanceThreshold]);
 
   return (
     <>
-      {/* Hidden container for appending trail images */}
-      <div ref={containerRef} className="pointer-events-none fixed inset-0 z-[5]" />
-
-      {/* Styles for trail images */}
+      <div ref={containerRef} className="pointer-events-none fixed inset-0 z-5" />
       <style jsx global>{`
         .cursor-trail-image {
           position: fixed;
+          top: 0;
+          left: 0;
           width: ${imageWidth}px;
           height: ${imageHeight}px;
           object-fit: cover;
           pointer-events: none;
-          border-radius: 8px;
-          // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 768px) {

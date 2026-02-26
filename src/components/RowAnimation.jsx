@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 import RowAnimImg from "./RowAnimImg";
 import { ManualTextRoll } from "./ManualTextRoll";
 import Link from "next/link";
+import RowAnimVid from "./RowAnimVid";
 
 const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
   return (
@@ -29,7 +30,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/form/1.jpg" />
             <RowAnimImg src="/form/2.jpg" />
             <RowAnimImg src="/form/3.jpg" />
-            <RowAnimImg src="/form/4.jpg" />
+            {/* <RowAnimImg src="/form/4.jpg" /> */}
+            <RowAnimVid src="/form/form-1.mp4" />
             <RowAnimImg src="/form/5.jpg" className="hidden lg:block"/>
             <RowAnimImg src="/form/1.jpg" className="hidden xl:block"/>
             <Link href={"/services/#form"}>
@@ -61,7 +63,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/frame/3.jpg" />
             <RowAnimImg src="/frame/4.jpg" className="hidden lg:block"/>
             <RowAnimImg src="/frame/5.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/frame/1.jpg" className="hidden xl:block"/>
+            {/* <RowAnimImg src="/frame/1.jpg" className="hidden xl:block"/> */}
+            <RowAnimVid src="/frame/frame-1.mp4" />
             <Link href={"/services/#frame"}>
             <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl font-bold uppercase ">
               <ManualTextRoll>
@@ -90,7 +93,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/stage/2.jpg" />
             <RowAnimImg src="/stage/3.jpg" />
             <RowAnimImg src="/stage/4.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/stage/5.jpg" className="hidden lg:block"/>
+            {/* <RowAnimImg src="/stage/5.jpg" className="hidden lg:block"/> */}
+            <RowAnimVid src="/stage/stage-1.mov" />
             <RowAnimImg src="/stage/1.jpg" className="hidden xl:block"/>
             <Link href={"/services/#stage"}>
             <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl uppercase">
@@ -129,7 +133,8 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
               </ManualTextRoll>
             </span>
             </Link>
-            <RowAnimImg src="/vow/1.jpg" />
+            {/* <RowAnimImg src="/vow/1.jpg" /> */}
+            <RowAnimVid src="/vow/vow-1.mp4" />
             <RowAnimImg src="/vow/2.jpg" />
             <RowAnimImg src="/vow/3.jpg" />
             <RowAnimImg src="/vow/4.jpg" />
@@ -150,9 +155,10 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/gesture/2.jpg" />
             <RowAnimImg src="/gesture/3.jpg" />
             <RowAnimImg src="/gesture/1.jpg" />
-            <RowAnimImg src="/gesture/1.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/gesture/2.jpg" className="hidden xl:block"/>
-            <RowAnimImg src="/gesture/3.jpg" className="hidden xl:block"/>
+            <RowAnimImg src="/gesture/2.jpg" className="hidden lg:block"/>
+            {/* <RowAnimImg src="/gesture/3.jpg" className="hidden xl:block"/> */}
+            <RowAnimVid src="/gesture/gesture-1.mp4" />
+            <RowAnimImg src="/gesture/4.jpg" className="hidden xl:block"/>
             <Link href={"/services/#gesture"}>
             <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl font-bold uppercase">
               <ManualTextRoll>
@@ -178,11 +184,11 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             className="flex items-center gap-10 whitespace-nowrap md:-ml-[70vw]"
           >
             <RowAnimImg src="/voice/1.jpg" />
-            <RowAnimImg src="/voice/1.jpg" />
-            <RowAnimImg src="/voice/1.jpg" />
+            <RowAnimImg src="/voice/serv-1.jpg" />
+            <RowAnimImg src="/voice/serv-2.jpg" />
             <RowAnimImg src="/voice/1.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/voice/1.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/voice/1.jpg" className="hidden xl:block"/>
+            <RowAnimImg src="/voice/serv-1.jpg" className="hidden lg:block"/>
+            <RowAnimImg src="/voice/serv-2.jpg" className="hidden xl:block"/>
             <Link href={"/services/#voice"}>
             <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl font-bold uppercase">
               <ManualTextRoll>
@@ -190,11 +196,12 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
               </ManualTextRoll>
             </span>
             </Link>
+            {/* <RowAnimImg src="/voice/1.jpg" /> */}
+            <RowAnimVid src="/voice/voice-1.mp4" />
             <RowAnimImg src="/voice/1.jpg" />
-            <RowAnimImg src="/voice/1.jpg" />
-            <RowAnimImg src="/voice/1.jpg" />
-            <RowAnimImg src="/voice/1.jpg" />
-            <RowAnimImg src="/voice/1.jpg" />
+            <RowAnimImg src="/voice/serv-1.jpg" />
+            <RowAnimImg src="/voice/serv-2.jpg" />
+            <RowAnimImg src="/voice/serv-1.jpg" />
           </div>
         </div>
         {/* Row 7: Empty Space */}
