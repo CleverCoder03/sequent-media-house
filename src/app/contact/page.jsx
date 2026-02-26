@@ -64,7 +64,7 @@ const ContactPage = () => {
   return (
     <>
       <Navbar />
-      <div className="h-[85dvh] w-full text-white flex justify-center items-center">
+      <div className="h-[40dvh] w-full text-white flex justify-center items-center">
         <div className="relative w-full h-full flex justify-center items-center">
           <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
             <video
@@ -83,14 +83,14 @@ const ContactPage = () => {
 
           <Marquee
             speed={120}
-            className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
+            className="font-figtree-medium uppercase text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
           >
-            LET’S DISCUSS
-          <MarqueeIcon variant={1} className="mx-5" /> LET’S DISCUSS{" "}
-          <MarqueeIcon variant={2} className="mx-5" /> LET’S DISCUSS{" "}
-          <MarqueeIcon variant={3} className="mx-5" /> LET’S DISCUSS{" "}
-          <MarqueeIcon variant={4} className="mx-5" /> LET’S DISCUSS{" "}
-          <MarqueeIcon variant={5} className="mx-5" /> LET’S DISCUSS{" "}
+            Bring Your Idea to Life
+          <MarqueeIcon variant={1} className="mx-5" /> Let’s Make It Iconic{" "}
+          <MarqueeIcon variant={2} className="mx-5" /> Bring Your Idea to Life{" "}
+          <MarqueeIcon variant={3} className="mx-5" /> Let’s Make It Iconic{" "}
+          <MarqueeIcon variant={4} className="mx-5" /> Bring Your Idea to Life{" "}
+          <MarqueeIcon variant={5} className="mx-5" /> Let’s Make It Iconic{" "}
           <MarqueeIcon variant={1} className="mx-5" />
           </Marquee>
         </div>
