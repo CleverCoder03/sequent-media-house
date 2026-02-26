@@ -94,7 +94,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/stage/3.jpg" />
             <RowAnimImg src="/stage/4.jpg" className="hidden lg:block"/>
             {/* <RowAnimImg src="/stage/5.jpg" className="hidden lg:block"/> */}
-            <RowAnimVid src="/stage/stage-1.mov" />
+            <RowAnimVid src="/stage/stage-1.mp4" />
             <RowAnimImg src="/stage/1.jpg" className="hidden xl:block"/>
             <Link href={"/services/#stage"}>
             <span className="text-neutral-900 text-6xl md:text-7xl lg:text-8xl uppercase">
