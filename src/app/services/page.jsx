@@ -85,11 +85,25 @@ const ServicesPage = () => {
         {/* --- HERO SECTION --- */}
         <section className="relative w-full h-screen flex flex-col items-center justify-center text-center px-4">
           {/* Optional background glow/gradient to make it pop */}
-          <div className="absolute inset-0 bg-linear-to-b from-zinc-900 to-black z-0"></div>
+          {/* <div className="absolute inset-0 bg-linear-to-b from-zinc-900 to-black z-0"></div> */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+            >
+              <source src="/footer-bg.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 bg-black/50"></div>
+          </div>
 
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-6">
             {/* The Heading */}
-            <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white">
+            <h1 className="text-5xl md:text-8xl font-montserrat-semibold tracking-tight text-white">
               <TextMask
                 text="The Spectrum"
                 delay={0.1}
@@ -99,7 +113,7 @@ const ServicesPage = () => {
             </h1>
 
             {/* The Subheading (starts slightly after the heading) */}
-            <p className="text-lg md:text-2xl text-gray-400 max-w-2xl">
+            <p className="text-lg md:text-2xl font-montserrat-regular text-neutral-300 max-w-2xl">
               <TextMask
                 text="Six disciplines. One design philosophy"
                 delay={0.5}

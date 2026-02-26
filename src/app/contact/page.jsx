@@ -64,7 +64,7 @@ const ContactPage = () => {
   return (
     <>
       <Navbar />
-      <div className="h-[40dvh] w-full text-white flex justify-center items-center">
+      <div className="h-[65dvh] w-full text-white flex justify-center items-center">
         <div className="relative w-full h-full flex justify-center items-center">
           <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
             <video
