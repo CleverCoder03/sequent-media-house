@@ -24,7 +24,7 @@ const MediaSection = forwardRef(({exLySe, enImg, scText}, ref) => {
         </div>
 
         {/* Text Container */}
-        <h1 ref={scText} className="absolute text-9xl uppercase font-montserrat-semibold whitespace-nowrap mix-blend-difference text-white">Our Partnerships are our Passport</h1>
+        <h1 ref={scText} className="absolute text-6xl lg:text-9xl uppercase font-montserrat-semibold whitespace-nowrap mix-blend-difference text-white">Our Partnerships are our Passport</h1>
       </div>
     </div>
   );

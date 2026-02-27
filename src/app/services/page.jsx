@@ -151,7 +151,7 @@ const ServicesPage = () => {
               </div>
 
               {/* MAIN CONTENT GRID */}
-              <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-0 p-6 md:p-10 items-center overflow-hidden">
+              <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-0 px-6 md:px-10 items-center overflow-hidden">
                 {/* LEFT SIDE: Text Content (Offset for luxury feel) */}
                 <div className="lg:col-span-6 xl:col-span-4 lg:pl-10 space-y-2 lg:space-y-12 z-20 order-2 lg:order-1">
                   <div className="space-y-6">

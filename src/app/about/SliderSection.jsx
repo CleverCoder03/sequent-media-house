@@ -14,6 +14,7 @@ gsap.registerPlugin(SplitText);
 const SliderSection = forwardRef(({ exLyTh }, ref) => {
   const imagesRef = useRef(null);
   const descRef = useRef(null);
+  const mobileDescRef = useRef(null);
   const labelRef = useRef(null);
   const tagRef = useRef(null);
   const progressRef = useRef(null);
@@ -54,12 +55,15 @@ const SliderSection = forwardRef(({ exLyTh }, ref) => {
     }
 
     // --- Description ---
-    if (descRef.current) {
-      gsap.to(descRef.current, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", onComplete: () => {
-        descRef.current.textContent = slides[index].description;
-        gsap.fromTo(descRef.current, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
-      }});
-    }
+    // --- Description (Desktop & Mobile) ---
+[descRef.current, mobileDescRef.current].forEach(el => {
+  if (el) {
+    gsap.to(el, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", onComplete: () => {
+      el.textContent = slides[index].description;
+      gsap.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+    }});
+  }
+});
 
     // --- Title list highlight ---
     const titleEls = titlesRef.current?.querySelectorAll(".slide-title-item");
@@ -103,9 +107,9 @@ const SliderSection = forwardRef(({ exLyTh }, ref) => {
         <div ref={imagesRef} className="absolute inset-0 overflow-hidden" />
 
         {/* Dark gradient overlay — heavier on left for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-10 backdrop-blur-[2px]" />
         {/* Main content grid */}
-        <div className="relative z-20 w-full h-full flex flex-col md:flex-row items-end md:items-center px-6 md:px-10 pb-10 md:pb-0 pt-20 md:pt-0">
+        <div className="relative z-20 w-full h-dvh flex flex-col md:flex-row items-end md:items-center px-6 md:px-10 pb-10 md:pb-0 pt-20 md:pt-0">
 
           {/* LEFT — stacked slide titles */}
           <div ref={titlesRef} className="flex flex-col justify-center gap-6 md:gap-8 lg:gap-10 w-full md:w-1/2 lg:w-[55%]">
@@ -153,9 +157,10 @@ const SliderSection = forwardRef(({ exLyTh }, ref) => {
         </div>
 
         {/* Mobile description — shown below on small screens */}
-        <div className="absolute bottom-6 left-6 right-6 z-20 md:hidden">
+        <div className="absolute bottom-15 left-6 right-6 z-20 md:hidden">
           <p
-            className="text-white/75 text-xs leading-relaxed"
+          ref={mobileDescRef}
+            className="text-white/75 text-sm leading-relaxed"
           >
             {slides[0].description}
           </p>
