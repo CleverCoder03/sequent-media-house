@@ -183,73 +183,36 @@ const ServicesPage = () => {
                   </div>
                 </div>
 
-                {card.title === "FRAME" ? (
-                  <>
-                    {/* RIGHT SIDE: Strategic Video Composition */}
-                    <div className="lg:col-span-7 xl:col-span-8 relative w-full h-full flex items-center justify-center lg:justify-end order-1 lg:order-2">
-                      {/* Video Container - Maintaining the same width/aspect ratio as your previous image layout */}
-                      <div className="relative w-full lg:w-[85%] xl:w-[80%] aspect-video">
-                        {/* Main Video Wrapper */}
-                        <div className="relative w-full h-full z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden rounded-sm border border-white/10">
-                          <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full h-full object-cover transition-all duration-1000 ease-in-out hover:scale-105"
-                            // Dynamically pull the video source from your card data
-                            // Ensure your stickyCardsData objects have a 'video' property
-                            src={card.video}
-                          >
-                            Your browser does not support the video tag.
-                          </video>
+                {/* RIGHT SIDE: Strategic Video Composition */}
+                <div className="lg:col-span-7 xl:col-span-8 relative w-full h-full flex items-center justify-center lg:justify-end order-1 lg:order-2">
+                  {/* Video Container - Maintaining the same width/aspect ratio as your previous image layout */}
+                  <div className="relative w-full lg:w-[95%] aspect-video">
+                    {/* Main Video Wrapper */}
+                    <div className="relative w-full h-full z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden rounded-sm border border-white/10">
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover transition-all duration-1000 ease-in-out hover:scale-105"
+                        // Dynamically pull the video source from your card data
+                        // Ensure your stickyCardsData objects have a 'video' property
+                        src={card.video}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
 
-                          {/* Subtle Overlay to match the previous aesthetic */}
-                          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-                        </div>
-
-                        {/* Modern Decorative Element (Preserved from your original design) */}
-                        <div className="hidden xl:block absolute -top-8 -right-8 w-32 h-32 border-t border-r border-white/10 z-0" />
-
-                        {/* Bottom decorative accent (Replacing the second image's position with a stylized frame) */}
-                        <div className="hidden lg:block absolute -bottom-4 -left-4 w-1/2 h-1/2 border-b border-l border-lime-400/20 z-0" />
-                      </div>
+                      {/* Subtle Overlay to match the previous aesthetic */}
+                      <div className="absolute inset-0 bg-black/10 pointer-events-none" />
                     </div>
-                  </>
-                ) : (
-                  <>
-                    {/* RIGHT SIDE: Strategic Image Composition */}
-                    <div className="lg:col-span-7 xl:col-span-8 relative w-full h-full flex items-center justify-center lg:justify-end order-1 lg:order-2">
-                      {/* Image Container for 2 Landscapes */}
-                      <div className="relative w-full lg:w-[85%] xl:w-[80%] aspect-[16/10]">
-                        {/* Primary Image: The "Anchor" */}
-                        <div className="absolute top-0 right-0 w-[85%] lg:w-[80%] aspect-video z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden rounded-sm">
-                          <Image
-                            src={card.images[0]}
-                            alt={`${card.title} 1`}
-                            fill
-                            priority={card.index === 1}
-                            className="object-cover transition-all duration-1000 ease-in-out hover:scale-105"
-                          />
-                        </div>
 
-                        {/* Secondary Image: The "Background Accent" - Lower Left */}
-                        <div className="group absolute bottom-0 left-0 w-[60%] lg:w-[55%] aspect-video z-20 opacity-100 transition-all duration-700 overflow-hidden rounded-sm border border-white/10 shadow-2xl">
-                          <Image
-                            src={card.images[1]}
-                            alt={`${card.title} 2`}
-                            fill
-                            className="object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-black/20  group-hover:bg-none group-hover:backdrop-blur-0 transition-all duration-500" />
-                        </div>
+                    {/* Modern Decorative Element (Preserved from your original design) */}
+                    <div className="hidden xl:block absolute -top-8 -right-8 w-32 h-32 border-t border-r border-white/10 z-0" />
 
-                        {/* Modern Decorative Element (The "Agency" Touch) */}
-                        <div className="hidden xl:block absolute -top-8 -right-8 w-32 h-32 border-t border-r border-white/10 z-0" />
-                      </div>
-                    </div>
-                  </>
-                )}
+                    {/* Bottom decorative accent (Replacing the second image's position with a stylized frame) */}
+                    <div className="hidden lg:block absolute -bottom-4 -left-4 w-1/2 h-1/2 border-b border-l border-lime-400/20 z-0" />
+                  </div>
+                </div>
               </div>
             </div>
           ))}
