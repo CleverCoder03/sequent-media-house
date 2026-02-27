@@ -19,7 +19,7 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
       />
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
-        <video
+        {/* <video
           autoPlay
           loop
           muted
@@ -29,19 +29,19 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
         >
           <source src="/header.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
         {/* Optional: Overlay to improve text readability */}
-        <div ref={overlayRef} className="absolute inset-0 bg-black/20"></div>
+        <div ref={overlayRef} className="absolute inset-0 bg-black/80"></div>
       </div>
 
       {/* Text Content */}
       <div className="relative z-10 lg:w-2/3 pointer-events-none">
         <CharReveal>
-          <h1 ref={ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.1]">
-            Where Ideas Travel,
+          <h1 ref={ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
+            Where <span className="font-playfair-semibold-italic text-lime-theme">ideas</span> Travel,
           </h1>
-          <h1 ref={HeroH2Ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold uppercase leading-[1.1]">
-            And Stories live forever.
+          <h1 ref={HeroH2Ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
+            And <span className="font-playfair-semibold-italic text-lime-theme">stories</span> live forever.
           </h1>
         </CharReveal>
       </div>

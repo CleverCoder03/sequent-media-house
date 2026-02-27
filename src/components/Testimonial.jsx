@@ -37,7 +37,7 @@ const Testimonial = () => {
               high our bar has got. There&apos;s something in our relationship
               with Boulder that nobody else has.”
             </motion.h1>
-          <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
+          <div className="mt-6 font-figtree-regular text-lime-theme text-lg uppercase">
             <TextMask
               text="Kerry Larkin, VP of Global Marketing"
               delay={0.1}
@@ -80,7 +80,7 @@ const Testimonial = () => {
               “It never felt like working with an agency with Boulder, more like
               having a true partner in our corner ”
             </motion.h1>
-          <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
+          <div className="mt-6 font-figtree-regular text-lime-theme text-lg uppercase">
             <TextMask
               text="DAVE KING"
               delay={0.1}
@@ -123,7 +123,7 @@ const Testimonial = () => {
               “We’re so proud of what we’ve achieved together. A big shout-out
               to Boulder for their creativity and attention to detail”
             </motion.h1>
-          <div className="mt-6 font-figtree-regular text-neutral-300 text-lg uppercase">
+          <div className="mt-6 font-figtree-regular text-lime-theme text-lg uppercase">
             <TextMask
               text="Jen Garside"
               delay={0.1}

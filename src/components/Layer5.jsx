@@ -40,24 +40,24 @@ const Layer5 = forwardRef((props, ref) => {
         {/* Optional: Overlay to improve text readability */}
         <div className="absolute inset-0 bg-black/20"></div>
       </div>
-        <div className="flex flex-col items-center py-[30vh]">
-          <HyperText
-            startOnView={true}
-            duration={1500}
-            animateOnHover={false}
-            className="text-neutral-100 text-5xl md:text-6xl font-bold text-center tracking-tight uppercase"
-          >
-            Sequent
-          </HyperText>
-          <HyperText
-            startOnView={true}
-            duration={1500}
-            animateOnHover={false}
-            className="text-neutral-100 text-5xl md:text-6xl font-bold tracking-tight uppercase"
-          >
-            Cannon
-          </HyperText>
-        </div>
+      <div className="flex flex-col items-center py-[30vh]">
+        <HyperText
+          startOnView={true}
+          duration={1500}
+          animateOnHover={false}
+          className="text-neutral-100 text-5xl md:text-6xl font-bold text-center tracking-tight uppercase"
+        >
+          Sequent
+        </HyperText>
+        <HyperText
+          startOnView={true}
+          duration={1500}
+          animateOnHover={false}
+          className="text-5xl md:text-7xl tracking-tight font-playfair-semibold-italic lowercase  text-lime-theme"
+        >
+          Canon
+        </HyperText>
+      </div>
       {/* </Vortex> */}
     </div>
   );

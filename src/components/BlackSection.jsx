@@ -1,5 +1,3 @@
-"use client"
-
 import { forwardRef } from "react"
 import { HyperText } from "./ui/hyper-text"
 
@@ -9,7 +7,7 @@ const BlackSection = forwardRef((props, ref) => {
               ref={ref}
               className="absolute inset-0 bg-black flex flex-col items-center justify-center z-20"
             >
-              <div className="text-center font-montserrat-semibold">
+              <div className="text-center font-montserrat-semibold flex flex-col gap-3">
                 <HyperText
                   startOnView={true}
                   duration={1500}
@@ -22,7 +20,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-neutral-100 text-5xl md:text-7xl tracking-tight uppercase"
+                  className="text-5xl md:text-7xl tracking-tight font-playfair-semibold-italic lowercase  text-lime-theme"
                 >
                   Made
                 </HyperText>

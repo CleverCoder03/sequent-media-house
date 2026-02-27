@@ -124,14 +124,14 @@ export default function Loader({ onFinish }) {
         if (isLoaderExit && onFinish) onFinish();
       }}
     >
-      <div className="font-figtree-regular text-2xl lowercase text-center md:text-3xl xl:text-4xl overflow-hidden">
+      <div className="text-2xl lowercase text-center md:text-3xl xl:text-4xl overflow-hidden">
         <AnimatePresence mode="wait">
         <motion.h1
               key={currentWordIndex}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="leading-[1.3] font-playfair-regular"
+              className="leading-[1.3] font-montserrat-italic"
             >
               {renderWord(words[currentWordIndex], currentWordIndex)}
             </motion.h1>

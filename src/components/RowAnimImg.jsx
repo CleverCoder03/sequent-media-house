@@ -6,6 +6,7 @@ const RowAnimImg = ({
   alt = "Row animation image",
   className,
   priority = false,
+  unoptimized = false,
   sizes = "(max-width: 768px) 168px, 192px",
 }) => {
   return (
@@ -22,6 +23,7 @@ const RowAnimImg = ({
         sizes={sizes}
         priority={priority}
         quality={80}
+        unoptimized={unoptimized}
         className="object-cover opacity-90 transition-transform duration-500 ease-out hover:scale-105"
       />
     </div>

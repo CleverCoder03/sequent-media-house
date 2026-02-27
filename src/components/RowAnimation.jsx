@@ -30,7 +30,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/form/1.jpg" />
             <RowAnimImg src="/form/2.jpg" />
             <RowAnimImg src="/form/3.jpg" />
-            <RowAnimImg src="/form/form-serv-1.gif" />
+            <RowAnimImg src="/form/form-serv-1.gif" unoptimized={true} />
             {/* <RowAnimVid src="/form/form-1.mp4" /> */}
             <RowAnimImg src="/form/5.jpg" className="hidden lg:block"/>
             <RowAnimImg src="/form/1.jpg" className="hidden xl:block"/>
@@ -62,7 +62,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/frame/3.jpg" />
             <RowAnimImg src="/frame/4.jpg" className="hidden lg:block"/>
             <RowAnimImg src="/frame/5.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/frame/frame-serv-1.gif" className="hidden xl:block"/>
+            <RowAnimImg src="/frame/frame-serv-1.gif" unoptimized={true} className="hidden xl:block"/>
             {/* <RowAnimVid src="/frame/frame-1.mp4" /> */}
             <Link href={"/services/#frame"}>
               <ManualTextRoll>
@@ -90,7 +90,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/stage/2.jpg" />
             <RowAnimImg src="/stage/3.jpg" />
             <RowAnimImg src="/stage/4.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/stage/stage-serv-1.gif" className="hidden lg:block"/>
+            <RowAnimImg src="/stage/stage-serv-1.gif" unoptimized={true} className="hidden lg:block"/>
             {/* <RowAnimVid src="/stage/stage-1.mp4" /> */}
             <RowAnimImg src="/stage/1.jpg" className="hidden xl:block"/>
             <Link href={"/services/#stage"}>
@@ -126,7 +126,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
                 VOW
               </ManualTextRoll>
             </Link>
-            <RowAnimImg src="/vow/vow-serv-1.gif" />
+            <RowAnimImg src="/vow/vow-serv-1.gif" unoptimized={true} />
             {/* <RowAnimVid src="/vow/vow-1.mp4" /> */}
             <RowAnimImg src="/vow/2.jpg" />
             <RowAnimImg src="/vow/3.jpg" />
@@ -149,7 +149,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
             <RowAnimImg src="/gesture/3.jpg" />
             <RowAnimImg src="/gesture/1.jpg" />
             <RowAnimImg src="/gesture/2.jpg" className="hidden lg:block"/>
-            <RowAnimImg src="/gesture/gesture-serv-1.gif" className="hidden xl:block"/>
+            <RowAnimImg src="/gesture/gesture-serv-1.gif" unoptimized={true} className="hidden xl:block"/>
             {/* <RowAnimVid src="/gesture/gesture-1.mp4" /> */}
             <RowAnimImg src="/gesture/4.jpg" className="hidden xl:block"/>
             <Link href={"/services/#gesture"}>
@@ -185,7 +185,7 @@ const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
                 VOICE
               </ManualTextRoll>
             </Link>
-            <RowAnimImg src="/voice/voice-serv-1.gif" />
+            <RowAnimImg src="/voice/voice-serv-1.gif" unoptimized={true} />
             {/* <RowAnimVid src="/voice/voice-1.mp4" /> */}
             <RowAnimImg src="/voice/1.jpg" />
             <RowAnimImg src="/voice/serv-1.jpg" />

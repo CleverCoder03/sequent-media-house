@@ -1,12 +1,6 @@
 "use client"
 import { motion } from "motion/react";
 
-/**
- * @param {string} text - The string to animate
- * @param {string} className - Tailwind or CSS classes for the text
- * @param {number} delay - How long to wait before starting (seconds)
- * @param {boolean} once - Should it only animate the first time it's seen?
- */
 export const TextMask = ({ text, className, delay = 0, once = true, stagger = 0.08 }) => {
   
   // 1. Parent variants to handle the stagger timing

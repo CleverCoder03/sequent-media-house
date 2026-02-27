@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { TextMask } from "./TextMask";
+import { TextMask2 } from "./TextMask2";
 
 const About = () => {
   return (
@@ -10,11 +11,11 @@ const About = () => {
         <div className="w-full lg:w-1/2 text-neutral-100">
           <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-[80%]">
             <TextMask
-              text="Our UAE Ad-tech powerhouse"
+              text="Our UAE Ad-tech"
               delay={0.1}
               stagger="0.12"
               once={false}
-            />
+            /><span className="font-playfair-semibold-italic text-lime-theme lowercase">powerhouse</span>
           </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg overflow-hidden">
             <motion.p
@@ -56,11 +57,11 @@ const About = () => {
         <div className="w-full lg:w-1/2 text-neutral-100">
           <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
           <TextMask
-              text="OOH Advertising"
+              text="OOH"
               delay={0.1}
               stagger="0.12"
               once={false}
-            />
+            /><span className="font-playfair-semibold-italic text-lime-theme lowercase">advertising</span>
           </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
             <motion.p
@@ -100,13 +101,11 @@ const About = () => {
       {/* Third */}
       <div className="flex flex-col lg:flex-row px-8 md:px-18 lg:px-30 lg:gap-[5vw] xl:gap-[15vw]">
         <div className="w-full lg:w-1/2 text-neutral-100">
-          <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
-          <TextMask
-              text="Every screen is a story and every play is proof"
-              delay={0.1}
-              stagger="0.12"
-              once={false}
-            />
+            <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
+          <TextMask2>
+          Every screen is a <span className="font-playfair-semibold-italic text-lime-theme lowercase">story&nbsp;</span>
+          and every play is <span className="font-playfair-semibold-italic text-lime-theme lowercase">proof</span>
+          </TextMask2>
           </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
             <motion.p
