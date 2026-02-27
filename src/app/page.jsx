@@ -285,7 +285,7 @@ export default function Page() {
           <About />
           <NeedProof />
           <Clients />
-          <Testimonial />
+          {/* <Testimonial /> */}
           <Awards />
           <Footer />
         </main>
