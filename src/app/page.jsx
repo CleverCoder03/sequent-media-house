@@ -17,11 +17,14 @@ import Awards from "@/components/Awards";
 import Footer from "@/components/Footer";
 import Layer5 from "@/components/Layer5";
 import RowAnimation from "@/components/RowAnimation";
+import { hasLoadedOnce, markAsLoaded } from "@/lib/loaderState";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Page() {
-  const [loaded, setLoaded] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
+  // If already loaded once this session, skip the loader entirely
+  const [loaded, setLoaded] = useState(hasLoadedOnce);
 
   const mainContainer = useRef(null);
   const HeroH1Ref = useRef(null);
@@ -46,21 +49,14 @@ export default function Page() {
 
       const ctx = gsap.context(() => {
         // ---- INITIAL STATES ----
-        
 
         gsap.set(HeroH1Ref.current, { scale: 1, yPercent: 0 });
         gsap.set(HeroH2Ref.current, { scale: 1, yPercent: 0 });
-        // gsap.set([logoRef.current, descRef.current], { opacity: 0 });
-        // gsap.set(logoRef.current, { y: 100 });
-        // gsap.set(logoRef.current, {
-        //   yPercent: 50,
-        //   opacity: 0,
-        //   scale: 0.8,
-        //   transformOrigin: "center center",
-        // });
-        gsap.set([svgLogoRef.current, svgTextRef.current], {transformOrigin: "center center"})
-        gsap.set(logoRef.current, { xPercent: isMobile ? 35 : 40})
-        gsap.set(svgTextRef.current, { opacity: 0})
+        gsap.set([svgLogoRef.current, svgTextRef.current], {
+          transformOrigin: "center center",
+        });
+        gsap.set(logoRef.current, { xPercent: isMobile ? 35 : 40 });
+        gsap.set(svgTextRef.current, { opacity: 0 });
         // gsap.set(logoRef.current, { x: 550 });
         gsap.set(descRef.current, { y: 0, opacity: 0 });
 
@@ -78,14 +74,9 @@ export default function Page() {
         // --- Logo Independent Timeline ---
         const logoTl = gsap.timeline({ paused: true });
 
-        // logoTl.to(logoRef.current, {
-        //   y: 0,
-        //   opacity: 1,
-        //   scale: 1,
-        //   duration: 1,
-        //   ease: "power3.out",
-        // });
-        logoTl.to(logoRef.current, {xPercent: 0}).to(svgTextRef.current, {opacity: 1, scale: 1, duration: 0.4})
+        logoTl
+          .to(logoRef.current, { xPercent: 0 })
+          .to(svgTextRef.current, { opacity: 1, scale: 1, duration: 0.4 });
 
         const width = window.innerWidth;
 
@@ -124,28 +115,35 @@ export default function Page() {
 
         // ---- MAIN SEQUENCE ----
         tl.to(HeroH1Ref.current, {
-          scale: isMobile? 2: 3,
+          scale: isMobile ? 2 : 3,
           yPercent: -500,
           duration: 1,
           ease: "power2.inOut",
-        }).to(
-          HeroH2Ref.current,
-          {
-            scale: isMobile? 2: 3,
-            yPercent: 500,
-            duration: 1,
-            ease: "power2.inOut",
-          },
-          "<",
-        ).to(overlayRef.current, {
-  backgroundColor: "rgba(0, 0, 0, 1)", // Transitions from 0.2 (bg-black/20) to 1 (full black)
-  duration: 0.5, 
-  ease: "power2.inOut",
-}, "<").to(
+        })
+          .to(
+            HeroH2Ref.current,
+            {
+              scale: isMobile ? 2 : 3,
+              yPercent: 500,
+              duration: 1,
+              ease: "power2.inOut",
+            },
+            "<",
+          )
+          .to(
+            overlayRef.current,
+            {
+              backgroundColor: "rgba(0, 0, 0, 1)", // Transitions from 0.2 (bg-black/20) to 1 (full black)
+              duration: 0.5,
+              ease: "power2.inOut",
+            },
+            "<",
+          )
+          .to(
             blueLayer.current,
             {
               height: "100dvh",
-  duration: 0.5,
+              duration: 0.5,
             },
             "0.15",
           )
@@ -161,7 +159,7 @@ export default function Page() {
           .to(logoRef.current, {
             // THIS runs AFTER logoStart ends
             scale: isMobile ? 1 : 0.6,
-            yPercent:  -60,
+            yPercent: -60,
             duration: 1.2,
             ease: "power2.out",
           })
@@ -252,7 +250,12 @@ export default function Page() {
 
   return (
     <>
-      {!loaded && <Loader onFinish={() => setLoaded(true)} />}
+      {!loaded && <Loader
+          onFinish={() => {
+            markAsLoaded();   // persist the flag at module level
+            setLoaded(true);  // trigger re-render
+          }}
+        />}
       {loaded && (
         <main>
           <Navbar />
@@ -261,7 +264,11 @@ export default function Page() {
             ref={mainContainer}
             className="relative h-screen w-full overflow-hidden bg-neutral-900"
           >
-            <Hero ref={HeroH1Ref} HeroH2Ref={HeroH2Ref} overlayRef={overlayRef} />
+            <Hero
+              ref={HeroH1Ref}
+              HeroH2Ref={HeroH2Ref}
+              overlayRef={overlayRef}
+            />
 
             <ExpandingSection
               blueLayer={blueLayer}

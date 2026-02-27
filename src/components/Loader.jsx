@@ -86,10 +86,8 @@ export default function Loader({ onFinish }) {
     },
   };
 
-  // Split first word into letters for stagger effect
+  // Split word into letters for stagger effect
   const renderWord = (word, index) => {
-    // if (index === 0) {
-      // First word with stagger
       return (
         <div className="flex">
           {word.split("").map((letter, i) => (
@@ -108,10 +106,6 @@ export default function Loader({ onFinish }) {
           ))}
         </div>
       );
-    // } else {
-      // Other words with normal animation
-      // return word;
-    // }
   };
 
   return (
@@ -135,28 +129,6 @@ export default function Loader({ onFinish }) {
             >
               {renderWord(words[currentWordIndex], currentWordIndex)}
             </motion.h1>
-          {/* {currentWordIndex === 0 ? (
-            <motion.h1
-              key={currentWordIndex}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="leading-[1.3] font-playfair-regular"
-            >
-              {renderWord(words[currentWordIndex], currentWordIndex)}
-            </motion.h1>
-          ) : (
-            <motion.h1
-              key={currentWordIndex}
-              variants={wordVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="leading-[1.3] font-playfair-regular"
-            >
-              {words[currentWordIndex]}
-            </motion.h1>
-          )} */}
         </AnimatePresence>
       </div>
     </motion.div>
