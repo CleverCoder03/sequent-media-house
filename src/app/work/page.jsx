@@ -97,6 +97,7 @@ const WorkPage = () => {
                   {/* The Heading */}
                   <h1 className="text-5xl md:text-8xl font-montserrat-semibold uppercase tracking-normal text-white">
                     <TextMask
+                    className={"flex justify-center"}
                       text="Selected Work"
                       delay={0.1}
                       stagger="0.12"
