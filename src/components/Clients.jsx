@@ -31,7 +31,7 @@ const clientsLogo2 = [
 const ClientLogo = memo(({ src, name }) => {
   return (
     // 2. Fixed Tailwind classes: used standard w-36 and arbitrary aspect-[3/1]
-    <div className="relative mx-8 md:mx-12 w-36 md:w-40 lg:w-44 aspect-3/1 group">
+    <div className="relative mx-8 md:mx-12 w-36 md:w-40 lg:w-44 aspect-[3/1.8] group">
       <Image
         src={src}
         alt={`${name} logo`}
