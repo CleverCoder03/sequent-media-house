@@ -46,7 +46,7 @@ const AboutPage = () => {
         scrollTrigger: {
           trigger: mainContainer.current,
           start: "top top",
-          end: "bottom+=800% center+=200px", // Extended from 300% to give slider room
+          end: "bottom+=900% center", // Extended from 300% to give slider room
           pin: true,
           scrub: 1,
           onUpdate: (self) => {
@@ -132,8 +132,7 @@ const AboutPage = () => {
           whyContainerRef.current,
           {
             scale: 2.2,
-            duration: 1,
-            ease: "power2.inOut",
+            duration: 2,
           },
           ">",
         )
@@ -170,7 +169,7 @@ const AboutPage = () => {
           ease: "power3.inOut",
         })
         // ✅ Add extra duration so slider has room to cycle through all slides
-        .to({}, { duration: 12 }); // empty tween — pure scroll breathing room for slider
+        .to({}, { duration: 11 }); // empty tween — pure scroll breathing room for slider
 
       // ✅ Compute exact ratios from timeline after it's built
       sliderRatioRef.current = {
