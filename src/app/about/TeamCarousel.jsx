@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Marquee from "react-fast-marquee";
@@ -25,15 +25,24 @@ const teamMembers = [
 const TeamCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
+  const [isPaused, setIsPaused] = useState(false); // To pause auto-rotate on hover
   const total = teamMembers.length;
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     const newIndex = (index + total) % total;
     setCurrentIndex(newIndex);
-  };
+  }, [total]);
 
-  const getAt = (offset) =>
-    teamMembers[(currentIndex + offset + total) % total];
+  // --- AUTO ROTATE LOGIC ---
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 3500); // Rotates every 3.5 seconds
+    return () => clearInterval(interval);
+  }, [currentIndex, isPaused, goToSlide]);
+
+  const getAt = (offset) => teamMembers[(currentIndex + offset + total) % total];
 
   const current = getAt(0);
   const prev = getAt(-1);
@@ -46,152 +55,101 @@ const TeamCarousel = () => {
   const handleTouchEnd = (e) => {
     if (!touchStart) return;
     const touchEnd = e.changedTouches[0].clientX;
-    if (touchStart - touchEnd > 50) goToSlide(currentIndex + 1); // Swipe Left
-    if (touchStart - touchEnd < -50) goToSlide(currentIndex - 1); // Swipe Right
+    if (touchStart - touchEnd > 50) goToSlide(currentIndex + 1);
+    if (touchStart - touchEnd < -50) goToSlide(currentIndex - 1);
     setTouchStart(null);
   };
 
   useGSAP(() => {
-    // Keep animations snappy for responsive feel
     gsap.fromTo(
       ".teamIMG",
-      { xPercent: -5 },
-      { xPercent: 0, duration: 0.4, ease: "power2.out" },
+      { xPercent: -5, opacity: 0.5 },
+      { xPercent: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
     );
     gsap.fromTo(
       ".details h2, .details p",
       { opacity: 0, y: 10 },
-      { opacity: 1, y: 0, duration: 0.4, stagger: 0.1 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.1 }
     );
   }, [currentIndex]);
 
   return (
-    <>
-      <Marquee
-        speed={120}
-        className="font-figtree-semibold text-[14vw] lg:text-[8vw] text-neutral-900 bg-lime-500 pt-8 lg:pt-15"
-      >
-        MEET THE TEAM
-        <MarqueeIcon variant={1} className="mx-5" /> MEET THE TEAM{" "}
-        <MarqueeIcon variant={2} className="mx-5" /> MEET THE TEAM{" "}
-        <MarqueeIcon variant={3} className="mx-5" /> MEET THE TEAM{" "}
-        <MarqueeIcon variant={4} className="mx-5" /> MEET THE TEAM{" "}
-        <MarqueeIcon variant={5} className="mx-5" /> MEET THE TEAM{" "}
-        <MarqueeIcon variant={1} className="mx-5" />
+    <div 
+      className="py-6 lg:py-10 bg-lime-500 overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <Marquee speed={80} className="font-figtree-semibold text-[12vw] lg:text-[7vw] text-neutral-900 mb-4">
+        MEET THE TEAM <MarqueeIcon variant={1} className="mx-5" /> 
+        MEET THE TEAM <MarqueeIcon variant={2} className="mx-5" />
       </Marquee>
+
       <section
-        className="w-full py-12 md:py-20 bg-lime-500 text-black relative overflow-hidden touch-pan-y"
+        className="w-full py-4 text-black relative touch-pan-y"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* IMAGES CONTAINER */}
-        <div className="flex items-center justify-center gap-4 md:gap-10 px-4">
-          {/* HIDE OUTER IMAGES ON MOBILE (Hidden below 'md') */}
-          <div className="hidden lg:block w-[180px] h-[250px] relative grayscale opacity-60 shrink-0">
-            <Image
-              src={prePrev.src}
-              alt=""
-              fill
-              className="object-cover rounded teamIMG"
-            />
+        {/* IMAGES CONTAINER - Reduced Sizing */}
+        <div className="flex items-center justify-center gap-3 md:gap-6 px-4">
+          
+          {/* Outer Left (Smallest) */}
+          <div className="hidden xl:block w-[140px] h-[200px] relative grayscale opacity-40 shrink-0 transition-all duration-500">
+            <Image src={prePrev.src} alt="" fill className="object-cover rounded-lg teamIMG" />
           </div>
 
-          <div className="hidden md:block w-[150px] h-[220px] lg:w-[200px] lg:h-[280px] relative grayscale opacity-80 shrink-0">
-            <Image
-              src={prev.src}
-              alt=""
-              fill
-              className="object-cover rounded teamIMG"
-            />
+          {/* Inner Left */}
+          <div className="hidden sm:block w-[120px] h-[180px] md:w-[180px] md:h-[260px] relative grayscale opacity-60 shrink-0 transition-all duration-500">
+            <Image src={prev.src} alt="" fill className="object-cover rounded-lg teamIMG" />
           </div>
 
-          {/* CENTER BIG IMAGE (Responsive Sizing) */}
-          <div className="w-[280px] h-[350px] md:w-[350px] md:h-[420px] relative grayscale shrink-0 z-10 shadow-2xl">
-            <Image
-              src={current.src}
-              alt={current.name}
-              fill
-              className="object-cover rounded teamIMG"
-              priority
-            />
+          {/* CENTER FOCUS IMAGE - Reduced from 350px to 300px on mobile */}
+          <div className="w-[240px] h-[320px] md:w-[300px] md:h-[400px] relative grayscale-0 shrink-0 z-10 shadow-xl scale-105 md:scale-110">
+            <Image src={current.src} alt={current.name} fill className="object-cover rounded-xl teamIMG border-2 border-black/10" priority />
           </div>
 
-          <div className="hidden md:block w-[150px] h-[220px] lg:w-[200px] lg:h-[280px] relative grayscale opacity-80 shrink-0">
-            <Image
-              src={next.src}
-              alt=""
-              fill
-              className="object-cover rounded teamIMG"
-            />
+          {/* Inner Right */}
+          <div className="hidden sm:block w-[120px] h-[180px] md:w-[180px] md:h-[260px] relative grayscale opacity-60 shrink-0 transition-all duration-500">
+            <Image src={next.src} alt="" fill className="object-cover rounded-lg teamIMG" />
           </div>
 
-          <div className="hidden lg:block w-[180px] h-[250px] relative grayscale opacity-60 shrink-0">
-            <Image
-              src={nextNext.src}
-              alt=""
-              fill
-              className="object-cover rounded teamIMG"
-            />
+          {/* Outer Right (Smallest) */}
+          <div className="hidden xl:block w-[140px] h-[200px] relative grayscale opacity-40 shrink-0 transition-all duration-500">
+            <Image src={nextNext.src} alt="" fill className="object-cover rounded-lg teamIMG" />
           </div>
         </div>
 
         {/* NAME + ROLE */}
-        <div className="text-center mt-8 md:mt-10 details px-6 pointer-events-none">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-wide uppercase">
-            {current.name} {current.lastName && <span>{current.lastName}</span>}
+        <div className="text-center mt-12 details px-6 pointer-events-none">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight uppercase leading-tight">
+            {current.name} {current.lastName && <span className="block md:inline">{current.lastName}</span>}
           </h2>
-          <p className="text-base md:text-lg mt-1 md:mt-2 opacity-70 italic">
+          <p className="text-sm md:text-base mt-1 opacity-80 font-medium uppercase tracking-widest text-neutral-800">
             {current.role}
           </p>
         </div>
 
-        {/* ARROWS (Hidden or smaller on mobile to prevent overlap) */}
-        <div className="absolute inset-y-0 w-full flex justify-between items-center px-4 md:px-10 pointer-events-none">
+        {/* ARROWS */}
+        <div className="absolute inset-y-0 w-full flex justify-between items-center px-2 md:px-10 pointer-events-none">
           <button
             onClick={() => goToSlide(currentIndex - 1)}
-            className="pointer-events-auto bg-white/80 hover:bg-white/60 p-2 rounded-full backdrop-blur-sm transition-all"
+            className="pointer-events-auto bg-white/90 hover:bg-white p-2 rounded-full shadow-md transition-transform active:scale-90"
           >
-            <div className="relative size-8 md:size-10">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="black" // Sets the color to black
-                strokeWidth="2.5"
-                strokeLinecap="square"
-                className="w-full h-full"
-              >
-                <path d="M15 19l-7-7 7-7" />
-              </svg>
-            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" className="size-5 md:size-6">
+              <path d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
 
           <button
             onClick={() => goToSlide(currentIndex + 1)}
-            className="pointer-events-auto bg-white/80 hover:bg-white/60 p-2 rounded-full backdrop-blur-sm transition-all"
+            className="pointer-events-auto bg-white/90 hover:bg-white p-2 rounded-full shadow-md transition-transform active:scale-90"
           >
-            <div className="relative size-8 md:size-10 rotate-180">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="black" // Sets the color to black
-                strokeWidth="2.5"
-                strokeLinecap="square"
-                className="w-full h-full"
-              >
-                <path d="M15 19l-7-7 7-7" />
-              </svg>
-            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" className="size-5 md:size-6 rotate-180">
+              <path d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
         </div>
-
-        {/* Mobile Indicator */}
-        {/* <div className="flex justify-center gap-2 mt-6 md:hidden">
-        {teamMembers.map((_, i) => (
-          <div key={i} className={`h-1.5 w-1.5 rounded-full ${i === currentIndex ? 'bg-black' : 'bg-black/20'}`} />
-        ))}
-      </div> */}
       </section>
-    </>
+    </div>
   );
 };
 
