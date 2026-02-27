@@ -153,13 +153,13 @@ const ServicesPage = () => {
               {/* MAIN CONTENT GRID */}
               <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-0 p-6 md:p-10 items-center overflow-hidden">
                 {/* LEFT SIDE: Text Content (Offset for luxury feel) */}
-                <div className="lg:col-span-5 xl:col-span-4 lg:pl-10 space-y-2 lg:space-y-12 z-20 order-2 lg:order-1">
+                <div className="lg:col-span-6 xl:col-span-4 lg:pl-10 space-y-2 lg:space-y-12 z-20 order-2 lg:order-1">
                   <div className="space-y-6">
                     {/* Increased font size and tighter tracking for a premium look */}
-                    <h3 className="text-3xl md:text-4xl xl:text-5xl font-light text-white/90 leading-[1.1] tracking-tight">
+                    <h3 className="text-3xl md:text-[36px] lg:text-[40px] xl:text-5xl font-light text-white/90 leading-[1.1] tracking-tight">
                       {card.tagline}
                     </h3>
-                    <p className="text-gray-400 text-base md:text-lg xl:text-xl leading-relaxed max-w-md border-l border-lime-400/30 pl-6">
+                    <p className="text-gray-400 text-base  xl:text-xl leading-relaxed max-w-md border-l border-lime-400/30 pl-6">
                       {card.description}
                     </p>
                   </div>
@@ -184,9 +184,9 @@ const ServicesPage = () => {
                 </div>
 
                 {/* RIGHT SIDE: Strategic Video Composition */}
-                <div className="lg:col-span-7 xl:col-span-8 relative w-full h-full flex items-center justify-center lg:justify-end order-1 lg:order-2">
+                <div className="lg:col-span-6 xl:col-span-8 relative w-full h-full flex items-center justify-center lg:justify-end order-1 lg:order-2 md:hidden lg:flex">
                   {/* Video Container - Maintaining the same width/aspect ratio as your previous image layout */}
-                  <div className="relative w-full lg:w-[95%] aspect-video">
+                  <div className="relative w-full lg:w-[85%] xl:w-[95%] aspect-video">
                     {/* Main Video Wrapper */}
                     <div className="relative w-full h-full z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden rounded-sm border border-white/10">
                       <video
