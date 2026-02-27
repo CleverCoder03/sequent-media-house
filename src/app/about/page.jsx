@@ -25,13 +25,26 @@ const AboutPage = () => {
   const whyContainerRef = useRef(null);
   const exLySe = useRef(null);
   const enImg = useRef(null);
+  const enImg2 = useRef(null);
   const scText = useRef(null);
   const exLyTh = useRef(null);
   const sliderRef = useRef(null);
   const sliderRatioRef = useRef({ start: 0, end: 1 });
+  const bgImgsRef = useRef([]);
 
   useGSAP(
     () => {
+      // Scatter images far off-screen from the center
+      // 0: Top-Left, 1: Top-Right, 2: Bottom-Right, 3: Bottom-Left, 4: Far Left, 5: Far Right
+      const scatterPositions = [
+        { x: "-100vw", y: "-100vh" },
+        { x: "100vw", y: "-100vh" },
+        { x: "100vw", y: "100vh" },
+        { x: "-100vw", y: "100vh" },
+        { x: "-120vw", y: "0" },
+        { x: "120vw", y: "0" },
+      ];
+
       // ---- INITIAL STATES ----
       gsap.set(HeroH1Ref.current, { scale: 1, yPercent: 0 });
       gsap.set(HeroH2Ref.current, { scale: 1, yPercent: 0 });
@@ -39,7 +52,16 @@ const AboutPage = () => {
       gsap.set(".why-text", { yPercent: 105, scale: 1 });
       gsap.set(whyContainerRef.current, { scale: 1 });
       gsap.set(enImg.current, { scale: 2 });
+      gsap.set(enImg2.current, { scale: 2 });
       gsap.set(scText.current, { xPercent: 100 });
+      bgImgsRef.current.forEach((img, i) => {
+        gsap.set(img, {
+          x: scatterPositions[i].x,
+          y: scatterPositions[i].y,
+          scale: 2, // Start large for depth
+          opacity: 1, // Kept at 1 as requested
+        });
+      });
 
       // ---- MAIN SEQUENCE ----
       const tl = gsap.timeline({
@@ -153,6 +175,19 @@ const AboutPage = () => {
           },
           "<",
         )
+        // ANIMATE FIRST 3 IMAGES TO CENTER
+        .to(
+          bgImgsRef.current.slice(0, 3),
+          {
+            x: 0,
+            y: 0,
+            scale: 0,
+            duration: 4,
+            stagger: 0.1,
+            ease: "power2.in", // Fast at the start, slows down as it hits center
+          },
+          "<",
+        )
         .to(
           scText.current,
           {
@@ -161,13 +196,40 @@ const AboutPage = () => {
           },
           "<",
         )
+        .to(
+          enImg2.current,
+          {
+            height: "auto", // Reveal the container
+            scale: 0.3, // Scale down to 0.5
+            duration: 2.5, // Taking the remaining half of the parent's duration
+            ease: "power2.out",
+          },
+          "-=2.5", // This starts exactly halfway through the 5s enImg animation
+        )
+        // ANIMATE REMAINING 3 IMAGES TO CENTER
+        .to(
+          bgImgsRef.current.slice(3),
+          {
+            x: 0,
+            y: 0,
+            scale: 0,
+            duration: 2.5,
+            stagger: 0.2,
+            ease: "power1.inOut",
+          },
+          "<",
+        )
         // ✅ Label placed RIGHT before slider section opens
         .addLabel("sliderStart")
-        .to(exLyTh.current, {
-          height: "100dvh",
-          duration: 1,
-          ease: "power3.inOut",
-        })
+        .to(
+          exLyTh.current,
+          {
+            height: "100dvh",
+            duration: 1,
+            ease: "power3.inOut",
+          },
+          "-=1",
+        )
         // ✅ Add extra duration so slider has room to cycle through all slides
         .to({}, { duration: 11 }); // empty tween — pure scroll breathing room for slider
 
@@ -193,7 +255,13 @@ const AboutPage = () => {
           textRef={introTextRef}
           whyContainerRef={whyContainerRef}
         />
-        <MediaSection exLySe={exLySe} enImg={enImg} scText={scText} />
+        <MediaSection
+          exLySe={exLySe}
+          enImg={enImg}
+          enImg2={enImg2}
+          scText={scText}
+          bgImgsRef={bgImgsRef}
+        />
         <SliderSection ref={sliderRef} exLyTh={exLyTh} />
       </div>
       <TeamCarousel />
