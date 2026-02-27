@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TextMask } from "@/components/TextMask";
 
 const projects = [
   { id: 1, name: "Project One", description: "Brand Identity", image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d" },
@@ -74,17 +75,47 @@ const WorkPage = () => {
       <Navbar />
 
       {/* --- HERO SECTION --- */}
-      <section className="h-screen w-full flex flex-col justify-center items-center px-6 text-center">
-        <h1 className="text-6xl md:text-[9rem] font-bold tracking-tighter leading-none mb-6">
-          SELECTED <br /> <span className="text-zinc-700 italic">WORKS</span>
-        </h1>
-        <p className="max-w-md text-zinc-400 text-lg md:text-xl font-medium">
-          A collection of digital experiences built at the intersection of design and motion.
-        </p>
-        <div className="mt-16 animate-bounce opacity-50">
-          {/* <p className="text-[10px] uppercase tracking-[0.4em] text-zinc-400">Scroll Down</p> */}
-        </div>
-      </section>
+              <section className="relative w-full h-screen flex flex-col items-center justify-center text-center px-4">
+                {/* Optional background glow/gradient to make it pop */}
+                {/* <div className="absolute inset-0 bg-linear-to-b from-zinc-900 to-black z-0"></div> */}
+                <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+                  >
+                    <source src="/footer-bg.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="absolute inset-0 bg-black/50"></div>
+                </div>
+      
+                <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center justify-center gap-6">
+                  {/* The Heading */}
+                  <h1 className="text-5xl md:text-8xl font-montserrat-semibold uppercase tracking-normal text-white">
+                    <TextMask
+                      text="Selected Work"
+                      delay={0.1}
+                      stagger="0.12"
+                      once={false}
+                    />
+                  </h1>
+      
+                  {/* The Subheading (starts slightly after the heading) */}
+                  <p className="text-lg md:text-2xl font-montserrat-regular text-neutral-300 max-w-2xl">
+                    <TextMask
+                    className={"flex justify-center"}
+                      text="A collection of digital experiences built at the intersection of design and motion."
+                      delay={0.5}
+                      once={false}
+                    />
+                  </p>
+                </div>
+              </section>
+              {/* --- END HERO SECTION --- */}
 
       {/* --- PROJECT GRID SECTION --- */}
       <main className="px-6 md:px-12 py-24 flex flex-col gap-24 md:gap-40 max-w-350 mx-auto">
