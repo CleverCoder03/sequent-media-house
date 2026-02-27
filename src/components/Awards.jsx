@@ -108,9 +108,7 @@ const Awards = () => {
           <MarqueeIcon variant={1} className="mx-5" /> AWARDS+MENTIONS{" "}
           <MarqueeIcon variant={2} className="mx-5" /> AWARDS+MENTIONS{" "}
           <MarqueeIcon variant={3} className="mx-5" /> AWARDS+MENTIONS{" "}
-          <MarqueeIcon variant={4} className="mx-5" /> AWARDS+MENTIONS{" "}
-          <MarqueeIcon variant={5} className="mx-5" /> AWARDS+MENTIONS{" "}
-          <MarqueeIcon variant={1} className="mx-5" />
+          <MarqueeIcon variant={4} className="mx-5" />
         </Marquee>
       </div>
       <div className="mb-20 lg:mb-0 lg:my-10 px-4 md:px-18 lg:px-25">
