@@ -8,14 +8,14 @@ import MarqueeIcon from "@/components/MarqueeIcon";
 
 const teamMembers = [
   { src: "/0-about-1.jpeg", name: "Namrataa Dwarakanath", role: "Founder" },
-  { src: "/0-about-2.jpeg", name: "Manogjnaa Dwarakanath", role: "Co-founder" },
+  { src: "/team/manogjnaa.jpg", name: "Manogjnaa Dwarakanath", role: "Co-founder" },
   {
     src: "/0-about-3.jpeg",
     name: "Sharath Kumar Basavaraju",
     role: "Director & Business Development Head",
   },
   { src: "/0-about-1.jpeg", name: "RACHEL", role: "Graphic designer" },
-  { src: "/0-about-2.jpeg", name: "MATT", role: "Web developer" },
+  { src: "/team/vishal.jpeg", name: "Vishal Mishra", role: "Web developer" },
   { src: "/0-about-3.jpeg", name: "JAMES", role: "Web developer" },
   { src: "/0-about-1.jpeg", name: "MARK", role: "Event head" },
   { src: "/0-about-2.jpeg", name: "ANNABELLE", role: "Photographer" },
@@ -78,7 +78,7 @@ const TeamCarousel = () => {
 
   return (
     <div
-      className="py-6 lg:py-10 bg-lime-500 overflow-hidden"
+      className="py-6 lg:py-10 bg-lime-600 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -108,17 +108,17 @@ const TeamCarousel = () => {
           </div>
 
           {/* Inner Left */}
-          <div className="hidden sm:block w-[120px] h-[180px] md:w-[180px] md:h-[260px] relative grayscale opacity-60 shrink-0 transition-all duration-500">
+          <div className="hidden sm:block w-[120px] h-[180px] md:w-[180px] md:h-[260px] relative grayscale opacity-60 shrink-0 transition-all duration-500 rounded-lg overflow-hidden">
             <Image
               src={prev.src}
               alt=""
               fill
-              className="object-cover rounded-lg teamIMG"
+              className="object-cover teamIMG"
             />
           </div>
 
           {/* CENTER FOCUS IMAGE - Reduced from 350px to 300px on mobile */}
-          <div className="w-[240px] h-[320px] md:w-[300px] md:h-[400px] relative grayscale-0 shrink-0 z-10 shadow-xl scale-105 md:scale-110">
+          <div className="w-[240px] h-[320px] md:w-[300px] md:h-[400px] relative grayscale shrink-0 z-10 shadow-xl scale-105 md:scale-110">
             <Image
               src={current.src}
               alt={current.name}
