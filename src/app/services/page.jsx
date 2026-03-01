@@ -101,7 +101,7 @@ const ServicesPage = () => {
             <div className="absolute inset-0 bg-black/50"></div>
           </div>
 
-          <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-6">
+          <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-2 md:gap-4 lg:gap-6">
             {/* The Heading */}
             <h1 className="text-5xl md:text-8xl font-montserrat-semibold tracking-tight text-white">
               <TextMask
@@ -153,13 +153,13 @@ const ServicesPage = () => {
               {/* MAIN CONTENT GRID */}
               <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-0 px-6 md:px-10 items-center overflow-hidden">
                 {/* LEFT SIDE: Text Content (Offset for luxury feel) */}
-                <div className="lg:col-span-6 xl:col-span-4 lg:pl-10 space-y-2 lg:space-y-12 z-20 order-2 lg:order-1">
+                <div className="lg:col-span-6 xl:col-span-4 lg:pl-10 space-y-2 lg:space-y-8 z-20 order-2 lg:order-1">
                   <div className="space-y-6">
                     {/* Increased font size and tighter tracking for a premium look */}
                     <h3 className="text-3xl md:text-[36px] lg:text-[40px] xl:text-5xl font-light text-white/90 leading-[1.1] tracking-tight">
                       {card.tagline}
                     </h3>
-                    <p className="text-gray-400 text-base  xl:text-xl leading-relaxed max-w-md border-l border-lime-400/30 pl-6">
+                    <p className="text-gray-400 text-sm  lg:text-lg xl:text-xl leading-snug max-w-md border-l border-lime-400/30 pl-6">
                       {card.description}
                     </p>
                   </div>
@@ -169,13 +169,13 @@ const ServicesPage = () => {
                     <p className="text-lime-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-6">
                       {card.listTitle}
                     </p>
-                    <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-3">
+                    <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-3 lg:gap-y-1">
                       {card.listItems.map((item, idx) => (
                         <li
                           key={idx}
                           className="text-gray-300 text-xs md:text-sm xl:text-base flex items-center gap-3 group"
                         >
-                          <span className="w-1.5 h-[1px] bg-lime-400 shrink-0 transition-all group-hover:w-4" />
+                          <span className="w-1.5 h-[1px] bg-lime-400 shrink-0 text-xs transition-all group-hover:w-4" />
                           {item}
                         </li>
                       ))}
