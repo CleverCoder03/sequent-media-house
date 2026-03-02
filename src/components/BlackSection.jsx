@@ -14,15 +14,15 @@ const BlackSection = forwardRef((props, ref) => {
                   animateOnHover={false}
                   className="text-neutral-100 text-5xl md:text-7xl tracking-tight uppercase"
                 >
-                  Complex
+                  Purpose
                 </HyperText>
                 <HyperText
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-5xl md:text-7xl tracking-tight font-playfair-semibold-italic lowercase  text-lime-theme"
+                  className="text-5xl md:text-7xl tracking-tight leading-none font-playfair-semibold-italic text-lime-theme"
                 >
-                  Made
+                  Meets
                 </HyperText>
                 <HyperText
                   startOnView={true}
@@ -30,7 +30,7 @@ const BlackSection = forwardRef((props, ref) => {
                   animateOnHover={false}
                   className="text-neutral-100 text-5xl md:text-7xl tracking-tight uppercase"
                 >
-                  Compelling
+                  Precision
                 </HyperText>
               </div>
             </div>

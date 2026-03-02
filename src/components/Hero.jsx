@@ -38,7 +38,7 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
       <div className="relative z-10 lg:w-2/3 pointer-events-none">
         <CharReveal>
           <h1 ref={ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
-            Where <span className="font-playfair-semibold-italic text-lime-theme">ideas</span> Travel,
+            Where <span className="font-playfair-semibold-italic text-lime-theme">ideas</span> travel,
           </h1>
           <h1 ref={HeroH2Ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
             And <span className="font-playfair-semibold-italic text-lime-theme">stories</span> live forever.

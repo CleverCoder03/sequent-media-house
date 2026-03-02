@@ -1,8 +1,6 @@
 import React, { forwardRef } from "react";
 import { HyperText } from "./ui/hyper-text";
-import { WavyBackground } from "./ui/wavy-background";
-import CursorTrail from "./CursorTrail";
-import { Vortex } from "./ui/vortex";
+import { TextMask } from "./TextMask";
 
 const Layer5 = forwardRef((props, ref) => {
   return (
@@ -10,21 +8,6 @@ const Layer5 = forwardRef((props, ref) => {
       ref={ref}
       className="absolute inset-0 bg-black z-50 flex h-dvh items-center justify-center"
     >
-      {/* <CursorTrail
-        imagePaths={["0-about-1.jpeg", "0-about-2.jpeg"]}
-        imageWidth={150}
-        imageHeight={200}
-        mobileImageWidth={100}
-        mobileImageHeight={150}
-        distanceThreshold={100}
-        mobileDistanceThreshold={50}
-      /> */}
-      {/* <Vortex
-      rangeY={200}
-      baseHue={120}
-        backgroundColor="black"
-        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
-      > */}
       <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
         <video
           autoPlay
@@ -53,12 +36,23 @@ const Layer5 = forwardRef((props, ref) => {
           startOnView={true}
           duration={1500}
           animateOnHover={false}
-          className="text-5xl md:text-7xl tracking-tight font-playfair-semibold-italic lowercase  text-lime-theme"
+          className="text-5xl md:text-7xl tracking-tight font-playfair-semibold-italic text-lime-theme"
         >
-          Canon
+          Nexus
         </HyperText>
+
+        {/* Added Responsive Tagline Here */}
+        {/* <p className="mt-4 md:mt-6 text-neutral-300 text-base md:text-lg lg:text-xl text-center tracking-wide font-medium px-4">
+          Intelligent Screens. Unified Control.
+        </p> */}
+        <TextMask
+          text="Intelligent Screens. Unified Control"
+          delay={0.1}
+          stagger="0.12"
+          once={false}
+          className="mt-4 md:mt-6 text-neutral-300 text-base md:text-lg lg:text-xl text-center tracking-wide font-medium px-4"
+        />
       </div>
-      {/* </Vortex> */}
     </div>
   );
 });
