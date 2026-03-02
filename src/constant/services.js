@@ -55,10 +55,10 @@ export const stickyCardsData = [
   {
     index: 4,
     title: "VOW",
-    subtitle: "Emotion, captured forever.",
+    subtitle: " Luxury Weddings & Films",
     tagline: (
       <>
-        <span className="font-playfair-italic tracking-wider text-lime-theme">Refined</span> design for <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">timeless</span> weddings.
+        Emotion, Caputred <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">forever</span>
       </>
     ),
     description: "We blend cinematic storytelling with refined design to transform weddings into timeless works of art, crafted with elegance and intention.",
