@@ -14,7 +14,7 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
         imageHeight={200}
         mobileImageWidth={100}
         mobileImageHeight={150}
-        distanceThreshold={150}
+        distanceThreshold={120}
         mobileDistanceThreshold={50}
       />
       {/* Video Background */}

@@ -4,7 +4,6 @@ import { forwardRef } from "react";
 import RowAnimImg from "./RowAnimImg";
 import { ManualTextRoll } from "./ManualTextRoll";
 import Link from "next/link";
-import RowAnimVid from "./RowAnimVid";
 
 const RowAnimation = forwardRef(({ rowsRef, rowsContentRef }, ref) => {
   return (
