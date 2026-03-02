@@ -104,7 +104,7 @@ const About = () => {
             <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-2/3">
           <TextMask2>
           Every screen is a <span className="font-playfair-semibold-italic text-lime-theme lowercase">story&nbsp;</span>
-          and every play is <span className="font-playfair-semibold-italic text-lime-theme lowercase">proof</span>
+          and every play is <span className="font-playfair-semibold-italic text-lime-theme lowercase pr-2">proof</span>
           </TextMask2>
           </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg">
