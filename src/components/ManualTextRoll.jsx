@@ -13,7 +13,7 @@ export const ManualTextRoll = ({ children, className }) => {
       whileHover="hover"
       className={`relative inline-block overflow-hidden whitespace-nowrap ${className}`}
       style={{ 
-        lineHeight: "0.9", // Tighten line height to prevent gap during slide
+        lineHeight: "1.05", // Tighten line height to prevent gap during slide
         display: "inline-block" 
       }}
     >
