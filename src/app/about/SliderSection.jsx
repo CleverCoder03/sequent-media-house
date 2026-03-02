@@ -107,7 +107,7 @@ const SliderSection = forwardRef(({ exLyTh }, ref) => {
         <div ref={imagesRef} className="absolute inset-0 overflow-hidden" />
 
         {/* Dark gradient overlay — heavier on left for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-10 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-10 backdrop-blur-[0.5px]" />
         {/* Main content grid */}
         <div className="relative z-20 w-full h-dvh flex flex-col md:flex-row items-end md:items-center px-6 md:px-10 pb-10 md:pb-0 pt-20 md:pt-0">
 

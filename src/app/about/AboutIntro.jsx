@@ -17,13 +17,13 @@ const AboutIntro = forwardRef(({ exLyFi, whyContainerRef }, ref) => {
           {/* Mask 1 */}
           <div className="overflow-hidden py-1">
             <span className="intro-line block">
-              We are a team of storytellers, strategists, filmmakers,
+              We are a team of <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">storytellers, strategists, filmmakers,</span>
             </span>
           </div>
 
           {/* Mask 2 */}
           <div className="overflow-hidden py-1">
-            <span className="intro-line block">
+            <span className="intro-line block font-playfair-italic lowercase tracking-wider text-lime-theme">
                planners, dreamers
             </span>
           </div>

@@ -205,7 +205,7 @@ export default function Navbar() {
               <motion.div key={index} variants={itemVariants} className={`border-b border-neutral-100/70 ${index === 0 ? "border-t" : ""} w-full`}>
                 <Link004
                   href={link.href}
-                  className={`text-neutral-100 text-3xl font-montserrat-semibold uppercase tracking-normal ${pathName === link.href ? "text-lime-theme" : ""}`}
+                  className={`text-neutral-100 text-3xl font-playfair-italic tracking-normal ${pathName === link.href ? "text-lime-theme" : ""}`}
                 >
                   <div className="py-2">
                     <ManualTextRoll>
