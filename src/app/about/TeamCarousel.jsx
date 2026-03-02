@@ -7,18 +7,23 @@ import Marquee from "react-fast-marquee";
 import MarqueeIcon from "@/components/MarqueeIcon";
 
 const teamMembers = [
-  { src: "/0-about-1.jpeg", name: "Namrataa Dwarakanath", role: "Founder" },
-  { src: "/team/manogjnaa.jpg", name: "Manogjnaa Dwarakanath", role: "Co-founder" },
+  { src: "/team/namrata.png", name: "Namrataa Dwarakanath", role: "Founder" },
+  { src: "/team/manogjnaa.jpg", name: "Manogjnaa Dwarakanath", role: "Managing Director" }, 
+  // {
+  //   src: "/0-about-3.jpeg",
+  //   name: "Sharath Kumar Basavaraju",
+  //   role: "Director & Business Development Head",
+  // },
   {
     src: "/0-about-3.jpeg",
-    name: "Sharath Kumar Basavaraju",
-    role: "Director & Business Development Head",
+    name: "Sumedh Sapkal",
+    role: "Business Head (Ad Tech)",
   },
   { src: "/0-about-1.jpeg", name: "RACHEL", role: "Graphic designer" },
   { src: "/team/vishal.jpeg", name: "Vishal Mishra", role: "Web developer" },
-  { src: "/0-about-3.jpeg", name: "JAMES", role: "Web developer" },
-  { src: "/0-about-1.jpeg", name: "MARK", role: "Event head" },
-  { src: "/0-about-2.jpeg", name: "ANNABELLE", role: "Photographer" },
+  { src: "/team/nagesh.png", name: "Nagesh Bijoor", role: "Web developer" },
+  { src: "/team/waseem.jpg", name: "Waseem Yousuff", role: "Event Curator" },
+  { src: "/team/naveen.jpg", name: "Naveen Panchakshari", role: "Visual Director" },
 ];
 
 const TeamCarousel = () => {
