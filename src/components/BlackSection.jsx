@@ -20,7 +20,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-5xl md:text-7xl tracking-tight leading-none font-playfair-semibold-italic text-lime-theme"
+                  className="text-5xl md:text-7xl tracking-tight -mt-2 font-playfair-semibold-italic text-lime-theme"
                 >
                   Meets
                 </HyperText>
