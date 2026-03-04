@@ -11,27 +11,27 @@ const AboutIntro = forwardRef(({ exLyFi, whyContainerRef }, ref) => {
         className="relative z-5 bg-black flex flex-col justify-center items-center w-full h-0 overflow-hidden px-4"
       >
         <div 
-          className="lg:w-[68vw] flex flex-col items-center text-center uppercase font-montserrat-medium text-white leading-tight tracking-tighter"
+          className="lg:w-[68vw] flex flex-col items-center text-center font-figtree-medium text-white"
           style={{ fontSize: 'clamp(1.5rem, 4vw, 2vw)' }}
         >
           {/* Mask 1 */}
           <div className="overflow-hidden py-1">
             <span className="intro-line block">
-              We are a team of <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">storytellers, strategists, filmmakers,</span>
+              We are a team of
             </span>
           </div>
 
           {/* Mask 2 */}
           <div className="overflow-hidden py-1">
-            <span className="intro-line block font-playfair-italic lowercase tracking-wider text-lime-theme">
-               planners, dreamers
+            <span className="intro-line block font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">
+              storytellers, strategists, filmmakers, planners, dreamers
             </span>
           </div>
 
           {/* Mask 3 */}
           <div className="overflow-hidden mt-2">
-            <span className="intro-line block bg-white text-black px-2">
-              each fluent in both logic and imagination.
+            <span className="intro-line block tracking-normal bg-white text-black px-2">
+              Each fluent in both logic and imagination.
             </span>
           </div>
 

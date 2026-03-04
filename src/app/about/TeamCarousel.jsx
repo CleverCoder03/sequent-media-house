@@ -7,23 +7,18 @@ import Marquee from "react-fast-marquee";
 import MarqueeIcon from "@/components/MarqueeIcon";
 
 const teamMembers = [
-  { src: "/team/namrata.png", name: "Namrataa Dwarakanath", role: "Founder" },
-  { src: "/team/manogjnaa.jpg", name: "Manogjnaa Dwarakanath", role: "Managing Director" }, 
-  // {
-  //   src: "/0-about-3.jpeg",
-  //   name: "Sharath Kumar Basavaraju",
-  //   role: "Director & Business Development Head",
-  // },
+  { src: "/team/namrata.jpg", name: "Namrataa Dwarakanath", role: "Founder" },
+  { src: "/team/manogjnaa.jpg", name: "Manogjnaa Dwarakanath", role: "Managing Director" },
+  { src: "/team/waseem.jpg", name: "Waseem Yousuff", role: "Event Curator" },
+  { src: "/team/nagesh.png", name: "Nagesh Bijoor", role: "Web developer" },
+  { src: "/team/vishal.jpeg", name: "Vishal Mishra", role: "Web developer" },
+  { src: "/0-about-1.jpeg", name: "RACHEL", role: "Graphic designer" },
+  { src: "/team/naveen.jpg", name: "Naveen Panchakshari", role: "Visual Director" },
   {
-    src: "/0-about-3.jpeg",
+    src: "/team/sumedh.jpg",
     name: "Sumedh Sapkal",
     role: "Business Head (Ad Tech)",
   },
-  { src: "/0-about-1.jpeg", name: "RACHEL", role: "Graphic designer" },
-  { src: "/team/vishal.jpeg", name: "Vishal Mishra", role: "Web developer" },
-  { src: "/team/nagesh.png", name: "Nagesh Bijoor", role: "Web developer" },
-  { src: "/team/waseem.jpg", name: "Waseem Yousuff", role: "Event Curator" },
-  { src: "/team/naveen.jpg", name: "Naveen Panchakshari", role: "Visual Director" },
 ];
 
 const TeamCarousel = () => {
@@ -41,13 +36,13 @@ const TeamCarousel = () => {
   );
 
   // --- AUTO ROTATE LOGIC ---
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      goToSlide(currentIndex + 1);
-    }, 3500); // Rotates every 3.5 seconds
-    return () => clearInterval(interval);
-  }, [currentIndex, isPaused, goToSlide]);
+  // useEffect(() => {
+  //   if (isPaused) return;
+  //   const interval = setInterval(() => {
+  //     goToSlide(currentIndex + 1);
+  //   }, 3500); // Rotates every 3.5 seconds
+  //   return () => clearInterval(interval);
+  // }, [currentIndex, isPaused, goToSlide]);
 
   const getAt = (offset) =>
     teamMembers[(currentIndex + offset + total) % total];
@@ -83,7 +78,7 @@ const TeamCarousel = () => {
 
   return (
     <div
-      className="py-6 lg:py-10 bg-lime-600 overflow-hidden"
+      className="py-6 lg:py-10 bg-neutral-100 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -91,8 +86,8 @@ const TeamCarousel = () => {
         speed={80}
         className="font-figtree-semibold text-[12vw] lg:text-[7vw] text-neutral-900 mb-4"
       >
-        MEET THE TEAM <MarqueeIcon variant={1} className="mx-5" />
-        MEET THE TEAM <MarqueeIcon variant={2} className="mx-5" />
+        MEET THE TEAM <MarqueeIcon variant={1} className="mx-5 text-lime-theme" />
+        MEET THE TEAM <MarqueeIcon variant={2} className="mx-5 text-lime-theme" />
       </Marquee>
 
       <section
@@ -103,7 +98,7 @@ const TeamCarousel = () => {
         {/* IMAGES CONTAINER - Reduced Sizing */}
         <div className="flex items-center justify-center gap-3 md:gap-6 px-4">
           {/* Outer Left (Smallest) */}
-          <div className="hidden xl:block w-[140px] h-[200px] relative grayscale opacity-40 shrink-0 transition-all duration-500">
+          <div className="hidden xl:block w-[140px] h-[200px] rounded-lg relative grayscale opacity-40 shrink-0 transition-all duration-500">
             <Image
               src={prePrev.src}
               alt=""
@@ -113,7 +108,7 @@ const TeamCarousel = () => {
           </div>
 
           {/* Inner Left */}
-          <div className="hidden sm:block w-[120px] h-[180px] md:w-[180px] md:h-[260px] relative grayscale opacity-60 shrink-0 transition-all duration-500 rounded-lg overflow-hidden">
+          <div className="hidden sm:block w-[120px] h-[180px] md:w-[180px] md:h-[260px] rounded-lg relative grayscale opacity-60 shrink-0 transition-all duration-500 rounded-lg overflow-hidden">
             <Image
               src={prev.src}
               alt=""
@@ -123,7 +118,7 @@ const TeamCarousel = () => {
           </div>
 
           {/* CENTER FOCUS IMAGE - Reduced from 350px to 300px on mobile */}
-          <div className="w-[240px] h-[320px] md:w-[300px] md:h-[400px] relative grayscale shrink-0 z-10 shadow-xl scale-105 md:scale-110">
+          <div className="w-[240px] h-[320px] md:w-[300px] md:h-[400px] relative rounded-xl shrink-0 z-10 shadow-xl scale-105 md:scale-110">
             <Image
               src={current.src}
               alt={current.name}
