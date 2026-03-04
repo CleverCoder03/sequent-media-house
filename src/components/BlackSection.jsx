@@ -7,12 +7,12 @@ const BlackSection = forwardRef((props, ref) => {
               ref={ref}
               className="absolute inset-0 bg-black flex flex-col items-center justify-center z-20"
             >
-              <div className="text-center font-montserrat-semibold flex flex-col gap-3">
+              <div className="text-center font-figtree-semibold flex flex-col gap-3">
                 <HyperText
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-neutral-100 text-5xl md:text-7xl tracking-tight uppercase"
+                  className="text-white text-5xl md:text-7xl leading-[1.1]"
                 >
                   Purpose
                 </HyperText>
@@ -20,7 +20,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-5xl md:text-7xl tracking-tight -mt-2 font-playfair-semibold-italic text-lime-theme"
+                  className="text-5xl md:text-7xl tracking-tight leading-[1.1] font-playfair-semibold-italic text-lime-theme"
                 >
                   Meets
                 </HyperText>
@@ -28,7 +28,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-neutral-100 text-5xl md:text-7xl tracking-tight uppercase"
+                  className="text-white text-5xl md:text-7xl leading-[1.1]"
                 >
                   Precision
                 </HyperText>
