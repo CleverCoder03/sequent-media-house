@@ -9,7 +9,7 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
     <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
       {/* Cursor Trail Effect */}
       <CursorTrail
-        imagePaths={["/home/branding.jpg", "/home/trail-2.jpg", "/home/trail-3.jpg", "/home/trail-4.jpg", "/home/trail-5.jpg", "/home/trail-6.jpg", "/home/trail-7.jpg"]}
+        imagePaths={["/home/trail-1.jpg", "/home/trail-2.jpg", "/home/trail-3.jpg", "/home/trail-4.jpg", "/home/trail-5.jpg", "/home/trail-6.jpg", "/home/trail-7.jpg", "/home/trail-8.jpg", "/home/trail-9.jpg"]}
         imageWidth={150}
         imageHeight={200}
         mobileImageWidth={100}
