@@ -7,7 +7,7 @@ export const stickyCardsData = [
     subtitle: "Creative Design & Campaigns",
     tagline: (
       <>
-        Brands aren’t <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">built</span>. They’re strategically <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">crafted</span>.
+        Brands aren’t <span className="font-playfair-semibold-italic lowercase  tracking-wider text-lime-theme">built</span>. They’re strategically <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">crafted</span>.
       </>
     ),
     description: "We develop cohesive brand identities and integrated campaigns that align strategy, design, and storytelling to drive measurable impact.",
@@ -24,7 +24,7 @@ export const stickyCardsData = [
     subtitle: "Product Photography & Films",
     tagline: (
       <>
-        Light is our <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">language</span>. Emotion is our <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">focus</span>.
+        Light is our <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">language</span>. Emotion is our <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">focus</span>.
       </>
     ),
     description: "We create visually compelling photography and films that bring products to life. Every frame is carefully composed to highlight form, texture, and movement.",
@@ -41,7 +41,7 @@ export const stickyCardsData = [
     subtitle: "Event Design and Management",
     tagline: (
       <>
-        We don’t just plan <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">events</span>. We create <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">experiences</span>.
+        We don’t just plan <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">events</span>. We create <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">experiences</span>.
       </>
     ),
     description: "From corporate launches to cultural galas, we transform spaces into immersive brand stories that leave a lasting impression.",
@@ -58,7 +58,7 @@ export const stickyCardsData = [
     subtitle: " Luxury Weddings & Films",
     tagline: (
       <>
-        Emotion, Caputred <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">forever</span>
+        Emotion, Caputred <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">forever</span>
       </>
     ),
     description: "We blend cinematic storytelling with refined design to transform weddings into timeless works of art, crafted with elegance and intention.",
@@ -75,7 +75,7 @@ export const stickyCardsData = [
     subtitle: "Corporate Gifting",
     tagline: (
       <>
-        <span className="font-playfair-italic tracking-wider text-lime-theme">Thoughtfulness</span> is the new <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">luxury</span>.
+        <span className="font-playfair-semibold-italic tracking-wider text-lime-theme">Thoughtfulness</span> is the new <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">luxury</span>.
       </>
     ),
     description: "We curate bespoke corporate gifting experiences that reflect emotion, refinement, and brand intent as a powerful touchpoint.",
@@ -92,7 +92,7 @@ export const stickyCardsData = [
     subtitle: "Consulting & Digital PR",
     tagline: (
       <>
-        Where <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">story</span> meets <span className="font-playfair-italic lowercase tracking-wider text-lime-theme">strategy</span>.
+        Where <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">story</span> meets <span className="font-playfair-semibold-italic lowercase tracking-wider text-lime-theme">strategy</span>.
       </>
     ),
     description: "We shape the narrative architecture that brands grow on — connecting businesses to investors and global media.",

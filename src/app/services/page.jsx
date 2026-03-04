@@ -175,7 +175,7 @@ const ServicesPage = () => {
                 <div className="lg:col-span-6 xl:col-span-4 lg:pl-10 space-y-2 lg:space-y-8 z-20 order-2 lg:order-1">
                   <div className="space-y-6">
                     {/* Increased font size and tighter tracking for a premium look */}
-                    <h3 className="text-3xl md:text-[36px] lg:text-[40px] xl:text-5xl font-light text-white/90 leading-[1.1] tracking-tight">
+                    <h3 className="text-3xl md:text-[32px] xl:text-[40px] font-figtree-light text-white/90 leading-[1.1] tracking-tight">
                       {card.tagline}
                     </h3>
                     <p className="text-gray-400 text-sm  lg:text-lg xl:text-xl leading-snug max-w-md border-l border-lime-400/30 pl-6">
