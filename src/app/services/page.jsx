@@ -11,6 +11,7 @@ import Navbar from "@/components/Navbar";
 import { TextMask } from "@/components/TextMask";
 import { stickyCardsData } from "@/constant/services";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
+import CharReveal from "@/components/CharReveal";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -103,23 +104,41 @@ const ServicesPage = () => {
 
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-2 md:gap-4 lg:gap-6">
             {/* The Heading */}
-            <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
+            {/* <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
               <TextMask
                 text="The Spectrum"
                 delay={0.1}
                 stagger="0.12"
                 once={false}
               />
-            </h1>
+            </h1> */}
 
             {/* The Subheading (starts slightly after the heading) */}
-            <p className="text-lg md:text-xl font-montserrat-regular text-neutral-300 max-w-2xl">
+            {/* <p className="text-lg md:text-xl font-montserrat-regular text-neutral-300 max-w-2xl">
               <TextMask
                 text="Six disciplines. One design philosophy"
                 delay={0.5}
                 once={false}
               />
-            </p>
+            </p> */}
+            <CharReveal>
+              <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
+                The{" "}
+                <span className="font-playfair-semibold-italic text-lime-theme">
+                  Spectrum
+                </span>{" "}
+              </h1>
+              <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
+                Six{" "}
+                <span className="font-playfair-semibold-italic text-lime-theme">
+                  disciplines.
+                </span>{" "}
+                One design
+                <span className="font-playfair-semibold-italic text-lime-theme">
+                  philosophy
+                </span>{" "}
+              </h1>
+            </CharReveal>
           </div>
         </section>
         {/* --- END HERO SECTION --- */}

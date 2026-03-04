@@ -24,7 +24,7 @@ const MediaSection = forwardRef(
                 className="absolute w-[25vw] aspect-square rounded-2xl overflow-hidden shadow-xl z-0"
               >
                 <Image
-                  src={`/home/trail-${i + 1}.jpg`}
+                  src={`/media/media-${i + 1}.jpg`}
                   alt={`Background asset ${i + 1}`}
                   fill
                   className="object-cover"
@@ -40,7 +40,7 @@ const MediaSection = forwardRef(
             className="relative w-[70vw] md:w-[50vw] aspect-video overflow-hidden rounded-xl shadow-2xl z-10"
           >
             <Image
-              src="/home/trail-9.jpg"
+              src="/media/media-reveal-1.jpg"
               alt="Reveal 1"
               fill
               className="object-cover"
@@ -56,7 +56,7 @@ const MediaSection = forwardRef(
               style={{ height: 0 }}
             >
               <Image
-                src="/home/trail-8.jpg"
+                src="/media/media-reveal-2.jpg"
                 alt="Reveal 2"
                 fill
                 className="object-cover"

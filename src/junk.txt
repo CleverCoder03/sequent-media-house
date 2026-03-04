@@ -1,0 +1,40 @@
+The WORK - HERO SECTION
+          {/* <h1 className="text-5xl md:text-8xl font-montserrat-semibold uppercase tracking-normal text-white">
+                    <TextMask
+                    className={"flex justify-center"}
+                      text="Selected Work"
+                      delay={0.1}
+                      stagger="0.12"
+                      once={false}
+                    />
+                  </h1> */}
+
+          {/* The Subheading (starts slightly after the heading) */}
+          {/* <p className="text-lg md:text-2xl font-montserrat-regular text-neutral-300 max-w-2xl">
+                    <TextMask
+                    className={"flex justify-center"}
+                      text="A collection of digital experiences built at the intersection of design and motion."
+                      delay={0.5}
+                      once={false}
+                    />
+                  </p> */}
+          {/* <TextMask2>
+            <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
+              Where strategy meets{" "}
+              <span className="font-playfair-semibold-italic text-lime-theme">
+                story
+              </span>{" "}
+            </h1>
+            </TextMask2>
+            <TextMask2 delay={0.2}>
+            <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold text-center -mt-2">
+              and design moves with{" "}
+            </h1>
+            </TextMask2>
+            <TextMask2>
+            <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold">
+              <span className="font-playfair-semibold-italic text-lime-theme">
+                purpose.
+              </span>
+            </h1>
+            </TextMask2> */}
