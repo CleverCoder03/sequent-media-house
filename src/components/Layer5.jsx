@@ -24,11 +24,12 @@ const Layer5 = forwardRef((props, ref) => {
         <div className="absolute inset-0 bg-black/20"></div>
       </div>
       <div className="flex flex-col items-center py-[30vh]">
-        <HyperText
+        <div className="flex items-center justify-center gap-2">
+          <HyperText
           startOnView={true}
           duration={1500}
           animateOnHover={false}
-          className="text-neutral-100 text-5xl md:text-6xl font-bold text-center tracking-tight uppercase"
+          className="text-neutral-100 text-5xl md:text-6xl font-figtree-semibold leading-[1.2] mt-2 text-center"
         >
           Sequent
         </HyperText>
@@ -36,10 +37,11 @@ const Layer5 = forwardRef((props, ref) => {
           startOnView={true}
           duration={1500}
           animateOnHover={false}
-          className="text-5xl md:text-7xl tracking-tight font-playfair-semibold-italic text-lime-theme"
+          className="text-5xl md:text-6xl tracking-tight font-playfair-semibold-italic px-2 text-lime-theme"
         >
           Nexus
         </HyperText>
+        </div>
 
         {/* Added Responsive Tagline Here */}
         {/* <p className="mt-4 md:mt-6 text-neutral-300 text-base md:text-lg lg:text-xl text-center tracking-wide font-medium px-4">
@@ -50,7 +52,7 @@ const Layer5 = forwardRef((props, ref) => {
           delay={0.1}
           stagger="0.12"
           once={false}
-          className="mt-4 md:mt-6 text-neutral-300 text-base md:text-lg lg:text-xl text-center tracking-wide font-medium px-4"
+          className="mt-2 text-neutral-300 text-base md:text-lg lg:text-xl text-center tracking-wide font-montserrat-regular px-4"
         />
       </div>
     </div>
