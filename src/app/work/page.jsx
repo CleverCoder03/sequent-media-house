@@ -14,27 +14,33 @@ import { AutoMedia } from "@/components/AutoMedia";
 const projects = [
   {
     id: 1,
-    name: "Aether Agency",
-    description: "Brand Identity",
+    name: "Creative Design and Campaigns",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium magni veniam officia quisquam quidem consequatur, repudiandae et earum ipsam atque quos accusantium in beatae suscipit, perferendis recusandae omnis aspernatur minima quis sint rem, odit ad nostrum. Expedita tempora voluptas reiciendis rem corporis! Deserunt sapiente eveniet similique minus fugiat et molestiae vel ratione? Pariatur sed qui odit aspernatur,",
     media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1524169358666-79f22534bc6e?auto=format&fit=crop&w=1000&q=80' },
+      { type: 'image', url: '/work/project-1/image-1.jpg' },
+      { type: 'image', url: '/work/project-1/image-2.jpg' },
+      { type: 'image', url: '/work/project-1/image-3.jpg' },
+      { type: 'image', url: '/work/project-1/image-4.jpg' },
+      { type: 'image', url: '/work/project-1/image-5.png' },
+      { type: 'image', url: '/work/project-1/image-6.png' },
+      { type: 'image', url: '/work/project-1/image-7.png' },
+      { type: 'image', url: '/work/project-1/image-8.jpg' },
       { type: 'video', url: '/work/project-1/video-1.mp4' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=1000&q=80' },
     ]
   },
   {
     id: 2,
-    name: "Nebula Systems",
-    description: "Web Design",
+    name: "Event Design & Management",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium magni veniam officia quisquam quidem consequatur, repudiandae et earum ipsam atque quos accusantium in beatae suscipit, perferendis recusandae omnis aspernatur minima quis sint rem, odit ad nostrum. Expedita tempora voluptas reiciendis rem corporis! Deserunt sapiente eveniet similique minus fugiat et molestiae vel ratione? Pariatur sed qui odit aspernatur,",
     media: [
       { type: 'video', url: '/work/project-2/video-1.mp4' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80' },
+      { type: 'image', url: '/work/project-2/image-1.jpg' },
     ]
   },
   {
     id: 3,
-    name: "Kinetics UI",
-    description: "UI/UX Motion",
+    name: "Luxury Weddings and Films",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium magni veniam officia quisquam quidem consequatur, repudiandae et earum ipsam atque quos accusantium in beatae suscipit, perferendis recusandae omnis aspernatur minima quis sint rem, odit ad nostrum. Expedita tempora voluptas reiciendis rem corporis! Deserunt sapiente eveniet similique minus fugiat et molestiae vel ratione? Pariatur sed qui odit aspernatur,",
     media: [
       { type: 'image', url: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=80' },
       { type: 'image', url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80' },
@@ -43,32 +49,20 @@ const projects = [
   },
   {
     id: 4,
-    name: "Vantage Point",
-    description: "Digital Strategy",
+    name: "Product Photography and Films",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium magni veniam officia quisquam quidem consequatur, repudiandae et earum ipsam atque quos accusantium in beatae suscipit, perferendis recusandae omnis aspernatur minima quis sint rem, odit ad nostrum. Expedita tempora voluptas reiciendis rem corporis! Deserunt sapiente eveniet similique minus fugiat et molestiae vel ratione? Pariatur sed qui odit aspernatur,",
     media: [
+      { type: 'image', url: '/work/project-4/image-1.jpg' },
+      { type: 'image', url: '/work/project-4/image-2.jpg' },
+      { type: 'image', url: '/work/project-4/image-3.jpg' },
+      { type: 'image', url: '/work/project-4/image-4.jpg' },
+      { type: 'image', url: '/work/project-4/image-5.jpg' },
+      { type: 'image', url: '/work/project-4/image-6.jpg' },
+      { type: 'image', url: '/work/project-4/image-7.jpg' },
+      { type: 'image', url: '/work/project-4/image-8.jpg' },
       { type: 'video', url: '/work/project-4/video-1.mp4' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80' },
     ]
-  },
-  {
-    id: 5,
-    name: "Solstice App",
-    description: "Mobile App",
-    media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1000&q=80' },
-      { type: 'video', url: '/work/project-5/video-1.mp4' },
-    ]
-  },
-  {
-    id: 6,
-    name: "Vertex Store",
-    description: "E-commerce",
-    media: [
-      { type: 'video', url: '/work/project-6/video-1.mp4' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80' },
-    ]
-  },
+  }
 ];
 
 const WorkPage = () => {

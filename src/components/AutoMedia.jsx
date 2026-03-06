@@ -22,32 +22,36 @@ export const AutoMedia = ({ media }) => {
     <div className="relative w-full h-full">
       <AnimatePresence mode="wait">
         <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="absolute inset-0"
-        >
-          {currentMedia.type === "video" ? (
-            <video
-              ref={videoRef}
-              src={currentMedia.url}
-              autoPlay
-              muted
-              playsInline
-              onEnded={next}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <Image
-              src={currentMedia.url}
-              alt="Project Media"
-              fill
-              className="object-cover"
-            />
-          )}
-        </motion.div>
+  key={currentMedia.url} // Change key to URL to trigger animation on source change
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 0.8, ease: "easeInOut" }}
+  className="absolute inset-0 bg-white"
+>
+  {currentMedia.type === "video" ? (
+    <video
+      ref={videoRef}
+      src={currentMedia.url}
+      poster={currentMedia.thumbnail}
+      autoPlay
+      muted
+      playsInline
+      preload="auto"
+      onEnded={next}
+      className="w-full h-full object-cover"
+    />
+  ) : (
+    <Image
+      src={currentMedia.url}
+      alt={currentMedia.description || "Portfolio item"}
+      fill
+      priority
+      sizes="100vw"
+      className="object-contain"
+    />
+  )}
+</motion.div>
       </AnimatePresence>
     </div>
   );
