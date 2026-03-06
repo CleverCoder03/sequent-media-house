@@ -98,7 +98,7 @@ export default function Navbar() {
   return (
     <>
       {/* TOP NAV */}
-      <motion.nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 lg:px-12 lg:py-12 flex items-center justify-between gap-5 bg-transparent">
+      <motion.nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 lg:px-12 lg:py-12 flex items-center justify-between gap-5 bg-transparent pointer-events-none">
         <motion.div
           animate={{
             opacity: isScrolled && !open ? 0 : 1,
