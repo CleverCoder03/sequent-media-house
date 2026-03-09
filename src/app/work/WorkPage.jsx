@@ -1,16 +1,12 @@
 "use client";
 
 import React, { useLayoutEffect, useRef } from "react";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TextMask } from "@/components/TextMask";
 import CharReveal from "@/components/CharReveal";
-import { TextMask2 } from "@/components/TextMask2";
 import { AutoMedia } from "@/components/AutoMedia";
-import { motion } from "motion/react";
 
 const projects = [
   {
