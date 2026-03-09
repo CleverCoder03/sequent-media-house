@@ -81,7 +81,7 @@ export default function CharReveal({
   );
 
 return (
-  <div ref={containerRef} data-copy-wrapper="true">
+  <div ref={containerRef} data-copy-wrapper="true" className="overflow-hidden">
     {children}
   </div>
 );

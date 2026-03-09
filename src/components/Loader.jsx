@@ -74,7 +74,7 @@ export default function Loader({ onFinish }) {
             }`}
           >
             {words[index].split("").map((letter, i) => (
-              <span key={`${index}-${i}`} className="relative overflow-hidden inline-block">
+              <span key={`${index}-${i}`} className="relative inline-block">
                 <motion.span
                   custom={i}
                   variants={letterVariants}

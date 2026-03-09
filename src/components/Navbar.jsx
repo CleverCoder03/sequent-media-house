@@ -132,7 +132,7 @@ export default function Navbar() {
         {/* HAMBURGER (Lucide) — always visible */}
         <button
           onClick={() => setOpen(!open)}
-          className="relative w-9 h-9 rounded-full border-2 border-neutral-100/80 flex items-center justify-center text-neutral-100 bg-transparent lg:mr-2 pointer-events-auto cursor-pointer"
+          className="relative w-9 h-9 rounded-full border-2 border-white/80 flex items-center justify-center text-white bg-transparent lg:mr-2 pointer-events-auto cursor-pointer"
         >
           {/* Menu icon */}
           <Menu
@@ -205,10 +205,10 @@ export default function Navbar() {
               <motion.div key={index} variants={itemVariants} className={`border-b border-neutral-100/70 ${index === 0 ? "border-t" : ""} w-full`}>
                 <Link004
                   href={link.href}
-                  className={`text-neutral-100 text-3xl font-playfair-bold italic tracking-normal ${pathName === link.href ? "text-lime-theme" : ""}`}
+                  className={`text-neutral-100 text-3xl tracking-normal ${pathName === link.href ? "text-lime-theme" : ""}`}
                 >
                   <div className="py-2">
-                    <ManualTextRoll  className={"px-2"}>
+                    <ManualTextRoll  className={"px-2 font-playfair-bold-italic"}>
                     {link.label}
                   </ManualTextRoll>
                   </div>
