@@ -10,59 +10,74 @@ import { TextMask } from "@/components/TextMask";
 import CharReveal from "@/components/CharReveal";
 import { TextMask2 } from "@/components/TextMask2";
 import { AutoMedia } from "@/components/AutoMedia";
+import { motion } from "motion/react";
 
 const projects = [
   {
     id: 1,
-    name: "Creative Design and Campaigns",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium magni veniam officia quisquam quidem consequatur, repudiandae et earum ipsam atque quos accusantium in beatae suscipit, perferendis recusandae omnis aspernatur minima quis sint rem, odit ad nostrum. Expedita tempora voluptas reiciendis rem corporis! Deserunt sapiente eveniet similique minus fugiat et molestiae vel ratione? Pariatur sed qui odit aspernatur,",
+    name: "Creative Design & Campaigns",
+    category: "brand identity",
+    description:
+      "We help brands find their voice and express it with clarity and confidence. From identity design to full-scale campaigns, our work is shaped by both instinct and strategy. The goal is simple — create ideas that people notice, remember, and respond to.",
     media: [
-      { type: 'image', url: '/work/project-1/image-1.jpg' },
-      { type: 'image', url: '/work/project-1/image-2.jpg' },
-      { type: 'image', url: '/work/project-1/image-3.jpg' },
-      { type: 'image', url: '/work/project-1/image-4.jpg' },
-      { type: 'image', url: '/work/project-1/image-5.png' },
-      { type: 'image', url: '/work/project-1/image-6.png' },
-      { type: 'image', url: '/work/project-1/image-7.png' },
-      { type: 'image', url: '/work/project-1/image-8.jpg' },
-      { type: 'video', url: '/work/project-1/video-1.mp4' },
-    ]
+      { type: "image", url: "/work/project-1/image-1.jpg" },
+      { type: "image", url: "/work/project-1/image-2.jpg" },
+      { type: "image", url: "/work/project-1/image-3.jpg" },
+      { type: "image", url: "/work/project-1/image-4.jpg" },
+      { type: "image", url: "/work/project-1/image-5.png" },
+      { type: "image", url: "/work/project-1/image-6.png" },
+      { type: "image", url: "/work/project-1/image-7.png" },
+      { type: "image", url: "/work/project-1/image-8.jpg" },
+      { type: "video", url: "/work/project-1/video-1.mp4" },
+    ],
   },
   {
     id: 2,
-    name: "Event Design & Management",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium magni veniam officia quisquam quidem consequatur, repudiandae et earum ipsam atque quos accusantium in beatae suscipit, perferendis recusandae omnis aspernatur minima quis sint rem, odit ad nostrum. Expedita tempora voluptas reiciendis rem corporis! Deserunt sapiente eveniet similique minus fugiat et molestiae vel ratione? Pariatur sed qui odit aspernatur,",
+    name: "Product Photography & Films",
+    category: "visual storytelling",
+    description:
+      "Every product has a story, and our job is to bring it to life visually. Through thoughtful lighting, composition, and motion, we create images and films that feel authentic and engaging. The result is content that doesn’t just look beautiful, it connects with people.",
     media: [
-      { type: 'video', url: '/work/project-2/video-1.mp4' },
-      { type: 'image', url: '/work/project-2/image-1.jpg' },
-    ]
+      { type: "image", url: "/work/project-4/image-1.jpg" },
+      { type: "image", url: "/work/project-4/image-2.jpg" },
+      { type: "image", url: "/work/project-4/image-3.jpg" },
+      { type: "image", url: "/work/project-4/image-4.jpg" },
+      { type: "image", url: "/work/project-4/image-5.jpg" },
+      { type: "image", url: "/work/project-4/image-6.jpg" },
+      { type: "image", url: "/work/project-4/image-7.jpg" },
+      { type: "image", url: "/work/project-4/image-8.jpg" },
+      { type: "video", url: "/work/project-4/video-1.mp4" },
+    ],
   },
   {
     id: 3,
-    name: "Luxury Weddings and Films",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium magni veniam officia quisquam quidem consequatur, repudiandae et earum ipsam atque quos accusantium in beatae suscipit, perferendis recusandae omnis aspernatur minima quis sint rem, odit ad nostrum. Expedita tempora voluptas reiciendis rem corporis! Deserunt sapiente eveniet similique minus fugiat et molestiae vel ratione? Pariatur sed qui odit aspernatur,",
+    name: "Event Design & Management",
+    category: "experiences",
+    description:
+      "Great events are about how people feel in the moment. We design and manage experiences that bring brands and audiences together in meaningful ways. From the first idea to the final applause, every detail is carefully considered.",
     media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=80' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80' },
-      { type: 'video', url: '/work/project-3/video-1.mp4' },
-    ]
+      { type: "video", url: "/work/project-2/video-1.mp4" },
+      { type: "image", url: "/work/project-2/image-1.jpg" },
+    ],
   },
   {
     id: 4,
-    name: "Product Photography and Films",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laudantium magni veniam officia quisquam quidem consequatur, repudiandae et earum ipsam atque quos accusantium in beatae suscipit, perferendis recusandae omnis aspernatur minima quis sint rem, odit ad nostrum. Expedita tempora voluptas reiciendis rem corporis! Deserunt sapiente eveniet similique minus fugiat et molestiae vel ratione? Pariatur sed qui odit aspernatur,",
+    name: "Luxury Weddings & Films",
+    category: "timeless stories",
+    description:
+      "Weddings are deeply personal, and we approach them with the same care and emotion. We capture the moments, details, and atmosphere that make each celebration unique. The result is a timeless story that couples and families can relive for years to come.",
     media: [
-      { type: 'image', url: '/work/project-4/image-1.jpg' },
-      { type: 'image', url: '/work/project-4/image-2.jpg' },
-      { type: 'image', url: '/work/project-4/image-3.jpg' },
-      { type: 'image', url: '/work/project-4/image-4.jpg' },
-      { type: 'image', url: '/work/project-4/image-5.jpg' },
-      { type: 'image', url: '/work/project-4/image-6.jpg' },
-      { type: 'image', url: '/work/project-4/image-7.jpg' },
-      { type: 'image', url: '/work/project-4/image-8.jpg' },
-      { type: 'video', url: '/work/project-4/video-1.mp4' },
-    ]
-  }
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=80",
+      },
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
+      },
+      { type: "video", url: "/work/project-3/video-1.mp4" },
+    ],
+  },
 ];
 
 const WorkPage = () => {
@@ -168,34 +183,60 @@ const WorkPage = () => {
 
       {/* --- PROJECT GRID SECTION --- */}
       <main className="px-6 md:px-12 py-24 flex flex-col gap-24 md:gap-40 max-w-350 mx-auto">
-  {projectRows.map((pair, rowIndex) => (
-    <div key={rowIndex} className="project-row flex flex-col md:flex-row gap-12 md:gap-20">
-      {pair.map((project) => (
-        <div key={project.id} className="work-item flex-1 flex flex-col gap-6">
-          
-          {/* THE MEDIA CONTAINER */}
-          <div className="relative aspect-4/3 overflow-hidden rounded-sm bg-zinc-900">
-             <AutoMedia media={project.media} />
-          </div>
+        {projectRows.map((pair, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="project-row flex flex-col md:flex-row gap-12 md:gap-20"
+          >
+            {pair.map((project) => (
+              <div
+                key={project.id}
+                className="work-item flex-1 flex flex-col gap-6"
+              >
+                {/* THE MEDIA CONTAINER */}
+                <div className="relative aspect-4/3 overflow-hidden rounded-sm bg-zinc-900">
+                  <AutoMedia media={project.media} />
+                </div>
 
-          {/* TEXT CONTENT */}
-          <div className="flex flex-col gap-2">
-            <h3 className="text-2xl font-bold tracking-tight uppercase leading-none">
-              {project.name}
-            </h3>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-6 bg-zinc-700" />
-              <p className="text-zinc-500 font-medium tracking-widest uppercase text-[10px]">
-                {project.description}
-              </p>
-            </div>
+                {/* TEXT CONTENT */}
+                {/* TEXT CONTENT */}
+                <div className="flex flex-col gap-4 mt-6">
+                  {/* PROJECT TITLE WITH MASK EFFECT */}
+                  <h3 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl text-neutral-100">
+                    <TextMask
+                      text={project.name}
+                      delay={0.1}
+                      stagger="0.08"
+                      once={false}
+                    />
+                    {/* Optional: Add a category or brand suffix in italics */}
+                    {/* <span className="font-playfair-semibold-italic text-lime-theme lowercase ml-2">
+                      {project.id === 1
+                        ? "creative"
+                        : project.id === 2
+                          ? "events"
+                          : "production"}
+                    </span> */}
+                  </h3>
+
+                  {/* PROJECT DESCRIPTION WITH REVEAL ANIMATION */}
+                  <div className="font-figtree-regular text-neutral-300 text-base md:text-lg overflow-hidden max-w-2xl">
+                    <motion.p
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ amount: 0.3, once: false }}
+                      transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+                      className="text-neutral-400 leading-relaxed"
+                    >
+                      {project.description}
+                    </motion.p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          
-        </div>
-      ))}
-    </div>
-  ))}
-</main>
+        ))}
+      </main>
 
       <Footer />
     </div>

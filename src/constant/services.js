@@ -1,5 +1,3 @@
-import React from "react";
-
 export const stickyCardsData = [
   {
     index: 1,

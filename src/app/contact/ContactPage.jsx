@@ -86,12 +86,12 @@ const ContactPage = () => {
             className="font-figtree-medium uppercase text-[10vw] lg:text-[8vw] text-neutral-100 my-5 lg:my-20"
           >
             Bring Your Idea to Life
-          <MarqueeIcon variant={1} className="mx-5" /> Let’s Make It Iconic{" "}
-          <MarqueeIcon variant={2} className="mx-5" /> Bring Your Idea to Life{" "}
-          <MarqueeIcon variant={3} className="mx-5" /> Let’s Make It Iconic{" "}
-          <MarqueeIcon variant={4} className="mx-5" /> Bring Your Idea to Life{" "}
-          <MarqueeIcon variant={5} className="mx-5" /> Let’s Make It Iconic{" "}
-          <MarqueeIcon variant={1} className="mx-5" />
+            <MarqueeIcon variant={1} className="mx-5" /> Let’s Make It Iconic{" "}
+            <MarqueeIcon variant={2} className="mx-5" /> Bring Your Idea to Life{" "}
+            <MarqueeIcon variant={3} className="mx-5" /> Let’s Make It Iconic{" "}
+            <MarqueeIcon variant={4} className="mx-5" /> Bring Your Idea to Life{" "}
+            <MarqueeIcon variant={5} className="mx-5" /> Let’s Make It Iconic{" "}
+            <MarqueeIcon variant={1} className="mx-5" />
           </Marquee>
         </div>
       </div>
@@ -109,7 +109,9 @@ const ContactPage = () => {
                   Our Office
                 </h4>
                 <p>
-                  Bengaluru, <br /> India
+                  Sequent Media House <br />
+                  Old No. 28, New No. 58, <br /> 1st main road, Maruthi
+                  Extension, <br /> Bengaluru - 560021
                 </p>
               </div>
               <div>
@@ -117,7 +119,7 @@ const ContactPage = () => {
                   Contact Info
                 </h4>
                 <p>hello@sequentmediahouse.com</p>
-                <p>+91 6360 44420 | +91  96634 02870</p>
+                <p>+91 6360 44420 | +91 96634 02870</p>
               </div>
             </div>
           </div>
@@ -196,7 +198,9 @@ const ContactPage = () => {
                   <option value="Event Management">Event Management</option>
                   <option value="Weddings">Weddings</option>
                   <option value="Corporate gifting">Corporate gifting</option>
-                  <option value="Consulting & Digital PR">Consulting & Digital PR</option>
+                  <option value="Consulting & Digital PR">
+                    Consulting & Digital PR
+                  </option>
                 </select>
               </div>
 
