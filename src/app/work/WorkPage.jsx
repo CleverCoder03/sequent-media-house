@@ -7,6 +7,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CharReveal from "@/components/CharReveal";
 import { AutoMedia } from "@/components/AutoMedia";
+import Marquee from "react-fast-marquee";
+import MarqueeIcon from "@/components/MarqueeIcon";
 
 const projects = [
   {
@@ -240,11 +242,24 @@ const WorkPage = () => {
             {pair.map((project) => (
               <div
                 key={project.id}
-                className="work-item flex-1 flex flex-col gap-6"
+                className="group work-item flex-1 flex flex-col gap-6"
               >
                 {/* THE MEDIA CONTAINER */}
                 <div className="relative aspect-4/3 overflow-hidden rounded-sm bg-zinc-900">
                   <AutoMedia media={project.media} />
+
+                  {/* --- THE HOVER MARQUEE OVERLAY --- */}
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+              <Marquee
+                speed={120}
+                // Reduced text size to fit inside the project card container
+                className="font-figtree-semibold text-[6vw] md:text-[3vw] lg:text-[4vw] text-neutral-100"
+              >
+                {project.name} <MarqueeIcon variant={1} className="mx-5 text-lime-theme" />
+                {project.name} <MarqueeIcon variant={2} className="mx-5 text-lime-theme" />
+                {project.name} <MarqueeIcon variant={3} className="mx-5 text-lime-theme" />
+              </Marquee>
+            </div>
                 </div>
 
                 {/* TEXT CONTENT */}
