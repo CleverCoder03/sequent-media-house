@@ -37,8 +37,8 @@ const AboutIntro = forwardRef(({ exLyFi, whyContainerRef }, ref) => {
           {/* WHY? Masking Container */}
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
            <div ref={whyContainerRef} className="overflow-hidden">
-              <h1 className="why-text font-montserrat-semibold text-8xl lg:text-[18vw] leading-none">
-                WHY?
+              <h1 className="why-text font-montserrat-semibold text-7xl lg:text-[15vw] leading-none">
+                WHY US?
               </h1>
            </div>
         </div>
