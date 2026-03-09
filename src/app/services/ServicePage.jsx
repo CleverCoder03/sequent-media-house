@@ -123,17 +123,17 @@ const ServicesPage = () => {
             </p> */}
             <CharReveal>
               <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
-                The{" "}
-                <span className="font-playfair-semibold-italic text-lime-theme">
+                The{" "}Spectrum
+                {/* <span className="font-playfair-semibold-italic text-lime-theme">
                   Spectrum
-                </span>{" "}
+                </span>{" "} */}
               </h1>
-              <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
+              <h1 className="text-white text-xl md:text-3xl lg:text-4xl font-figtree-semibold leading-[1.1]">
                 Six{" "}
                 <span className="font-playfair-semibold-italic text-lime-theme">
                   disciplines.
                 </span>{" "}
-                One design
+                One design{" "}
                 <span className="font-playfair-semibold-italic text-lime-theme">
                   philosophy
                 </span>{" "}
