@@ -50,7 +50,6 @@ const projects = [
     description:
       "Great events are about how people feel in the moment. We design and manage experiences that bring brands and audiences together in meaningful ways. From the first idea to the final applause, every detail is carefully considered.",
     media: [
-      { type: "video", url: "/work/project-2/video-1.mp4" },
       { type: "image", url: "/work/project-2/image-1.JPG" },
       { type: "image", url: "/work/project-2/image-2.JPG" },
       { type: "image", url: "/work/project-2/image-3.JPG" },
@@ -59,9 +58,10 @@ const projects = [
       { type: "image", url: "/work/project-2/image-6.JPG" },
       { type: "image", url: "/work/project-2/image-7.JPG" },
       { type: "image", url: "/work/project-2/image-8.JPG" },
-      { type: "video", url: "/work/project-2/video-2.mp4" },
       { type: "image", url: "/work/project-2/image-9.JPG" },
       { type: "image", url: "/work/project-2/image-10.JPG" },
+      { type: "video", url: "/work/project-2/video-1.mp4" },
+      { type: "video", url: "/work/project-2/video-2.mp4" }
     ],
   },
   {
@@ -83,13 +83,13 @@ const projects = [
       { type: "image", url: "/work/project-3/image-2.JPG" },
       { type: "image", url: "/work/project-3/image-3.JPG" },
       { type: "image", url: "/work/project-3/image-4.JPG" },
-      { type: "video", url: "/work/project-3/video-1.mp4" },
       { type: "image", url: "/work/project-3/image-5.JPG" },
       { type: "image", url: "/work/project-3/image-6.JPG" },
       { type: "image", url: "/work/project-3/image-7.JPG" },
       { type: "image", url: "/work/project-3/image-8.JPG" },
       { type: "image", url: "/work/project-3/image-9.JPG" },
       { type: "image", url: "/work/project-3/image-10.JPG" },
+      { type: "video", url: "/work/project-3/video-1.mp4" },
       { type: "image", url: "/work/project-3/image-11.JPG" },
       { type: "image", url: "/work/project-3/image-12.JPG" },
       { type: "image", url: "/work/project-3/image-13.JPG" },
