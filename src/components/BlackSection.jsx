@@ -12,7 +12,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-white text-5xl md:text-7xl leading-[1.1]"
+                  className="text-white text-5xl md:text-7xl leading-none"
                 >
                   Purpose
                 </HyperText>
@@ -20,7 +20,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-5xl md:text-7xl tracking-tight leading-[1.1] font-playfair-semibold-italic text-lime-theme"
+                  className="text-5xl md:text-7xl tracking-tight leading-none font-playfair-semibold-italic text-lime-theme"
                 >
                   Meets
                 </HyperText>
@@ -28,7 +28,7 @@ const BlackSection = forwardRef((props, ref) => {
                   startOnView={true}
                   duration={1500}
                   animateOnHover={false}
-                  className="text-white text-5xl md:text-7xl leading-[1.1]"
+                  className="text-white text-5xl md:text-7xl leading-none"
                 >
                   Precision
                 </HyperText>
