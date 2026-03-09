@@ -105,10 +105,10 @@ const Awards = () => {
           className="font-figtree-semibold text-[14vw] lg:text-[8vw] text-neutral-100 my-10 lg:my-20"
         >
           AWARDS+MENTIONS
-          <MarqueeIcon variant={1} className="mx-5" /> AWARDS+MENTIONS{" "}
-          <MarqueeIcon variant={2} className="mx-5" /> AWARDS+MENTIONS{" "}
-          <MarqueeIcon variant={3} className="mx-5" /> AWARDS+MENTIONS{" "}
-          <MarqueeIcon variant={4} className="mx-5" />
+          <MarqueeIcon variant={1} className="mx-5 text-lime-theme" /> AWARDS+MENTIONS{" "}
+          <MarqueeIcon variant={2} className="mx-5 text-lime-theme" /> AWARDS+MENTIONS{" "}
+          <MarqueeIcon variant={3} className="mx-5 text-lime-theme" /> AWARDS+MENTIONS{" "}
+          <MarqueeIcon variant={4} className="mx-5 text-lime-theme" />
         </Marquee>
       </div>
       <div className="mb-20 lg:mb-0 lg:my-10 px-4 md:px-18 lg:px-25">
@@ -118,7 +118,7 @@ const Awards = () => {
             <h2 className="font-figtree-semibold text-3xl lg:text-4xl">
               Our Proud
             </h2>
-            <h2 className="font-figtree-semibold text-3xl lg:text-4xl text-transparent! [-webkit-text-stroke:2px_white]">
+            <h2 className="font-figtree-semibold text-3xl lg:text-4xl text-transparent! [-webkit-text-stroke:2px_#bef945]">
               Moments
             </h2>
           </div>

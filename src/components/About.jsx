@@ -9,13 +9,13 @@ const About = () => {
       {/* First */}
       <div className="flex flex-col lg:flex-row px-8 md:px-18 lg:px-30 lg:gap-[5vw] xl:gap-[15vw]">
         <div className="w-full lg:w-1/2 text-neutral-100">
-          <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl w-[80%]">
+          <h1 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl">
             <TextMask
-              text="Our UAE Ad-tech"
+              text="Our Ad-tech Powerhouse"
               delay={0.1}
               stagger="0.12"
               once={false}
-            /><span className="font-playfair-semibold-italic text-lime-theme lowercase">powerhouse</span>
+            /><span className="font-playfair-semibold-italic text-lime-theme lowercase">Bubblelit</span>
           </h1>
           <div className="mt-6 font-figtree-regular text-neutral-300 text-lg overflow-hidden">
             <motion.p
