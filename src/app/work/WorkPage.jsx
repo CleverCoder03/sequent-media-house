@@ -15,7 +15,15 @@ import { motion } from "motion/react";
 const projects = [
   {
     id: 1,
-    name: "Creative Design & Campaigns",
+    name: (
+      <>
+        Creative{" "}
+        <span className="font-playfair-semibold-italic text-lime-theme lowercase">
+          Design
+        </span>{" "}
+        & Campaigns
+      </>
+    ),
     category: "brand identity",
     description:
       "We help brands find their voice and express it with clarity and confidence. From identity design to full-scale campaigns, our work is shaped by both instinct and strategy. The goal is simple — create ideas that people notice, remember, and respond to.",
@@ -33,7 +41,15 @@ const projects = [
   },
   {
     id: 2,
-    name: "Product Photography & Films",
+    name: (
+      <>
+        Product{" "}
+        <span className="font-playfair-semibold-italic text-lime-theme lowercase">
+          Photography
+        </span>{" "}
+        & Films
+      </>
+    ),
     category: "visual storytelling",
     description:
       "Every product has a story, and our job is to bring it to life visually. Through thoughtful lighting, composition, and motion, we create images and films that feel authentic and engaging. The result is content that doesn’t just look beautiful, it connects with people.",
@@ -51,7 +67,15 @@ const projects = [
   },
   {
     id: 3,
-    name: "Event Design & Management",
+    name: (
+      <>
+        Event{" "}
+        <span className="font-playfair-semibold-italic text-lime-theme lowercase">
+          Design
+        </span>{" "}
+        & Management
+      </>
+    ),
     category: "experiences",
     description:
       "Great events are about how people feel in the moment. We design and manage experiences that bring brands and audiences together in meaningful ways. From the first idea to the final applause, every detail is carefully considered.",
@@ -62,7 +86,15 @@ const projects = [
   },
   {
     id: 4,
-    name: "Luxury Weddings & Films",
+    name: (
+      <>
+        Luxury{" "}
+        <span className="font-playfair-semibold-italic text-lime-theme lowercase">
+          Weddings
+        </span>{" "}
+        & Films
+      </>
+    ),
     category: "timeless stories",
     description:
       "Weddings are deeply personal, and we approach them with the same care and emotion. We capture the moments, details, and atmosphere that make each celebration unique. The result is a timeless story that couples and families can relive for years to come.",
@@ -199,37 +231,17 @@ const WorkPage = () => {
                 </div>
 
                 {/* TEXT CONTENT */}
-                {/* TEXT CONTENT */}
                 <div className="flex flex-col gap-4 mt-6">
-                  {/* PROJECT TITLE WITH MASK EFFECT */}
+                  {/* PROJECT TITLE - Rendered directly to support JSX mixed fonts */}
                   <h3 className="text-3xl uppercase font-figtree-semibold leading-[0.98] lg:text-4xl text-neutral-100">
-                    <TextMask
-                      text={project.name}
-                      delay={0.1}
-                      stagger="0.08"
-                      once={false}
-                    />
-                    {/* Optional: Add a category or brand suffix in italics */}
-                    {/* <span className="font-playfair-semibold-italic text-lime-theme lowercase ml-2">
-                      {project.id === 1
-                        ? "creative"
-                        : project.id === 2
-                          ? "events"
-                          : "production"}
-                    </span> */}
+                    {project.name}
                   </h3>
 
-                  {/* PROJECT DESCRIPTION WITH REVEAL ANIMATION */}
-                  <div className="font-figtree-regular text-neutral-300 text-base md:text-lg overflow-hidden max-w-2xl">
-                    <motion.p
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ amount: 0.3, once: false }}
-                      transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                      className="text-neutral-400 leading-relaxed"
-                    >
+                  {/* PROJECT DESCRIPTION - Animation removed */}
+                  <div className="font-figtree-regular text-neutral-300 text-base md:text-lg max-w-2xl">
+                    <p className="text-neutral-400 leading-relaxed">
                       {project.description}
-                    </motion.p>
+                    </p>
                   </div>
                 </div>
               </div>
