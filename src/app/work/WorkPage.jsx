@@ -32,11 +32,77 @@ const projects = [
       { type: "image", url: "/work/project-1/image-6.png" },
       { type: "image", url: "/work/project-1/image-7.png" },
       { type: "image", url: "/work/project-1/image-8.jpg" },
-      { type: "video", url: "/work/project-1/video-1.mp4" },
+      // { type: "video", url: "/work/project-1/video-1.mp4" },
     ],
   },
   {
     id: 2,
+    name: (
+      <>
+        Event{" "}
+        <span className="font-playfair-semibold-italic text-lime-theme lowercase">
+          Design
+        </span>{" "}
+        & Management
+      </>
+    ),
+    category: "experiences",
+    description:
+      "Great events are about how people feel in the moment. We design and manage experiences that bring brands and audiences together in meaningful ways. From the first idea to the final applause, every detail is carefully considered.",
+    media: [
+      { type: "video", url: "/work/project-2/video-1.mp4" },
+      { type: "image", url: "/work/project-2/image-1.jpg" },
+      { type: "image", url: "/work/project-2/image-2.jpg" },
+      { type: "image", url: "/work/project-2/image-3.jpg" },
+      { type: "image", url: "/work/project-2/image-4.jpg" },
+      { type: "image", url: "/work/project-2/image-5.jpg" },
+      { type: "image", url: "/work/project-2/image-6.jpg" },
+      { type: "image", url: "/work/project-2/image-7.jpg" },
+      { type: "image", url: "/work/project-2/image-8.jpg" },
+      { type: "video", url: "/work/project-2/video-2.mp4" },
+      { type: "image", url: "/work/project-2/image-9.jpg" },
+      { type: "image", url: "/work/project-2/image-10.jpg" },
+    ],
+  },
+  {
+    id: 3,
+    name: (
+      <>
+        Luxury{" "}
+        <span className="font-playfair-semibold-italic text-lime-theme lowercase">
+          Weddings
+        </span>{" "}
+        & Films
+      </>
+    ),
+    category: "timeless stories",
+    description:
+      "Weddings are deeply personal, and we approach them with the same care and emotion. We capture the moments, details, and atmosphere that make each celebration unique. The result is a timeless story that couples and families can relive for years to come.",
+    media: [
+      { type: "image", url: "/work/project-3/image-1.jpg" },
+      { type: "image", url: "/work/project-3/image-2.jpg" },
+      { type: "image", url: "/work/project-3/image-3.jpg" },
+      { type: "image", url: "/work/project-3/image-4.jpg" },
+      { type: "video", url: "/work/project-3/video-1.mp4" },
+      { type: "image", url: "/work/project-3/image-5.jpg" },
+      { type: "image", url: "/work/project-3/image-6.jpg" },
+      { type: "image", url: "/work/project-3/image-7.jpg" },
+      { type: "image", url: "/work/project-3/image-8.jpg" },
+      { type: "image", url: "/work/project-3/image-9.jpg" },
+      { type: "image", url: "/work/project-3/image-10.jpg" },
+      { type: "image", url: "/work/project-3/image-11.jpg" },
+      { type: "image", url: "/work/project-3/image-12.jpg" },
+      { type: "image", url: "/work/project-3/image-13.jpg" },
+      { type: "image", url: "/work/project-3/image-14.jpg" },
+      { type: "image", url: "/work/project-3/image-15.jpg" },
+      { type: "image", url: "/work/project-3/image-16.jpg" },
+      { type: "image", url: "/work/project-3/image-17.jpg" },
+      { type: "image", url: "/work/project-3/image-18.jpg" },
+      { type: "image", url: "/work/project-3/image-19.jpg" },
+    ],
+  },
+  {
+    id: 4,
     name: (
       <>
         Product{" "}
@@ -58,52 +124,7 @@ const projects = [
       { type: "image", url: "/work/project-4/image-6.jpg" },
       { type: "image", url: "/work/project-4/image-7.jpg" },
       { type: "image", url: "/work/project-4/image-8.jpg" },
-      { type: "video", url: "/work/project-4/video-1.mp4" },
-    ],
-  },
-  {
-    id: 3,
-    name: (
-      <>
-        Event{" "}
-        <span className="font-playfair-semibold-italic text-lime-theme lowercase">
-          Design
-        </span>{" "}
-        & Management
-      </>
-    ),
-    category: "experiences",
-    description:
-      "Great events are about how people feel in the moment. We design and manage experiences that bring brands and audiences together in meaningful ways. From the first idea to the final applause, every detail is carefully considered.",
-    media: [
-      { type: "video", url: "/work/project-2/video-1.mp4" },
-      { type: "image", url: "/work/project-2/image-1.jpg" },
-    ],
-  },
-  {
-    id: 4,
-    name: (
-      <>
-        Luxury{" "}
-        <span className="font-playfair-semibold-italic text-lime-theme lowercase">
-          Weddings
-        </span>{" "}
-        & Films
-      </>
-    ),
-    category: "timeless stories",
-    description:
-      "Weddings are deeply personal, and we approach them with the same care and emotion. We capture the moments, details, and atmosphere that make each celebration unique. The result is a timeless story that couples and families can relive for years to come.",
-    media: [
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=80",
-      },
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
-      },
-      { type: "video", url: "/work/project-3/video-1.mp4" },
+      // { type: "video", url: "/work/project-4/video-1.mp4" },
     ],
   },
 ];
