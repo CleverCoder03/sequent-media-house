@@ -12,7 +12,7 @@ const teamMembers = [
   { src: "/team/waseem.jpg", name: "Waseem Yousuff", role: "Event Curator" },
   { src: "/team/nagesh.png", name: "Nagesh Bijoor", role: "Web developer" },
   { src: "/team/vishal.jpeg", name: "Vishal Mishra", role: "Web developer" },
-  // { src: "/0-about-1.jpeg", name: "RACHEL", role: "Graphic designer" },
+  { src: "/team/shashwatHegde.jpg", name: "Shashwat Hegde", role: "Graphic designer" },
   { src: "/team/naveen.jpg", name: "Naveen Panchakshari", role: "Visual Director" },
   {
     src: "/team/sumedh.jpg",
