@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useRef } from "react";
-import Image from "next/image";
+import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { TextMask } from "@/components/TextMask";
 import { stickyCardsData } from "@/constant/services";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import CharReveal from "@/components/CharReveal";
@@ -17,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const ServicesPage = () => {
   const container = useRef(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useGSAP(
     () => {
@@ -103,27 +102,9 @@ const ServicesPage = () => {
           </div>
 
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-2 md:gap-4 lg:gap-6">
-            {/* The Heading */}
-            {/* <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
-              <TextMask
-                text="The Spectrum"
-                delay={0.1}
-                stagger="0.12"
-                once={false}
-              />
-            </h1> */}
-
-            {/* The Subheading (starts slightly after the heading) */}
-            {/* <p className="text-lg md:text-xl font-montserrat-regular text-neutral-300 max-w-2xl">
-              <TextMask
-                text="Six disciplines. One design philosophy"
-                delay={0.5}
-                once={false}
-              />
-            </p> */}
             <CharReveal>
               <h1 className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
-                The{" "}Spectrum
+                The Spectrum
                 {/* <span className="font-playfair-semibold-italic text-lime-theme">
                   Spectrum
                 </span>{" "} */}
@@ -207,15 +188,16 @@ const ServicesPage = () => {
                   {/* Video Container - Maintaining the same width/aspect ratio as your previous image layout */}
                   <div className="relative w-full lg:w-[85%] xl:w-[95%] aspect-video">
                     {/* Main Video Wrapper */}
-                    <div className="relative w-full h-full z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden rounded-sm border border-white/10">
+                    <div className="relative w-full h-full z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden rounded-sm border border-white/10 bg-gray-900">
                       <video
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-cover transition-all duration-1000 ease-in-out hover:scale-105"
-                        // Dynamically pull the video source from your card data
-                        // Ensure your stickyCardsData objects have a 'video' property
+                        preload="auto"
+                        onLoadedData={() => setIsLoaded(true)}
+                        className={`w-full h-full object-cover ease-in-out transition-all hover:scale-105 duration-800 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        poster={card.thumbnail}
                         src={card.video}
                       >
                         Your browser does not support the video tag.

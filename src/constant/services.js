@@ -9,7 +9,8 @@ export const stickyCardsData = [
       </>
     ),
     description: "We develop cohesive brand identities and integrated campaigns that align strategy, design, and storytelling to drive measurable impact.",
-    images: ["/form/serv-2.jpg", "/form/serv-1.jpg"],
+    // images: ["/form/serv-2.jpg", "/form/serv-1.jpg"],
+    thumbnail: "/form/thumbnail.jpg",
     video: "/form/form-video-1.mp4",
     listTitle: "Expertise",
     listItems: ["Brand Identity & Language", "360° Campaigns", "Packaging & Print", "Creative Strategy & Art Direction", "Digital-First Storytelling"],
@@ -26,7 +27,8 @@ export const stickyCardsData = [
       </>
     ),
     description: "We create visually compelling photography and films that bring products to life. Every frame is carefully composed to highlight form, texture, and movement.",
-    images: ["/frame/serv-1.jpg", "/frame/serv-2.jpg"],
+    // images: ["/frame/serv-1.jpg", "/frame/serv-2.jpg"],
+    thumbnail: "/frame/thumbnail.jpg",
     video: "/frame/frame-video-1.mp4",
     listTitle: "What We Shoot",
     listItems: ["Luxury Products", "Fashion & Apparel", "Tech & Lifestyle", "Food & Beverage", "Jewellery & Beauty", "Corporate Brand Films"],
@@ -43,7 +45,8 @@ export const stickyCardsData = [
       </>
     ),
     description: "From corporate launches to cultural galas, we transform spaces into immersive brand stories that leave a lasting impression.",
-    images: ["/stage/serv-1.jpg", "/stage/serv-2.jpg"],
+    // images: ["/stage/serv-1.jpg", "/stage/serv-2.jpg"],
+    thumbnail: "/stage/thumbnail.jpg",
     video: "/stage/stage-video-1.mp4",
     listTitle: "Our Capabilities",
     listItems: ["Event Design & Creative Direction", "Stage & Spatial Aesthetics", "Décor & Production Management", "Speaker Planning & Flow", "Entertainment & Multimedia"],
@@ -60,7 +63,8 @@ export const stickyCardsData = [
       </>
     ),
     description: "We blend cinematic storytelling with refined design to transform weddings into timeless works of art, crafted with elegance and intention.",
-    images: ["/vow/serv-1.jpg", "/vow/serv-2.jpg"],
+    // images: ["/vow/serv-1.jpg", "/vow/serv-2.jpg"],
+    thumbnail: "/vow/thumbnail.jpg",
     video: "/vow/vow-video-1.mp4",
     listTitle: "Visual Highlights",
     listItems: ["Cinematic wedding stills", "Curated floral aesthetics", "Aerial drone moments", "Editorial couple portraits"],
@@ -77,7 +81,8 @@ export const stickyCardsData = [
       </>
     ),
     description: "We curate bespoke corporate gifting experiences that reflect emotion, refinement, and brand intent as a powerful touchpoint.",
-    images: ["/gesture/serv-2.jpg", "/gesture/serv-1.png"],
+    // images: ["/gesture/serv-2.jpg", "/gesture/serv-1.png"],
+    thumbnail: "/gesture/thumbnail.jpg",
     video: "/gesture/gesture-video-1.mp4",
     listTitle: "What We Create",
     listItems: ["Custom Hampers", "Luxury Gift Sets", "Branded Premium Merchandise", "Seasonal & Festive Boxes", "Employee & VIP Gifting Programs"],
@@ -94,7 +99,8 @@ export const stickyCardsData = [
       </>
     ),
     description: "We shape the narrative architecture that brands grow on — connecting businesses to investors and global media.",
-    images: ["/voice/serv-2.jpg", "/voice/serv-1.jpg"],
+    // images: ["/voice/serv-2.jpg", "/voice/serv-1.jpg"],
+    thumbnail: "/voice/thumbnail.jpg",
     video: "/voice/voice-video-1.mp4",
     listTitle: "What We Do",
     listItems: ["Brand Consulting", "Investor-Ready Storytelling", "Business Positioning", "Digital PR & Media Presence", "Reputation Design", "Thought Leadership"],
