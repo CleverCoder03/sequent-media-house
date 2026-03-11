@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -8,7 +8,10 @@ export const AutoMedia = ({ media }) => {
   const currentMedia = media[index];
   const videoRef = useRef(null);
 
-  const next = () => setIndex((prev) => (prev + 1) % media.length);
+  // Memoize 'next' so its reference only changes if the media array length changes
+  const next = useCallback(() => {
+    setIndex((prev) => (prev + 1) % media.length);
+  }, [media.length]);
 
   useEffect(() => {
     // If it's an image, set a timer. If it's a video, the onEnded handler takes over.
@@ -16,7 +19,7 @@ export const AutoMedia = ({ media }) => {
       const timer = setTimeout(next, 5000); // 5 seconds for images
       return () => clearTimeout(timer);
     }
-  }, [index, currentMedia.type]);
+  }, [index, currentMedia.type, next]);
 
   return (
     <div className="relative w-full h-full">
