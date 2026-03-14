@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import { stickyCardsData } from "@/constant/services";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import CharReveal from "@/components/CharReveal";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -181,6 +182,27 @@ const ServicesPage = () => {
                       ))}
                     </ul>
                   </div>
+
+                  {/* NEW: Stylish Button for VOW section only */}
+                  {card.id === "vow" && (
+                    <div className="mt-6 md:mt-10">
+                      <Link
+                        href="/weddings"
+                        className="group relative inline-flex items-center justify-center 
+                 px-5 py-3 md:px-7 md:py-3.5 
+                 bg-white text-black 
+                 font-figtree-semibold text-[10px] md:text-xs 
+                 uppercase tracking-[0.2em] overflow-hidden transition-all"
+                      >
+                        <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                          Explore Weddings
+                        </span>
+
+                        {/* Animated Background Overlay */}
+                        <div className="absolute inset-0 bg-lime-theme translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 z-0"></div>
+                      </Link>
+                    </div>
+                  )}
                 </div>
 
                 {/* RIGHT SIDE: Strategic Video Composition */}
@@ -196,7 +218,7 @@ const ServicesPage = () => {
                         playsInline
                         preload="auto"
                         onLoadedData={() => setIsLoaded(true)}
-                        className={`w-full h-full object-cover ease-in-out transition-all hover:scale-105 duration-800 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        className={`w-full h-full object-cover ease-in-out transition-all hover:scale-105 duration-800 ${isLoaded ? "opacity-100" : "opacity-0"}`}
                         poster={card.thumbnail}
                         src={card.video}
                       >

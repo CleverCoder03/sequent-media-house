@@ -2,6 +2,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
+import Marquee from "react-fast-marquee";
+import MarqueeIcon from "@/components/MarqueeIcon";
 
 const WeddingAbout = () => {
   const containerRef = useRef(null);
@@ -115,11 +117,22 @@ const WeddingAbout = () => {
       </div>
 
       {/* Background Text */}
-      <div className="pointer-events-none select-none overflow-hidden w-full mt-20 lg:mt-0">
+      {/* <div className="pointer-events-none select-none overflow-hidden w-full mt-20 lg:mt-0">
         <h3 className="text-[20vw] font-figtree-semibold text-white/[0.03] whitespace-nowrap leading-none lg:-ml-20">
           SEQUENT STORIES — SEQUENT STORIES
         </h3>
-      </div>
+      </div> */}
+
+      <Marquee
+          speed={120}
+          className="font-figtree-medium text-[10vw] lg:text-[8vw] text-neutral-100"
+        >
+          SEQUENT STORIES
+          <MarqueeIcon variant={1} className="mx-5 text-lime-theme" /> SEQUENT STORIES{" "}
+          <MarqueeIcon variant={2} className="mx-5 text-lime-theme" /> SEQUENT STORIES{" "}
+          <MarqueeIcon variant={3} className="mx-5 text-lime-theme" /> SEQUENT STORIES{" "}
+          <MarqueeIcon variant={1} className="mx-5 text-lime-theme" />
+        </Marquee>
     </section>
   );
 };
