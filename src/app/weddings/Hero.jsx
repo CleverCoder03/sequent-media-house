@@ -17,12 +17,12 @@ const WeddingHero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % heroImages.length);
-    }, 8000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="relative h-[95vh] w-full overflow-hidden bg-[#050505] flex items-center justify-center">
+    <section className="relative h-dvh w-full overflow-hidden bg-[#050505] flex items-center justify-center">
       {/* --- CINEMATIC BACKGROUND LOOP --- */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
@@ -31,7 +31,7 @@ const WeddingHero = () => {
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 0.5, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 2.5, ease: "easeInOut" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <Image
@@ -47,7 +47,7 @@ const WeddingHero = () => {
         </AnimatePresence>
 
         {/* Thematic Overlays */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/10 via-transparent to-[#050505]" />
+        {/* <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/10 via-transparent to-[#050505]" /> */}
         {/* <div className="absolute inset-0 z-10 bg-black/20" /> */}
       </div>
 
@@ -75,9 +75,9 @@ const WeddingHero = () => {
           transition={{ delay: 1.2, duration: 1 }}
           className="mt-10 flex flex-col items-center"
         >
-          <p className="text-gray-400 max-w-lg font-figtree-light text-sm md:text-base leading-relaxed tracking-wide">
-            Blending <span className="text-white">raw emotion</span> with
-            <span className="text-white"> editorial grace</span>. We don&apos;t
+          <p className="text-white max-w-lg font-montserrat-light text-sm md:text-base leading-relaxed tracking-wide">
+            Blending <span className="font-montserrat-semibold">raw emotion</span> with
+            <span className="font-montserrat-semibold"> editorial grace</span>. We don&apos;t
             just film weddings; we sequence your legacy.
           </p>
         </motion.div>
@@ -90,10 +90,10 @@ const WeddingHero = () => {
           transition={{ repeat: Infinity, duration: 2 }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-[9px] uppercase tracking-[0.3em] text-gray-500">
+          <span className="text-[9px] uppercase tracking-[0.3em] text-white/80">
             Discover
           </span>
-          <div className="w-px h-4 bg-white/30" />
+          <div className="w-px h-4 bg-white/60" />
         </motion.div>
       </div>
     </section>
