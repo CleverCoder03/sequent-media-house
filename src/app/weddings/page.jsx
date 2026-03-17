@@ -4,6 +4,7 @@ import WeddingHero from "./Hero";
 import WeddingAbout from "./WeddingProcess";
 import WeddingPortfolio from "./WeddingPortfolio";
 import WeddingCTA from "./WeddingCTA";
+import WeddingFooter from "./WeddingFooter";
 
 const WeddingPage = () => {
   return (
@@ -22,7 +23,10 @@ const WeddingPage = () => {
       {/* --- CTA SECTION --- */}
       {/* <WeddingCTA /> */}
 
-      <Footer />
+      {/* FOOTER */}
+      <WeddingFooter />
+
+      {/* <Footer /> */}
     </div>
   );
 };
