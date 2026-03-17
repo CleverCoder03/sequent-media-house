@@ -96,7 +96,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <div className="bg-[#121212] px-4 md:px-18 lg:px-30 pb-20">
+      <div className="bg-[#121212] px-4 md:px-18 lg:px-30 pb-24 lg:pb-45">
         <h1 className="text-base lg:text-xl font-figtree-semibold uppercase text-neutral-100 py-10 md:py-15 lg:py-20">
           ↘ &nbsp; let&apos;s do this
         </h1>
