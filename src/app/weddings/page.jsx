@@ -7,7 +7,7 @@ import WeddingCTA from "./WeddingCTA";
 
 const WeddingPage = () => {
   return (
-    <div className="text-white min-h-screen selection:bg-lime-500/30">
+    <div className="text-black min-h-screen selection:bg-lime-500/30">
       <Navbar />
 
       {/* --- HERO SECTION: CONTINUOUS AUTO-SLIDER --- */}
@@ -20,7 +20,7 @@ const WeddingPage = () => {
       <WeddingPortfolio />
 
       {/* --- CTA SECTION --- */}
-      <WeddingCTA />
+      {/* <WeddingCTA /> */}
 
       <Footer />
     </div>

@@ -118,8 +118,8 @@ export default function Navbar() {
           <Link href={"/"}>
             <Logo
               className="h-8 w-auto text-neutral-100"
-              scrollY={scrollY}
-              open={open}
+              // scrollY={scrollY}
+              // open={open}
             />
           </Link>
 

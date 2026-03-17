@@ -56,14 +56,14 @@ const WeddingHero = () => {
         <CharReveal>
           <h1 className="text-white text-5xl lg:text-7xl font-figtree-semibold leading-[1.1] tracking-tight">
             Weaving{" "}
-            <span className="font-playfair-semibold-italic text-lime-theme italic lowercase">
+            <span className="font-playfair-semibold-italic text-orange-400 italic lowercase">
               vows
             </span>{" "}
             into a
           </h1>
           <h1 className="text-white text-5xl lg:text-7xl font-figtree-semibold leading-[1.1] tracking-tight">
             Cinematic{" "}
-            <span className="font-playfair-semibold-italic text-lime-theme italic lowercase">
+            <span className="font-playfair-semibold-italic text-orange-400 italic lowercase">
               rhythm
             </span>
           </h1>
