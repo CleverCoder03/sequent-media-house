@@ -5,6 +5,7 @@ import WeddingAbout from "./WeddingProcess";
 import WeddingPortfolio from "./WeddingPortfolio";
 import WeddingCTA from "./WeddingCTA";
 import WeddingFooter from "./WeddingFooter";
+import WeddingServices from "./WeddingServices";
 
 const WeddingPage = () => {
   return (
@@ -19,6 +20,7 @@ const WeddingPage = () => {
 
       {/* --- CREATIVE GRID SECTION --- */}
       <WeddingPortfolio />
+      <WeddingServices />
 
       {/* --- CTA SECTION --- */}
       {/* <WeddingCTA /> */}
