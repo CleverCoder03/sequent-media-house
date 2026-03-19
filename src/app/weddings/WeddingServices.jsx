@@ -107,7 +107,7 @@ const WeddingServices = () => {
                 <motion.div 
                   initial={{ opacity: 0, x: isEven ? -60 : 60 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.3, margin: "0px 0px -100px 0px" }}
+                  viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
                   transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
                   className="w-full lg:w-[55%] aspect-4/3 md:aspect-video relative rounded-lg overflow-hidden shadow-sm"
                 >
@@ -123,17 +123,17 @@ const WeddingServices = () => {
                 <motion.div 
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3, margin: "0px 0px -100px 0px" }}
+                  viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="w-full lg:w-[45%] flex flex-col"
                 >
-                  <span className="text-orange-500 font-figtree-medium text-[10px] tracking-[0.3em] mb-3">
+                  <span className="text-orange-500 font-figtree-bold text-[10px] tracking-[0.3em] mb-3">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="text-neutral-900 text-2xl md:text-3xl lg:text-4xl font-figtree-semibold mb-4">
+                  <h3 className="text-neutral-900 text-2xl md:text-3xl lg:text-4xl font-montserrat-semibold mb-4">
                     {service.title}
                   </h3>
-                  <p className="text-neutral-600 font-figtree-light text-sm md:text-base leading-relaxed mb-6">
+                  <p className="text-neutral-600 font-montserrat-regular text-sm md:text-base leading-relaxed mb-6">
                     {service.description}
                   </p>
                   
@@ -142,7 +142,7 @@ const WeddingServices = () => {
                     {service.includes.map((item, i) => (
                       <div key={i} className="flex items-center gap-2">
                         <div className="w-1 h-1 bg-orange-500 rounded-full shrink-0" />
-                        <span className="text-neutral-500 text-[10px] uppercase tracking-wider font-figtree-medium truncate">
+                        <span className="text-neutral-500 text-[10px] uppercase tracking-wider font-montserrat-medium truncate">
                           {item}
                         </span>
                       </div>
