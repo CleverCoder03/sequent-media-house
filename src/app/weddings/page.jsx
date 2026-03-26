@@ -1,11 +1,14 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import WeddingHero from "./Hero";
 import WeddingAbout from "./WeddingProcess";
 import WeddingPortfolio from "./WeddingPortfolio";
-import WeddingCTA from "./WeddingCTA";
 import WeddingFooter from "./WeddingFooter";
 import WeddingServices from "./WeddingServices";
+
+export const metadata = {
+  title: "Weddings by Sequent Media House | Premium Wedding Planning & Cinematic Films",
+  description: "Make your big day unforgettable. Sequent Media House offers end-to-end luxury wedding planning, bespoke stage decoration, cinematic wedding films, and complete event management.",
+};
 
 const WeddingPage = () => {
   return (
@@ -20,15 +23,12 @@ const WeddingPage = () => {
 
       {/* --- CREATIVE GRID SECTION --- */}
       <WeddingPortfolio />
-      <WeddingServices />
 
-      {/* --- CTA SECTION --- */}
-      {/* <WeddingCTA /> */}
+      {/* --- WEDDING RELATED SERVICES */}
+      <WeddingServices />
 
       {/* FOOTER */}
       <WeddingFooter />
-
-      {/* <Footer /> */}
     </div>
   );
 };
