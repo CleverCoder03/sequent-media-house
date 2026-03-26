@@ -8,10 +8,10 @@ const WeddingHero = () => {
   const [index, setIndex] = useState(0);
 
   const heroImages = [
-    "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070",
-    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069",
-    "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070",
-    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069",
+    "/weddings/weddings-1.jpg",
+    "/weddings/weddings-3.jpg",
+    "/weddings/weddings-8.jpg",
+    "/weddings/weddings-9.jpg"
   ];
 
   useEffect(() => {

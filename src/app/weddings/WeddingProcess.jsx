@@ -88,7 +88,7 @@ const WeddingAbout = () => {
               className="absolute top-0 right-0 w-[85%] lg:w-[70%] aspect-[4/5] overflow-hidden rounded-md border border-black/5"
             >
               <Image 
-                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069" 
+                src="/weddings/weddings-6.jpg" 
                 alt="Wedding Cinema" 
                 fill
                 className="object-cover transition-all duration-1000"
@@ -101,7 +101,7 @@ const WeddingAbout = () => {
               className="absolute bottom-4 left-0 lg:bottom-0 w-[60%] lg:w-[50%] aspect-square overflow-hidden rounded-md border border-black/5 z-20 shadow-2xl"
             >
               <Image 
-                src="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=2338" 
+                src="/weddings/weddings-5.jpg" 
                 alt="Detail Shot" 
                 fill
                 className="object-cover"
