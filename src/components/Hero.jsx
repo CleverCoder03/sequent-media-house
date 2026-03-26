@@ -3,6 +3,7 @@
 import { forwardRef } from "react";
 import CursorTrail from "./CursorTrail";
 import CharReveal from "./CharReveal";
+import {motion} from "motion/react"
 
 const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
   return (
@@ -45,6 +46,19 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
             And <span className="font-playfair-semibold-italic text-lime-theme">stories</span> live forever.
           </h1>
         </CharReveal>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          className="flex flex-col items-center gap-2"
+        >
+          <span className="text-[9px] uppercase tracking-[0.3em] text-white/80">
+            Scroll
+          </span>
+          <div className="w-px h-4 bg-white/60" />
+        </motion.div>
       </div>
     </div>
   );
