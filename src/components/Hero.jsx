@@ -8,7 +8,7 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
       {/* Cursor Trail Effect */}
-      <CursorTrail
+      {/* <CursorTrail
         imagePaths={["/home/trail-1.jpg", "/home/trail-2.jpg", "/home/trail-5.jpg", "/home/trail-6.jpg", "/home/trail-7.jpg", "/home/trail-9.jpg"]}
         imageWidth={150}
         imageHeight={200}
@@ -16,7 +16,8 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
         mobileImageHeight={150}
         distanceThreshold={120}
         mobileDistanceThreshold={50}
-      />
+      /> */}
+      <CursorTrail trailDistance={170} />
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
         {/* <video
@@ -35,7 +36,7 @@ const Hero = forwardRef(({HeroH2Ref, overlayRef}, ref) => {
       </div>
 
       {/* Text Content */}
-      <div className="relative z-10 lg:w-2/3 pointer-events-none">
+      <div className="absolute z-10 lg:w-2/3 pointer-events-none">
         <CharReveal>
           <h1 ref={ref} className="text-white text-4xl lg:text-6xl font-figtree-semibold leading-[1.1]">
             Where <span className="font-playfair-semibold-italic text-lime-theme">ideas</span> travel,

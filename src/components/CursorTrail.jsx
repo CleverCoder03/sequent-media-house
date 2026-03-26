@@ -1,129 +1,182 @@
 "use client";
 
-import { useEffect, useRef, useMemo } from "react";
-import { gsap } from "gsap";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import Image from "next/image";
 
-export default function CursorTrail({ 
-  imagePaths = [],
-  imageWidth = 150,
-  imageHeight = 200,
-  mobileImageWidth = 100,
-  mobileImageHeight = 150,
-  distanceThreshold = 150,
-  mobileDistanceThreshold = 50
+// Helper functions from the original script
+const lerp = (a, b, n) => (1 - n) * a + n * b;
+const getDistance = (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1);
+
+// A curated list of Unsplash images to replace the Cloudinary ones
+const unsplashImages = [
+  "/home/trail-1.jpg",
+  "/home/trail-2.jpg",
+  "/home/trail-5.jpg",
+  "/home/trail-6.jpg",
+  "/home/trail-7.jpg",
+  "/home/trail-9.jpg",
+];
+
+export default function CursorTrail({
+  images = unsplashImages,
+  trailDistance = 100,
+  className = "",
 }) {
+  // We use refs to manipulate DOM elements directly for high-performance animation
   const containerRef = useRef(null);
-  const lastMousePosRef = useRef({ x: 0, y: 0 });
-  const imageIndexRef = useRef(0);
-  
-  // Optimization: Pre-calculate threshold and use a fixed pool size
-  const POOL_SIZE = 20; 
+  const itemsRef = useRef([]);
+
+  // State refs to track animation values without triggering React re-renders
+  const state = useRef({
+    mousePos: { x: 0, y: 0 },
+    cacheMousePos: { x: 0, y: 0 },
+    lastMousePos: { x: 0, y: 0 },
+    imgPosition: 0,
+    zIndexVal: 1,
+  });
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // 1. Create a pool of images upfront to avoid DOM creation/deletion lag
-    const imagePool = Array.from({ length: POOL_SIZE }).map(() => {
-      const img = document.createElement('img');
-      img.className = 'cursor-trail-image';
-      img.style.visibility = 'hidden'; // Hide initially
-      img.style.willChange = 'transform, opacity'; // Hint to browser for GPU acceleration
-      container.appendChild(img);
-      return img;
-    });
-
-    let poolIndex = 0;
-
-    const animateImage = (x, y) => {
-      const img = imagePool[poolIndex];
-      
-      // Update source and reset visibility
-      img.src = imagePaths[imageIndexRef.current];
-      img.style.visibility = 'visible';
-
-      // GSAP Animation
-      const tl = gsap.timeline();
-      
-      // Reset state immediately before animating
-      tl.set(img, {
-        x: x,
-        y: y,
-        scale: 0.5,
-        opacity: 0,
-        xPercent: -50,
-        yPercent: -50,
-        rotation: Math.random() * 20 - 10, // Optional: subtle rotation adds "life"
-      });
-
-      tl.to(img, {
-        scale: 1,
-        opacity: 1,
-        duration: 0.4,
-        ease: "power2.out"
-      })
-      .to(img, {
-        scale: 1.2,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.in",
-        onComplete: () => {
-          img.style.visibility = 'hidden';
-        }
-      }, "+=0.1");
-
-      // Cycle indices
-      poolIndex = (poolIndex + 1) % POOL_SIZE;
-      imageIndexRef.current = (imageIndexRef.current + 1) % imagePaths.length;
+    // 1. Setup Event Listeners
+    const handleMouseMove = (ev) => {
+      state.current.mousePos = { x: ev.clientX, y: ev.clientY };
     };
+    window.addEventListener("mousemove", handleMouseMove);
 
-    const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      
-      const threshold = window.innerWidth < 768 ? mobileDistanceThreshold : distanceThreshold;
-      
-      const distance = Math.hypot(
-        clientX - lastMousePosRef.current.x,
-        clientY - lastMousePosRef.current.y
+    // 2. Animation Loop
+    let frameId;
+
+    const render = () => {
+      const { mousePos, cacheMousePos, lastMousePos } = state.current;
+
+      // Calculate distance from last active position
+      const distance = getDistance(
+        mousePos.x,
+        mousePos.y,
+        lastMousePos.x,
+        lastMousePos.y,
       );
 
-      if (distance > threshold) {
-        animateImage(clientX, clientY);
-        lastMousePosRef.current = { x: clientX, y: clientY };
+      // Smooth out the "current" drawing position (lerp)
+      state.current.cacheMousePos.x = lerp(cacheMousePos.x, mousePos.x, 0.1);
+      state.current.cacheMousePos.y = lerp(cacheMousePos.y, mousePos.y, 0.1);
+
+      // Threshold: only trigger a new image if moved trailDistance px
+      if (distance > trailDistance) {
+        showNextImage();
+        state.current.lastMousePos = { ...mousePos };
       }
+
+      // Check if animations are idle to reset z-index (optional optimization)
+      // In the GSAP 3 version, we can just keep incrementing zIndex safely
+      // or reset if needed, but the original logic's reset was a bit aggressive.
+      // We will increment zIndex to ensure correct stacking order.
+
+      frameId = requestAnimationFrame(render);
     };
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    const showNextImage = () => {
+      const { imgPosition, zIndexVal, cacheMousePos, mousePos } = state.current;
 
+      // Get the current image DOM element
+      const img = itemsRef.current[imgPosition];
+      if (!img) return;
+
+      // Kill any running animations on this specific image
+      gsap.killTweensOf(img);
+
+      // Calculation for centering the image
+      const rect = img.getBoundingClientRect();
+      const w = rect.width;
+      const h = rect.height;
+
+      // GSAP Timeline (GSAP 3 Syntax)
+      const tl = gsap.timeline();
+
+      // 1. Set initial state (visible, centered on cached mouse pos)
+      tl.set(img, {
+        opacity: 1,
+        scale: 1,
+        zIndex: zIndexVal,
+        x: cacheMousePos.x - w / 2,
+        y: cacheMousePos.y - h / 2,
+      })
+        // 2. Move to actual mouse pos slightly
+        .to(
+          img,
+          {
+            duration: 0.9,
+            ease: "expo.out",
+            x: mousePos.x - w / 2,
+            y: mousePos.y - h / 2,
+          },
+          0,
+        )
+        // 3. Fade out and scale down
+        .to(
+          img,
+          {
+            duration: 1,
+            ease: "power1.out",
+            opacity: 0,
+          },
+          0.4,
+        )
+        .to(
+          img,
+          {
+            duration: 1,
+            ease: "quint.out",
+            scale: 0.2,
+          },
+          0.4,
+        );
+
+      // Update state for next cycle
+      state.current.zIndexVal++;
+      state.current.imgPosition =
+        imgPosition < itemsRef.current.length - 1 ? imgPosition + 1 : 0;
+    };
+
+    // Start the loop
+    render();
+
+    // Cleanup
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (container) container.innerHTML = ''; // Cleanup pool
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(frameId);
     };
-  }, [imagePaths, distanceThreshold, mobileDistanceThreshold]);
+  }, []);
 
   return (
-    <>
-      <div ref={containerRef} className="pointer-events-none fixed inset-0 z-5" />
-      <style jsx global>{`
-        .cursor-trail-image {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: ${imageWidth}px;
-          height: ${imageHeight}px;
-          object-fit: cover;
-          pointer-events: none;
-          border-radius: 12px;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 768px) {
-          .cursor-trail-image {
-            width: ${mobileImageWidth}px;
-            height: ${mobileImageHeight}px;
-          }
-        }
-      `}</style>
-    </>
+    <main
+      className={`w-full h-full bg-black text-black pointer-events-none fixed inset-0 z-5 ${className}`}
+    >
+      <div
+        ref={containerRef}
+        className="relative flex justify-center items-center h-[300px] md:h-screen w-full overflow-hidden"
+      >
+        {images.map((url, index) => (
+          <Image
+            key={index}
+            ref={(el) => {
+              if (itemsRef.current) {
+                itemsRef.current[index] = el;
+              }
+            }}
+            className="absolute top-0 left-0 opacity-0 w-[180px] aspect-[2/3] object-cover block shadow-2xl rounded-sm pointer-events-none"
+            src={url}
+            alt={`trail-image-${index}`}
+            // Next.js Image requires width and height to prevent layout shift.
+            // Based on your w-[200px] and aspect-[2/3], the dimensions are 200x300
+            width={200}
+            height={300}
+            // Optional: uncomment the line below if you want the first few images
+            // to preload immediately so the trail doesn't lag on the first mouse move
+            priority={index < 5}
+          />
+        ))}
+      </div>
+    </main>
   );
 }
