@@ -98,7 +98,7 @@ const cinematicImages = [
                 >
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                   <Image
-                    src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069"
+                    src="/weddings/weddings-9.jpg"
                     alt="The Royal Union"
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
