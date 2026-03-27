@@ -23,7 +23,7 @@ export const AutoCarousel = ({ images, imageClassName, interval = 4000 }) => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
-        className="absolute inset-0"
+        className="absolute inset-0 bg-neutral-100"
       >
         <Image
           src={images[index]}

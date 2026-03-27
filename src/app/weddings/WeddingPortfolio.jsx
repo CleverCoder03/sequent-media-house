@@ -22,15 +22,28 @@ const WeddingPortfolio = () => {
   };
 
   const detailImages = [
-  "https://images.unsplash.com/photo-1544577080-91762bc7f475?q=80&w=2338",
-  "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=2338",
-  "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2000"
+  "/weddings/scroll/wed-1.jpg",
+  "/weddings/scroll/wed-4.jpg",
+  "/weddings/scroll/wed-5.jpg",
+  "/weddings/scroll/wed-8.jpg",
+  "/weddings/scroll/wed-10.jpg",
+  "/weddings/scroll/wed-14.jpg",
+  "/weddings/scroll/wed-15.jpg",
+  "/weddings/scroll/wed-19.jpg",
 ];
 
 const cinematicImages = [
-  "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2000",
-  "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2000"
+  "/weddings/scroll/wed-2.jpg",
+  "/weddings/scroll/wed-3.jpg",
+  "/weddings/scroll/wed-6.jpg",
+  "/weddings/scroll/wed-7.jpg",
+  "/weddings/scroll/wed-9.jpg",
+  "/weddings/scroll/wed-11.jpg",
+  "/weddings/scroll/wed-12.jpg",
+  "/weddings/scroll/wed-13.jpg",
+  "/weddings/scroll/wed-16.jpg",
+  "/weddings/scroll/wed-17.jpg",
+  "/weddings/scroll/wed-18.jpg",
 ];
 
   return (
