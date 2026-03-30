@@ -103,41 +103,30 @@ const cinematicImages = [
             variants={itemVariants}
             className="md:col-span-8 md:row-span-2 relative group overflow-hidden bg-neutral-100 rounded-md shadow-sm"
           >
-            <AnimatePresence>
-              {!isPlaying ? (
-                <motion.div
-                  exit={{ opacity: 0 }}
-                  className="absolute inset-0 z-20"
-                >
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
-                  <Image
-                    src="/weddings/weddings-9.jpg"
-                    alt="The Royal Union"
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                  />
-                  <div className="absolute bottom-8 left-8">
-                    <h3 className="text-3xl text-white font-playfair-semibold-italic italic drop-shadow-md">
-                      The Royal Union
-                    </h3>
-                    <p className="text-orange-500 text-xs uppercase tracking-[0.3em] mt-2 font-figtree-semibold">
-                      Jaipur • 2026
-                    </p>
-                  </div>
-                </motion.div>
-              ) : (
-                <motion.video
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  src="https://www.pexels.com/download/video/8776127/"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover z-10"
-                />
-              )}
-            </AnimatePresence>
+            <div className="relative w-full h-full overflow-hidden group">
+  {/* The Video Element */}
+  <video
+    src="https://www.pexels.com/download/video/8776127/"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover z-10"
+  />
+
+  {/* Overlay Gradients/Filters */}
+  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 z-15" />
+
+  {/* Text Content */}
+  <div className="absolute bottom-8 left-8 z-20">
+    <h3 className="text-3xl text-white font-playfair-semibold-italic italic drop-shadow-md">
+      The Royal Union
+    </h3>
+    <p className="text-orange-500 text-xs uppercase tracking-[0.3em] mt-2 font-figtree-semibold">
+      Jaipur • 2026
+    </p>
+  </div>
+</div>
 
             <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
               <motion.button
@@ -212,7 +201,7 @@ const cinematicImages = [
               interval={3500}
               imageClassName="transition-all duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60 z-10 pointer-events-none" />
             <div className="absolute bottom-6 left-6 z-20 pointer-events-none">
               <span className="text-white text-xs uppercase tracking-widest font-figtree-medium">
                 Detail & Grace
