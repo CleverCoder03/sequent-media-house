@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,39 +12,37 @@ export default function CharReveal({
   children,
   animateOnScroll = true,
   delay = 0,
-  staggerAmount = 0.05, // User requested stagger
+  staggerAmount = 0.05,
 }) {
   const containerRef = useRef(null);
-  const splitRef = useRef([]);
 
   useGSAP(
     () => {
       if (!containerRef.current) return;
 
-      splitRef.current = [];
-      const chars = [];
+      // Determine elements to split
+      const elements = containerRef.current.hasAttribute("data-copy-wrapper")
+        ? Array.from(containerRef.current.children)
+        : [containerRef.current];
 
-      let elements = [];
-      if (containerRef.current.hasAttribute("data-copy-wrapper")) {
-        elements = Array.from(containerRef.current.children);
-      } else {
-        elements = [containerRef.current];
-      }
-
-      elements.forEach((element) => {
-        const split = SplitText.create(element, {
-          // --- KEY CHANGE: Split by characters ---
-          type: "words, chars",
-          mask: "chars",
-          charsClass: "char-reveal",
-        });
-
-        splitRef.current.push(split);
-        chars.push(...split.chars);
+      // OPTIMIZATION 1: SplitText can accept an array of elements directly.
+      // No need to map/forEach over them and store multiple instances.
+      const split = new SplitText(elements, {
+        type: "words, chars",
+        charsClass: "char-reveal",
       });
 
-      // --- Set initial state for characters ---
-      gsap.set(chars, { yPercent: 100, opacity: 0 });
+      // --- THE FIX FOR ITALIC CLIPPING ---
+      // We expand the bounding box with padding so the italic overhang 
+      // isn't clipped, then pull the spacing back to normal with negative margin.
+      gsap.set(split.chars, {
+        paddingRight: "0.15em",
+        marginRight: "-0.15em",
+        paddingLeft: "0.05em",
+        marginLeft: "-0.05em",
+        yPercent: 100,
+        opacity: 0,
+      });
 
       const animationProps = {
         yPercent: 0,
@@ -57,7 +54,7 @@ export default function CharReveal({
       };
 
       if (animateOnScroll) {
-        gsap.to(chars, {
+        gsap.to(split.chars, {
           ...animationProps,
           scrollTrigger: {
             trigger: containerRef.current,
@@ -66,24 +63,26 @@ export default function CharReveal({
           },
         });
       } else {
-        gsap.to(chars, animationProps);
+        gsap.to(split.chars, animationProps);
       }
 
+      // Cleanup function
       return () => {
-        splitRef.current.forEach((split) => {
-          if (split) {
-            split.revert();
-          }
-        });
+        split.revert();
       };
     },
     { scope: containerRef, dependencies: [animateOnScroll, delay, staggerAmount] }
   );
 
-return (
-  <div ref={containerRef} data-copy-wrapper="true" className="overflow-hidden [&_span]:leading-[1.3] [&_span_div]:px-[0.5]">
-    {children}
-  </div>
-);
-
+  return (
+    <div 
+      ref={containerRef} 
+      data-copy-wrapper="true" 
+      // OPTIMIZATION 2: Removed the arbitrary [&_span_div]:px-[0.5] class
+      // Added py-1 to ensure top/bottom of tall italic fonts don't clip against the container
+      className="overflow-hidden py-1 [&_span]:leading-[1.3]"
+    >
+      {children}
+    </div>
+  );
 }

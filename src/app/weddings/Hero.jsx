@@ -54,7 +54,7 @@ const WeddingHero = () => {
       {/* --- REFINED TEXT CONTENT --- */}
       <div className="relative z-20 container mx-auto px-6 flex flex-col items-center pointer-events-none text-center">
         <CharReveal>
-          <h1 className="text-white text-5xl lg:text-7xl font-figtree-semibold leading-[1.1] tracking-tight">
+          <h1 className="text-white text-4xl lg:text-7xl font-figtree-semibold leading-[1.1] tracking-tight">
             Weaving{" "}
             <span className="font-playfair-semibold-italic text-orange-400 italic lowercase">
               vows
@@ -67,7 +67,7 @@ const WeddingHero = () => {
             </span>
             </span>
           </h1>
-          <h1 className="hidden md;block text-white text-5xl lg:text-7xl font-figtree-semibold leading-[1.1] tracking-tight">
+          <h1 className="hidden md:block text-white text-4xl lg:text-7xl font-figtree-semibold leading-[1.1] tracking-tight">
             Cinematic{" "}
             <span className="font-playfair-semibold-italic text-orange-400 italic lowercase">
               rhythm
