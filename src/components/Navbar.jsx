@@ -139,7 +139,7 @@ export default function Navbar() {
             <Logo className="h-8 w-auto text-neutral-100" />
           </Link>
 
-          <div className={`${pathName === "/contact" ? "hidden" : "hidden lg:block"}`}>
+          <div className={`hidden ${pathName !== "/contact" && "lg:block"}`}>
             <Button />
           </div>
         </motion.div>
