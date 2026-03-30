@@ -59,9 +59,15 @@ const WeddingHero = () => {
             <span className="font-playfair-semibold-italic text-orange-400 italic lowercase">
               vows
             </span>{" "}
-            into a
+            into a {" "}
+            <span className="md:hidden">
+              cinematic{" "}
+            <span className="font-playfair-semibold-italic text-orange-400 italic lowercase">
+              rhythm
+            </span>
+            </span>
           </h1>
-          <h1 className="text-white text-5xl lg:text-7xl font-figtree-semibold leading-[1.1] tracking-tight">
+          <h1 className="hidden md;block text-white text-5xl lg:text-7xl font-figtree-semibold leading-[1.1] tracking-tight">
             Cinematic{" "}
             <span className="font-playfair-semibold-italic text-orange-400 italic lowercase">
               rhythm
